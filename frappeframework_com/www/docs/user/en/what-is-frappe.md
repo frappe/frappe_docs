@@ -1,6 +1,6 @@
 ---
-base_template: frappe_io/www/frappe/frappe_base.html
 add_breadcrumbs: 1
+page_toc: 1
 title: What is Frappe Framework?
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
@@ -13,7 +13,7 @@ Frappe is a full stack, batteries-included, web framework written in Python and 
 It is the framework which powers [ERPNext](https://erpnext.com).
 It is pretty generic and can be used to build database driven apps.
 
-### Meta-data driven
+## Meta-data driven
 
 Meta-data is a first class citizen in Frappe. It is used to generate database tables,
 design forms and configure a lot of features. Meta-data is stored in a **Model**
@@ -62,7 +62,7 @@ Here is what the `todo.json` may look like:
 
 A configuration like this will generate a database table whose schema might look like
 
-```mariadb
+```bash
 MariaDB [_baa0f26509a564b6]> desc tabToDo;
 +-----------------------+--------------+------+-----+---------+-------+
 | Field                 | Type         | Null | Key | Default | Extra |
@@ -80,23 +80,26 @@ MariaDB [_baa0f26509a564b6]> desc tabToDo;
 +-----------------------+--------------+------+-----+---------+-------+
 ```
 
-### Rich Admin Interface
+## Rich Admin Interface
 Frappe does not only manage the backend, it also comes with a feature rich admin interface called the Desk.
 When you create a DocType in Frappe, a number of views are generated for it. Here are some of them:
 
 The List View supports paging, filtering, sorting and bulk editing records.
+
 ![List View](/docs/assets/img/list-view.png)
 *List View*
 
 The Form View used for editing records also supports file attachments, PDF format, comments, email, etc.
+
 ![Form View](/docs/assets/img/form-view.png)
 *Form View*
 
 The Report Builder supports adding columns, grouping, filtering, sorting and saving it as a configuration.
+
 ![Report Builder](/docs/assets/img/report-builder.png)
 *Report Builder*
 
-### Users, Roles and Permissions
+## Users, Roles and Permissions
 
 Frappe comes with User and Role management out of the box. A **User** is someone who can
 login to the system and perform authorized actions like creating, updating or deleting records.
@@ -104,7 +107,7 @@ A **Role** is a mapping of DocTypes and actions allowed to perform on it.
 
 ![Role Permission Manager](/docs/assets/img/permission-manager.png)
 
-### Python, JS and MariaDB
+## Python, JS and MariaDB
 
 Frappe Framework uses Python for the backend. It comes with a simple yet powerful
 ORM as an abstraction over CRUD operations. The default database is MariaDB. Postgres support is in beta.
@@ -117,7 +120,7 @@ doc.insert()
 
 The front-end is an SPA built using Javascript (jQuery).
 
-### Realtime
+## Realtime
 
 Frappe also supports realtime pub/sub events using NodeJS and socketio.
 
@@ -134,7 +137,7 @@ frappe.realtime.on('update_progress', (data) => {
 });
 ```
 
-### Background Jobs
+## Background Jobs
 
 Frappe also supports background job queuing based on Python RQ.
 
@@ -142,13 +145,13 @@ Frappe also supports background job queuing based on Python RQ.
 frappe.enqueue('frappe.job.run_job', arg1='Test', arg2='Test2')
 ```
 
-### Email
+## Email
 
 Frappe supports sending and receiving emails, which can also be linked to individual documents.
 
 ![Email](/docs/assets/img/email.png)
 
-### Printing
+## Printing
 
 Frappe supports generating PDF print formats based on Jinja Templates.
 It also comes with a drag-and-drop Print Format Builder.
@@ -159,7 +162,7 @@ It also comes with a drag-and-drop Print Format Builder.
 ![Print Format Builder](/docs/assets/img/print-format-builder.png)
 *Print Format Builder*
 
-### Batteries Included
+## Batteries Included
 
 Frappe has tons of features that are essential to building a modern complex app.
 Only the basic features are introduced here. The rest of this guide will cover

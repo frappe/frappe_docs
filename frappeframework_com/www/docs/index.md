@@ -1,5 +1,5 @@
 ---
-base_template: frappe_io/www/frappe/frappe_base.html
+base_template: templates/web.html
 title: Introduction
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
@@ -10,16 +10,19 @@ metatags:
 
 # Introduction
 
+Welcome to Frappe Framework Documentation
+
 Frappe, pronounced _fra-pay_, is a full stack, batteries-included,
 web framework written in Python and Javascript with MariaDB as the database.
 It is the framework which powers [ERPNext](https://erpnext.com).
 It is pretty generic and can be used to build database driven apps.
 
 The key difference in Frappe compared to other frameworks is that **meta-data**
-is also treated as data and is used to build front-ends very easily.
-We believe in a monolithic architecture, so Frappe comes with almost everything you
-need to build a modern web application. It has a full blown Admin UI called the Desk
-that handles forms, navigation, lists, menus, permissions, file attachment and much more out of the box.
+is also treated as data and is used to build front-ends very easily. We believe
+in a monolithic architecture, so Frappe comes with almost everything you need to
+build a modern web application. It has a full featured Admin UI called the Desk
+that handles forms, navigation, lists, menus, permissions, file attachment and
+much more out of the box.
 
 Frappe is MIT Licensed and is hosted on [GitHub](https://github.com/frappe/frappe).
 
