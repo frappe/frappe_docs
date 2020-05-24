@@ -49,6 +49,10 @@ app_license = "MIT"
 # Website user home page (by function)
 # get_website_user_home_page = "frappeframework_com.utils.get_home_page"
 
+base_template_map = {
+	r"docs.*": "templates/doc.html"
+}
+
 # Generators
 # ----------
 
