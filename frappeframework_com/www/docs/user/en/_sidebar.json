@@ -7,64 +7,108 @@
 		"route": "/docs/user/en",
 		"title": "Table of Contents"
 	},
+
 	{
-		"route": "/docs/user/en/installation",
-		"title": "Installing Bench and Frappe"
+		"group_title": "Getting Started",
+		"group_items": [
+			{
+				"title": "What is Frappe?",
+				"route": "/docs/user/en/what-is-frappe"
+			},
+			{
+				"title": "Why Frappe?",
+				"route": "/docs/user/en/why"
+			},
+			{
+				"title": "Installation",
+				"route": "/docs/user/en/installation"
+			}
+		]
+	},
+
+	{
+		"group_title": "Basics",
+		"group_items": [
+			{ "title": "Architecture", "route": "/docs/user/en/architecture" },
+			{
+				"title": "Directory Structure",
+				"route": "/docs/user/en/directory-structure"
+			},
+			{ "title": "Apps", "route": "/docs/user/en/apps" },
+			{ "title": "Sites", "route": "/docs/user/en/sites" },
+			{
+				"title": "Understanding Doctypes",
+				"route": "/docs/user/en/understanding-doctypes"
+			}
+		]
 	},
 	{
-		"route": "/docs/user/en/architecture",
-		"title": "Bench Architecture"
+		"group_title": "Desk Admin UI",
+		"group_items": [
+			{ "title": "Desk", "route": "/docs/user/en/desk" },
+			{
+				"title": "Users and Permission",
+				"route": "/docs/user/en/users-and-permissions"
+			},
+			{ "title": "Reports", "route": "/docs/user/en/reports" },
+			{ "title": "Printing", "route": "/docs/user/en/printing" },
+			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
+			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" },
+			{ "title": "Translations", "route": "/docs/user/en/translations" }
+		]
 	},
 	{
-		"route": "/docs/user/en/understanding-doctypes",
-		"title": "Understanding Doctypes"
+		"group_title": "API Reference",
+		"group_items": [
+			{ "title": "Python", "route": "/docs/user/en/python" },
+			{ "title": "Javascript", "route": "/docs/user/en/javascript" }
+		]
 	},
 	{
-		"route": "/docs/user/en/desk",
-		"title": "Desk"
+		"group_title": "Integrations",
+		"group_items": [
+			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" }
+		]
 	},
 	{
-		"route": "/docs/user/en/users-and-permissions",
-		"title": "Users and Permission"
+		"group_title": "Deployment",
+		"group_items": [
+			{
+				"title": "Database Migrations",
+				"route": "/docs/user/en/database-migrations"
+			},
+			{
+				"title": "Production Setup",
+				"route": "/docs/user/en/production-setup"
+			},
+			{ "title": "Rate Limting", "route": "/docs/user/en/rate-limiting" }
+		]
 	},
 	{
-		"route": "/docs/user/en/reports",
-		"title": "Reports"
+		"group_title": "Writing Tests",
+		"group_items": [
+			{
+				"title": "Server Side Tests",
+				"route": "/docs/user/en/testing"
+			},
+			{
+				"title": "UI Tests",
+				"route": "/docs/user/en/ui-testing"
+			}
+		]
 	},
 	{
-		"route": "/docs/user/en/printing",
-		"title": "Printing"
-	},
-	{
-		"route": "/docs/user/en/portal-pages",
-		"title": "Portal Pages"
-	},
-	{
-		"route": "/docs/user/en/web-forms",
-		"title": "Web Forms"
-	},
-	{
-		"route": "/docs/user/en/database-migrations",
-		"title": "Database Migrations"
-	},
-	{
-		"route": "/docs/user/en/deployment",
-		"title": "Deployment"
-	},
-	{
-		"route": "/docs/user/en/api",
-		"title": "Developer API"
-	},
-	{
-		"route": "/docs/user/en/testing",
-		"title": "Testing"
-	},
-	{
-		"route": "/docs/user/en/debugging",
-		"title": "Debugging"
-	},
-	{
-		"route": "https://github.com/frappe/erpnext/wiki/Contribution-Guidelines",
-		"title": "Contribution Guidelines"
+		"group_title": "Help",
+		"group_items": [
+			{
+				"title": "Debugging",
+				"route": "/docs/user/en/debugging"
+			},
+			{
+				"title": "Contribution Guidelines",
+				"route": "https://github.com/frappe/erpnext/wiki/Contribution-Guidelines"
+			}
+		]
 	}
+
 ]
