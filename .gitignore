@@ -4,3 +4,4 @@
 *.swp
 tags
 frappeframework_com/docs/current
+__pycache__/
