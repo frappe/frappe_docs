@@ -1,0 +1,48 @@
+[
+	{
+		"group_title": "Getting Started",
+		"group_items": [
+			{
+				"title": "Installation",
+				"route": "/docs/user/en/installation"
+			},
+			{
+				"title": "Tutorial",
+				"route": "/docs/user/en/tutorial"
+			}
+		]
+	},
+	{
+		"group_title": "Tutorial",
+		"group_items": [
+			{ "title": "Before", "route": "/docs/user/en/tutorial/before" },
+			{ "title": "App", "route": "/docs/user/en/tutorial/app" },
+			{ "title": "Bench", "route": "/docs/user/en/tutorial/bench" },
+			{ "title": "New App", "route": "/docs/user/en/tutorial/new-app" },
+			{
+				"title": "Setting Up The Site",
+				"route": "/docs/user/en/tutorial/setting-up-the-site"
+			},
+			{ "title": "Start", "route": "/docs/user/en/tutorial/start" },
+			{ "title": "Models", "route": "/docs/user/en/tutorial/models" },
+			{ "title": "Roles", "route": "/docs/user/en/tutorial/roles" },
+			{ "title": "Doctypes", "route": "/docs/user/en/tutorial/doctypes" },
+			{ "title": "Naming And Linking", "route": "/docs/user/en/tutorial/naming-and-linking" },
+			{
+				"title": "Doctype Directory Structure",
+				"route": "/docs/user/en/tutorial/doctype-directory-structure"
+			},
+			{ "title": "Users And Records", "route": "/docs/user/en/tutorial/users-and-records" },
+			{
+				"title": "Form Client Scripting",
+				"route": "/docs/user/en/tutorial/form-client-scripting"
+			},
+			{ "title": "Controllers", "route": "/docs/user/en/tutorial/controllers" },
+			{ "title": "Reports", "route": "/docs/user/en/tutorial/reports" },
+			{ "title": "Web Views", "route": "/docs/user/en/tutorial/web-views" },
+			{ "title": "Single Doctypes", "route": "/docs/user/en/tutorial/single-doctypes" },
+			{ "title": "Task Runner", "route": "/docs/user/en/tutorial/task-runner" },
+			{ "title": "Conclusion", "route": "/docs/user/en/tutorial/conclusion" }
+		]
+	}
+]
