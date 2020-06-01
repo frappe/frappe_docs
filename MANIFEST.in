@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include frappeframework_com *.css
-recursive-include frappeframework_com *.csv
-recursive-include frappeframework_com *.html
-recursive-include frappeframework_com *.ico
-recursive-include frappeframework_com *.js
-recursive-include frappeframework_com *.json
-recursive-include frappeframework_com *.md
-recursive-include frappeframework_com *.png
-recursive-include frappeframework_com *.py
-recursive-include frappeframework_com *.svg
-recursive-include frappeframework_com *.txt
-recursive-exclude frappeframework_com *.pyc
+recursive-include frappe_docs *.css
+recursive-include frappe_docs *.csv
+recursive-include frappe_docs *.html
+recursive-include frappe_docs *.ico
+recursive-include frappe_docs *.js
+recursive-include frappe_docs *.json
+recursive-include frappe_docs *.md
+recursive-include frappe_docs *.png
+recursive-include frappe_docs *.py
+recursive-include frappe_docs *.svg
+recursive-include frappe_docs *.txt
+recursive-exclude frappe_docs *.pyc

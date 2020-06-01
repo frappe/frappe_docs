@@ -1,6 +1,6 @@
-## Frappe Framework Website
+## Frappe Docs
 
-Website and Documentation for Frappe Framework
+Frappe Framework Documentation
 
 #### License
 

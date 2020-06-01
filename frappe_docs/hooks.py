@@ -2,10 +2,10 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "frappeframework_com"
-app_title = "Frappe Framework Website"
+app_name = "frappe_docs"
+app_title = "Frappe Docs"
 app_publisher = "Frappe Technologies"
-app_description = "Website and Documentation for Frappe Framework"
+app_description = "Frappe Framework Documentation"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "developers@frappe.io"
@@ -15,12 +15,12 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/frappeframework_com/css/frappeframework_com.css"
-# app_include_js = "/assets/frappeframework_com/js/frappeframework_com.js"
+# app_include_css = "/assets/frappe_docs/css/frappe_docs.css"
+# app_include_js = "/assets/frappe_docs/js/frappe_docs.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/frappeframework_com/css/frappeframework_com.css"
-# web_include_js = "/assets/frappeframework_com/js/frappeframework_com.js"
+# web_include_css = "/assets/frappe_docs/css/frappe_docs.css"
+# web_include_js = "/assets/frappe_docs/js/frappe_docs.js"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -47,7 +47,7 @@ app_license = "MIT"
 # }
 
 # Website user home page (by function)
-# get_website_user_home_page = "frappeframework_com.utils.get_home_page"
+# get_website_user_home_page = "frappe_docs.utils.get_home_page"
 
 base_template_map = {
 	r"docs.*": "templates/doc.html"
@@ -70,14 +70,14 @@ doc_layout = {
 # Installation
 # ------------
 
-# before_install = "frappeframework_com.install.before_install"
-# after_install = "frappeframework_com.install.after_install"
+# before_install = "frappe_docs.install.before_install"
+# after_install = "frappe_docs.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "frappeframework_com.notifications.get_notification_config"
+# notification_config = "frappe_docs.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -108,39 +108,39 @@ doc_layout = {
 
 # scheduler_events = {
 # 	"all": [
-# 		"frappeframework_com.tasks.all"
+# 		"frappe_docs.tasks.all"
 # 	],
 # 	"daily": [
-# 		"frappeframework_com.tasks.daily"
+# 		"frappe_docs.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"frappeframework_com.tasks.hourly"
+# 		"frappe_docs.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"frappeframework_com.tasks.weekly"
+# 		"frappe_docs.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"frappeframework_com.tasks.monthly"
+# 		"frappe_docs.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "frappeframework_com.install.before_tests"
+# before_tests = "frappe_docs.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "frappeframework_com.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "frappe_docs.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "frappeframework_com.task.get_dashboard_data"
+# 	"Task": "frappe_docs.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
