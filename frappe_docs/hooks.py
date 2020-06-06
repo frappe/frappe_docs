@@ -43,23 +43,20 @@ app_license = "MIT"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Website user home page (by function)
 # get_website_user_home_page = "frappe_docs.utils.get_home_page"
 
+look_for_sidebar_json = True
+
 base_template_map = {
 	r"docs.*": "templates/doc.html"
 }
 
-doc_layout = {
-	'navbar_items': [
-		{'label': 'GitHub', 'url': 'https://github.com/frappe/frappe' },
-		{'label': 'Discuss', 'url': 'https://discuss.erpnext.com' },
-		{'label': 'Twitter', 'url': 'https://twitter.com/frappe' },
-	]
-}
+update_website_context = ["frappe_docs.website_context.get_context"]
+
 
 # Generators
 # ----------
@@ -100,7 +97,7 @@ doc_layout = {
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 
 # Scheduled Tasks
@@ -146,4 +143,3 @@ doc_layout = {
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
