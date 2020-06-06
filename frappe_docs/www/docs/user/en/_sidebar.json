@@ -7,12 +7,16 @@
 				"route": "/docs/user/en/installation"
 			},
 			{
+				"title": "Documentation",
+				"route": "/docs/user/en"
+			},
+			{
 				"title": "Tutorial",
 				"route": "/docs/user/en/tutorial"
 			},
 			{
-				"title": "Table of Contents",
-				"route": "/docs/user/en"
+				"title": "Guides",
+				"route": "/docs/user/en/guides"
 			}
 		]
 	},

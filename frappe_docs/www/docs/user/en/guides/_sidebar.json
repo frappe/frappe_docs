@@ -1,0 +1,63 @@
+[
+	{
+		"group_title": "Getting Started",
+		"group_items": [
+			{
+				"title": "Installation",
+				"route": "/docs/user/en/installation"
+			},
+			{
+				"title": "Documentation",
+				"route": "/docs/user/en"
+			},
+			{
+				"title": "Tutorial",
+				"route": "/docs/user/en/tutorial"
+			},
+			{
+				"title": "Guides",
+				"route": "/docs/user/en/guides"
+			}
+		]
+	},
+
+	{
+		"group_title": "Guides",
+		"group_items": [
+			{
+				"title": "Basics",
+				"route": "/docs/user/en/guides/basics"
+			},
+			{
+				"title": "App Development",
+				"route": "/docs/user/en/guides/app-development"
+			},
+			{ "title": "Deployment", "route": "/docs/user/en/guides/deployment" },
+			{
+				"title": "Reports and Printing",
+				"route": "/docs/user/en/guides/reports-and-printing"
+			},
+			{
+				"title": "Portal Development",
+				"route": "/docs/user/en/guides/portal-development"
+			},
+			{ "title": "Data", "route": "/docs/user/en/guides/data" },
+			{
+				"title": "Integration",
+				"route": "/docs/user/en/guides/integration"
+			},
+			{
+				"title": "Database Settings",
+				"route": "/docs/user/en/guides/database-settings"
+			},
+			{
+				"title": "Automated Testing",
+				"route": "/docs/user/en/guides/automated-testing"
+			},
+			{
+				"title": "Desk",
+				"route": "/docs/user/en/guides/desk"
+			}
+		]
+	}
+]
