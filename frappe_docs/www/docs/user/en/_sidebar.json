@@ -80,6 +80,12 @@
 		]
 	},
 	{
+		"group_title": "Core",
+		"group_items": [
+			{ "title": "Router", "route": "/docs/user/en/core/router" }
+		]
+	},
+	{
 		"group_title": "Integrations",
 		"group_items": [
 			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" }
