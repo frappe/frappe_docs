@@ -51,7 +51,7 @@ From the above code snippet it's evident what those rules are.
 
 The next sections cover each of these in detail
 
-A few things happen before these routing rules are triggered. These include preprocessing the request initalizing the recorder and the rate limiter.
+A few things happen before these routing rules are triggered. These include preprocessing the request initializing the recorder and the rate limiter.
 
 ## Website Router
 
@@ -77,7 +77,7 @@ def render(path=None, http_status_code=None):
 ```
 
 Once render is initialized, we first need to cleanup the route, resolve it against any doctype map, check for static file and redirects.
-Next step is resoling the route, this piece of the code checks wether the route requested is of a standard type, they can be
+Next step is resoling the route, this piece of the code checks whether the route requested is of a standard type, they can be
 one of the following:
 
 1. Static File
@@ -92,9 +92,9 @@ The precedence is as sequenced in the list above.
 
 ### Serving Static File
 
-This is seldom used, but using this you can serve pdfs, images etc from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
+This is seldom used, but using this you can serve PDFs, images etc from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
 
-The prefered way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leverging compression and caching while also reducing latency
+The preferred way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leveraging compression and caching while also reducing latency
 
 ### Web Forms
 
@@ -145,7 +145,7 @@ In case the route is not resolved, a `DoesNotExistError` is raised. After this, 
 
 In case neither is found, a 404 is thrown.
 
-> This 404 is also cached and checked for at the begining of the `render` function.
+> This 404 is also cached and checked for at the beginning of the `render` function.
 
 
 ## Rendering and Context
@@ -177,12 +177,12 @@ This is a two step process:
 1. Build `context`, these are the variables that will be available in the context of the template.
 1. Render the template. If a template file is specified it is used. In case the context has source set, the source is used as the template (this is similar to `render_template_string` in flask).
 
-The context is built by initalizing the context from the router and then setting some standard varaibles before returning it back to `build_page`
+The context is built by initializing the context from the router and then setting some standard variables before returning it back to `build_page`
 
 The function `frappe.website.router.get_page_context` builds the context from the `path` provided if it is unable to build it, a `DoesNotExistError` exception is raised.
 
 
-> In case the route is not resolved, a `DoesNotExistError` is raised. After this, the DocType and the docame is guessed using get_doctype_from_path. If both are present, the printview of the document is shown, else a generic list view is rendered.
+> In case the route is not resolved, a `DoesNotExistError` is raised. After this, the DocType and the docname is guessed using get_doctype_from_path. If both are present, the printview of the document is shown, else a generic list view is rendered.
 >
 > from [Serving Web Pages](#serving-web-pages)
 
