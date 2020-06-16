@@ -27,13 +27,20 @@ In this section we will discuss what views are provided by Desk and how to confi
 - [Gantt View](#gantt-view)
 - [Kanban View](#kanban-view)
 
-## Desktop
+## Workspace
 
-When you login to the Desk, the first screen you see is called the Desktop. Each card
-is organized based on related functionalities and their DocTypes.
+When you login to the Desk, you're presented with the Desktop, it features a persistent sidebar sorted in categories. 
+Each sidebar item links to a page called Workspace.
 
-![Desktop](/docs/assets/img/frappe-desktop.gif)
-*Desktop*
+A workspace represents a module (for example CRM in ERPNext). A workspace includes the following:
+
+1. A dashboard section for that particular module by default.
+1. Shortcuts for commonly visited masters and pages
+1. A masters section where all the reports and masters are grouped and listed
+
+All of these will be customizable by the user. ⚡️
+
+![Desktop](/docs/assets/img/desk/workspace.png)
 
 ## Awesomebar
 
