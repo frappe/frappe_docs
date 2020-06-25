@@ -335,3 +335,31 @@ Example,
 	auto_cancel_exempted_doctypes = ["Payment Entry"]
 
 In the above example, if any document that is linked with Payment Entry is cancelled, the system will skip the auto-cancellation of the linked Payment Entry document.
+
+### Form Timeline
+
+Frappe forms show some predefined timeline contents like form views,
+data changes, communications related to the current record, etc.
+
+Apart from these standard contents, there might arise a situation where you need
+to add custom timeline content. This can be done via `additional_timeline_content` hook.
+
+**Usage:**
+
+```Python
+additional_timeline_content: {
+	'*': ['path.to.the.method_which_returns_timeline_content'] # show in each DocType's timeline
+	'ToDo': ['path.to.the.method_which_returns_timeline_content'] # only show in ToDo's timeline
+}
+```
+
+```Python
+def method_which_returns_timeline_content(doctype, docname):
+	# this method should return a list of dicts
+	# example
+	return [{
+		'creation': '22-05-2020 18:00:00' # this will be used to sort the content in the timeline
+		'template': 'custom_timeline_template' # this Jinja template will be rendered in the timeline
+		'template_data': {'key': 'value'} # this data will be passed to the template.
+	}]
+```
