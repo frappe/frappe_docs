@@ -49,9 +49,21 @@ To make a new site under DNS based multitenancy, perform the following steps.
 
 	`bench config dns_multitenant on`
 
+* Set domain name of the first site
+
+	`bench setup add-domain site1name.com`	
+
 * Create a new site
 
 	`bench new-site site2name`
+	
+* Set default site for bench cli
+
+	`bench use site2name`
+	
+* Set domain name of the second site
+
+	`bench setup add-domain site2name.com`	
 
 * Re generate nginx config
 
