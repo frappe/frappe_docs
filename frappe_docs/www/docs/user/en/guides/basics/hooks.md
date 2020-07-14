@@ -1,4 +1,3 @@
-<!-- add-breadcrumbs -->
 # Hooks
 <!-- TODO: Add tables for quick reference -->
 
@@ -317,9 +316,9 @@ An overriden function will be triggered during the following events:
 
 Example,
 
-	override_whitelisted_methods = {{
+	override_whitelisted_methods = {
 		"{dotted.path.to.whitelisted.frappe.function}": "{dotted.path.to.whitelisted.custom.function}"
-	}}
+	}
 
 ### Jinja Customization
 
