@@ -181,3 +181,31 @@ Rollbacks current transaction. Calls SQL `ROLLBACK`.
 > Frappe will automatically run `frappe.db.rollback()` if an exception is thrown
 > during a Web Request of type `POST` or `PUT`. Use this if you have to rollback
 > early in a transaction.
+
+## frappe.db.sql
+`frappe.db.sql(query, filters, as_dict)`
+
+Execute an arbitrary SQL query. This may be useful for complex server side reports with join statements, adjusting the database to new features, etc.
+
+Example:
+
+```python
+filters = {'company': 'Frappe Technologies Inc'}
+data = frappe.db.sql("""
+	SELECT
+		acc.account_number
+		gl.debit
+		gl.credit
+	FROM `tabGL Entry` gl
+		LEFT JOIN `tabAccount` acc 
+		ON gl.account = acc.name
+	WHERE gl.company = %(company)s
+""", filters=filters, as_dict=0)
+```
+
+> Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get_list](#frappedbget_list), etc., if possible.
+
+## frappe.db.multisql
+`frappe.db.multisql({'mariadb': mariadb_query, 'postgres': postgres_query})`
+
+Execute the suitable SQL statement for any supported database engine.
