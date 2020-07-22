@@ -11,17 +11,23 @@ If you want to show a page to see users, make a `users.html` and `users.py` file
 
 In `users.py`:
 
-	import frappe
-    def get_context(context):
-        context.users = frappe.db.sql("select first_name, last_name from `tabUser`")
+```python
+import frappe
+def get_context(context):
+	context.users = frappe.get_list("User", fields=["first_name", "last_name"])
+```
 
 In `users.html`:
 
-	<h3>List of Users</h3>
-	<ol>
-	{% for user in users %}
-		<li>{{ user.first_name }} {{ user.last_name or "" }}</li>
-	{% endfor %}
-	</ol>
+```html
+{% raw %}
+<h3>List of Users</h3>
+<ol>
+{% for user in users %}
+	<li>{{ user.first_name }} {{ user.get("last_name", "") }}</li>
+{% endfor %}
+</ol>
+{% endraw %}
+```
 
 {next}
