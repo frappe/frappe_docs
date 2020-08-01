@@ -9,7 +9,7 @@ metatags:
 ---
 
 # Dialog API
-Frappe provides a group of standard, interactive and flexible dialogs that are easy to configure and use. There's also an API for [Python](./py-dialog)
+Frappe provides a group of standard, interactive and flexible dialogs that are easy to configure and use. There's also an API for [Python](/docs/user/en/api/py-dialog)
 
 ### frappe.ui.Dialog
 `new frappe.ui.Dialog({ title, fields, primary_action })`

@@ -8,7 +8,7 @@ metatags:
 ---
 
 # Dialog API
-Frappe provides a group of standard, interactive and flexible dialogs that are easy to configure and use. There's also a more extensive API for [Javascript](./dialog)
+Frappe provides a group of standard, interactive and flexible dialogs that are easy to configure and use. There's also a more extensive API for [Javascript](/docs/user/en/api/dialog)
 
 ----
 
