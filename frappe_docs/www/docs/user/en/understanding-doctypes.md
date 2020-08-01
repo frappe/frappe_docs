@@ -322,7 +322,7 @@ Method Name | Description
 `before_update_after_submit` | This is called *before* a submitted document values are updated.
 `before_insert`              | This is called before a document is inserted into the database.
 `before_naming`              | This is called before the `name` property of the document is set.
-`autoname`                   | This is an optional method which is called only when it is defined in the controller. Use this method to customize how the `name` property of the document is set.
+`autoname`                   | This is an optional method which is called only when it is defined in the controller at document creation. Use this method to customize how the `name` property of the document is set.
 `validate`                   | Use this method to throw any validation errors and prevent the document from saving.
 `before_save`                | This method is called before the document is saved.
 `after_insert`               | This is called after the document is inserted into the database.
