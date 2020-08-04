@@ -17,7 +17,7 @@ Frappe implements Python's [logging module](https://docs.python.org/3/howto/logg
 
 Maintains the log level of Frappe processes. To learn more about logging levels, you can check out Python's [documentation](https://docs.python.org/dev/library/logging.html#logging.Logger.setLevel).
 
-## frappe.utils.logger.set_log_level
+## frappe.utils.logger.set\_log\_level
 
 `frappe.utils.logger.set_log_level(level)` can be used to set the log level and regenerate the loggers dynamically.
 
