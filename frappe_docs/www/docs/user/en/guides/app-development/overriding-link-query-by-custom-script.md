@@ -82,15 +82,16 @@ def lead_query(doctype, txt, searchfield, start, page_len, filters):
 			IF(LOCATE(%(_txt)s, lead_name), LOCATE(%(_txt)s, lead_name), 99999),
 			IF(LOCATE(%(_txt)s, company_name), LOCATE(%(_txt)s, company_name), 99999),
 			name, lead_name
-		LIMIT %(start)s, %(page_len)s""".format(**{
+		LIMIT %(start)s, %(page_len)s
+	""".format(**{
 			'key': searchfield,
 			'mcond':get_match_cond(doctype)
 		}), {
-			'txt': "%{}%".format(txt),
-			'_txt': txt.replace("%", ""),
-			'start': start,
-			'page_len': page_len
-		})
+		'txt': "%{}%".format(txt),
+		'_txt': txt.replace("%", ""),
+		'start': start,
+		'page_len': page_len
+	})
 ```
 
 **Note:** `@frappe.whitelist()` is used to expose `lead_query` to the client-side
