@@ -273,7 +273,7 @@ The **Make Material Request** (or `Make {DocType}`) secondary action button will
 
 ## Python API
 ### frappe.msgprint
-`frappe.msgprint(msg, title, raise_exception, as_table, indicator, primary_action)`
+`frappe.msgprint(msg, title, raise_exception, as_table, indicator, alert, primary_action, is_minimizable, wide)`
 
 Shows a message to the user and can optionally throw an exception as well.
 
@@ -284,6 +284,8 @@ The argument list includes:
 - `raise_exception`: Exception
 - `as_table`: If `msg` is a list of lists, render as HTML table
 - `primary_action`: Bind a primary server/client side action.
+- `is_minimizable`: Allow users to minimize the modal.
+- `wide`: Show wide dialog (For showing large html content).
 
 ```py
 frappe.msgprint(msg='This file does not exist',
@@ -311,7 +313,7 @@ frappe.msgprint(msg='This file does not exist',
 *frappe.msgprint with primary action*
 
 ### frappe.throw
-`frappe.throw(msg, exc, title)`
+`frappe.throw(msg, exc, title, is_minimizable, wide)`
 
 It is essentially a wrapper around `frappe.msgprint`.
 
