@@ -27,7 +27,7 @@ When initializing a FTS based class, you need to provide an index name. On insta
 
 Once instantiated you can run the `build` function. It gets all the documents from `get_items_to_index`, the documents are a list of `frappe._dict` (frappe dicts) conforming to the defined schema. These documents are then added to the index and written to the file.
 
-You can search the index using the `search` method of the FTS class. These functions are documented in the API refernce:
+You can search the index using the `search` method of the FTS class. These functions are documented in the API refernce [here](/docs/user/en/api/full-text-search).
 
 An example implementation for blog will look like the following:
 
