@@ -65,30 +65,37 @@ def custom_query(doctype, txt, searchfield, start, page_len, filters)
 
 ```py
 # searches for leads which are not converted
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
 def lead_query(doctype, txt, searchfield, start, page_len, filters):
-	return frappe.db.sql("""select name, lead_name, company_name from `tabLead`
-		where docstatus &lt; 2
-			and ifnull(status, '') != 'Converted'
-			and ({key} like %(txt)s
-				or lead_name like %(txt)s
-				or company_name like %(txt)s)
+	return frappe.db.sql("""
+		SELECT name, lead_name, company_name
+		FROM `tabLead`
+		WHERE docstatus &lt; 2
+			AND ifnull(status, '') != 'Converted'
+			AND ({key} LIKE %(txt)s
+				OR lead_name LIKE %(txt)s
+				OR company_name LIKE %(txt)s)
 			{mcond}
-		order by
-			if(locate(%(_txt)s, name), locate(%(_txt)s, name), 99999),
-			if(locate(%(_txt)s, lead_name), locate(%(_txt)s, lead_name), 99999),
-			if(locate(%(_txt)s, company_name), locate(%(_txt)s, company_name), 99999),
+		ORDER BY
+			IF(LOCATE(%(_txt)s, name), LOCATE(%(_txt)s, name), 99999),
+			IF(LOCATE(%(_txt)s, lead_name), LOCATE(%(_txt)s, lead_name), 99999),
+			IF(LOCATE(%(_txt)s, company_name), LOCATE(%(_txt)s, company_name), 99999),
 			name, lead_name
-		limit %(start)s, %(page_len)s""".format(**{
+		LIMIT %(start)s, %(page_len)s
+	""".format(**{
 			'key': searchfield,
 			'mcond':get_match_cond(doctype)
 		}), {
-			'txt': "%%%s%%" % txt,
-			'_txt': txt.replace("%", ""),
-			'start': start,
-			'page_len': page_len
-		})
+		'txt': "%{}%".format(txt),
+		'_txt': txt.replace("%", ""),
+		'start': start,
+		'page_len': page_len
+	})
 ```
 
+**Note:** `@frappe.whitelist()` is used to expose `lead_query` to the client-side
+and `@frappe.validate_and_sanitize_search_inputs` decorator is used to validate and sanitize user inputs sent through API or client-side request to avoid possible SQLi.
 
 For more examples see:
 
