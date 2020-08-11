@@ -177,6 +177,15 @@ custom_app/www
 └── custom_page.py
 ```
 
+### Home Page
+
+The home page for your portal can be defined in
+
+1. Role
+1. Portal Settings (this will be for logged in users)
+1. Via Hook `get_website_user_home_page`
+1. Website Settings (this will be for non logged in users as well - i.e. Guest)
+
 ### Magic Comments
 
 You can configure some functionalities by adding magic comments in your pages.
