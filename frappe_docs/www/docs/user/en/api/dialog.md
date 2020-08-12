@@ -1,3 +1,4 @@
+
 ---
 add_breadcrumbs: 1
 title: Dialog - API
@@ -8,15 +9,9 @@ metatags:
 ---
 
 # Dialog API
-Frappe provides a group of standard, interactive and flexible dialogs that are easy to configure and use.
+Frappe provides a group of standard, interactive and flexible dialogs that are
+easy to configure and use. There's also an API for [Python](/docs/user/en/api/py-dialog).
 
-## Contents
-1. [JavaScript API](#javascript-api)
-2. [Python API](#python-api)
-
-----
-
-## JavaScript API
 ### frappe.ui.Dialog
 `new frappe.ui.Dialog({ title, fields, primary_action })`
 
@@ -180,13 +175,17 @@ frappe.confirm('Are you sure you want to proceed?',
 
 Alert Dialog is used for showing non-obstructive messages.
 
-Its parameters include  `message`, which can contain the indicator color as well, and its display duration. The default is **3 seconds**.
+Its parameters include  `message`, which can contain the indicator color as
+well, and its display duration. The default is **7 seconds**.
 
 ```js
 frappe.show_alert('Hi, you have a new message', 5);
 
 //show_alert with indicator
-frappe.show_alert({message:__('Hi, you have a new message'), indicator:'green'}, 5);
+frappe.show_alert({
+	message:__('Hi, you have a new message'),
+	indicator:'green'
+}, 5);
 ```
 
 ![Show Alert](/docs/assets/img/api/dialog-api-show-alert.png)
@@ -268,61 +267,3 @@ new frappe.ui.form.MultiSelectDialog({
 Here all the Material Requests that fulfill the filter criteria will be fetched into the selection area. The setter `company` is added to the filter fields along with its passed value. The `date_field` will be used to fetch and query dates from the DocType mentioned.
 
 The **Make Material Request** (or `Make {DocType}`) secondary action button will redirect you to a new form in order to make a new entry into the DocType passed.
-
-----
-
-## Python API
-### frappe.msgprint
-`frappe.msgprint(msg, title, raise_exception, as_table, indicator, alert, primary_action, is_minimizable, wide)`
-
-Shows a message to the user and can optionally throw an exception as well.
-
-The argument list includes:
-
-- `msg`: The message to be displayed
-- `title`: Title to the modal
-- `raise_exception`: Exception
-- `as_table`: If `msg` is a list of lists, render as HTML table
-- `primary_action`: Bind a primary server/client side action.
-- `is_minimizable`: Allow users to minimize the modal.
-- `wide`: Show wide dialog (For showing large html content).
-
-```py
-frappe.msgprint(msg='This file does not exist',
-	title='Error',
-	raise_exception=FileNotFoundError)
-```
-![MultiSelectDialog](/docs/assets/img/api/dialog-api-msgprint-py.png)
-*frappe.msgprint*
-
-`primary_action` can contain a `server_action` **or** `client_side` action which must contain dotted paths to the respective methods. The JavaScript function must be a globally available function.
-
-```py
-# msgprint with server and client side action
-frappe.msgprint(msg='This file does not exist',
-	title='Error',
-	raise_exception=FileNotFoundError
-	primary_action={
-		'label': _('Perform Action'),
-		'server_action': 'dotted.path.to.method',
-		'client_action': 'dotted_path.to_method',
-		'args': args })
-```
-
-![MultiSelectDialog](/docs/assets/img/api/dialog-api-msgprint-py-with-primary-action.png)
-*frappe.msgprint with primary action*
-
-### frappe.throw
-`frappe.throw(msg, exc, title, is_minimizable, wide)`
-
-It is essentially a wrapper around `frappe.msgprint`.
-
-`exc` can be passed an optional exception. By default it will raise a `ValidationError` exception.
-
-```py
-frappe.throw(msg='This file does not exist',
-	exc=FileNotFoundError,
-	title='Error')
-```
-![Throw-py](/docs/assets/img/api/dialog-api-msgprint-py.png)
-*frappe.throw*

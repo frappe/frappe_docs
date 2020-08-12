@@ -62,7 +62,8 @@
 			{ "title": "Document", "route": "/docs/user/en/api/document" },
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
-			{ "title": "REST API", "route": "/docs/user/en/api/rest" }
+			{ "title": "REST API", "route": "/docs/user/en/api/rest" },
+			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" }
 		]
 	},
 	{
