@@ -9,7 +9,8 @@ metatags:
 ---
 
 # Dialog API
-Frappe provides a group of standard, interactive and flexible dialogs that are easy to configure and use. There's also an API for [Python](/docs/user/en/api/py-dialog)
+Frappe provides a group of standard, interactive and flexible dialogs that are
+easy to configure and use. There's also an API for [Python](/docs/user/en/api/py-dialog).
 
 ### frappe.ui.Dialog
 `new frappe.ui.Dialog({ title, fields, primary_action })`
@@ -174,13 +175,17 @@ frappe.confirm('Are you sure you want to proceed?',
 
 Alert Dialog is used for showing non-obstructive messages.
 
-Its parameters include  `message`, which can contain the indicator color as well, and its display duration. The default is **3 seconds**.
+Its parameters include  `message`, which can contain the indicator color as
+well, and its display duration. The default is **7 seconds**.
 
 ```js
 frappe.show_alert('Hi, you have a new message', 5);
 
 //show_alert with indicator
-frappe.show_alert({message:__('Hi, you have a new message'), indicator:'green'}, 5);
+frappe.show_alert({
+	message:__('Hi, you have a new message'),
+	indicator:'green'
+}, 5);
 ```
 
 ![Show Alert](/docs/assets/img/api/dialog-api-show-alert.png)
