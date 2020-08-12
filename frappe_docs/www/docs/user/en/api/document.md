@@ -272,6 +272,25 @@ doc.add_viewed()
 
 > This works only if **Track Views** is enabled in the DocType.
 
+## doc.add_tag
+
+Add a tag to a document. Tags are generally used to filter and group documents.
+
+```py
+# add tags
+doc.add_tag('developer')
+doc.add_tag('frontend')
+```
+
+## doc.get_tags
+
+Returns a list of tags associated with the specific document.
+
+```py
+# get all tags
+doc.get_tags()
+```
+
 ## doc.run_method
 
 Run method if defined in controller, will also trigger hooks if defined.
