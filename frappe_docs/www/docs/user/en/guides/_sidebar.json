@@ -3,6 +3,10 @@
 		"group_title": "Getting Started",
 		"group_items": [
 			{
+				"title": "Introduction",
+				"route": "/docs"
+			},
+			{
 				"title": "Installation",
 				"route": "/docs/user/en/installation"
 			},
