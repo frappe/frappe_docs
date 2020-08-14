@@ -478,15 +478,15 @@ console.log(selected)
 
 ## Form Variables
 
-### frm.ignored\_doctypes\_on\_cancel\_all
+### frm.ignore\_doctypes\_on\_cancel\_all
 
-To avoid cancellation of linked documents during cancel all, you need to initialize the `frm.ignored_doctypes_on_cancel_all` with the array of DocTypes of respective linked documents.
+To avoid cancellation of linked documents during cancel all, you need to initialize the `frm.ignore_doctypes_on_cancel_all` with the array of DocTypes of respective linked documents.
 
 ```js
 frappe.ui.form.on("DocType 1", {
 	onload: function(frm) {
 		// Ignore cancellation for all linked documents of respective DocTypes.
-		frm.ignored_doctypes_on_cancel_all = ["DocType 2", "DocType 3"];
+		frm.ignore_doctypes_on_cancel_all = ["DocType 2", "DocType 3"];
 	}
 }
 ```
