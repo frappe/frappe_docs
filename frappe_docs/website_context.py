@@ -18,7 +18,7 @@ def get_context(context):
 				"docs_navbar_items": [
 					{"label": "GitHub", "url": "https://github.com/frappe/frappe"},
 					{"label": "Discuss", "url": "https://discuss.erpnext.com"},
-					{"label": "Twitter", "url": "https://twitter.com/frappe"},
+					{"label": "Twitter", "url": "https://twitter.com/frappetech"},
 				],
 			}
 		)
