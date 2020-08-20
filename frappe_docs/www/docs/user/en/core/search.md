@@ -15,11 +15,11 @@ You can extend the `FullTextSearch` class to create a search class for a specifi
 
 ## The `FullTextSearch` class
 
-Each FullTextSearch (FTS) instance holds a Schema defined by the class itself. That means, a specific FTS implementation will have it's specific schema. You can create a new implementation if you wish to index with a different schema. Along with this the `FTS` class has other controllers to faciliate creating, updating and querying the index.
+Each FullTextSearch (FTS) instance holds a Schema defined by the class itself. That means, a specific FTS implementation will have it's specific schema. You can create a new implementation if you wish to index with a different schema. Along with this the `FTS` class has other controllers to facilitate creating, updating and querying the index.
 
 ### Extending the FTS class
 
-When initializing a FTS based class, you need to provide an index name. On instantiation, the following params are initilaized
+When initializing a FTS based class, you need to provide an index name. On instantiation, the following params are initialized
 - `index_name`: name of the index provided.
 - `index_path`: path of the index in the sites folder
 - `schema`: return by the `get_schema` function
@@ -27,7 +27,7 @@ When initializing a FTS based class, you need to provide an index name. On insta
 
 Once instantiated you can run the `build` function. It gets all the documents from `get_items_to_index`, the documents are a list of `frappe._dict` (frappe dicts) conforming to the defined schema. These documents are then added to the index and written to the file.
 
-You can search the index using the `search` method of the FTS class. These functions are documented in the API refernce [here](/docs/user/en/api/full-text-search).
+You can search the index using the `search` method of the FTS class. These functions are documented in the API reference [here](/docs/user/en/api/full-text-search).
 
 An example implementation for blog will look like the following:
 
