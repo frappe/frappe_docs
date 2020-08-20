@@ -40,7 +40,7 @@ All documents in Frappe are available via a RESTful API with prefix `/api/resour
 
 * Update
 
-	You can create a document by sending a `PUT` request to the endpoint, `/api/resource/{doctype}/{name}`. This acts like a `PATCH` HTTP request in which you do not have to send the whole document but only the parts you want to change.
+	You can update a document by sending a `PUT` request to the endpoint, `/api/resource/{doctype}/{name}`. This acts like a `PATCH` HTTP request in which you do not have to send the whole document but only the parts you want to change.
 
 * Delete
 
