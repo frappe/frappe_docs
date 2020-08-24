@@ -1,6 +1,6 @@
 ## FullTextSearch API Reference
 
-Frappe Wrapper for Whoosh
+Frappe Wrapper for [Whoosh](https://pypi.org/project/Whoosh/)
 
 ### `update_index_by_name(self, doc_name)`
 
