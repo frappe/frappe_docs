@@ -13,5 +13,6 @@ Frappe framework allows you to script the standard models and views directly wit
 
 Different ways of Scripting:
 
-1. [Server Script](/)
-1. [Script Report](/docs/user/en/desk/report/script)
+1. [Server Script](/docs/user/en/desk/scripting/server-script)
+1. [Script Report](/docs/user/en/desk/reports/script-report)
+1. [System Console](/docs/user/en/desk/reports/script-report)

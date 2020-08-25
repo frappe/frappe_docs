@@ -109,15 +109,21 @@ Get system default settings
 
 Database access API
 
-#### frappe.get_list
+#### frappe.db.get_list
 
 Get list of record filtered by current user's permissions
 
-Example: `frappe.get_list("Customer")` will return list of customers
+Example: `frappe.db.get_list("Customer")` will return list of customers
 
-#### frappe.get_all
+#### frappe.db.get_all
 
 Get list of all records
+
+#### frappe.db.sql
+
+Run a SELECT query
+
+Example: `frappe.db.sql("select name from Customer where name like 'm%'")`
 
 #### frappe.db.get_value
 
@@ -146,6 +152,10 @@ Set a value
 ### Utilities
 
 Utility methods and functions
+
+#### run_script
+
+Run a server script (return values in `frappe.flags`)
 
 #### frappe.msgprint
 

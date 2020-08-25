@@ -36,7 +36,7 @@ You can configure the columns and filters in the Report document. Here you can s
 
 Filters can be used as formatting variables in the query. For example a filters of type `customer` can be used as `%(customer)s` in the query.
 
-![Standard Columns and Filters](/docs/assets/img/report-columns-filters.png)
+![Standard Columns and Filters](/docs/assets/img/desk/report-columns-filters.png)
 
 #### Example
 
