@@ -128,5 +128,5 @@ frappe.flags.my_key = 'my value'
 Script 2:
 
 ```
-my_key = run_script('script_1')
+my_key = run_script('script_1').get('my_key')
 ```
