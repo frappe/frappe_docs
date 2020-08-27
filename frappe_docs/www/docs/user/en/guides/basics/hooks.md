@@ -90,11 +90,17 @@ Desk and web assets are loaded in the website.
 2. `app_include_css`
 3. `web_include_js`
 4. `web_include_css`
+5. `website_theme_scss`
+
+    Here you can specify the path to any SCSS file that should be included at the bottom of a **Website Theme**.
 
 Eg,
 
-	app_include_js = "assets/js/erpnext.min.js"
-	web_include_js = "assets/js/erpnext-web.min.js"
+```py
+app_include_js = "assets/js/erpnext.min.js"
+web_include_js = "assets/js/erpnext-web.min.js"
+website_theme_scss = "erpnext/public/scss/website" # => @import erpnext/public/scss/website
+```
 
 Note: to create an asset bundle (eg, assets/js/erpnext.min.js) the target file
 should be in build.json of your app.
