@@ -8,11 +8,11 @@ Example: https://demo.erpnext.com
 
 Use the header `Authorizaton: Bearer <access_token>` to perform authenticated requests. You can receive a [bearer token](https://tools.ietf.org/html/rfc6750) by combining the following two requests.
 
-## POST /api/method/frappe.integrations.oauth2.authorize
+## GET /api/method/frappe.integrations.oauth2.authorize
 
 Get an authorization code from the user to access ERPNext on his behalf.
 
-Params (in body):
+Params (in query):
 
 * client_id (string)
 
@@ -34,22 +34,17 @@ Params (in body):
 
 	Callback URI that the user will be redirected to, after the application is authorized. The authorization code can then be extracted from the params.
 
-Content-Type: application/x-www-form-urlencoded
 
 Example:
 
 ```bash
 curl -X POST https://{your frappe instance}/api/method/frappe.integrations.oauth2.authorize \
-     -H 'Content-Type: application/x-www-form-urlencoded' \
-     -H 'Accept: application/json' \
-     -d 'client_id=511cb2ac2d&state=444&response_type=code&scope=all
-  	     &redirect_uri=https%3A%2F%2Fapp.getpostman.com%2Foauth2%2Fcallback'
+     --data-urlencode 'client_id=511cb2ac2d' \
+     --data-urlencode 'state=444' \
+     --data-urlencode 'response_type=code' 
+     --data-urlencode 'scope=all' \
+     --data-urlencode 'redirect_uri=https://app.getpostman.com/oauth2/callback'
 ```
-
-For **testing purposes** you can also pass the parameters in the URL, like this (and open it in the browser):
-
-`https://{your frappe instance}/api/method/frappe.integrations.oauth2.authorize?client_id=511cb2ac2d&state=444&response_type=code&scope=all&redirect_uri=https%3A%2F%2Fapp.getpostman.com%2Foauth2%2Fcallback`
-
 
 Returns:
 
