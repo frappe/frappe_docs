@@ -27,16 +27,15 @@
 	{
 		"group_title": "Tutorial",
 		"group_items": [
-			{ "title": "Before", "route": "/docs/user/en/tutorial/before" },
-			{ "title": "App", "route": "/docs/user/en/tutorial/app" },
-			{ "title": "Bench", "route": "/docs/user/en/tutorial/bench" },
-			{ "title": "New App", "route": "/docs/user/en/tutorial/new-app" },
+			{ "title": "Prerequisites", "route": "/docs/user/en/tutorial/prerequisites" },
+			{ "title": "What's an App", "route": "/docs/user/en/tutorial/whats-an-app" },
+			{ "title": "Install Bench", "route": "/docs/user/en/tutorial/install-bench" },
+			{ "title": "Make a new App", "route": "/docs/user/en/tutorial/make-new-app" },
 			{
 				"title": "Setting Up The Site",
 				"route": "/docs/user/en/tutorial/setting-up-the-site"
 			},
-			{ "title": "Start", "route": "/docs/user/en/tutorial/start" },
-			{ "title": "Models", "route": "/docs/user/en/tutorial/models" },
+			{ "title": "Start the app", "route": "/docs/user/en/tutorial/start-the-app" },
 			{ "title": "Roles", "route": "/docs/user/en/tutorial/roles" },
 			{ "title": "Doctypes", "route": "/docs/user/en/tutorial/doctypes" },
 			{ "title": "Naming And Linking", "route": "/docs/user/en/tutorial/naming-and-linking" },
