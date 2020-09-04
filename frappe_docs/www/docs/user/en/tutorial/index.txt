@@ -1,10 +1,9 @@
-before
-app
-bench
-new-app
+prerequisites
+whats-an-app
+install-bench
+make-new-app
 setting-up-the-site
-start
-models
+start-the-app
 roles
 doctypes
 naming-and-linking
