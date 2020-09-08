@@ -2,61 +2,31 @@
 	{
 		"group_title": "Getting Started",
 		"group_items": [
-			{
-				"title": "Introduction",
-				"route": "/docs"
-			},
-			{
-				"title": "Installation",
-				"route": "/docs/user/en/installation"
-			},
-			{
-				"title": "Documentation",
-				"route": "/docs/user/en"
-			},
-			{
-				"title": "Tutorial",
-				"route": "/docs/user/en/tutorial"
-			},
-			{
-				"title": "Guides",
-				"route": "/docs/user/en/guides"
-			}
+			{ "title": "Introduction", "route": "/docs" },
+			{ "title": "Installation", "route": "/docs/user/en/installation" },
+			{ "title": "Documentation", "route": "/docs/user/en" },
+			{ "title": "Tutorial", "route": "/docs/user/en/tutorial" },
+			{ "title": "Guides", "route": "/docs/user/en/guides" }
 		]
 	},
 
 	{
 		"group_title": "Basics",
 		"group_items": [
-			{
-				"title": "What is Frappe?",
-				"route": "/docs/user/en/what-is-frappe"
-			},
-			{
-				"title": "Why Frappe?",
-				"route": "/docs/user/en/why"
-			},
-			{ "title": "Architecture", "route": "/docs/user/en/architecture" },
-			{
-				"title": "Directory Structure",
-				"route": "/docs/user/en/directory-structure"
-			},
-			{ "title": "Apps", "route": "/docs/user/en/apps" },
-			{ "title": "Sites", "route": "/docs/user/en/sites" },
-			{
-				"title": "Understanding Doctypes",
-				"route": "/docs/user/en/understanding-doctypes"
-			}
+			{ "title": "What is Frappe?", "route": "/docs/user/en/basics/what-is-frappe" },
+			{ "title": "Why Frappe?", "route": "/docs/user/en/basics/why" },
+			{ "title": "Architecture", "route": "/docs/user/en/basics/architecture" },
+			{ "title": "Directory Structure", "route": "/docs/user/en/basics/directory-structure" },
+			{ "title": "Apps", "route": "/docs/user/en/basics/apps" },
+			{ "title": "Sites", "route": "/docs/user/en/basics/sites" },
+			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" }
+			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" },
 		]
 	},
 	{
 		"group_title": "Desk Admin UI",
 		"group_items": [
 			{ "title": "Desk", "route": "/docs/user/en/desk" },
-			{
-				"title": "Users and Permission",
-				"route": "/docs/user/en/users-and-permissions"
-			},
 			{ "title": "Reports", "route": "/docs/user/en/reports" },
 			{ "title": "Printing", "route": "/docs/user/en/printing" },
 			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
