@@ -17,80 +17,21 @@ After the user is created, click on the user in the list view and go to **ROLES*
 
 Now logout and login using the new user id and password.
 
-### 4.2 Creating Records
+### 4.2 Creating Desk Page
 
-You will now see an icon for the Library Management module. *If you do not* see an icon you will have to configure the desk. So go to the `config` folder (of the newly made app) and create a new file `library_management.py`.
+To add the documents and modules, you will have to create a desk page, you can do so from the **Desk Page**, doctype. Each page represents a module and includes the following:
 
-```
-Directory Structure
-apps/
-├── frappe
-└── library_management
-    ├── MANIFEST.in
-    ├── README.md
-    ├── library_management
-    │   ├── __init__.py
-    │   ├── config
-    │   │   ├── __init__.py
-    │   │   ├── desktop.py
-    │   │   ├── docs.py
-    │   │   └── library_management.py   <--Here
-    │   ├── hooks.py
-    │   ├── library_management
-    │   │   ├── __init__.py
-    │   │   └── doctype
-    │   ├── modules.txt
-    │   ├── patches.txt
-    │   ├── public
-    │   ├── templates
-    │   └── www
-```
+1. A dashboard section for that particular module by default.
+1. Shortcuts for commonly visited masters and pages
+1. A masters section where all the reports and masters are grouped and listed
 
-Paste the following code to configure the desk in order to view the Module.
+For the sake of simplicity, we will just add a single shortcut here. You can add more entries to the desk page if you want.
 
-	from __future__ import unicode_literals
-	from frappe import _
+<img class="screenshot" alt="Desk Page" src="/docs/assets/img/desk-page-library.png">
 
-	def get_data():
-		return [
-          {
-            "label":_("Library"),
-            "icon": "octicon octicon-briefcase",
-            "items": [
-                {
-                  "type": "doctype",
-                  "name": "Article",
-                  "label": _("Article"),
-                  "description": _("Articles which members issue and return."),
-                },
-                {
-                  "type": "doctype",
-                  "name": "Library Member",
-                  "label": _("Library Member"),
-                  "description": _("People whohave enrolled for membership in the library."),
-                },
-                {
-                  "type": "doctype",
-                  "name": "Library Membership",
-                  "label": _("Library Membership"),
-                  "description": _("People who have taken membership for the library"),
-                },
-                {
-                  "type": "doctype",
-                  "name": "Library Transaction",
-                  "label": _(""),
-                  "description": _("Issuing an article or returning an article are the transactions taking place."),
-                }
-              ]
-          }
-      ]
+After saving this, you can go to the desk home and reload the page. After reloading you will see a entry in the sidebar which points to your page as shown below.
 
-Now save the script and reload the page. You should see the icon for the library management module.
-Click on that icon and you will see the Module page:
-
-<img class="screenshot" alt="Library Management Module" src="/docs/assets/img/lib_management_module.png">
-
-Here you can see the DocTypes that we have created for the application. Let us start creating a few records.
+<img class="screenshot" alt="Desk Page" src="/docs/assets/img/workspace-library.png">
 
 First let us create a new Article:
 
