@@ -115,7 +115,14 @@ Bench's `execute` command runs a dotted path to method and it also supports
 profiling.
 
 ```sh
-bench --site [sitename] --profile execute erpnext.projects.doctype.task.task.set_tasks_as_overdue
+▶ bench --site [sitename] --profile execute erpnext.projects.doctype.task.task.set_tasks_as_overdue
+```
+
+You should be able to run most commands you can run via console with `execute` now, including *db* methods.
+
+```sh
+▶ bench --site [sitename] execute frappe.db.get_database_size
+6784
 ```
 
 ### Monitoring
