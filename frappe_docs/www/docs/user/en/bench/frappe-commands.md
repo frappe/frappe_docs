@@ -106,8 +106,8 @@ Set of commands to manage translations for your multi-lingual deployments. These
 
 ### Translation Commands
 
- - **build-message-files**
- - **get-untranslated**
- - **import-translations**
- - **new-language**
- - **update-translations**
+ - **build-message-files**: Build message files for translation.
+ - **get-untranslated**: Get untranslated strings for language.
+ - **import-translations**: Import translations from file in standard format.
+ - **new-language**: Create lang-code.csv for given Frappe Application.
+ - **update-translations**: Update translations for set language between files.
