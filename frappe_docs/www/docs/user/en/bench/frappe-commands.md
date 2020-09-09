@@ -74,35 +74,35 @@ Set of commands to manage translations for your multi-lingual deployments. These
 
 ### Frappe Util Commands
 
- - **add-to-email-queue**
- - **build**
- - **bulk-rename**
- - **clear-cache**
- - **clear-website-cache**
- - **console**
- - **data-import**
- - **destroy-all-sessions**
- - **execute**
- - **export-csv**
- - **export-doc**
- - **export-fixtures**
- - **export-json**
- - **import-csv**
- - **import-doc**
- - **jupyter**
- - **make-app**
- - **mariadb**
- - **postgres**
- - **rebuild-global-search**
- - **request**
- - **reset-perms**
- - **run-tests**
- - **run-ui-tests**
- - **serve**
- - **set-config**
- - **show-config**
- - **version**
- - **watch**
+ - **add-to-email-queue**: Add an email to the Email Queue.
+ - **build**: Builds assets for the Frappe Applications installed on bench.
+ - **bulk-rename**: Rename multiple records via a CSV file.
+ - **clear-cache**: Clear cache, doctype cache and defaults.
+ - **clear-website-cache**: Clear Website cache.
+ - **console**: Starts an IPython console for the site.
+ - **data-import**: Import documents in bulk from CSV or XLSX using data import.
+ - **destroy-all-sessions**: Clear sessions of all users (logs them out).
+ - **execute**: Execute a particular function or method with a given set of `args` and `kwargs`.
+ - **export-csv**: Export data import template with data for DocType.
+ - **export-doc**: Export a single document to CSV.
+ - **export-fixtures**: Export fixtures for Frappe Applications from specified site.
+ - **export-json**: Export doclist as json to the given path, use '-' as name for Singles.
+ - **import-csv**: Import from your CSV file using data import.
+ - **import-doc**: Import (insert/update) doclist. If the argument is a directory, all files ending with `.json` are imported
+ - **jupyter**: Starting a Jupyter Notebook server.
+ - **make-app**: Creates a boilerplate Frappe Application.
+ - **mariadb**: Start the MySQL interactive console for the mysql site.
+ - **postgres**: Start the PostgreSQL interactive console for the postgres site.
+ - **rebuild-global-search**: Setup help table in the current site (called after migrate).
+ - **request**: Make a request as Administrator with Arguements to a Path.
+ - **reset-perms**: Reset permissions for all DocTypes to their default settings.
+ - **run-tests**: Run Python tests on the specified site.
+ - **run-ui-tests**: Run Cypress UI tests.
+ - **serve**: Start the webserver for the bench.
+ - **set-config**: Wrapper command to insert or update values in the `site_config.json`.
+ - **show-config**: Show the configuration file of the site in a tabular form.
+ - **version**: Show versions of all Applications installed on bench.
+ - **watch**: Watch and concatenate JS and CSS files as and when they change.
 
 ### Translation Commands
 
