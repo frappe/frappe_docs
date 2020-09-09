@@ -20,7 +20,7 @@ Commands to manage and review the scheduler and background jobs' statuses for th
 
 Set of commands used for site-specific operations. These are the most frequented commands to alter the state of your sites. These commands are accessed by using the `--site` option along with the site name (or "all") if you wish to run the operation *(if possible)* for all sites on the bench. These commands are defined under the module `frappe.commands.site`.
 
- - **[Frappe Util Commands](#frappe-util-commands)**
+ - **[Frappe Util Commands](#frappe-utility-commands)**
 
 Frappe Utility commands that can be both, site or bench specific. These commands are defined under the module `frappe.commands.utils`.
 
@@ -72,7 +72,7 @@ Set of commands to manage translations for your multi-lingual deployments. These
  - **uninstall-app**: Uninstalls a particular Frappe Application from the site.
  - **use**: Sets the default site on the bench. Adds the site entry to the `currentsite.txt`.
 
-### Frappe Util Commands
+### Frappe Utility Commands
 
  - **add-to-email-queue**: Add an email to the Email Queue.
  - **build**: Builds assets for the Frappe Applications installed on bench.
