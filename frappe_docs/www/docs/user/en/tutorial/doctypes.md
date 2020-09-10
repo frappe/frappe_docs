@@ -10,6 +10,10 @@ perform math operations.
 
 <img class="screenshot" alt="New Doctype" src="/docs/assets/img/doctype_new.png">
 
+> If you create a DocType without turning developer mode on, the before
+> mentioned files (JSON file, controller.py ...) won't automatically be created
+> and the DocTypes you create will have `custom` option checked by default.
+
 In the DocType, first add the Name of the DocType as **Article**. Then pick the Module, which in our case is **Library Management**
 
 #### Adding Fields
