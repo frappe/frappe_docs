@@ -3,9 +3,10 @@
 
 After creating the Roles, let us create the **DocTypes**.
 
-To create a new **DocType**, go to:
-
-> Developer > Documents > Doctype > New
+To create a new **DocType**, go to the search bar (or ctrl-G) and type "new
+doctype". This search bar, also called awesome bar helps you to navigate
+anywhere in the system, create new records, search in documents and even
+perform math operations.
 
 <img class="screenshot" alt="New Doctype" src="/docs/assets/img/doctype_new.png">
 

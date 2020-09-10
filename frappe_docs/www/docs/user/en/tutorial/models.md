@@ -17,7 +17,7 @@ When you update the DocType, the JSON model file is updated and whenever `bench 
 
 ### Developer Mode
 
-To create models, you must set `developer_mode` as 1 in the `site_config.json` file located in /sites/library and execute command `bench clear-cache` or use the user menu in UI and click on "Reload" for the changes to take effect. You should now see the "Developer" app on your desk
+To create models, you must set `developer_mode` as 1 in the `site_config.json` file located in /sites/library and execute command `bench clear-cache` or use the user menu in UI and click on "Reload" for the changes to take effect.
 
 	{
 	 "db_name": "bcad64afbf",
