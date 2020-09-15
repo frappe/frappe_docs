@@ -33,6 +33,10 @@
 				"route": "/docs/user/en/guides/basics"
 			},
 			{
+				"title": "Bench CLI",
+				"route": "/docs/user/en/guides/bench"
+			},
+			{
 				"title": "App Development",
 				"route": "/docs/user/en/guides/app-development"
 			},

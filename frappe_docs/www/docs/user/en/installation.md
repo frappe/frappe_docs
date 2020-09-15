@@ -11,8 +11,7 @@ page_toc: 1
 # Installation
 
 > These steps assume you want to install Bench in developer mode. If you want
-> install in production mode, follow the [Easy
-> Install](https://github.com/frappe/bench#easy-install-script) method.
+> install in production mode, follow the [latest recommended installation methods](https://github.com/frappe/bench#installation).
 
 ## System Requirements
 
@@ -27,15 +26,17 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 
 ## Pre-requisites
 
-1. Python 2.7 (Python 3.5+ also supported)
-1. MariaDB 10+
-1. Nginx (for production)
-1. Git
-1. Nodejs
-1. yarn
-1. Redis
-1. cron (crontab is required)
-1. wkhtmltopdf with patched Qt (version 0.12.3) (for pdf generation)
+```
+  Python 3.6+
+  Node.js 12
+  Redis 5                                       (caching and realtime updates)
+  MariaDB 10.3.x / Postgres 9.5.x               (to run database driven apps)
+  yarn 1.12+                                    (js dependency manager)
+  pip 20+                                       (py dependency manager)
+  wkhtmltopdf (version 0.12.5 with patched qt)  (for pdf generation)
+  cron                                          (bench's scheduled jobs: automated certificate renewal, scheduled backups)
+  NGINX                                         (proxying multitenant sites in production)
+```
 
 ### MacOS
 
@@ -48,10 +49,7 @@ Install [Homebrew](https://brew.sh/). It makes it easy to install packages on ma
 Now, you can easily install the required packages by running the following command
 
 ```bash
-brew install python
-brew install git
-brew install redis
-brew install mariadb
+brew install python git redis mariadb
 brew cask install wkhtmltopdf
 ```
 
@@ -88,17 +86,17 @@ npm install -g yarn
 Install `git`, `python`, and `redis`
 
 ```bash
-sudo apt install git python-dev redis-server
+apt install git python-dev redis-server
 ```
 
 **Install MariaDB**
 
 ```bash
-sudo apt-get install software-properties-common
-sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.ubuntu-tw.org/mirror/mariadb/repo/10.3/ubuntu xenial main'
-sudo apt-get update
-sudo apt-get install mariadb-server-10.3
+apt-get install software-properties-common
+apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.ubuntu-tw.org/mirror/mariadb/repo/10.3/ubuntu xenial main'
+apt-get update
+apt-get install mariadb-server-10.3
 ```
 
 During this installation you'll be prompted to set the MySQL root password. If you are not prompted, you'll have to initialize the MySQL server setup yourself. You can do that by running the command:
@@ -112,13 +110,13 @@ mysql_secure_installation
 It is really important that you remember this password, since it'll be useful later on. You'll also need the MySQL database development files.
 
 ```bash
-sudo apt-get install libmysqlclient-dev
+apt-get install libmysqlclient-dev
 ```
 
 Now, edit the MariaDB configuration file.
 
 ```bash
-sudo nano /etc/mysql/my.cnf
+nano /etc/mysql/my.cnf
 ```
 
 And add this configuration
@@ -136,7 +134,7 @@ default-character-set = utf8mb4
 Now, just restart the mysql service and you are good to go.
 
 ```bash
-sudo service mysql restart
+service mysql restart
 ```
 
 **Install Node**
@@ -150,7 +148,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
 
 ```bash
-nvm install 8
+nvm install 12
 ```
 
 Verify the installation, by running:
@@ -158,7 +156,7 @@ Verify the installation, by running:
 ```bash
 node -v
 # output
-v8.11.3
+v12.16.2
 ```
 
 Finally, install `yarn` using `npm`
@@ -170,7 +168,7 @@ npm install -g yarn
 **Install wkhtmltopdf**
 
 ```
-sudo apt-get install xvfb libfontconfig wkhtmltopdf
+apt-get install xvfb libfontconfig wkhtmltopdf
 ```
 
 ### Arch Linux
@@ -224,13 +222,12 @@ If you don't have cron service enabled you would have to enable it.
 systemctl enable cronie
 ```
 
-## Install Bench
+## Install Bench CLI
 
-Install bench as a non-root user
+Install bench via pip3
 
 ```bash
-git clone https://github.com/frappe/bench bench-repo
-pip install --user -e bench-repo
+pip3 install frappe-bench
 ```
 
 Confirm the bench installation by checking version
@@ -239,7 +236,7 @@ Confirm the bench installation by checking version
 bench --version
 
 # output
-4.1.0
+5.2.1
 ```
 
 Create your first bench folder.

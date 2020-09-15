@@ -1,4 +1,3 @@
-install
 apps
 sites
 site_config
