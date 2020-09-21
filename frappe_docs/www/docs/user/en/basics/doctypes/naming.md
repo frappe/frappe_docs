@@ -92,15 +92,20 @@ You can create multiple Document Naming Rules for a particular doctype that can 
 To define a Document Naming Rule you have to specify
 
 1. Document Type it is being applied on
+1. Priority of the rule (rules with higher priority will be applied first)
 1. Conditions to apply the rule
 1. Naming Rules
 
-#### Naming Rules
+#### Numbering
 
-There are 2 types of naming supported by **Document Naming Rule**
+You can define various numbering prefixes for the rule based on the conditions defined. This is done by setting a prefix and the number of digits for that rule.
 
-1. Field Value (based on another field)
-1. Numbering Series (based on a prefix)
+For example if you are creating a separate numbering for high priority todos:
+
+1. Prefix: todo-high-
+1. Digits: 3
+
+Will lead to numbering like `todo-high-001`, `todo-high-002` and so on.
 
 ## Priority of Naming
 
