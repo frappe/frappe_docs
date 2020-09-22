@@ -19,8 +19,8 @@
 			{ "title": "Directory Structure", "route": "/docs/user/en/basics/directory-structure" },
 			{ "title": "Apps", "route": "/docs/user/en/basics/apps" },
 			{ "title": "Sites", "route": "/docs/user/en/basics/sites" },
-			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" }
-			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" },
+			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" },
+			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" }
 		]
 	},
 	{
