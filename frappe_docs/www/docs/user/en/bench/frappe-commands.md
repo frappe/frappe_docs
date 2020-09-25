@@ -21,7 +21,7 @@ executions. They can be broadly grouped into
  - **[Scheduler Commands](#scheduler-commands)**
 
 Commands to manage and review the scheduler and background jobs' statuses for
-the sites on your bench. Defined under mdule `frappe.commands.schedule`.
+the sites on your bench. Defined under module `frappe.commands.schedule`.
 
  - **[Site Commands](#site-commands)**
 
