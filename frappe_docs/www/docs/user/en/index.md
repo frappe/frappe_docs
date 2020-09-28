@@ -28,7 +28,7 @@ It is pretty generic and can be used to build database driven apps.
 1. [Understanding Doctypes](/docs/user/en/understanding-doctypes)
 
 ### Bench CLI
-1. [How it works?](/docs/user/en/bench)
+1. [What is Bench?](/docs/user/en/bench)
 1. [Bench Commands](/docs/user/en/bench/bench-commands)
 1. [Frappe Commands](/docs/user/en/bench/frappe-commands)
 1. [Extending the CLI](/docs/user/en/bench/extending-the-cli)

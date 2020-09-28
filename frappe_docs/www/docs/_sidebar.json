@@ -9,7 +9,6 @@
 			{ "title": "Guides", "route": "/docs/user/en/guides" }
 		]
 	},
-
 	{
 		"group_title": "Basics",
 		"group_items": [
@@ -21,6 +20,15 @@
 			{ "title": "Sites", "route": "/docs/user/en/basics/sites" },
 			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" },
 			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" }
+		]
+	},
+	{
+		"group_title": "Bench CLI",
+		"group_items": [
+			{ "title": "What is Bench?", "route": "/docs/user/en/bench" },
+			{ "title": "Bench Commands", "route": "/docs/user/en/bench/bench-commands" },
+			{ "title": "Frappe Commands", "route": "/docs/user/en/bench/frappe-commands" },
+			{ "title": "Extending the CLI", "route": "/docs/user/en/bench/extending-the-cli" }
 		]
 	},
 	{
