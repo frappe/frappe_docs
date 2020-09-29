@@ -81,3 +81,18 @@ frappe.require(['/assets/frappe/chat.js', '/assets/frappe/chat.css'], () => {
 	// chat.js and chat.css are loaded
 })
 ```
+
+## frappe.model.open\_mapped\_doc
+`frappe.model.open_mapped_doc({method,frm})`
+
+Load the mapped document returned by the method in a new document.
+
+```js
+// open a new dunning document using the sales invoice data
+create_dunning: function(frm) {
+	frappe.model.open_mapped_doc({
+		method: "erpnext.accounts.doctype.sales_invoice.sales_invoice.create_dunning",
+		frm: frm
+	});
+}
+```
