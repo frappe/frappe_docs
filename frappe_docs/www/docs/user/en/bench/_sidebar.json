@@ -24,12 +24,16 @@
 		"group_title": "Commands",
 		"group_items": [
 			{
-				"title": "backup",
-				"route": "/docs/user/en/bench/reference/backup"
-			},
-			{
 				"title": "new-site",
 				"route": "/docs/user/en/bench/reference/new-site"
+			},
+			{
+				"title": "migrate",
+				"route": "/docs/user/en/bench/reference/migrate"
+			},
+			{
+				"title": "backup",
+				"route": "/docs/user/en/bench/reference/backup"
 			},
 			{
 				"title": "uninstall-app",

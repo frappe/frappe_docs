@@ -15,6 +15,7 @@ that are a direct part of the CLI tool. These commands are defined under the
 There are four major command types in Frappe inherited by Bench during command
 executions. They can be broadly grouped into
 
+
 ### Site Commands
 
 Set of commands used for site-specific operations. These are the most frequented
@@ -34,7 +35,6 @@ bench new-site {site}
 
 For more information and examples, see the [bench
 new-site](/docs/user/en/bench/reference/new-site) reference.
-
 
 #### Site Backups
 
@@ -112,7 +112,6 @@ bench --site {site} migrate
 For more information and examples, see the [bench
 migrate](/docs/user/en/bench/reference/migrate) reference.
 
-
 #### Site Deletion
 
 Drop a particular site from the existing bench.
@@ -121,7 +120,6 @@ Drop a particular site from the existing bench.
 
 Re-install all installed Applications from your specified site. This completely
 resets the site.
-
 
 
 #### Site Operations
