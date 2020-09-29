@@ -96,3 +96,13 @@ create_dunning: function(frm) {
 	});
 }
 ```
+
+## frappe.model.sync
+`frappe.model.sync(r)`
+
+Extract docs, docinfo (attachments, comments, assignments) from incoming request and set in `locals` and `frappe.model.docinfo`
+
+```js
+// Extract docs, docinfo (attachments, comments, assignments) from r.message and set in `locals` and `frappe.model.docinfo`
+var doc = frappe.model.sync(r.message);
+```
