@@ -12,18 +12,10 @@ that are a direct part of the CLI tool. These commands are defined under the
 > For references of any Bench commands, checkout [Bench
 > Commands](/docs/user/en/bench/bench-commands).
 
-
-## Commands
-
 There are four major command types in Frappe inherited by Bench during command
 executions. They can be broadly grouped into
 
- - **[Scheduler Commands](#scheduler-commands)**
-
-Commands to manage and review the scheduler and background jobs' statuses for
-the sites on your bench. Defined under module `frappe.commands.schedule`.
-
- - **[Site Commands](#site-commands)**
+### Site Commands
 
 Set of commands used for site-specific operations. These are the most frequented
 commands to alter the state of your sites. These commands are accessed by using
@@ -31,18 +23,110 @@ the `--site` option along with the site name (or "all") if you wish to run the
 operation *(if possible)* for all sites on the bench. These commands are defined
 under the module `frappe.commands.site`.
 
- - **[Frappe Util Commands](#frappe-utility-commands)**
+#### Site Backups
 
-Frappe Utility commands that can be both, site or bench specific. These commands
-are defined under the module `frappe.commands.utils`.
+You can use the Bench CLI to take backups on the sites of your bench. You can
+manage the site's database and files backups and have more control over the
+operation.
 
- - **[Translation Commands](#translation-commands)**
+```bash
+bench --site {site} backup
+```
 
-Set of commands to manage translations for your multi-lingual deployments. These
-commands are defined under the module `frappe.commands.translate`.
+The Bench CLI also deletes the older backup files from your bench directory. By
+default, it deletes backups older than 24 hours from the backups directory.
+
+For more information and examples, see the [bench
+backup](/docs/user/en/bench/reference/backup) reference.
+
+#### Site Restores
+
+Bench CLI can be used to restore an existing site to a previous state. Using the
+`bench restore` command, a site may be restored with the specific database and
+file restores.
+
+```bash
+bench --site {site} restore {path/to/database/file}
+```
+
+The least requirement for performing a restore operation is having the database
+file on your local filesystem. The specified backup file may have the `sql.gz`
+of `sql` extension.
+
+For more information and examples, see the [bench
+restore](/docs/user/en/bench/reference/restore) reference.
+
+#### Application Installations
+
+The easiest way to install a Frappe Application on your site is through the
+Bench CLI. However, the application must be installed on your bench prior to
+that.
+
+```bash
+bench --site {site} install-app {app}
+```
+
+In this operation, Application `meta`, `modules` and `doctypes` of the specified
+site are installed on the specified site.
+
+#### Application Uninstallations
+
+Uninstall an app installed on site. This is a destructive action and consists of
+removing all app-related data from the site. Hence, a backup is taken before
+uninstalling said app.
+
+```bash
+bench --site {site} uninstall-app {app}
+```
+
+> Note: From Version 13, even apps not installed on the Bench can be uninstalled
+> from the site.
+
+For more information and examples, see the [bench
+uninstall-app](/docs/user/en/bench/reference/uninstall-app) reference.
+
+#### Other Utils
+
+ - **add-system-manager**: Add a new system manager to a site.
+ - **add-to-hosts**: Add the specified site to the hosts file on your system.
+ - **migrate**: Run patches, sync schema and rebuild files, translations and
+   indexes on a particular site.
+ - **migrate-to**: Command to migrate your local site to a Frappe Hosting
+   Provider's service.
+ - **new-site**: Create a new site on the bench.
+ - **ngrok**: Create a temporary URL and share it with anyone, and they can
+   access your local site in their browser. Primarily built for aiding with the
+   development of third party services.
+ - **use**: Sets the default site on the bench. Adds the site entry to the
+   `currentsite.txt`.
+ - **reinstall**: Re-install all installed Applications from your specified
+   site. This completely resets the site.
+ - **drop-site**: Drop a particular site from the existing bench.
+
+ - **browse**: Opens the specified site on the browser if available.
+ - **build-search-index**: Builds search index for Websites. Refer to [Full Text
+   Search API Docs](/docs/user/en/api/full-text-search) for more information.
+ - **disable-user**: Disable specified user on the site.
+ - **list-apps**: List all the Frappe Applications installed on the specified
+   site.
+ - **publish-realtime**: Publish realtime event from bench.
+ - **reload-doc**: Reload schema for a particular *Doctype* and refresh the
+   specified *Document*
+ - **reload-doctype**: Reload schema for a particular *DocType*
+ - **remove-from-installed-apps**: Removes the mentioned site from the site
+   gloabl value of `installed_applications`.
+ - **run-patch**: Run a particular patch via the Frappe Patch Handler.
+ - **set-admin-password**: Set the password for the Administrator user.
+ - **set-last-active-for-user**: Set users last active date to current datetime.
+ - **start-recording**: Starts the Frappe Recorder for the specified sites.
+ - **stop-recording**: Terminates the Frappe Recorder for the specified sites.
 
 
 ### Scheduler Commands
+
+Commands to manage and review the scheduler and background jobs' statuses for
+the sites on your bench. Defined under module `frappe.commands.schedule`.
+
 
  - **disable-scheduler**: Disable scheduler for specified sites.
  - **doctor**: Get diagnostic info about the status of the scheduler for all
@@ -65,64 +149,11 @@ commands are defined under the module `frappe.commands.translate`.
  - **trigger-scheduler-event**: Trigger a specific scheduler event for the
    specified sites.
 
-### Site Commands
-
- - **add-system-manager**: Add a new system manager to a site.
- - **add-to-hosts**: Add the specified site to the hosts file on your system.
-
-#### Site Backups
-
-You can use the Bench CLI to take backups on the sites of your bench. You can
-manage the site's database and files backups and have more control over the
-operation.
-
-```bash
-bench --site {site} backup
-```
-
-The Bench CLI also deletes the older backup files from your bench directory. By
-default, it deletes backups older than 24 hours from the backups directory.
-
-For more information and examples, see the [bench
-backup](/docs/user/en/bench/reference/backup) reference.
-
- - **browse**: Opens the specified site on the browser if available.
- - **build-search-index**: Builds search index for Websites. Refer to [Full Text
-   Search API Docs](/docs/user/en/api/full-text-search) for more information.
- - **disable-user**: Disable specified user on the site.
- - **drop-site**: Drop a particular site from the existing bench.
- - **install-app**: Install a particular Frappe Application to the site.
- - **list-apps**: List all the Frappe Applications installed on the specified
-   site.
- - **migrate**: Run patches, sync schema and rebuild files, translations and
-   indexes on a particular site.
- - **migrate-to**: Command to migrate your local site to a Frappe Hosting
-   Provider's service.
- - **new-site**: Create a new site on the bench.
- - **ngrok**: Create a temporary URL and share it with anyone, and they can
-   access your local site in their browser. Primarily built for aiding with the
-   development of third party services.
- - **publish-realtime**: Publish realtime event from bench.
- - **reinstall**: Re-install all installed Applications from your specified
-   site. This completely resets the site.
- - **reload-doc**: Reload schema for a particular *Doctype* and refresh the
-   specified *Document*
- - **reload-doctype**: Reload schema for a particular *DocType*
- - **remove-from-installed-apps**: Removes the mentioned site from the site
-   gloabl value of `installed_applications`.
- - **restore**: Restores the specified site with the specified restore files.
-   The least requirement for performing a restore operation is the database
-   file.
- - **run-patch**: Run a particular patch via the Frappe Patch Handler.
- - **set-admin-password**: Set the password for the Administrator user.
- - **set-last-active-for-user**: Set users last active date to current datetime.
- - **start-recording**: Starts the Frappe Recorder for the specified sites.
- - **stop-recording**: Terminates the Frappe Recorder for the specified sites.
- - **uninstall-app**: Uninstalls a particular Frappe Application from the site.
- - **use**: Sets the default site on the bench. Adds the site entry to the
-   `currentsite.txt`.
 
 ### Frappe Utility Commands
+
+Frappe Utility commands that can be both, site or bench specific. These commands
+are defined under the module `frappe.commands.utils`.
 
  - **add-to-email-queue**: Add an email to the Email Queue.
  - **build**: Builds assets for the Frappe Applications installed on bench.
@@ -161,7 +192,11 @@ backup](/docs/user/en/bench/reference/backup) reference.
  - **version**: Show versions of all Applications installed on bench.
  - **watch**: Watch and concatenate JS and CSS files as and when they change.
 
+
 ### Translation Commands
+
+Set of commands to manage translations for your multi-lingual deployments. These
+commands are defined under the module `frappe.commands.translate`.
 
  - **build-message-files**: Build message files for translation.
  - **get-untranslated**: Get untranslated strings for language.
