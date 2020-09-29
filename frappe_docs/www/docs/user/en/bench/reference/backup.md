@@ -15,12 +15,15 @@ that site.
 
 ## Options
 
-  - `--with-files` Take backup with private and public files
   - `--backup-path` Set path for saving all the files in this operation
   - `--backup-path-db` Set path for saving database file
   - `--backup-path-conf` Set path for saving config file
   - `--backup-path-files` Set path for saving public file
   - `--backup-path-private-files` Set path for saving private file
+
+## Flags
+
+  - `--with-files` Take backup with private and public files
   - `--compress` Compress private and public files
   - `--verbose` Add verbosity
 

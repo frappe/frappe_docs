@@ -1,6 +1,8 @@
 <!-- add-breadcrumbs -->
 # Setting Limits for your Site
 
+> Note: This feature has been deprecated since Version 12
+
 Frappe v7 has added support for setting limits and restrictions for your site.
 These restrictions are set in the `site_config.json` file inside the site's folder.
 

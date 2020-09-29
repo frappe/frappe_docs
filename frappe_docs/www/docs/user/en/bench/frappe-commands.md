@@ -23,6 +23,19 @@ the `--site` option along with the site name (or "all") if you wish to run the
 operation *(if possible)* for all sites on the bench. These commands are defined
 under the module `frappe.commands.site`.
 
+#### Site Creation
+
+Create a new Site on your bench. By default, all sites created on your bench
+will have only the Frappe Framework installed on them.
+
+```bash
+bench new-site {site}
+```
+
+For more information and examples, see the [bench
+new-site](/docs/user/en/bench/reference/new-site) reference.
+
+
 #### Site Backups
 
 You can use the Bench CLI to take backups on the sites of your bench. You can
@@ -56,7 +69,9 @@ of `sql` extension.
 For more information and examples, see the [bench
 restore](/docs/user/en/bench/reference/restore) reference.
 
-#### Application Installations
+#### Site App Management
+
+##### App Installation
 
 The easiest way to install a Frappe Application on your site is through the
 Bench CLI. However, the application must be installed on your bench prior to
@@ -69,7 +84,7 @@ bench --site {site} install-app {app}
 In this operation, Application `meta`, `modules` and `doctypes` of the specified
 site are installed on the specified site.
 
-#### Application Uninstallations
+##### App Uninstallation
 
 Uninstall an app installed on site. This is a destructive action and consists of
 removing all app-related data from the site. Hence, a backup is taken before
@@ -85,30 +100,50 @@ bench --site {site} uninstall-app {app}
 For more information and examples, see the [bench
 uninstall-app](/docs/user/en/bench/reference/uninstall-app) reference.
 
-#### Other Utils
+#### Site Migrations
+
+Run patches, sync schema and rebuild files, translations and indexes on a
+particular site.
+
+```bash
+bench --site {site} migrate
+```
+
+For more information and examples, see the [bench
+migrate](/docs/user/en/bench/reference/migrate) reference.
+
+
+#### Site Deletion
+
+Drop a particular site from the existing bench.
+
+#### Resetting Site Data
+
+Re-install all installed Applications from your specified site. This completely
+resets the site.
+
+
+
+#### Site Operations
 
  - **add-system-manager**: Add a new system manager to a site.
+ - **disable-user**: Disable user on site.
+
  - **add-to-hosts**: Add the specified site to the hosts file on your system.
- - **migrate**: Run patches, sync schema and rebuild files, translations and
-   indexes on a particular site.
- - **migrate-to**: Command to migrate your local site to a Frappe Hosting
-   Provider's service.
- - **new-site**: Create a new site on the bench.
+ - **use**: Sets the default site on the bench. Adds the site entry to the
+   `currentsite.txt`.
  - **ngrok**: Create a temporary URL and share it with anyone, and they can
    access your local site in their browser. Primarily built for aiding with the
    development of third party services.
- - **use**: Sets the default site on the bench. Adds the site entry to the
-   `currentsite.txt`.
- - **reinstall**: Re-install all installed Applications from your specified
-   site. This completely resets the site.
- - **drop-site**: Drop a particular site from the existing bench.
 
+ - **migrate-to**: Command to migrate your local site to a Frappe Hosting
+   Provider's service.
  - **browse**: Opens the specified site on the browser if available.
- - **build-search-index**: Builds search index for Websites. Refer to [Full Text
-   Search API Docs](/docs/user/en/api/full-text-search) for more information.
- - **disable-user**: Disable specified user on the site.
  - **list-apps**: List all the Frappe Applications installed on the specified
    site.
+
+ - **build-search-index**: Builds search index for Websites. Refer to [Full Text
+   Search API Docs](/docs/user/en/api/full-text-search) for more information.
  - **publish-realtime**: Publish realtime event from bench.
  - **reload-doc**: Reload schema for a particular *Doctype* and refresh the
    specified *Document*
