@@ -69,6 +69,7 @@ website_redirects = [
 	{'source': '/docs/user/en/users-and-permissions', 'target': '/docs/user/en/basics/users-and-permissions' },
 	{'source': '/docs/user/en/what-is-frappe', 'target': '/docs/user/en/basics/what-is-frappe' },
 	{'source': '/docs/user/en/why', 'target': '/docs/user/en/basics/why' },
+	{'source': '/docs/user/en/guides/basics/hooks', 'target': '/docs/user/en/python-api/hooks' },
 ]
 
 # Generators
