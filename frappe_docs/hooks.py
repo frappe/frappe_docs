@@ -58,6 +58,7 @@ base_template_map = {
 update_website_context = ["frappe_docs.website_context.get_context"]
 
 website_redirects = [
+	{'source': '/docs/user/en', 'target': '/docs/user/en/basics/what-is-frappe' },
 	{'source': '/docs/user/en/report', 'target': '/docs/user/en/desk/report' },
 	{'source': '/docs/user/en/printing', 'target': '/docs/user/en/desk/printing' },
 	{'source': '/docs/user/en/apps', 'target': '/docs/user/en/desk/basics/apps' },
