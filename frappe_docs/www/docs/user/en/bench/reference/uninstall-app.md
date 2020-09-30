@@ -24,24 +24,24 @@ the bench to run the `uninstall-app` command.
    site.
 
    ```bash
-      bench --site {site} uninstall-app {app} --dry-run
+   bench --site {site} uninstall-app {app} --dry-run
    ```
 
 1. Don't take a backup before the application uninstall operation.
 
    ```bash
-      bench --site {site} uninstall-app {app} --no-backup
+   bench --site {site} uninstall-app {app} --no-backup
    ```
 
 1. Use force to uninstall application from site.
 
    ```bash
-      bench --site {site} uninstall-app {app} --force
+   bench --site {site} uninstall-app {app} --force
    ```
 
 2. Skip the interactive prompt for confirmation of uninstall.
 
    ```bash
-      bench --site {site} uninstall-app {app} --yes
+   bench --site {site} uninstall-app {app} --yes
    ```
 

@@ -33,33 +33,35 @@ that site.
 1. Backing up with the site's private and public files.
 
    ```bash
-      bench --site {site} backup --with-files
+   bench --site {site} backup --with-files
    ```
 
 1. Compress the public and private files (if required). This saves the file
    under a `tgz` format instead of the default `tar` format.
 
    ```bash
-      bench --site {site} backup --with-files --compress
+   bench --site {site} backup --with-files --compress
    ```
 
 1. Change the path where the files backed up will be saved.
 
     ```bash
-      bench --site {site} backup --backup-path {backup_path}
+   bench --site {site} backup --backup-path {backup_path}
     ```
 
 1. Change the path for a specific backup file. For each unspecified option, the
    respective file will be saved in the default location.
 
    ```bash
-      bench --site {site} backup --with-files --backup-path-db {db_path}
-      --backup-path-files {files_path} --backup-path-private-files {private_path}
+   bench --site {site} backup --with-files
       --backup-path-conf {conf_path}
+      --backup-path-db {db_path}
+      --backup-path-files {files_path}
+      --backup-path-private-files {private_path}
    ```
 
 4. Add verbosity for the various stages managed internally via the Bench CLI.
 
     ```bash
-      bench --site {site} backup --verbose
+   bench --site {site} backup --verbose
     ```

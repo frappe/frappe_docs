@@ -71,6 +71,10 @@ restore](/docs/user/en/bench/reference/restore) reference.
 
 #### Site App Management
 
+You can install or uninstall Frappe Applications available on your Bench. To add
+Apps to your bench using `bench get-app` checkout [the
+docs](/docs/user/en/bench/bench-commands#the-usual-commands).
+
 ##### App Installation
 
 The easiest way to install a Frappe Application on your site is through the
@@ -114,12 +118,27 @@ migrate](/docs/user/en/bench/reference/migrate) reference.
 
 #### Site Deletion
 
-Drop a particular site from the existing bench.
+Drops the database and moves the site directory from `./sites` to the
+`./archived_sites` *(unless specified otherwise)* folder on your Bench.
+
+```bash
+bench drop-site {site}
+```
+
+For more information and examples, see the [bench
+drop-site](/docs/user/en/bench/reference/drop-site) reference.
 
 #### Resetting Site Data
 
 Re-install all installed Applications from your specified site. This completely
 resets the site.
+
+```bash
+bench reinstall {site}
+```
+
+For more information and examples, see the [bench
+reinstall](/docs/user/en/bench/reference/reinstall) reference.
 
 
 #### Site Operations

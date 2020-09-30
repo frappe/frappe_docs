@@ -31,20 +31,20 @@ file and updates the App Versions in the "Installed Applications" DocType.
 1. Run migrations on an existing site.
 
    ```bash
-       bench --site {site} migrate
+    bench --site {site} migrate
    ```
 
 1. Run migrations skipping rebuilding search index for web documents
 
    ```bash
-       bench --site {site} migrate --skip-search-index
+    bench --site {site} migrate --skip-search-index
    ```
 
 2. Run migrations skipping any failing patches.
 
 
    ```bash
-       bench --site {site} migrate --skip-failing
+    bench --site {site} migrate --skip-failing
    ```
 
 > Note: Skipping failing patches is not recommended for production use

@@ -28,12 +28,20 @@
 				"route": "/docs/user/en/bench/reference/new-site"
 			},
 			{
+				"title": "drop-site",
+				"route": "/docs/user/en/bench/reference/drop-site"
+			},
+			{
 				"title": "migrate",
 				"route": "/docs/user/en/bench/reference/migrate"
 			},
 			{
 				"title": "backup",
 				"route": "/docs/user/en/bench/reference/backup"
+			},
+			{
+				"title": "reinstall",
+				"route": "/docs/user/en/bench/reference/reinstall"
 			},
 			{
 				"title": "uninstall-app",
