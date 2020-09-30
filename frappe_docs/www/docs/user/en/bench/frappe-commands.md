@@ -185,7 +185,6 @@ just in case.
 Commands to manage and review the scheduler and background jobs' statuses for
 the sites on your bench. Defined under module `frappe.commands.schedule`.
 
-
  - **disable-scheduler**: Disable scheduler for specified sites.
  - **doctor**: Get diagnostic info about the status of the scheduler for all
    sites (if unspecified) and active workers on bench.
