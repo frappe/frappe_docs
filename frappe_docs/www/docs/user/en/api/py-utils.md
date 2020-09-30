@@ -15,10 +15,17 @@ metatags:
 
 Maps the source document to the target document.
 ```py
-# map values from the current Dunning document to a new Sales Invoice document
-get_mapped_doc("Sales Invoice", source_name,	{
-		"Sales Invoice": {
-			"doctype": "Dunning",
+# map values from the Movie document to a new Movie Review document
+doc = get_mapped_doc(
+	"Movie",
+	source_name,
+	{
+		"Movie": {
+			"doctype": "Movie Review"
 		}
-	}, target_doc, set_missing_values)
+	},
+	target_doc
+)
+# doc.movie_name: Star Wars Jedi
+# doc.lead_character: Cal Kestis
 ```

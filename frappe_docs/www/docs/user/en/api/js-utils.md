@@ -88,14 +88,19 @@ frappe.require(['/assets/frappe/chat.js', '/assets/frappe/chat.css'], () => {
 Load the mapped document returned by the method in a new document.
 
 ```js
-// open a new dunning document using the sales invoice data
-create_dunning: function(frm) {
+// open a new Movie Review document form using the Movie Review document
+create_movie_review: function(frm) {
 	frappe.model.open_mapped_doc({
-		method: "erpnext.accounts.doctype.sales_invoice.sales_invoice.create_dunning",
+		// Set a whitelisted method that will return a Movie Review document
+		method: "frappe.automation.doctype.movie.movie.make_movie_review",
+		// Set the form
 		frm: frm
-	});
+	})
 }
 ```
+
+![frappe.model.open\_mapped\_doc](/docs/assets/img/api/js-utils-open-mapped-doc.gif)
+*frappe.model.open\_mapped\_doc*
 
 ## frappe.model.sync
 `frappe.model.sync(r)`
@@ -103,6 +108,22 @@ create_dunning: function(frm) {
 Extract docs, docinfo (attachments, comments, assignments) from incoming request and set in `locals` and `frappe.model.docinfo`
 
 ```js
-// Extract docs, docinfo (attachments, comments, assignments) from r.message and set in `locals` and `frappe.model.docinfo`
-var doc = frappe.model.sync(r.message);
+//A whitelisted function that will return a movie_review document
+let method = "frappe.automation.doctype.movie.movie.get_movie_review";
+return frappe.call({
+	method: method,
+	args: {
+		// set the current doctype - Movie
+		"dt": frm.doc.doctype,
+		//set the current document name
+		"dn": frm.doc.name
+	},
+	callback: function (r) {
+		let doclist = frappe.model.sync(r.message);
+		// set the doctype and the document name returned by the frappe.model.sync to route
+		frappe.set_route("Form", doclist[0].doctype, doclist[0].name);
+	}
+});
+// doclist[0].doctype: Movie Review
+// doclist[0].name: New Movie Review 1
 ```
