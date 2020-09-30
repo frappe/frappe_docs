@@ -128,7 +128,7 @@ bench drop-site {site}
 For more information and examples, see the [bench
 drop-site](/docs/user/en/bench/reference/drop-site) reference.
 
-#### Resetting Site Data
+#### Reset Site Data
 
 Re-install all installed Applications from your specified site. This completely
 resets the site.
@@ -140,38 +140,44 @@ bench reinstall {site}
 For more information and examples, see the [bench
 reinstall](/docs/user/en/bench/reference/reinstall) reference.
 
+#### List Installed Apps
 
-#### Site Operations
+List all the Frappe Applications installed on the specified site.
+
+```bash
+bench --site {site} list-apps
+```
+
+#### Site Operations, Debugging & Development
+
+Here are some operations you can perform on your site via the Bench CLI to
+update your site state. You may never have to use some of these, but they exist
+just in case.
 
  - **add-system-manager**: Add a new system manager to a site.
- - **disable-user**: Disable user on site.
-
  - **add-to-hosts**: Add the specified site to the hosts file on your system.
- - **use**: Sets the default site on the bench. Adds the site entry to the
-   `currentsite.txt`.
- - **ngrok**: Create a temporary URL and share it with anyone, and they can
-   access your local site in their browser. Primarily built for aiding with the
-   development of third party services.
-
- - **migrate-to**: Command to migrate your local site to a Frappe Hosting
-   Provider's service.
  - **browse**: Opens the specified site on the browser if available.
- - **list-apps**: List all the Frappe Applications installed on the specified
-   site.
-
  - **build-search-index**: Builds search index for Websites. Refer to [Full Text
    Search API Docs](/docs/user/en/api/full-text-search) for more information.
+ - **disable-user**: Disable user on site.
  - **publish-realtime**: Publish realtime event from bench.
  - **reload-doc**: Reload schema for a particular *Doctype* and refresh the
    specified *Document*
  - **reload-doctype**: Reload schema for a particular *DocType*
- - **remove-from-installed-apps**: Removes the mentioned site from the site
+ - **remove-from-installed-apps**: Removes the mentioned app from the site
    gloabl value of `installed_applications`.
  - **run-patch**: Run a particular patch via the Frappe Patch Handler.
+ - **migrate-to**: Command to migrate your local site to a Frappe Hosting
+   Provider's service.
+ - **ngrok**: Create a temporary URL and share it with anyone, and they can
+   access your local site in their browser. Primarily built for aiding with the
+   development of third party services.
  - **set-admin-password**: Set the password for the Administrator user.
  - **set-last-active-for-user**: Set users last active date to current datetime.
  - **start-recording**: Starts the Frappe Recorder for the specified sites.
  - **stop-recording**: Terminates the Frappe Recorder for the specified sites.
+ - **use**: Sets the default site on the bench. Adds the site entry to the
+   `currentsite.txt`.
 
 
 ### Scheduler Commands
