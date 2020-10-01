@@ -111,10 +111,10 @@ It will also rebuild files as they change.
 Job Scheduler using Python RQ.
 
 #### `worker_short:`
-Python worker with a (short) timeout of 300ms.
+Python worker with a (short) timeout of 300s.
 
 #### `worker_long:`
-Python worker with a (long) timeout of 1500ms.
+Python worker with a (long) timeout of 1500s.
 
 #### `worker_default:`
-Python worker with a timeout of 300ms.
+Python worker with a timeout of 300s.
