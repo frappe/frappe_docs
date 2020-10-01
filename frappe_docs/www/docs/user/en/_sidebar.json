@@ -53,8 +53,9 @@
 				"title": "Users and Permission",
 				"route": "/docs/user/en/users-and-permissions"
 			},
-			{ "title": "Reports", "route": "/docs/user/en/reports" },
-			{ "title": "Printing", "route": "/docs/user/en/printing" },
+			{ "title": "Reports", "route": "/docs/user/en/desk/reports" },
+			{ "title": "Printing", "route": "/docs/user/en/desk/printing" },
+			{ "title": "Scripting", "route": "/docs/user/en/desk/scripting" },
 			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
 			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" },
 			{ "title": "Translations", "route": "/docs/user/en/translations" }

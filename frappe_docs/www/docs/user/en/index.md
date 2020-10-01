@@ -27,6 +27,12 @@ It is pretty generic and can be used to build database driven apps.
 1. [Sites](/docs/user/en/sites)
 1. [Understanding Doctypes](/docs/user/en/understanding-doctypes)
 
+### Bench CLI
+1. [How it works?](/docs/user/en/bench)
+1. [Bench Commands](/docs/user/en/bench/bench-commands)
+1. [Frappe Commands](/docs/user/en/bench/frappe-commands)
+1. [Extending the CLI](/docs/user/en/bench/extending-the-cli)
+
 ### Desk (Admin UI)
 
 1. [Desk](/docs/user/en/desk)
