@@ -318,6 +318,139 @@ def context_404(context):
 	context.my_key = 'my_value'
 ```
 
+## Website Clear Cache
+
+Frappe Framework caches a lot of static web pages for fast subsequent rendering.
+If you have created web pages that use cached values, and you want to invalidate
+the cache, this hook is place to do it.
+
+**app/hooks.py**
+
+```py
+website_clear_cache = 'app.overrides.clear_website_cache'
+```
+
+The method is called with one argument `path`. `path` is set when cache is being
+cleared for one route, and is `None` when cache is cleared for all routes. You
+need to handle this case if your cache is page specific.
+
+**app/overrides.py**
+```py
+def clear_website_cache(path=None):
+	if path:
+		# clear page related cache
+	else:
+		# clear all cache
+```
+
+## Website Redirects
+
+Website Redirects allow you to define redirects from one route to another.
+Frappe will generate a 304 Redirect response when the source URL is requested
+and redirect to the target URL. You can redirect plain URLs or you can use regex
+to match your URLs.
+
+**app/hooks.py**
+```py
+website_redirects = [
+	{"source": "/compare", "target": "/comparison"},
+	{"source": "/docs(/.*)?", "target": "https://docs.tennismart.com/\1"},
+]
+```
+
+The above configuration will result in following redirects:
+
+- `/compare` to `/comparison`
+- `/docs/getting-started` to `https://docs.tennismart.com/getting-started`
+- `/docs/help` to `https://docs.tennismart.com/help`
+
+## Website Route Rules
+
+Website Route Rules allow you to map URLs to custom controllers. This is
+commonly used to generate clean URLs for pages.
+
+Let's say you want to have `/projects` route to display list of projects. This
+can be done by creating a `projects.html` and `projects.py` in `www` folder.
+
+You also want to have `/project/<name>` route to show a project page where name
+is the dynamic. To do this you can use the `website_route_rules` hook.
+
+**app/hooks.py**
+```py
+website_route_rules = [
+	{"from_route": "/projects/<name>", "to_route": "app/projects/project"},
+]
+```
+
+Now, you can create your controller files in `app/projects` folder.
+
+**app/projects/project.py**
+```py
+def get_context(context):
+	project_name = frappe.form_dict.name
+	project = frappe.get_doc('Project', project_name)
+	context.project = project
+```
+
+**app/projects/project.html**
+{% raw %}
+```html
+<h1>{{ project.title }}</h1>
+<p>{{ project.description }}</p>
+```
+{% endraw %}
+
+## Default Homepage
+
+Homepage is the page which is rendered when you visit the root URL (`/`) of your
+site. There are multiple ways to configure what page is rendered as the default
+homepage.
+
+By default, the homepage is `index`. So, frappe will try to render `index.html`
+from `www` folder. This can be overridden using the `homepage` hook.
+
+**app/hooks.py**
+```py
+homepage = "homepage"
+```
+
+The above configuration will load the `www/homepage.html` as the default
+homepage.
+
+You can also have role based homepage by using the `role_home_page` hook.
+
+**app/hooks.py**
+```py
+role_home_page = {
+	"Customer": "orders",
+	"Supplier": "bills"
+}
+```
+
+The above configuration will make `/orders` the default homepage for users with
+the **Customer** role and `/bills` for users with the **Supplier** role.
+
+You can have even more control over the logic by using the
+`get_website_user_home_page` hook.
+
+**app/hooks.py**
+```py
+get_website_user_home_page = "app.website.get_home_page"
+```
+
+**app/website.py**
+```py
+def get_home_page(user):
+	if is_projects_user(user):
+		return 'projects'
+	if is_partner(user):
+		return 'partner-dashboard'
+	return 'index'
+```
+
+> If all of these hooks are defined, the `get_website_user_home_page` will have
+> higher priority over the others, and `role_home_page` will have higher
+> priority over `homepage`.
 
 ## Brand HTML
 
@@ -488,30 +621,7 @@ fixtures = [
 ]
 ```
 
-## Website Clear Cache
 
-Frappe Framework caches a lot of static web pages for fast subsequent rendering.
-If you have created web pages that use cached values, and you want to invalidate
-the cache, this hook is place to do it.
-
-**app/hooks.py**
-
-```py
-website_clear_cache = 'app.overrides.clear_website_cache'
-```
-
-The method is called with one argument `path`. `path` is set when cache is being
-cleared for one route, and is `None` when cache is cleared for all routes. You
-need to handle this case if your cache is page specific.
-
-**app/overrides.py**
-```py
-def clear_website_cache(path=None):
-	if path:
-		# clear page related cache
-	else:
-		# clear all cache
-```
 
 ## Document Hooks
 
@@ -908,10 +1018,10 @@ The above configuration has three parts:
 | `fixtures`                               | [Fixtures](#fixtures)                                                       |
 | `get_site_info`                          | ??                                                                          |
 | `get_translated_dict`                    |                                                                             |
-| `get_website_user_home_page`             |                                                                             |
+| `get_website_user_home_page`             | [Default Homepage](#default-homepage)                                       |
 | `has_permission`                         | [Document Permissions](#document-permissions)                               |
 | `has_website_permission`                 |                                                                             |
-| `home_page`                              |                                                                             |
+| `home_page`                              | [Default Homepage](#default-homepage)                                       |
 | `jenv`                                   | [Jinja Customization](#jinja-customization)                                 |
 | `leaderboards`                           |                                                                             |
 | `look_for_sidebar_json`                  |                                                                             |
@@ -926,7 +1036,7 @@ The above configuration has three parts:
 | `permission_query_conditions`            | [Modify List Query](#modify-list-query)                                     |
 | `portal_menu_items`                      |                                                                             |
 | `required_apps`                          |                                                                             |
-| `role_home_page`                         |                                                                             |
+| `role_home_page`                         | [Default Homepage](#default-homepage)                                       |
 | `scheduler_events`                       | [Scheduler Events](#scheduler-events)                                       |
 | `setup_wizard_complete`                  |                                                                             |
 | `setup_wizard_exception`                 |                                                                             |
@@ -947,10 +1057,10 @@ The above configuration has three parts:
 | `website_catch_all`                      |                                                                             |
 | `website_clear_cache`                    | [Website Clear Cache](#website-clear-cache)                                 |
 | `website_context`                        | [Website Context](#website-context)                                         |
-| `website_generators`                     |                                                                             |
-| `website_redirects`                      |                                                                             |
-| `website_route_rules`                    |                                                                             |
-| `website_user_home_page`                 |                                                                             |
+| `website_generators`                     | _Deprecated_ (Use Has Web View in DocType instead)                          |
+| `website_redirects`                      | [Website Redirects](#website-redirects)                                     |
+| `website_route_rules`                    | [Website Route Rules](#website-route-rules)                                 |
+| `website_user_home_page`                 | _Deprecated_ (Use `homepage` hook)                                          |
 | `welcome_email`                          |                                                                             |
 | `write_file_keys`                        | _Deprecated_                                                                |
 | `write_file`                             | [File Hooks](#file-hooks)                                                   |
