@@ -11,6 +11,51 @@ metatags:
 Hooks allow you to "hook" into functionality and events of core parts of the
 Frappe Framework. This page documents all of the hooks provided by the framework.
 
+
+## How does hooks work?
+
+Hooks are places in the core code that allow an app to override the standard
+implementation or extend it. Hooks are defined in **hooks.py** of your app.
+
+Let's learn by example. Add the following hooks in your app's **hooks.py**.
+
+```py
+test_string = 'value'
+test_list = ['value']
+test_dict = {
+	'key': 'value'
+}
+```
+
+Now, open the python console by running the command `bench --site sitename
+console` and run the following lines:
+
+```sh
+❯ bench --site sitename console
+Apps in this namespace:
+frappe, frappe_docs
+
+In [1]: frappe.get_hooks('test_string')
+Out[1]: ['value']
+
+In [2]: frappe.get_hooks('test_dict')
+Out[2]: {'key': ['value']}
+
+In [3]: frappe.get_hooks('test_list')
+Out[3]: ['value']
+```
+
+When you call `frappe.get_hooks`, it will convert all the values in a list. This
+means that if the hook is defined in multiple apps, the values will be collected
+from those apps. This is what enables the cascading nature of hooks.
+
+Now, the hook value can be consumed in different ways. For example, for
+including JS assets using `app_include_js`, all of the values are included. But
+for overriding whitelisted method, the last value in the list is used.
+
+So the implementation of the hook is totally dependent on how the author of the
+feature intended it to be used.
+
 ## App Meta Data
 
 These are automatically generated when you create a new app. Most of the time you
