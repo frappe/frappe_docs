@@ -11,6 +11,7 @@ metatags:
 Hooks allow you to "hook" into functionality and events of core parts of the
 Frappe Framework. This page documents all of the hooks provided by the framework.
 
+> Jump to list of all [available hooks](#list-of-available-hooks) in Frappe.
 
 ## How does hooks work?
 
@@ -132,7 +133,7 @@ following line in your hooks file.
 page_js = {"background_jobs": "public/js/custom_background_jobs.js"}
 ```
 
-## Install Events
+## Install Hooks
 
 These hooks allow you to run code before and after installation of your app. For
 example, [ERPNext](https://github.com/frappe/erpnext) has these
@@ -142,16 +143,93 @@ example, [ERPNext](https://github.com/frappe/erpnext) has these
 # python module path
 before_install = "app.setup.install.before_install"
 after_install = "app.setup.install.after_install"
+after_sync = 'app.setup.install.after_sync"
 ```
 
 **app/setup/install.py**
 ```py
+# will run before app is installed on site
+def before_install():
+	pass
+
+# will run after app is installed on site
 def after_install():
-	# run code after app installation
+	pass
+
+# will run after app fixtures are synced
+def after_sync():
 	pass
 ```
 
-## Boot Session
+## Migrate Hooks
+
+These hooks allow you to run code before and after a  migration is run on your
+site via the command `bench --site sitename migrate`.
+
+**app/hooks.py**
+```py
+before_migrate = "app.migrate.before_migrate"
+after_migrate = "app.migrate.after_migrate"
+```
+
+**app/migrate.py**
+```py
+def after_migrate():
+	# run code after site migration
+	pass
+```
+
+## Test Hooks
+
+This hook allows you to run code before tests are run on a site. You can use
+this hook to add seed data to your database which will be available to your
+tests.
+
+**app/hooks.py**
+```py
+before_tests = "app.tests.before_tests"
+```
+
+**app/migrate.py**
+```py
+def before_tests():
+	# add seed data to the database
+	pass
+```
+
+## File Hooks
+
+These hooks allows you to change the implementation of handling user uploaded
+files.
+
+**app/hooks.py**
+```py
+before_write_file = "app.overrides.file.before_write"
+write_file = "app.overrides.file.write_file"
+delete_file_data_content = "app.overrides.file.delete_file"
+```
+
+**app/overrides/file.py**
+```py
+# will run before file is written to disk
+def before_write():
+	pass
+
+# will override the implementation of writing file to disk
+# can be used to upload files to a CDN instead of writing
+# the file to disk
+def write_file():
+	pass
+
+
+# will override the implementation of deleting file from disk
+# can be used to delete uploaded files from a CDN instead of
+# deleting file from disk
+def delete_file():
+	pass
+```
+
+## Extend Bootinfo
 
 After a successful login, the Desk is injected with a dictionary of global
 values called `bootinfo`. The `bootinfo` is available as a global object in
@@ -165,12 +243,12 @@ The `bootinfo` dict contains a lot of values including:
 - User settings
 - Language and timezone info
 
-You can add global values that makes sense for your app via the `boot_session`
+You can add global values that makes sense for your app via the `extend_bootinfo`
 hook.
 
 ```py
 # python module path
-boot_session = "app.boot.boot_session"
+extend_bootinfo = "app.boot.boot_session"
 ```
 
 The method is called with one argument `bootinfo`, on which you can directly
@@ -192,17 +270,24 @@ console.log(frappe.boot.my_global_key)
 
 When a Portal Page is rendered, a dictionary is built with all of the possible
 variables that the page might need to render. This dict is also known as
-`context`. To add or modify values in this dict, you can use the
-`update_website_context` hook.
+`context`. You can use these hooks to add or modify values in this dict.
 
 **app/hooks.py**
 ```py
+website_context = {
+	"favicon": "/assets/app/image/favicon.png"
+}
 update_website_context = 'app.overrides.website_context`
 ```
 
-The method is called with one argument, which is the `context` dict. You can
-either modify the context directly by mutating it or return a dict that will be
-merged with `context`.
+The `website_context` hook is a simple dict of key value pairs. Use this hook
+for simple value overrides.
+
+You can use the `update_website_context` hook for more complex scenarios as it
+allows you to manipulate the context dict in a python method. The method is
+called with one argument, which is the `context` dict. You can either modify the
+context directly by mutating it or return a dict that will be merged with
+`context`.
 
 **app/overrides.py**
 ```py
@@ -210,24 +295,197 @@ def website_context(context):
 	context.my_key = 'my_value'
 ```
 
-## Session Creation
+## Website Controller Context
 
-When a User logs in to the site successfully, a session creation hook is
-triggered. You can respond to this event by using the `on_session_creation` hook.
+Frappe ships with standard web pages like `/404` and `/about`. If you want to
+extend the controller context for these pages you can use the
+`extend_website_page_controller_context` hook.
+
+**app/hooks.py**
+```py
+extend_website_page_controller_context = {
+	'frappe.www.404': 'app.pages.context_404`
+}
+```
+
+The above hook configuration will allow you to extend the context of the 404
+page so that you can add your own keys or modify existing ones.
+
+**app/pages.py**
+```py
+def context_404(context):
+	# context of the 404 page
+	context.my_key = 'my_value'
+```
+
+
+## Brand HTML
+
+This hook allows you to customize the brand logo in the navbar of your website.
+
+**app/hooks.py**
+```py
+brand_html = '<div><img src="tennismart.png"> TennisMart</div>'
+```
+
+If the `brand_html` is defined, it will override the default brand html in the
+navbar. It is not recommended to use hooks to change your brand logo, unless you
+want to version control it, otherwise you can use Website Settings to change it.
+
+## Base Template
+
+When a web page is rendered, it extends `templates/base.html` by default. You
+can override the base template by overriding the `base_template` hook.
+
+**app/hooks.py**
+```py
+base_template = 'app/templates/my_custom_base.html`
+```
+
+You can also customize base templates based on routes. For e.g., if you want to
+use a different base template for all the routes that start with `docs/*` then
+you can use the `base_template_map` hook. The key must be a regex that matches
+the route. All other routes will fallback to the default base template.
+
+**app/hooks.py**
+```py
+base_template_map = {
+	r"docs.*": "app/templates/doc_template.html"
+}
+```
+
+## Integrations
+
+These hooks allow you to customize behaviour of 3rd-party integrations in
+Frappe.
+
+### Braintree Success Page
+
+This hook allows you to override the default redirect URL on successful payment
+of Braintree transaction.
+
+**app/hooks.py**
+```py
+braintree_success_page = "app.integrations.braintree_success_page"
+```
+
+The method is called with one argument `data` which has the meta data of the
+payment.
+
+**app/integrations.py**
+```py
+def braintree_success_page(data):
+	# data.reference_doctype
+	# data.reference_docname
+	return '/thank-you'
+```
+
+## Calendars
+
+The calendar hook is a list of doctype names which are shown as menu items for
+quick navigation from the Calendar page in Desk.
+
+**app/hooks.py**
+```py
+calendars = ["Appointment"]
+```
+
+![Event Menu Shortcuts](/docs/assets/img/hooks-event-menu-shortcuts.png)
+
+## Clear Cache
+
+This hook allows you to clear your app specific cache values when the global
+cache is being cleared by frappe.
+
+**app/hooks.py**
+```py
+clear_cache = "app.cache.clear_cache"
+```
+
+You can use this hook to clear your app specific cache. The method is called
+without any arguments.
+
+**app/cache.py**
+```py
+def clear_cache():
+	frappe.cache().hdel('app_specific_cache')
+```
+
+## Default Mail Footer
+
+If you want to set the default footer of all the emails that are sent out by
+Frappe, you can use the `default_mail_footer` hook.
+
+**app/hooks.py**
+```py
+default_mail_footer = """
+	<div>
+		Sent via <a href="https://tennismart.com" target="_blank">TennisMart</a>
+	</div>
+"""
+```
+
+Now, all the emails will have **Sent via TennisMart** in the footer.
+
+## Session Hooks
+
+These hooks are triggered over the login lifecycle of a user. `on_login` is
+triggered immediately after a successful login, `on_session_creation` is
+triggered after the session is setup, `on_logout` is triggered after the user
+logs out.
 
 **app/hooks.py**
 
 ```py
+on_login = 'app.overrides.successful_login'
 on_session_creation = 'app.overrides.allocate_free_credits'
+on_logout = 'app.overrides.clear_user_cache'
 ```
 
-The method is called with one argument `login_manager`.
+The method will be called with one argument
+[`login_manager`](https://github.com/frappe/frappe/blob/develop/frappe/auth.py#L98).
 
 **app/overrides.py**
 ```py
 def allocate_free_credits(login_manager):
 	# allocate free credits to frappe.session.user
 	pass
+```
+
+## Fixtures
+
+Fixtures are database records that are synced using JSON files when you install
+and update your site.
+
+Let's say you want to create a set of categories in the database whenever you
+install your app. To do that, create the set of categories in your local site,
+and add the doctype name in the `fixtures` hook.
+
+```py
+fixtures = [
+	# export all records from the Category table
+	"Category"
+]
+```
+
+Now, run the following command:
+
+```sh
+bench --site sitename export-fixtures
+```
+
+This command will create a JSON file for each doctype which will contain the
+data to generate list of records. You can test this by creating a new site and
+by installing your app on that site.
+
+You can also add conditions for exporting records.
+```py
+fixtures = [
+	# export all records from the Category table
+	"Category",
+	# export only those records that match the filters from the Category table
+	{"dt": "Role", "filters": [["role_name", "like", "Admin%"]]},
+]
 ```
 
 ## Website Clear Cache
@@ -452,9 +710,10 @@ def todo_timeline(doctype, docname):
 	]
 ```
 
-## Scheduler Hooks
+## Scheduler Events
 
-You can use Scheduler Hooks for running tasks periodically in the background.
+You can use Scheduler Events for running tasks periodically in the background
+using the `scheduler_events` hook.
 
 **app/hooks.py**
 ```py
@@ -612,3 +871,86 @@ The above configuration has three parts:
 2. `for_module_doctypes` maps doctypes to module's unread count.
 3. `for_module` maps modules to functions to obtain its unread count. The
    functions are called without any argument.
+
+## List of available hooks
+
+| Hook Name                                | Explanation                                                                 |
+| ---------------------------------------- | --------------------------------------------------------------------------- |
+| `additional_timeline_content`            | [Form Timeline](#form-timeline)                                             |
+| `after_install`                          | [Install Hooks](#install-hooks)                                             |
+| `after_migrate`                          | [Migrate Hooks](#migrate-hooks)                                             |
+| `after_sync`                             | [Install Hooks](#install-hooks)                                             |
+| `app_include_css`                        | [Desk Assets](#desk)                                                        |
+| `app_include_js`                         | [Desk Assets](#desk)                                                        |
+| `app_logo_url`                           | [App Meta Data](#app-meta-data)                                             |
+| `app_title`                              | [App Meta Data](#app-meta-data)                                             |
+| `auto_cancel_exempted_doctypes`          | [Prevent Auto Cancellation](#prevent-auto-cancellation-of-linked-documents) |
+| `base_template_map`                      | [Base Template](#base-template)                                             |
+| `base_template`                          | [Base Template](#base-template)                                             |
+| `before_install`                         | [Install Hooks](#install-hooks)                                             |
+| `before_migrate`                         | [Migrate Hooks](#migrate-hooks)                                             |
+| `before_tests`                           | [Test Hooks](#test-hooks)                                                   |
+| `before_write_file`                      | [File Hooks](#file-hooks)                                                   |
+| `bot_parsers`                            | _Deprecated_                                                                |
+| `braintree_success_page`                 | [Braintree Success Page](#braintree-success-page)                           |
+| `brand_html`                             | [Brand HTML](#brand-html)                                                   |
+| `calendars`                              | [Calendars](#calendars)                                                     |
+| `clear_cache`                            | [Clear Cache](#clear-cache)                                                 |
+| `communication_doctypes`                 |                                                                             |
+| `default_mail_footer`                    | [Default Mail Footer](#default-mail-footer)                                 |
+| `delete_file_data_content`               | [File Hooks](#file-hooks)                                                   |
+| `doc_events`                             | [Document CRUD Events](#crud-events)                                        |
+| `domains`                                | ??                                                                          |
+| `dump_report_map`                        | _Deprecated_                                                                |
+| `extend_bootinfo`                        | [Extend Bootinfo](#extend-bootinfo)                                         |
+| `extend_website_page_controller_context` | [Website Controller Context](#website-controller-context)                   |
+| `filters_config`                         | ??                                                                          |
+| `fixtures`                               | [Fixtures](#fixtures)                                                       |
+| `get_site_info`                          | ??                                                                          |
+| `get_translated_dict`                    |                                                                             |
+| `get_website_user_home_page`             |                                                                             |
+| `has_permission`                         | [Document Permissions](#document-permissions)                               |
+| `has_website_permission`                 |                                                                             |
+| `home_page`                              |                                                                             |
+| `jenv`                                   | [Jinja Customization](#jinja-customization)                                 |
+| `leaderboards`                           |                                                                             |
+| `look_for_sidebar_json`                  |                                                                             |
+| `make_email_body_message`                |                                                                             |
+| `notification_config`                    | [Notification configuration](#notification-configurations)                  |
+| `on_login`                               | [Session Hooks](#session-hooks)                                             |
+| `on_logout`                              | [Session Hooks](#session-hooks)                                             |
+| `on_session_creation`                    | [Session Hooks](#session-hooks)                                             |
+| `override_doctype_class`                 | [Override DocType Class](#override-doctype-class)                           |
+| `override_doctype_dashboards`            |                                                                             |
+| `override_whitelisted_methods`           | [Override Whitelisted Methods](#override-whitelisted-methods)               |
+| `permission_query_conditions`            | [Modify List Query](#modify-list-query)                                     |
+| `portal_menu_items`                      |                                                                             |
+| `required_apps`                          |                                                                             |
+| `role_home_page`                         |                                                                             |
+| `scheduler_events`                       | [Scheduler Events](#scheduler-events)                                       |
+| `setup_wizard_complete`                  |                                                                             |
+| `setup_wizard_exception`                 |                                                                             |
+| `setup_wizard_requires`                  |                                                                             |
+| `setup_wizard_stages`                    |                                                                             |
+| `setup_wizard_success`                   |                                                                             |
+| `sounds`                                 |                                                                             |
+| `standard_portal_menu_items`             |                                                                             |
+| `standard_queries`                       |                                                                             |
+| `template_apps`                          |                                                                             |
+| `translated_languages_for_website`       |                                                                             |
+| `translator_url`                         |                                                                             |
+| `treeviews`                              |                                                                             |
+| `update_website_context`                 | [Website Context](#website-context)                                         |
+| `user_privacy_documents`                 |                                                                             |
+| `web_include_css`                        | [Portal Assets](#portal)                                                    |
+| `web_include_js`                         | [Portal Assets](#portal)                                                    |
+| `website_catch_all`                      |                                                                             |
+| `website_clear_cache`                    | [Website Clear Cache](#website-clear-cache)                                 |
+| `website_context`                        | [Website Context](#website-context)                                         |
+| `website_generators`                     |                                                                             |
+| `website_redirects`                      |                                                                             |
+| `website_route_rules`                    |                                                                             |
+| `website_user_home_page`                 |                                                                             |
+| `welcome_email`                          |                                                                             |
+| `write_file_keys`                        | _Deprecated_                                                                |
+| `write_file`                             | [File Hooks](#file-hooks)                                                   |
