@@ -15,46 +15,48 @@ Example:
 
 ### Mandatory Settings
 
+- `db_type`: Database Type. Optionas include "mariadb" and "postgres".
 - `db_name`: Database Name.
 - `db_password`: Database password.
 - `encryption_key`: encryption_key for stored non user passwords.
 
 ### Optional Settings
 
-- `root_login`
-- `rds_db`
-- `admin_password`
-- `http_port`
-- `db_host`
-- `db_type`
-- `socketio_port`
-
 - `admin_password`: Default Password for "Administrator".
-- `mute_emails`: Stops email sending if true.
 - `deny_multiple_logins`: Stop users from having more than one active session.
-- `error_report_email`: Set the default Error Report Email.
-- `root_password`: MariaDB root password.
-- `max_reports_per_user`: Maximum number of Auto Email Reports which can be created by a user, default is 3
-- `max_file_size`: Max file size allowed for uploads.
+- `deny_multiple_sessions`: Deny Multiple Sessions.
+- `disable_website_cache`: Disable Website Cache.
+- `disable_session_cache`: Disable Session Cache.
+- `disable_global_search`: Disable Global Search.
+- `disable_error_snapshot`: Disable Error Snapshot.
 - `encryption_key`: Key used to encrypt Passwords. This password is created automatically on a fresh site. Upon site restore, this key will have to be restored as well to be able to use existing passwords.
+- `error_report_email`: Set the default Error Report Email.
+- `ignore_csrf`: Ignore CSRF.
 - `host_name`: Host Name
-- `server_script_enabled`: Enable Server Script
-- `skip_setup_wizard`: Skip Setup Wizard
-- `disable_website_cache`: Disable Website Cache
-- `disable_session_cache`: Disable Session Cache
-- `disable_global_search`: Disable Global Search
-- `disable_error_snapshot`: Disable Error Snapshot
-- `ignore_csrf`: Ignore CSRF
-- `deny_multiple_sessions`: Deny Multiple Sessions
+- `http_port`: Change the HTTP port for your Frappe Setup.
+- `max_file_size`: Max file size allowed for uploads.
+- `max_reports_per_user`: Maximum number of Auto Email Reports which can be created by a user, default is 3.
+- `monitor`: If set, logs all requests and saves under `./logs/monitor.json.log`
+- `mute_emails`: Stops email sending if true.
+- `root_login`: Database root username.
+- `root_password`: Database root password.
+- `server_script_enabled`: Enable Server Script.
+- `skip_setup_wizard`: Skip Setup Wizard.
+- `socketio_port`: Specify Socket.IO.
+- `webserver_port`: Generally used as fallback for conf key `http_port`.
 
 ### Remote Database Host Settings
 - `db_host`: Database host if not `localhost`.
 
-To connect to a remote database server using ssl, you must first configure the database host to accept SSL connections. An example of how to do this is available at [this tutorial by Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-configure-ssl-tls-for-mysql-on-ubuntu-16-04). After you do the configuration, set the following three options. All options must be set for Frappe to attempt to connect using SSL.
+To connect to a remote database server using *SSL*, you must first configure the database host to accept SSL connections. An example of how to do this is available at [this tutorial by Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-configure-ssl-tls-for-mysql-on-ubuntu-16-04). After you do the configuration, set the following three options. All options must be set for Frappe to attempt to connect using SSL.
 
+- `db_port`: Specify port for your database.
 - `db_ssl_ca`: Full path to the ca.pem file used for connecting to a database host using ssl. Example value is `"/etc/mysql/ssl/ca.pem"`.
 - `db_ssl_cert`: Full path to the cert.pem file used for connecting to a database host using ssl. Example value is `"/etc/mysql/ssl/client-cert.pem"`.
 - `db_ssl_key`: Full path to the key.pem file used for connecting to a database host using ssl. Example value is `"/etc/mysql/ssl/client-key.pem"`.
+- `rds_db`: Grant certain privileges instead of all, while setting up a Site's database. Used in `db_manager.py`.
+
+
 
 ### Default Outgoing Email Settings
 
@@ -115,18 +117,13 @@ To connect to a remote database server using ssl, you must first configure the d
 - `disable_scheduler`: Disable Scheduler
 
 
-- `local_infile`: Load Data from local infile for mysql
+- `local_infile`: Set Flag to allow Data from local infile for MySQL connections.
 
-- `rate_limit`: Rate Limit
+- `rate_limit`: Specify Rate Limits using `frappe.rate_limiter`.
 - `data_import_batch_size`: Batch Size for Data Import
 
-- `keep_backups_for_hours`
-- `install_apps`
+- `keep_backups_for_hours`: Utilized in `frappe.utils.new_backup` to pass through `frappe.utils.delete_temp_backups`. Retains the backup files depending on their age in hours.
+- `install_apps`: Mention the list of apps to install at site `restore`, `reinstall` and on `new` creations.
 
 - `restart_supervisor_on_update`
 - `restart_systemd_on_update`
-
-- `webserver_port`
-- `db_port`
-- `monitor`
-- `db_ssl_key`
