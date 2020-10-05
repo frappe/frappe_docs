@@ -24,39 +24,44 @@
 		]
 	},
 	{
-		"group_title": "Desk Admin UI",
+		"group_title": "Desk (Admin UI)",
 		"group_items": [
 			{ "title": "Desk", "route": "/docs/user/en/desk" },
-			{ "title": "Reports", "route": "/docs/user/en/reports" },
-			{ "title": "Printing", "route": "/docs/user/en/printing" },
-			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
-			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" },
+			{ "title": "Reports", "route": "/docs/user/en/desk/reports" },
+			{ "title": "Printing", "route": "/docs/user/en/desk/printing" },
+			{ "title": "Scripting", "route": "/docs/user/en/desk/scripting" },
 			{ "title": "Translations", "route": "/docs/user/en/translations" }
 		]
 	},
 	{
-		"group_title": "Python API Reference",
+		"group_title": "Portal",
+		"group_items": [
+			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
+			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" }
+		]
+	},
+	{
+		"group_title": "Python API",
 		"group_items": [
 			{ "title": "Document", "route": "/docs/user/en/api/document" },
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
-			{ "title": "REST API", "route": "/docs/user/en/api/rest" }
+			{ "title": "Router", "route": "/docs/user/en/python-api/router" },
+			{ "title": "Search", "route": "/docs/user/en/python-api/search" },
+			{ "title": "Hooks", "route": "/docs/user/en/python-api/hooks" },
+			{ "title": "REST API", "route": "/docs/user/en/api/rest" },
+			{ "title": "Full Text Search", "route": "/docs/user/en/api/full-text-search" },
+			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" }
 		]
 	},
 	{
-		"group_title": "Javascript API Reference",
+		"group_title": "Javascript API",
 		"group_items": [
 			{ "title": "Form", "route": "/docs/user/en/api/form" },
 			{ "title": "Controls", "route": "/docs/user/en/api/controls" },
 			{ "title": "Page", "route": "/docs/user/en/api/server-calls" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/js-utils" },
 			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" }
-		]
-	},
-	{
-		"group_title": "Core",
-		"group_items": [
-			{ "title": "Router", "route": "/docs/user/en/core/router" }
 		]
 	},
 	{
