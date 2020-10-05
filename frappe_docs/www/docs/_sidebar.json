@@ -9,7 +9,6 @@
 			{ "title": "Guides", "route": "/docs/user/en/guides" }
 		]
 	},
-
 	{
 		"group_title": "Basics",
 		"group_items": [
@@ -68,6 +67,15 @@
 		"group_title": "Integrations",
 		"group_items": [
 			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" }
+		]
+	},
+	{
+		"group_title": "Bench CLI",
+		"group_items": [
+			{ "title": "What is Bench?", "route": "/docs/user/en/bench" },
+			{ "title": "Bench Commands", "route": "/docs/user/en/bench/bench-commands" },
+			{ "title": "Frappe Commands", "route": "/docs/user/en/bench/frappe-commands" },
+			{ "title": "Extending the CLI", "route": "/docs/user/en/bench/extending-the-cli" }
 		]
 	},
 	{
