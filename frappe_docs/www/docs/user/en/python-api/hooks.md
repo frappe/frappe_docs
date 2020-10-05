@@ -133,6 +133,25 @@ following line in your hooks file.
 page_js = {"background_jobs": "public/js/custom_background_jobs.js"}
 ```
 
+## Sounds
+
+Frappe ships with a set of audio notifications for events like a success action,
+document submission, error, etc. You can add your own sounds using the `sounds`
+hook.
+
+**app/hooks.py**
+```py
+sounds = [
+	{'name': 'ping', 'src': '/assets/app/sounds/ping.mp3', 'volume': 0.2}
+]
+```
+
+You can play your added sound using the client utility method:
+
+```js
+frappe.utils.play_sound('ping')
+```
+
 ## Install Hooks
 
 These hooks allow you to run code before and after installation of your app. For
@@ -400,6 +419,20 @@ def get_context(context):
 ```
 {% endraw %}
 
+## Website 404
+
+Frappe renders a default `/404` route when a page is not found. You can change
+this using the `website_catch_all` hook.
+
+**app/hooks.py**
+```py
+website_catch_all = 'not_found'
+```
+
+The above configuration will render `/not_found` when a 404 is occurred. It is
+upto you to implement the template `www/not_found.html` and controller
+`www/not_found.py`.
+
 ## Default Homepage
 
 Homepage is the page which is rendered when you visit the root URL (`/`) of your
@@ -451,6 +484,45 @@ def get_home_page(user):
 > If all of these hooks are defined, the `get_website_user_home_page` will have
 > higher priority over the others, and `role_home_page` will have higher
 > priority over `homepage`.
+
+## Portal Sidebar
+
+Some Portal views are shown with a sidebar with links to quickly jump to pages.
+These sidebar items can be customized via hooks.
+
+**app/hooks.py**
+```py
+portal_menu_items = [
+	{"title": "Dashboard", "route": "/dashboard", "role": "Customer"},
+	{"title": "Orders", "route": "/orders", "role": "Customer"},
+]
+```
+
+The above configuration will add two sidebar links for users with the role
+Customer.
+
+![Portal Sidebar](/docs/assets/img/hooks-portal-menu-items.png)
+
+These sidebar items are hardcoded in your app so they are not customizable from
+Desk. For e.g., if you want to hide a sidebar link temporarily you will have to
+make changes in your code.
+
+There is another hook called `standard_portal_menu_items` which allows you to do
+that. The sidebar links set in `standard_portal_menu_items` hook will be synced
+with the database.
+
+**app/hooks.py**
+```py
+standard_portal_menu_items = [
+	{"title": "Dashboard", "route": "/dashboard", "role": "Website Manager"},
+	{"title": "Orders", "route": "/orders", "role": "Website Manager"},
+]
+```
+
+The above configuration will sync sidebar items to the Portal Settings which can
+later be edited by any System User.
+
+![Portal Settings](/docs/assets/img/hooks-standard-portal-menu-items.png)
 
 ## Brand HTML
 
@@ -982,6 +1054,20 @@ The above configuration has three parts:
 3. `for_module` maps modules to functions to obtain its unread count. The
    functions are called without any argument.
 
+## Required Apps
+
+When building apps, you might create apps that build on top of other apps. To
+make sure dependent apps are installed when someone installs your app, you can
+use the `required_apps` hook.
+
+**app/hooks.py**
+```py
+required_apps = ['erpnext']
+```
+
+The above configuration will make sure `erpnext` is installed when someone
+installs your app.
+
 ## List of available hooks
 
 | Hook Name                                | Explanation                                                                 |
@@ -1010,13 +1096,13 @@ The above configuration has three parts:
 | `default_mail_footer`                    | [Default Mail Footer](#default-mail-footer)                                 |
 | `delete_file_data_content`               | [File Hooks](#file-hooks)                                                   |
 | `doc_events`                             | [Document CRUD Events](#crud-events)                                        |
-| `domains`                                | ??                                                                          |
+| `domains`                                |                                                                             |
 | `dump_report_map`                        | _Deprecated_                                                                |
 | `extend_bootinfo`                        | [Extend Bootinfo](#extend-bootinfo)                                         |
 | `extend_website_page_controller_context` | [Website Controller Context](#website-controller-context)                   |
-| `filters_config`                         | ??                                                                          |
+| `filters_config`                         |                                                                             |
 | `fixtures`                               | [Fixtures](#fixtures)                                                       |
-| `get_site_info`                          | ??                                                                          |
+| `get_site_info`                          |                                                                             |
 | `get_translated_dict`                    |                                                                             |
 | `get_website_user_home_page`             | [Default Homepage](#default-homepage)                                       |
 | `has_permission`                         | [Document Permissions](#document-permissions)                               |
@@ -1034,8 +1120,8 @@ The above configuration has three parts:
 | `override_doctype_dashboards`            |                                                                             |
 | `override_whitelisted_methods`           | [Override Whitelisted Methods](#override-whitelisted-methods)               |
 | `permission_query_conditions`            | [Modify List Query](#modify-list-query)                                     |
-| `portal_menu_items`                      |                                                                             |
-| `required_apps`                          |                                                                             |
+| `portal_menu_items`                      | [Portal Sidebar](#portal-sidebar)                                           |
+| `required_apps`                          | [Required Apps](#required-apps)                                             |
 | `role_home_page`                         | [Default Homepage](#default-homepage)                                       |
 | `scheduler_events`                       | [Scheduler Events](#scheduler-events)                                       |
 | `setup_wizard_complete`                  |                                                                             |
@@ -1043,8 +1129,8 @@ The above configuration has three parts:
 | `setup_wizard_requires`                  |                                                                             |
 | `setup_wizard_stages`                    |                                                                             |
 | `setup_wizard_success`                   |                                                                             |
-| `sounds`                                 |                                                                             |
-| `standard_portal_menu_items`             |                                                                             |
+| `sounds`                                 | [Sounds](#sounds)                                                           |
+| `standard_portal_menu_items`             | [Portal Sidebar](#portal-sidebar)                                           |
 | `standard_queries`                       |                                                                             |
 | `template_apps`                          |                                                                             |
 | `translated_languages_for_website`       |                                                                             |
@@ -1054,7 +1140,7 @@ The above configuration has three parts:
 | `user_privacy_documents`                 |                                                                             |
 | `web_include_css`                        | [Portal Assets](#portal)                                                    |
 | `web_include_js`                         | [Portal Assets](#portal)                                                    |
-| `website_catch_all`                      |                                                                             |
+| `website_catch_all`                      | [Website 404](#website-404)                                                 |
 | `website_clear_cache`                    | [Website Clear Cache](#website-clear-cache)                                 |
 | `website_context`                        | [Website Context](#website-context)                                         |
 | `website_generators`                     | _Deprecated_ (Use Has Web View in DocType instead)                          |
