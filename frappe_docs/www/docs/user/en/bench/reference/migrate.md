@@ -1,4 +1,4 @@
-# bench new-site
+# bench migrate
 
 ## Usage
 
