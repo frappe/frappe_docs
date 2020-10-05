@@ -135,7 +135,7 @@ each with `bench` in your shell. Therefore, the usage for these commands is as
 
 ### Setup Commands
 
-This command group for consists of commands used to manipulate the requirements
+This command group consists of commands used to manipulate the requirements
 and environments required by your Frappe environment. The setup commands used
 for setting up the Frappe environment in context of the current bench need to be
 executed using `bench setup` as the prefix. So, the general usage of these
