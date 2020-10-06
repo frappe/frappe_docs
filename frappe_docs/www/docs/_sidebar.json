@@ -2,79 +2,59 @@
 	{
 		"group_title": "Getting Started",
 		"group_items": [
-			{
-				"title": "Introduction",
-				"route": "/docs"
-			},
-			{
-				"title": "Installation",
-				"route": "/docs/user/en/installation"
-			},
-			{
-				"title": "Documentation",
-				"route": "/docs/user/en"
-			},
-			{
-				"title": "Tutorial",
-				"route": "/docs/user/en/tutorial"
-			},
-			{
-				"title": "Guides",
-				"route": "/docs/user/en/guides"
-			}
+			{ "title": "Introduction", "route": "/docs" },
+			{ "title": "Installation", "route": "/docs/user/en/installation" },
+			{ "title": "Documentation", "route": "/docs/user/en" },
+			{ "title": "Tutorial", "route": "/docs/user/en/tutorial" },
+			{ "title": "Guides", "route": "/docs/user/en/guides" }
 		]
 	},
-
 	{
 		"group_title": "Basics",
 		"group_items": [
-			{
-				"title": "What is Frappe?",
-				"route": "/docs/user/en/what-is-frappe"
-			},
-			{
-				"title": "Why Frappe?",
-				"route": "/docs/user/en/why"
-			},
-			{ "title": "Architecture", "route": "/docs/user/en/architecture" },
-			{
-				"title": "Directory Structure",
-				"route": "/docs/user/en/directory-structure"
-			},
-			{ "title": "Apps", "route": "/docs/user/en/apps" },
-			{ "title": "Sites", "route": "/docs/user/en/sites" },
-			{
-				"title": "Understanding Doctypes",
-				"route": "/docs/user/en/understanding-doctypes"
-			}
+			{ "title": "What is Frappe?", "route": "/docs/user/en/basics/what-is-frappe" },
+			{ "title": "Why Frappe?", "route": "/docs/user/en/basics/why" },
+			{ "title": "Architecture", "route": "/docs/user/en/basics/architecture" },
+			{ "title": "Directory Structure", "route": "/docs/user/en/basics/directory-structure" },
+			{ "title": "Apps", "route": "/docs/user/en/basics/apps" },
+			{ "title": "Sites", "route": "/docs/user/en/basics/sites" },
+			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" },
+			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" }
 		]
 	},
 	{
-		"group_title": "Desk Admin UI",
+		"group_title": "Desk (Admin UI)",
 		"group_items": [
 			{ "title": "Desk", "route": "/docs/user/en/desk" },
-			{
-				"title": "Users and Permission",
-				"route": "/docs/user/en/users-and-permissions"
-			},
-			{ "title": "Reports", "route": "/docs/user/en/reports" },
-			{ "title": "Printing", "route": "/docs/user/en/printing" },
-			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
-			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" },
+			{ "title": "Reports", "route": "/docs/user/en/desk/reports" },
+			{ "title": "Printing", "route": "/docs/user/en/desk/printing" },
+			{ "title": "Scripting", "route": "/docs/user/en/desk/scripting" },
 			{ "title": "Translations", "route": "/docs/user/en/translations" }
 		]
 	},
 	{
-		"group_title": "Python API Reference",
+		"group_title": "Portal",
+		"group_items": [
+			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
+			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" }
+		]
+	},
+	{
+		"group_title": "Python API",
 		"group_items": [
 			{ "title": "Document", "route": "/docs/user/en/api/document" },
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
-			{ "title": "REST API", "route": "/docs/user/en/api/rest" }
+			{ "title": "Router", "route": "/docs/user/en/python-api/router" },
+			{ "title": "Search", "route": "/docs/user/en/python-api/search" },
+			{ "title": "Hooks", "route": "/docs/user/en/python-api/hooks" },
+			{ "title": "REST API", "route": "/docs/user/en/api/rest" },
+			{ "title": "Full Text Search", "route": "/docs/user/en/api/full-text-search" },
+			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" }
 		]
 	},
 	{
-		"group_title": "Javascript API Reference",
+		"group_title": "Javascript API",
 		"group_items": [
 			{ "title": "Form", "route": "/docs/user/en/api/form" },
 			{ "title": "Controls", "route": "/docs/user/en/api/controls" },
@@ -84,15 +64,18 @@
 		]
 	},
 	{
-		"group_title": "Core",
-		"group_items": [
-			{ "title": "Router", "route": "/docs/user/en/core/router" }
-		]
-	},
-	{
 		"group_title": "Integrations",
 		"group_items": [
 			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" }
+		]
+	},
+	{
+		"group_title": "Bench CLI",
+		"group_items": [
+			{ "title": "What is Bench?", "route": "/docs/user/en/bench" },
+			{ "title": "Bench Commands", "route": "/docs/user/en/bench/bench-commands" },
+			{ "title": "Frappe Commands", "route": "/docs/user/en/bench/frappe-commands" },
+			{ "title": "Extending the CLI", "route": "/docs/user/en/bench/extending-the-cli" }
 		]
 	},
 	{

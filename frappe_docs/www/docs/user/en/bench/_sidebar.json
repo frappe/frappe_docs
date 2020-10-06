@@ -1,0 +1,106 @@
+[
+	{
+		"group_title": "Bench CLI",
+		"group_items": [
+			{
+				"title": "What is Bench?",
+				"route": "/docs/user/en/bench"
+			},
+			{
+				"title": "Bench Commands",
+				"route": "/docs/user/en/bench/bench-commands"
+			},
+			{
+				"title": "Frappe Commands",
+				"route": "/docs/user/en/bench/frappe-commands"
+			},
+			{
+				"title": "Extending the CLI",
+				"route": "/docs/user/en/bench/extending-the-cli"
+			}
+		]
+	},
+	{
+		"group_title": "References",
+		"group_items": [
+			{
+				"title": "new-site",
+				"route": "/docs/user/en/bench/reference/new-site"
+			},
+			{
+				"title": "drop-site",
+				"route": "/docs/user/en/bench/reference/drop-site"
+			},
+			{
+				"title": "migrate",
+				"route": "/docs/user/en/bench/reference/migrate"
+			},
+			{
+				"title": "backup",
+				"route": "/docs/user/en/bench/reference/backup"
+			},
+			{
+				"title": "reinstall",
+				"route": "/docs/user/en/bench/reference/reinstall"
+			},
+			{
+				"title": "uninstall-app",
+				"route": "/docs/user/en/bench/reference/uninstall-app"
+			}
+		]
+	},
+	{
+		"group_title": "Resources",
+		"group_items": [
+			{
+				"title": "Background Services",
+				"route": "/docs/user/en/bench/resources/background-services"
+			},
+			{
+				"title": "Commands Cheatsheet",
+				"route": "/docs/user/en/bench/resources/bench-commands-cheatsheet"
+			},
+			{
+				"title": "Bench Procfile",
+				"route": "/docs/user/en/bench/resources/bench-procfile"
+			}
+		]
+	},
+	{
+		"group_title": "Guides",
+		"group_items": [
+			{
+				"title": "Adding Custom Domains",
+				"route": "/docs/user/en/bench/guides/adding-custom-domains"
+			},
+			{
+				"title": "Configuring HTTPS",
+				"route": "/docs/user/en/bench/guides/configuring-https"
+			},
+			{
+				"title": "Diagnosing the Scheduler",
+				"route": "/docs/user/en/bench/guides/diagnosing-the-scheduler"
+			},
+			{
+				"title": "Lets Encrypt SSL Setup",
+				"route": "/docs/user/en/bench/guides/lets-encrypt-ssl-setup"
+			},
+			{
+				"title": "Manual Setup",
+				"route": "/docs/user/en/bench/guides/manual-setup"
+			},
+			{
+				"title": "Settings Limits",
+				"route": "/docs/user/en/bench/guides/settings-limits"
+			},
+			{
+				"title": "Multitenancy Setup",
+				"route": "/docs/user/en/bench/guides/setup-multitenancy"
+			},
+			{
+				"title": "Setup Production",
+				"route": "/docs/user/en/bench/guides/setup-production"
+			}
+		]
+	}
+]
