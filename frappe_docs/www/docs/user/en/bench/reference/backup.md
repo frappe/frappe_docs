@@ -20,9 +20,12 @@ that site.
   - `--backup-path-conf` Set path for saving config file
   - `--backup-path-files` Set path for saving public file
   - `--backup-path-private-files` Set path for saving private file
+  - `--exclude` Specify the DocTypes to not backup seperated by commas
+  - `--include` Specify the DocTypes to backup seperated by commas
 
 ## Flags
 
+  - `--ignore-backup-conf` Ignore excludes/includes set in config
   - `--with-files` Take backup with private and public files
   - `--compress` Compress private and public files
   - `--verbose` Add verbosity
@@ -60,8 +63,26 @@ that site.
       --backup-path-private-files {private_path}
    ```
 
-4. Add verbosity for the various stages managed internally via the Bench CLI.
+1. Add verbosity for the various stages managed internally via the Bench CLI.
 
     ```bash
    bench --site {site} backup --verbose
+    ```
+
+1. Backup only certain doctypes on the site.
+
+    ```bash
+   bench --site {site} backup --inclue 'ToDo,Note,Task,Project,Sales Invoice'
+    ```
+
+1. Backup all tables except certain doctypes.
+
+    ```bash
+   bench --site {site} backup --exclude 'Error Log,Access Log,Activity Log,Version'
+    ```
+
+1. Backup complete site ignoring the `frappe.conf.backup.*` values if specified.
+
+    ```bash
+   bench --site {site} backup --ignore-backup-conf
     ```
