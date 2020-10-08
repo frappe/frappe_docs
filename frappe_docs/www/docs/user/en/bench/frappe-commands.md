@@ -1,4 +1,10 @@
-<!-- add-breadcrumbs -->
+---
+title: Bench - Frappe Commands
+metatags:
+ description: >
+  The Bench CLI inherits commands from the bench's Frappe installation.
+---
+
 # Frappe Commands
 
 The Bench CLI utilizes the module`frappe.utils.bench_manager` to get the

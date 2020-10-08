@@ -1,3 +1,10 @@
+---
+title: Bench - bench restore
+metatags:
+ description: >
+  The Bench CLI has a restore command to restore a site to a previous state or move it between benches.
+---
+
 # bench restore
 
 ## Usage

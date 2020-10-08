@@ -1,3 +1,10 @@
+---
+title: Bench - bench drop-site
+metatags:
+ description: >
+  The Bench CLI has a drop-site command to archive Frappe sites from an existing bench.
+---
+
 # bench drop-site
 
 ## Usage

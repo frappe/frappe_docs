@@ -1,3 +1,10 @@
+---
+title: Bench - bench migrate
+metatags:
+ description: >
+  The Bench CLI has a migrate command to manage migrations on your Frappe sites.
+---
+
 # bench migrate
 
 ## Usage

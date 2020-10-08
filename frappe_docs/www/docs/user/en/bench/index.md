@@ -1,4 +1,10 @@
-<!-- add-breadcrumbs -->
+---
+title: Bench
+metatags:
+ description: >
+  Bench is a CLI tool to manage Frappe Deployments.
+---
+
 # Bench
 
 Bench is a CLI tool to manage Frappe Deployments. It provides an easy interface to help you setup and manage multiple sites and apps based on Frappe Framework.

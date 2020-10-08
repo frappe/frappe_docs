@@ -1,4 +1,11 @@
-# bench backup
+---
+title: Bench - bench uninstall-app
+metatags:
+ description: >
+  The Bench CLI has an uninstall-app command to remove apps from your Frappe sites.
+---
+
+# bench uninstall-app
 
 ## Usage
 

@@ -1,3 +1,10 @@
+---
+title: Bench - bench backup
+metatags:
+ description: >
+  The Bench CLI has a backup command to manage backups on your Frappe sites.
+---
+
 # bench backup
 
 ## Usage

@@ -1,3 +1,10 @@
+---
+title: Bench - bench new-site
+metatags:
+ description: >
+  The Bench CLI has a new-site command to create a new Frappe site on your bench.
+---
+
 # bench new-site
 
 ## Usage
