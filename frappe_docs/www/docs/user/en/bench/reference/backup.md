@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench backup [OPTIONS]
+```bash
+bench backup [OPTIONS]
+```
 
 ## Description
 

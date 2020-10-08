@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench new-site [OPTIONS] SITE
+```bash
+bench new-site [OPTIONS] SITE
+```
 
 ## Description
 

@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench reinstall [OPTIONS]
+```bash
+bench reinstall [OPTIONS]
+```
 
 ## Description
 

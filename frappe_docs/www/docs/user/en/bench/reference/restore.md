@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench restore [OPTIONS] SQL_FILE_PATH
+```bash
+bench restore [OPTIONS] SQL_FILE_PATH
+```
 
 ## Description
 

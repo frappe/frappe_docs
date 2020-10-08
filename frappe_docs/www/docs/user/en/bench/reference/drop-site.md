@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench drop-site [OPTIONS] SITE
+```bash
+bench drop-site [OPTIONS] SITE
+```
 
 ## Description
 

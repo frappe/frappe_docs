@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench uninstall-app [OPTIONS] APP
+```bash
+bench uninstall-app [OPTIONS] APP
+```
 
 ## Description
 

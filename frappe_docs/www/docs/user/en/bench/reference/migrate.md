@@ -9,7 +9,9 @@ metatags:
 
 ## Usage
 
-    bench migrate [OPTIONS]
+```bash
+bench migrate [OPTIONS]
+```
 
 ## Description
 
