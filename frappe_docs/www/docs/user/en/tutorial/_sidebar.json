@@ -27,34 +27,54 @@
 	{
 		"group_title": "Tutorial",
 		"group_items": [
-			{ "title": "Before", "route": "/docs/user/en/tutorial/before" },
-			{ "title": "App", "route": "/docs/user/en/tutorial/app" },
-			{ "title": "Bench", "route": "/docs/user/en/tutorial/bench" },
-			{ "title": "New App", "route": "/docs/user/en/tutorial/new-app" },
 			{
-				"title": "Setting Up The Site",
-				"route": "/docs/user/en/tutorial/setting-up-the-site"
+				"title": "Introduction",
+				"route": "/docs/user/en/tutorial"
 			},
-			{ "title": "Start", "route": "/docs/user/en/tutorial/start" },
-			{ "title": "Models", "route": "/docs/user/en/tutorial/models" },
-			{ "title": "Roles", "route": "/docs/user/en/tutorial/roles" },
-			{ "title": "Doctypes", "route": "/docs/user/en/tutorial/doctypes" },
-			{ "title": "Naming And Linking", "route": "/docs/user/en/tutorial/naming-and-linking" },
 			{
-				"title": "Doctype Directory Structure",
-				"route": "/docs/user/en/tutorial/doctype-directory-structure"
+				"title": "Before You Start",
+				"route": "/docs/user/en/tutorial/before-you-start"
 			},
-			{ "title": "Users And Records", "route": "/docs/user/en/tutorial/users-and-records" },
 			{
-				"title": "Form Client Scripting",
-				"route": "/docs/user/en/tutorial/form-client-scripting"
+				"title": "Install and Setup Bench",
+				"route": "/docs/user/en/tutorial/install-and-setup-bench"
 			},
-			{ "title": "Controllers", "route": "/docs/user/en/tutorial/controllers" },
-			{ "title": "Reports", "route": "/docs/user/en/tutorial/reports" },
-			{ "title": "Web Views", "route": "/docs/user/en/tutorial/web-views" },
-			{ "title": "Single Doctypes", "route": "/docs/user/en/tutorial/single-doctypes" },
-			{ "title": "Task Runner", "route": "/docs/user/en/tutorial/task-runner" },
-			{ "title": "Conclusion", "route": "/docs/user/en/tutorial/conclusion" }
+			{
+				"title": "Create an App",
+				"route": "/docs/user/en/tutorial/create-an-app"
+			},
+			{
+				"title": "Create a Site",
+				"route": "/docs/user/en/tutorial/create-a-site"
+			},
+			{
+				"title": "Create a DocType",
+				"route": "/docs/user/en/tutorial/create-a-doctype"
+			},
+			{
+				"title": "DocType Features",
+				"route": "/docs/user/en/tutorial/doctype-features"
+			},
+			{
+				"title": "Controller Methods",
+				"route": "/docs/user/en/tutorial/controller-methods"
+			},
+			{
+				"title": "Types of DocType",
+				"route": "/docs/user/en/tutorial/types-of-doctype"
+			},
+			{
+				"title": "Form Scripts",
+				"route": "/docs/user/en/tutorial/form-scripts"
+			},
+			{
+				"title": "Portal Pages",
+				"route": "/docs/user/en/tutorial/portal-pages"
+			},
+			{
+				"title": "What's Next",
+				"route": "/docs/user/en/tutorial/whats-next"
+			}
 		]
 	}
 ]

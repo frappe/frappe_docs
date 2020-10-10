@@ -1,34 +1,55 @@
-<!-- add-breadcrumbs -->
-# Frappe Tutorial
+---
+title: Frappe Framework Tutorial
+description: Learn how to create a web application from scratch using the Frappe Framework
+---
 
-In this guide, we will show you how to create an application from scratch using **Frappe**. Using the example of a Library Management System, we will cover:
+# Frappe Framework Tutorial
 
-1. Installation
-1. Making a New App
-1. Making Models
-1. Creating Users and Records
-1. Creating Controllers
-1. Creating Web Views
-1. Setting Hooks and Tasks
+In this guide, you will learn how to create a web application from scratch using
+the Frappe Framework.
 
-## Who is This For?
+## Who is this for?
 
-This guide is intended for software developers who are familiar with how the web applications are built and served. Frappe Framework is built on Python and uses MariaDB database and for creating web views, HTML/CSS/Javascript is used. So it would be great if you are familiar with all these technologies. At the minimum, if you have never used Python before, you should take a quick tutorial before using this Guide.
+This guide is intended for software developers who are familiar with how web
+applications are built. Frappe Framework is based on Python and MariaDB (or
+Postgres) as the database. Jinja is used as the templating language for Web
+Views. So it would be great if you are familiar with all these technologies.
 
-Frappe uses the git version control system on GitHub. It is also important that you are familiar with basic git and have an account on GitHub to manage your applications.
+Frappe Framework uses the `git` for version control and automatic updates. It is
+also expected that you are familiar with basic git commands.
 
-## Example
+## What are we building?
 
-For this guide book, we will build a simple **Library Management** application. In this application we will have models:
+We will build a simple **Library Management System** in which the **Librarian**
+can log in and manage Articles and Memberships. We will build the following
+models:
 
-1. Article (Book or any other item that can be loaned)
-1. Library Member
-1. Library Transaction (Issue or Return of an article)
-1. Library Membership (A period in which a member is allowed to transact)
-1. Library Management Setting (Global settings like period of loan)
+1. **Article:** A Book or similar item that can be rented.
+2. **Library Member:** A user who is subscribed to a membership.
+3. **Library Transaction:** An Issue or Return of an article.
+4. **Library Membership:** A document that represents an active membership of a
+   Library Member.
+5. **Library Settings:** Settings that define values like Loan Period and
+   maximum number of articles that can be issued at a time.
 
-The user interface (UI) for the librarian will be the **Frappe Desk**, a built-in browser based UI environment where forms are automatically generated from the models and roles and permissions are also applied.
+The Librarian will log in to an interface known as **Desk**, a rich admin
+interface that ships with the framework. Desk provides many standard views like
+List view, Form view, Report view, etc, and many features like Role-based
+Permissions.
 
-We will also create web views for library where users can browse articles from a website.
+We will also create public Web Views which can be accessed by the Library
+Members where they can browse available Articles.
 
-{index}
+## Table of Contents
+
+1. [Before You Start](/docs/user/en/tutorial/before-you-start)
+1. [Install and Setup Bench](/docs/user/en/tutorial/install-and-setup-bench)
+1. [Create an App](/docs/user/en/tutorial/create-an-app)
+1. [Create a Site](/docs/user/en/tutorial/create-a-site)
+1. [Create a DocType](/docs/user/en/tutorial/create-a-doctype)
+1. [DocType Features](/docs/user/en/tutorial/doctype-features)
+1. [Controller Methods](/docs/user/en/tutorial/controller-methods)
+1. [Types of DocType](/docs/user/en/tutorial/types-of-doctype)
+1. [Form Scripts](/docs/user/en/tutorial/form-scripts)
+1. [Portal Pages](/docs/user/en/tutorial/portal-pages)
+1. [What's Next](/docs/user/en/tutorial/whats-next)
