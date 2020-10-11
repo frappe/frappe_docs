@@ -32,8 +32,8 @@
 				"route": "/docs/user/en/tutorial"
 			},
 			{
-				"title": "Before You Start",
-				"route": "/docs/user/en/tutorial/before-you-start"
+				"title": "Prerequisites",
+				"route": "/docs/user/en/tutorial/prerequisites"
 			},
 			{
 				"title": "Install and Setup Bench",

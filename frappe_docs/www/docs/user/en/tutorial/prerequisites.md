@@ -1,9 +1,9 @@
 ---
-title: Before You Start - Frappe Framework Tutorial
+title: Prerequisites - Frappe Framework Tutorial
 description: A list of resources to help you get started with building apps using Frappe
 ---
 
-# Before You Start
+# Prerequisites
 
 A list of resources to help you get started with building apps using Frappe.
 

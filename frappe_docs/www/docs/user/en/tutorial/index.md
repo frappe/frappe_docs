@@ -42,7 +42,7 @@ Members where they can browse available Articles.
 
 ## Table of Contents
 
-1. [Before You Start](/docs/user/en/tutorial/before-you-start)
+1. [Prerequisites](/docs/user/en/tutorial/prerequisites)
 1. [Install and Setup Bench](/docs/user/en/tutorial/install-and-setup-bench)
 1. [Create an App](/docs/user/en/tutorial/create-an-app)
 1. [Create a Site](/docs/user/en/tutorial/create-a-site)
