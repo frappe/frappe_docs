@@ -821,8 +821,8 @@ frappe.ui.form.on('Todo', {
 });
 ```
 
-> The functions defined in the mentioned file in `doctype_js` dictionary 
-> will override those in the respective standard form script.
+> The events/functions defined in `app/public/todo.js` will override 
+> those in the standard form script of `ToDo` doctype.
 
 ### CRUD Events
 
@@ -1123,6 +1123,7 @@ installs your app.
 | `default_mail_footer`                    | [Default Mail Footer](#default-mail-footer)                                 |
 | `delete_file_data_content`               | [File Hooks](#file-hooks)                                                   |
 | `doc_events`                             | [Document CRUD Events](#crud-events)                                        |
+| `doctype_js`                             | [Override Form Scripts](#override-form-scripts)                             |
 | `domains`                                |                                                                             |
 | `dump_report_map`                        | _Deprecated_                                                                |
 | `extend_bootinfo`                        | [Extend Bootinfo](#extend-bootinfo)                                         |
