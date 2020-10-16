@@ -797,6 +797,33 @@ class CustomToDo(ToDo):
 > It is recommended that you extend the standard class of the doctype, otherwise
 > you will have to implement all of the core functionality.
 
+### Override Form Scripts
+
+You can override/extend [Standard Form Scripts](/docs/user/en/api/form#standard-form-scripts)
+by using the `doctype_js` hook.
+
+**app/hooks.py**
+```py
+doctype_js = {
+	'ToDo': 'public/js/todo.js',
+}
+```
+
+**app/public/js/todo.js**
+```js
+frappe.ui.form.on('Todo', {
+	refresh: function(frm) {
+		frm.trigger('my_custom_code');
+	},
+	my_custom_code: function(frm){
+		console.log(frm.doc.name)
+	}
+});
+```
+
+> The events/functions defined in `app/public/todo.js` will override 
+> those in the standard form script of `ToDo` doctype.
+
 ### CRUD Events
 
 You can hook into various CRUD events of any doctype using the `doc_events`
@@ -1096,6 +1123,7 @@ installs your app.
 | `default_mail_footer`                    | [Default Mail Footer](#default-mail-footer)                                 |
 | `delete_file_data_content`               | [File Hooks](#file-hooks)                                                   |
 | `doc_events`                             | [Document CRUD Events](#crud-events)                                        |
+| `doctype_js`                             | [Override Form Scripts](#override-form-scripts)                             |
 | `domains`                                |                                                                             |
 | `dump_report_map`                        | _Deprecated_                                                                |
 | `extend_bootinfo`                        | [Extend Bootinfo](#extend-bootinfo)                                         |
