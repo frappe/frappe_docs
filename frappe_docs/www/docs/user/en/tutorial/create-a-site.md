@@ -7,7 +7,7 @@ description: A site comes with a database and apps can be installed on it
 
 A site comes with a database and apps can be installed on it.
 
-## Create site
+## Create a new site
 
 To create a new site, run the following command from the `frappe-bench`
 directory:
@@ -78,7 +78,7 @@ Now, that we have created our first site, we can access it on
 
 ![Site Login Page](/assets/frappe_docs/tutorial/site-login-page.png)
 
-However, bench allows you to create multiple sites and access them separately in
+However, `bench` allows you to create multiple sites and access them separately in
 the browser on the same port. This is what we call multi-tenancy support in
 bench.
 
@@ -104,14 +104,14 @@ file.
 127.0.0.1 library.test
 ```
 
-This will map `library.test` to localhost. Bench has a convenient command to do
+This will map `library.test` to `localhost`. Bench has a convenient command to do
 just that.
 
 ```bash
 $ bench --site library.test add-to-hosts
 ```
 
-This will ask for root password and will add an entry to your `/etc/hosts` file.
+This will ask for your root password and will add an entry to your `/etc/hosts` file.
 
 Great, now you can access your site at
 [http://library.test:8000](http://library.test:8000). Congratulations for making
@@ -139,7 +139,7 @@ You should see `frappe` and `library_management` as installed apps on your site.
 
 > When you create a new site, the `frappe` app is installed by default.
 
-## Log in to Desk
+## Login to Desk
 
 To create DocTypes in our app, we must log in to Desk. Go to
 [http://library.test:8000](http://library.test:8000) and it should show you a
@@ -150,7 +150,7 @@ site.
 
 ![Setup Wizard](/assets/frappe_docs/tutorial/setup-wizard.png)
 
-After successful login, you will see the setup wizard. This is a one time setup
+After successful login, you will see the setup wizard. This is a one-time setup
 wizard used to set up the site. Go ahead, select your country and complete the
 wizard.
 

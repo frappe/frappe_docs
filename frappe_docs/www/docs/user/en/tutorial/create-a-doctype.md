@@ -1,12 +1,12 @@
 ---
 title: Create a DocType - Frappe Framework Tutorial
-description: A DocType represents an entity. It defines the properties and behaviour of the entity.
+description: DocType is analogous to a Model in other frameworks. Apart from defining properties, it also defines the behavior of the Model.
 ---
 
 # Create a DocType
 
-A DocType represents an entity. It defines the properties and behaviour of the
-entity.
+DocType is analogous to a Model in other frameworks. Apart from defining
+properties, it also defines the behavior of the Model.
 
 ## Enable Developer Mode
 
@@ -50,7 +50,7 @@ on it to go to the Article List. Here you will see a blank list with no records
 because the table has no records.
 
 Let's create some records. But before that, we need to clear the Desk cache.
-Click on **Settings** dropdown on the right side of the navbar and click on
+Click on the **Settings** dropdown on the right side of the navbar and click on
 **Reload**.
 
 Now, you should see the **New** button. Click on it and you will see the Form
@@ -65,8 +65,8 @@ one record.
 **1. Database Table**
 
 A database table with the name `tabArticle` was created with the fields we
-specified in the fields table. You can confirm this by checking it from mariadb
-console
+specified in the fields table. You can confirm this by checking it from the
+MariaDB console
 
 ```bash
 $ bench --site library.test mariadb
@@ -169,7 +169,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 **article.json** - JSON file that defines the doctype attributes
 
-**article.js** - Client side controller for the Form view
+**article.js** - Client-side controller for the Form view
 
 **article.py** - Python controller for Article
 

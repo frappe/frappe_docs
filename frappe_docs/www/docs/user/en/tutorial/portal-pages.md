@@ -32,7 +32,7 @@ of your form. Click on it to view the web view of the Article.
 ## Customize Web View Template
 
 The default web view that is generated is pretty barebones and serves only as a
-starting point for us to customize it. When we made Article a web view, two html
+starting point for us to customize it. When we made Article a web view, two HTML
 files were created namely: `article.html` and `article_row.html`
 
 Let's edit **article.html** first. Frappe uses Bootstrap 4 by default for it's

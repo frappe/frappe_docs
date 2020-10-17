@@ -65,13 +65,13 @@ apps/library_management
 ```
 
 - **library_management:** This directory will contain all the source code for your app
-    - **public**: Store static files that will be served from nginx in production
+    - **public**: Store static files that will be served from Nginx in production
     - **templates**: Jinja templates used to render web views
     - **www**: Web pages that are served based on their directory path
     - **library\_management:** Default Module bootstrapped with app
-    - **modules.txt:** List of modules defined in app
+    - **modules.txt:** List of modules defined in the app
     - **patches.txt**: Patch entries for database migrations
-    - **hooks.py**: Hooks used to extend or intercept standard functionality provided by framework
+    - **hooks.py**: Hooks used to extend or intercept standard functionality provided by the framework
 - **requirements.txt:** List of Python packages that will be installed when you install this app
 
 Next: [Create a Site](/docs/user/en/tutorial/create-a-site)

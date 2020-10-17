@@ -66,10 +66,10 @@ directory. It will do the following:
 ```
 
 - **env**: Python virtual environment
-- **config**: Config files for redis and nginx
-- **logs**: Log files for each processes (web, worker)
+- **config**: Config files for Redis and Nginx
+- **logs**: Log files for every process (web, worker)
 - **sites:** Sites directory
-    - **assets:** Static assets that served via nginx in production
+    - **assets:** Static assets that served via Nginx in production
     - **apps.txt:** List of installed frappe apps
     - **common_site_config.json:** Site config that is available in all sites
 - **apps:** Apps directory

@@ -15,7 +15,7 @@ applications are built. Frappe Framework is based on Python and MariaDB (or
 Postgres) as the database. Jinja is used as the templating language for Web
 Views. So it would be great if you are familiar with all these technologies.
 
-Frappe Framework uses the `git` for version control and automatic updates. It is
+Frappe Framework uses `git` for version control and automatic updates. It is
 also expected that you are familiar with basic git commands.
 
 ## What are we building?
@@ -30,10 +30,10 @@ models:
 4. **Library Membership:** A document that represents an active membership of a
    Library Member.
 5. **Library Settings:** Settings that define values like Loan Period and
-   maximum number of articles that can be issued at a time.
+   the maximum number of articles that can be issued at a time.
 
 The Librarian will log in to an interface known as **Desk**, a rich admin
-interface that ships with the framework. Desk provides many standard views like
+interface that ships with the framework. The Desk provides many standard views like
 List view, Form view, Report view, etc, and many features like Role-based
 Permissions.
 

@@ -1,11 +1,11 @@
 ---
 title: Form Scripts - Frappe Framework Tutorial
-description: Form Scripts are client side javascript code that enhances the UX of your Forms
+description: Form Scripts are client-side javascript code that enhances the UX of your Forms
 ---
 
 # Form Scripts
 
-Form Scripts are client side javascript code that enhances the UX of your Forms.
+Form Scripts are client-side javascript code that enhances the UX of your Forms.
 
 Let's say you want to create a membership for a member. To do this, you have to
 go to the Library Membership list, create a new form, select the member and
@@ -33,7 +33,7 @@ frappe.ui.form.on('Library Member', {
 });
 ```
 
-Now, refresh your page and go to Library Member form. You should see two buttons
+Now, refresh your page and go to the Library Member form. You should see two buttons
 on the top right. Click on them to try them out. They will automatically set the
 Library Member in each of those documents making the process easier.
 

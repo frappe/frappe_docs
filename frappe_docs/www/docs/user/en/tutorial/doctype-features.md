@@ -1,6 +1,6 @@
 ---
 title: DocType Features - Frappe Framework Tutorial
-description: A DocType has a lot of features to customize the behaviour and presentation of data
+description: A DocType has a lot of features to customize the behavior and presentation of data
 ---
 
 # DocType Features

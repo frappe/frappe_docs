@@ -94,7 +94,7 @@ Membership record exists with our provided filters. If it exists, we used
 `frappe.throw` to stop the execution of program with a message that will show up
 letting the user know the reason.
 
-Now, try creating a Library Membership with overlapping period and you should
+Now, try creating a Library Membership with an overlapping period and you should
 see an error when you submit the document.
 
 ![Library Membership Validation](/assets/frappe_docs/tutorial/library-membership-validation.png)
