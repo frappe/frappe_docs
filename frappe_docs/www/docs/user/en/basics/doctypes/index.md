@@ -1,7 +1,7 @@
 ---
 add_breadcrumbs: 1
 page_toc: 1
-title: Understanding DocTypes
+title: DocTypes
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
@@ -21,6 +21,7 @@ metatags:
 1. [Child DocType](doctypes/child-doctype)
 1. [Single DocType](doctypes/single-doctype)
 1. [Actions and Links](doctypes/actions-and-links)
+1. [Customizing DocTypes](doctypes/customize)
 
 ## Introduction
 

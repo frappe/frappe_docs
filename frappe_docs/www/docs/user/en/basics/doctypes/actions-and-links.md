@@ -12,7 +12,7 @@ metatags:
 
 **Actions**
 
-A DocType may also have `Daily Action` that will result in a button creation on the DocType View. Supported actions are:
+A DocType may also have `DocType Action` that will result in a button creation on the DocType View. Supported actions are:
 
 1. **Server Action**: This will trigger a whitelisted server action.
 
@@ -25,3 +25,7 @@ A standard navigation aid to the DocType view is the `Links` section on the dash
 ![Action and Link Configuration](/docs/assets/img/doctypes/action-link-config.png)
 
 ![Action and Link View](/docs/assets/img/doctypes/action-link.png)
+
+### Customization of Actions and Links
+
+DocType Actions and Links are extensible via [Customize Form](customize)

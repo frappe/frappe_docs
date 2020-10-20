@@ -1,7 +1,7 @@
 ---
 add_breadcrumbs: 1
 page_toc: 1
-title: What is Frappe Framework?
+title: Basics
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: Frappe is a full stack, batteries-included, web framework written in Python and Javascript.

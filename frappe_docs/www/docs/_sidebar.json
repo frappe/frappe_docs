@@ -12,7 +12,7 @@
 	{
 		"group_title": "Basics",
 		"group_items": [
-			{ "title": "What is Frappe?", "route": "/docs/user/en/basics/what-is-frappe" },
+			{ "title": "What is Frappe?", "route": "/docs/user/en/basics/index" },
 			{ "title": "Why Frappe?", "route": "/docs/user/en/basics/why" },
 			{ "title": "Architecture", "route": "/docs/user/en/basics/architecture" },
 			{ "title": "Directory Structure", "route": "/docs/user/en/basics/directory-structure" },
