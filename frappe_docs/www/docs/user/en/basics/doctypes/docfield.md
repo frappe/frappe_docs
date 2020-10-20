@@ -67,4 +67,5 @@ in Version 12 we have introduced two new properties:
 
 
 Frappe comes with more than 30 different fieldtypes out-of-the-box.
-These fieldtypes serve a variety of use-cases. Learn more about [Fieldtypes](#fieldtypes).
+These fieldtypes serve a variety of use-cases. Learn more about
+[Fieldtypes](https://docs.erpnext.com/docs/user/manual/en/customize-erpnext/articles/field-types).

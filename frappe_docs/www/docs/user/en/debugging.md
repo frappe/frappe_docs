@@ -185,4 +185,4 @@ properties.
 ![Browser Console](/docs/assets/img/client-side-debugging.png)
 *Browser Console*
 
-> Learn more about the Client API [here](/docs/user/en/api/javascript)
+> Learn more about the Client API [here](/docs/user/en/api#javascript)
