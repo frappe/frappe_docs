@@ -58,7 +58,7 @@ base_template_map = {
 update_website_context = ["frappe_docs.website_context.get_context"]
 
 website_redirects = [
-	{'source': '/docs/user/en', 'target': '/docs/user/en/basics/what-is-frappe' },
+	{'source': '/docs/user/en', 'target': '/docs/user/en/basics' },
 	{'source': '/docs/user/en/report', 'target': '/docs/user/en/desk/report' },
 	{'source': '/docs/user/en/printing', 'target': '/docs/user/en/desk/printing' },
 	{'source': '/docs/user/en/apps', 'target': '/docs/user/en/desk/basics/apps' },
@@ -67,7 +67,7 @@ website_redirects = [
 	{'source': '/docs/user/en/understanding-doctypes', 'target': '/docs/user/en/basics/doctypes' },
 	{'source': '/docs/user/en/sites', 'target': '/docs/user/en/basics/sites' },
 	{'source': '/docs/user/en/users-and-permissions', 'target': '/docs/user/en/basics/users-and-permissions' },
-	{'source': '/docs/user/en/what-is-frappe', 'target': '/docs/user/en/basics/what-is-frappe' },
+	{'source': '/docs/user/en/what-is-frappe', 'target': '/docs/user/en/basics' },
 	{'source': '/docs/user/en/why', 'target': '/docs/user/en/basics/why' },
 	{'source': '/docs/user/en/guides/basics/hooks', 'target': '/docs/user/en/python-api/hooks' },
 ]
