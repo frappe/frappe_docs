@@ -1,7 +1,7 @@
 <!-- add-breadcrumbs -->
 # Using Let's Encrypt to setup HTTPS
 
-## Prequisites
+## Prerequisites
 
 1. You need to have a [DNS Multitenant Setup](https://frappe.io/docs/user/en/bench/guides/setup-multitenancy)
 2. Your site should be accessible via a valid domain
@@ -15,7 +15,7 @@ Just run:
 
     sudo -H bench setup lets-encrypt [site-name]
 
-You will be faced with several prompts, respond to them accordingly. This command will also add an entry to the crontab of the user that will attempt to renew the certificate every month.
+You will be faced with several prompts, respond to them accordingly. This command will also add an entry to the crontab of the root user *(this requires elevated permissions)*, that will attempt to renew the certificate every month.
 
 ### Custom Domains
 
