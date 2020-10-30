@@ -9,7 +9,7 @@ metatags:
 # Responses
 
 Here, let's take a look into how responses are built in Frappe, and how you may
-be able to tweak them in your Frappe apps or scripts.
+be able to use them in your Frappe apps or scripts.
 
 If you have already gone through the [Router
 Documentation](/docs/user/en/python-api/router), you might've noticed the
