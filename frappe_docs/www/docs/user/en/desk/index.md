@@ -29,7 +29,7 @@ In this section we will discuss what views are provided by Desk and how to confi
 
 ## Workspace
 
-When you login to the Desk, you're presented with the Desktop, it features a persistent sidebar sorted in categories. 
+When you login to the Desk, you're presented with the Desktop, it features a persistent sidebar sorted in categories.
 Each sidebar item links to a page called Workspace.
 
 A workspace represents a module (for example CRM in ERPNext). A workspace includes the following:
@@ -186,6 +186,7 @@ frappe.views.calendar['Event'] = {
 		Public: 'success',
 		Private: 'info'
 	},
+	order_by: 'ends_on',
 	get_events_method: 'frappe.desk.doctype.event.event.get_events'
 }
 ```
@@ -193,8 +194,33 @@ frappe.views.calendar['Event'] = {
 
 ## Gantt View
 
-Gantt view uses the same configuration file as calendar, so every DocType that has
-a Calendar view has a Gantt view too.
+Gantt view uses the same configuration file as calendar, so every DocType that has a Calendar view has a Gantt view too.
+In case certain settings need to be overridden for Gantt view (for example the `order_by` field) the configuration can be set like this:
+
+```js
+frappe.views.calendar['Event'] = {
+	field_map: {
+		start: 'starts_on',
+		end: 'ends_on',
+		id: 'name',
+		allDay: 'all_day',
+		title: 'subject',
+		status: 'event_type',
+		color: 'color'
+	},
+	gantt: { // The values set here will override the values set in the object just for Gantt View
+		order_by: 'starts_on',
+	}
+	style_map: {
+		Public: 'success',
+		Private: 'info'
+	},
+	order_by: 'starts_on',
+	get_events_method: 'frappe.desk.doctype.event.event.get_events'
+}
+```
+*event_calendar.js*
+
 
 ![Gantt View](/docs/assets/img/gantt-view.png)
 *Gantt View*
