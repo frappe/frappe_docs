@@ -150,14 +150,15 @@ This method inserts a new document into the database table. It will check for
 user permissions and execute `before_insert`, `validate`, `on_update`,
 `after_insert` methods if they are written in the controller.
 
-It has some escape hatches that can be used to skip certain checks explained below.
+It has some escape hatches that can be used to skip certain checks explained
+below.
 
 ```py
 doc.insert(
-	ignore_permissions=True, # ignore write permissions during insert
-	ignore_links=True, # ignore Link validation in the document
-	ignore_if_duplicate=True, # dont insert if DuplicateEntryError is thrown
-	ignore_mandatory=True # insert even if mandatory fields are not set
+    ignore_permissions=True, # ignore write permissions during insert
+    ignore_links=True, # ignore Link validation in the document
+    ignore_if_duplicate=True, # dont insert if DuplicateEntryError is thrown
+    ignore_mandatory=True # insert even if mandatory fields are not set
 )
 ```
 
@@ -169,8 +170,8 @@ updating values.
 
 ```py
 doc.save(
-	ignore_permissions=True, # ignore write permissions during insert
-	ignore_version=True # do not create a version record
+    ignore_permissions=True, # ignore write permissions during insert
+    ignore_version=True # do not create a version record
 )
 ```
 
@@ -191,8 +192,8 @@ compare what changed from the last version.
 ```py
 old_doc = doc.get_doc_before_save()
 if old_doc.price != doc.price:
-	# price changed
-	pass
+    # price changed
+    pass
 ```
 
 ## doc.reload
@@ -217,7 +218,8 @@ doc.check_permission(permtype='write') # throws if no write permission
 
 ## doc.get_title
 
-Get the document title based on `title_field` or field named **title** or **name**.
+Get the document title based on `title_field` or field named **title** or
+**name**.
 
 ```
 title = doc.get_title()
