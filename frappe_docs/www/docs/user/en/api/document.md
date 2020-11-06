@@ -64,15 +64,15 @@ Returns the last Document object created under the mentioned `doctype`.
 task = frappe.get_last_doc('Task')
 ```
 
-You can also specify filters for to refine your results. For instance, you can
- retrieve the last cancelled Task by
+You can also specify filters to refine your results. For instance, you can
+retrieve the last canceled Task by adding a filter.
 
 ```python
 # get the last available Cancelled Task
-task = frappe.get_last_doc('Task', filters={"Status": "Cancelled"})
+task = frappe.get_last_doc('Task', filters={"status": "Cancelled"})
 ```
 
-By default, the `order_by` arguement is set to *"creation desc"*, but this value
+By default, the `order_by` argument is set to `creation desc`, but this value
 can be overridden to use other non-standard fields that can serve the same
 purpose. For instance, you have a field `timestamp` under the **Task** DocType
 that tracks the time it was approved or marked valid instead of the time it was
