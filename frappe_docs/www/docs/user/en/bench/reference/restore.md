@@ -31,6 +31,13 @@ public and private file backup archives, the default is `tar`, but since **Versi
 > Note: As of this point, there's no way to restore only files using this
 > command.
 
+## Arguments
+
+ - `SQL_FILE_PATH` Path to the database source file. The path may be relative from
+the bench directory root, or the sites folder. It may also be an absolute path.
+
+> To learn more about relative and absolute paths, on Wikipedia click [here](https://en.wikipedia.org/wiki/Path_(computing)#Absolute_and_relative_paths).
+
 ## Options
 
  - `--mariadb-root-username` Root username for MariaDB

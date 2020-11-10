@@ -75,6 +75,17 @@ of `sql` extension.
 For more information and examples, see the [bench
 restore](/docs/user/en/bench/reference/restore) reference.
 
+#### Partial Site Restores and Backups
+
+Since Version 13, Frappe has support for taking partial backups and restoring
+them. Partial backups can be taken using the `bench backup` command directly. As
+for partial restores, the `bench partial-restore` command may be used to restore
+the partial backups to an existing site.
+
+For more information and examples, see the [bench
+restore](/docs/user/en/bench/reference/partial-restore) and [bench
+backup](/docs/user/en/bench/reference/backup) reference.
+
 #### Site App Management
 
 You can install or uninstall Frappe Applications available on your Bench. To add

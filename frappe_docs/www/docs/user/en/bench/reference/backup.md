@@ -29,8 +29,8 @@ that site.
   - `--backup-path-conf` Set path for saving config file
   - `--backup-path-files` Set path for saving public file
   - `--backup-path-private-files` Set path for saving private file
-  - `--exclude` Specify the DocTypes to not backup seperated by commas
-  - `--include` Specify the DocTypes to backup seperated by commas
+  - `--exclude`, `-e` Specify the DocTypes to not backup seperated by commas
+  - `--only`, `--include`, `-i` Specify the DocTypes to backup seperated by commas
 
 ## Flags
 
@@ -81,7 +81,7 @@ that site.
 1. Backup only certain doctypes on the site.
 
     ```bash
-   bench --site {site} backup --inclue 'ToDo,Note,Task,Project,Sales Invoice'
+   bench --site {site} backup --only 'ToDo,Note,Task,Project,Sales Invoice'
     ```
 
 1. Backup all tables except certain doctypes.
