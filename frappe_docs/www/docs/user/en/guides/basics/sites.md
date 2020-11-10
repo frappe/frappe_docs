@@ -15,7 +15,7 @@ Apart from the sites, the `sites_dir` should contain the following.
 #### apps.txt
 
 `apps.txt` contain a list of Python packages to treat as Frappe apps. Every
-frappe app that you intend to use in you site should have an entry in this file.
+frappe app that you intend to use in your site should have an entry in this file.
 Also, they should be in the `PYTHONPATH`. For more information, refer
 [Frappe Apps](/help/apps).
 
