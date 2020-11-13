@@ -23,10 +23,10 @@ Copy the Redirect URI, head to the third party service and create new oAuth2 cli
 
 ![Create oAuth2 client credentials](/docs/assets/img/app-development/generic_oauth_client/3-get-client-credentials.png)
 
-Copy the client ID and secret from the third party service to your **Connected App** and save. Now you and your users can click on "Connect to ..." on the top right. This will open a new tab that shows the third party service's consent screen. After this, you will be redirected to your frappe instance.
+Copy the client ID and secret from the third party service to your **Connected App** and save. Now you and your users can click on "Connect to ..." on the top right. This will open a new browser tab that shows the third party service's consent screen. After this, you will be redirected to your frappe instance.
 
 ![Connect to the third party service](/docs/assets/img/app-development/generic_oauth_client/4-connect.png)
 
-In the backend, your server will exchange a code it obtained during the redirect for a temporary access token. This can then be used to access the third party service on your behalf.
+In the backend, your server will exchange a code that it obtained during the redirect for a temporary access token. This can then be used to access the third party service on your behalf.
 
 {next}
