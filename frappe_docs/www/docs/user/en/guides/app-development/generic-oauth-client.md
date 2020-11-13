@@ -4,7 +4,7 @@ Frappe comes with generic oAuth2 client. This way you can connect to any third p
 
 ## Prerequisites
 
-- [Connected App](/docs/user/en/guides/app-development/connected-app.md)
+- [Connected App](/docs/user/en/guides/app-development/connected-app)
 
     **Connected App** stores the client ID and secret, scopes and endpoints of the platform you're integrating with.
 
