@@ -205,3 +205,9 @@ Kanban view can be created for any DocType that has a Select field with options.
 These options become the column names for the Kanban Board.
 
 ![Kanban View](/docs/assets/img/kanban-view.png)
+
+## Map View
+
+Map view can be created for any DocType that has a Geolocation field or latitude and longitude fields.
+
+![Map View](/docs/assets/img/map-view.gif)
