@@ -1,4 +1,10 @@
-<!-- add-breadcrumbs -->
+---
+title: Bench - Bench Commands
+metatags:
+ description: >
+  The Bench CLI has a set of commands to manage all Frappe Deployments.
+---
+
 # Bench Commands
 
 This page is concerned only with the commands that exist in the bench project,
