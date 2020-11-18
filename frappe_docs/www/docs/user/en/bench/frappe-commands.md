@@ -83,7 +83,7 @@ for partial restores, the `bench partial-restore` command may be used to restore
 the partial backups to an existing site.
 
 For more information and examples, see the [bench
-restore](/docs/user/en/bench/reference/partial-restore) and [bench
+partial-restore](/docs/user/en/bench/reference/partial-restore) and [bench
 backup](/docs/user/en/bench/reference/backup) reference.
 
 #### Site App Management
