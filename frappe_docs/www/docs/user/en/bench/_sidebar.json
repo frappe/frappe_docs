@@ -46,6 +46,14 @@
 			{
 				"title": "uninstall-app",
 				"route": "/docs/user/en/bench/reference/uninstall-app"
+			},
+			{
+				"title": "restore",
+				"route": "/docs/user/en/bench/reference/restore"
+			},
+			{
+				"title": "partial-restore",
+				"route": "/docs/user/en/bench/reference/partial-restore"
 			}
 		]
 	},

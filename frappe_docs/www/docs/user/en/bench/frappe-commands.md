@@ -1,4 +1,10 @@
-<!-- add-breadcrumbs -->
+---
+title: Bench - Frappe Commands
+metatags:
+ description: >
+  The Bench CLI inherits commands from the bench's Frappe installation.
+---
+
 # Frappe Commands
 
 The Bench CLI utilizes the module`frappe.utils.bench_manager` to get the
@@ -68,6 +74,17 @@ of `sql` extension.
 
 For more information and examples, see the [bench
 restore](/docs/user/en/bench/reference/restore) reference.
+
+#### Partial Site Restores and Backups
+
+Since Version 13, Frappe has support for taking partial backups and restoring
+them. Partial backups can be taken using the `bench backup` command directly. As
+for partial restores, the `bench partial-restore` command may be used to restore
+the partial backups to an existing site.
+
+For more information and examples, see the [bench
+partial-restore](/docs/user/en/bench/reference/partial-restore) and [bench
+backup](/docs/user/en/bench/reference/backup) reference.
 
 #### Site App Management
 
