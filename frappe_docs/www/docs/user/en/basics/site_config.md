@@ -81,7 +81,7 @@ You can set `enable_frappe_logger` as `true` in the `common_site_config.json`
 and set it to `false` in *worker.frappe.xyz*'s `site_config.json`.
 
 ```bash
-$ bench config set-common-config enable_frappe_logger true
+$ bench config set-common-config -c enable_frappe_logger true
 $ bench --site worker.frappe.xyz set-config enable_frappe_logger false
 ```
 
