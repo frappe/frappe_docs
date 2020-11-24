@@ -221,7 +221,7 @@ There is specials args for this two commands
    
 ```zsh
 ➜ bench config set-common-config -c enable_frappe_logger true
-➜ bench config removecommon-config -c enable_frappe_logger true
+➜ bench config remove-common-config -c enable_frappe_logger
 ```
 
 ### Install Commands
