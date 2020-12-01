@@ -200,7 +200,8 @@ configurations in the current bench context. The usage for these commands is as
 ```zsh
 ➜ bench config COMMAND [ARGS]...
 ```
-
+ - **remove-common-config**: Remove specific keys from current bench's common
+   config
  - **update\_bench\_on\_update**: Enable/Disable bench updates on running bench
    update
  - **restart\_supervisor\_on\_update**: Enable/Disable auto restart of
@@ -213,15 +214,12 @@ configurations in the current bench context. The usage for these commands is as
    80
  - **http\_timeout**: Set HTTP timeout
  
-There is specials args for this two commands
+There is specials args for this commands
 
  - **set-common-config**: Set value in common config with parameters -c, configs or --config 
- - **remove-common-config**: Remove specific keys from current bench's common with parameters -c, configs or --config
-   config
    
 ```zsh
 ➜ bench config set-common-config -c enable_frappe_logger true
-➜ bench config remove-common-config -c enable_frappe_logger
 ```
 
 ### Install Commands
