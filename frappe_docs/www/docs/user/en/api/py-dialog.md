@@ -12,7 +12,7 @@ Frappe provides a group of standard, interactive and flexible dialogs that are
 easy to configure and use. There's also a more extensive API for [Javascript](/docs/user/en/api/dialog).
 
 ### frappe.msgprint
-`frappe.msgprint(msg, title, raise_exception, as_table, indicator, primary_action)`
+`frappe.msgprint(msg, title, raise_exception, as_table, as_list, indicator, primary_action)`
 
 This method works only within a request / response cycle. It shows a message to
 the user logged in to Desk who initiated the request.
@@ -22,6 +22,7 @@ The argument list includes:
 - `msg`: The message to be displayed
 - `title`: Title of the modal
 - `as_table`: If `msg` is a list of lists, render as HTML table
+- `as_list`: If `msg` is a list, render as HTML unordered list
 - `primary_action`: Bind a primary server/client side action.
 - `raise_exception`: Exception
 
