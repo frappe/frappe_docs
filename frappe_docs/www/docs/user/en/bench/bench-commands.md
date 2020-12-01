@@ -200,6 +200,12 @@ configurations in the current bench context. The usage for these commands is as
 ```zsh
 ➜ bench config COMMAND [ARGS]...
 ```
+ - **set-common-config**: Set value in common config with parameters -c, configs or --config 
+   
+```zsh
+➜ bench config set-common-config -c enable_frappe_logger true
+```
+
  - **remove-common-config**: Remove specific keys from current bench's common
    config
  - **update\_bench\_on\_update**: Enable/Disable bench updates on running bench
@@ -213,14 +219,7 @@ configurations in the current bench context. The usage for these commands is as
  - **serve\_default\_site**: Configure nginx to serve the default site on port
    80
  - **http\_timeout**: Set HTTP timeout
- 
-There is specials args for this commands
 
- - **set-common-config**: Set value in common config with parameters -c, configs or --config 
-   
-```zsh
-➜ bench config set-common-config -c enable_frappe_logger true
-```
 
 ### Install Commands
 
