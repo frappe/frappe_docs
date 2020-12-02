@@ -69,6 +69,7 @@ website_redirects = [
 	{'source': '/docs/user/en/users-and-permissions', 'target': '/docs/user/en/basics/users-and-permissions' },
 	{'source': '/docs/user/en/what-is-frappe', 'target': '/docs/user/en/basics' },
 	{'source': '/docs/user/en/why', 'target': '/docs/user/en/basics/why' },
+	{'source': '/docs/user/en/guides/bench', 'target': '/docs/user/en/bench' },
 	{'source': '/docs/user/en/guides/basics/hooks', 'target': '/docs/user/en/python-api/hooks' },
 	{'source': '/docs/user/en/guides/basics/site_config', 'target': '/docs/user/en/basics/site_config' },
 ]
