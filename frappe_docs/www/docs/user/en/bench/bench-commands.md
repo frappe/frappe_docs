@@ -141,9 +141,9 @@ each with `bench` in your shell. Therefore, the usage for these commands is as
 
 ### Setup Commands
 
-This command group consists of commands used to manipulate the requirements
-and environments required by your Frappe environment. The setup commands used
-for setting up the Frappe environment in context of the current bench need to be
+This command group consists of commands used to manipulate the requirements and
+the environment required by your Frappe environment. The setup commands used for
+setting up the Frappe environment in the context of the current bench need to be
 executed using `bench setup` as the prefix. So, the general usage of these
 commands is as
 
@@ -184,7 +184,7 @@ commands is as
  - **wildcard-ssl**: Setup wildcard SSL certificate for multi-tenant bench
 
  - **add-domain**: Add a custom domain to a particular site
- - **remove-domain**: Remove custom domain from a site
+ - **remove-domain**: Remove a custom domain from a site
  - **sync-domains**: Check if there is a change in domains. If yes, updates the
    domains list.
 
@@ -200,11 +200,10 @@ configurations in the current bench context. The usage for these commands is as
 ```zsh
 ➜ bench config COMMAND [ARGS]...
 ```
-
- - **set-common-config**: Set value in common config
+ - **set-common-config**: Set value in common config with parameters -c, configs
+   or --config
  - **remove-common-config**: Remove specific keys from current bench's common
    config
-
  - **update\_bench\_on\_update**: Enable/Disable bench updates on running bench
    update
  - **restart\_supervisor\_on\_update**: Enable/Disable auto restart of
@@ -309,6 +308,25 @@ familiar with the basic usage.
 ➜ bench update
 ```
 
+### Update Bench config
+
+  To update the common site config for your bench, you can use the
+  `set-common-config` and `remove-common-config` commands under the config
+  command group. To learn more about Frappe Site configurations available,
+  checkout the Site and Bench Config
+  [docs](/docs/user/en/guides/basics/site_config).
+
+  To add or update an existing config key, you can run something like
+
+```zsh
+➜ bench config set-common-config -c enable_frappe_logger true
+```
+
+  To remove an existing config key, you can run something like
+
+```zsh
+➜ bench config remove-common-config enable_frappe_logger
+```
 
 ## Bench Manager
 
