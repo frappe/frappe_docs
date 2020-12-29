@@ -111,7 +111,7 @@ if doc.allocted_to:
 frappe.response['message'] = "hello"
 ```
 
-Request: `/api/method/test_method`
+Request: `test_method`
 
 ### 3.5 Internal Library
 
