@@ -40,6 +40,7 @@ bench --site site1.local set-config server_script_enabled true
 For scripts that are to be called via document events, you must set the Reference Document Type and Event Name to define the trigger
 
 - Before Insert
+- Before Validate
 - Before Save
 - After Save
 - Before Submit
