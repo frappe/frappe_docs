@@ -113,6 +113,7 @@ unless the values are provided during site creation.
 | ----------- | ----------- |
 | `admin_password` | Default Password for the standard "Administrator" User. This will be used as the password for the Administrator User for all new sites. |
 | `allow_tests` | Setting this allows tests to be run on this site. |
+| `allow_cors` | Enables [cross-site HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). Can be set to: <br><ul><li> a specific origin, for example: `"https://example.com"`</li><li> a list of origins, for example: `["https://portal.example.com", "https://shop.example.com"]`</li><li> a wildcard: `"*"` (<span class="text-danger">Not recommended for production use</span>)</li></ul>|
 | `data_import_batch_size` | Batch Size for Data Import |
 | `deny_multiple_logins` | Stop users from having more than one active session. |
 | `deny_multiple_sessions` | Deny Multiple Sessions. |
