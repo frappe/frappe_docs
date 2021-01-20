@@ -11,6 +11,8 @@ First, create a new **Connected App** and give it a name. You can already enter 
 
 Scopes describe what information can be accessed. The Authorization URI is where you will be redirected to give your consent. The Token URI is the endpoint where the system can exchange an authorization code for an access or refresh token. Please check the documentation of the specific integration or third party service to get the right values.
 
+> To automatically populate all the URI fields, enter the `openid_configuration` endpoint of any provider and click "Get OpenID Configuration". For example, Google's OpenID configuration can be found at `https://accounts.google.com/.well-known/openid-configuration`.
+
 ![Create a new Connected App](/docs/assets/img/app-development/generic_oauth_client/1-new-connected-app.png)
 
 Once the **Connected App** has been created, you can see the Redirect URI. (Note that the last part of it is specific to your **Connected App**.)
