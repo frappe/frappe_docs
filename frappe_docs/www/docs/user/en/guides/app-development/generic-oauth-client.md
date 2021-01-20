@@ -1,6 +1,6 @@
 > Introduced in Frappe Version 13.
 
-Frappe comes with generic oAuth2 client. This way you can connect to any third party service supporting oAuth2.
+Frappe comes with generic OAuth 2.0 client. This way you can connect to any third party service supporting OAuth 2.0.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Frappe comes with generic oAuth2 client. This way you can connect to any third p
 
 ## Getting started
 
-> This example uses Google, but you can use any service supporting oAuth2.
+> This example uses Google, but you can use any service supporting OAuth 2.0.
 
 Your integration will most probably need a settings doctype (for example, "Google Settings"). Here you create a link field to **Connected App**. A System Manager can later create a **Connected App**, enter the client credentials and link it to your integration. You will know which **Connected App** belongs to your integration via your settings DocType.
 
