@@ -17,7 +17,7 @@ for your DocTypes. Desk is to be used by users of the type "System User".
 
 In this section we will discuss what views are provided by Desk and how to configure them.
 
-- [Desktop](#desktop)
+- [Workspace](#Workspace)
 - [Awesomebar](#awesomebar)
 - [List View](#list-view)
 - [Form View](#form-view)
@@ -29,7 +29,7 @@ In this section we will discuss what views are provided by Desk and how to confi
 
 ## Workspace
 
-When you login to the Desk, you're presented with the Desktop, it features a persistent sidebar sorted in categories. 
+When you login to the Desk, you're presented with the Workspace, it features a persistent sidebar sorted in categories.
 Each sidebar item links to a page called Workspace.
 
 A workspace represents a module (for example CRM in ERPNext). A workspace includes the following:
