@@ -40,7 +40,7 @@ run the command `bench new-app app_name`, the app will be bootstrapped in this
 directory. Your custom apps live here and you are supposed to edit/work with
 them here.
 
-Learn more about [apps](/docs/user/en/apps).
+Learn more about [apps](/docs/user/en/basics/apps).
 
 ### sites
 
