@@ -53,6 +53,30 @@ brew install python git redis mariadb
 brew cask install wkhtmltopdf
 ```
 
+Now, edit the MariaDB configuration file.
+
+```bash
+nano /etc/mysql/my.cnf
+```
+
+And add this configuration
+
+```hljs
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+```
+
+Now, just restart the mysql service and you are good to go.
+
+```bash
+brew services restart mariadb
+```
+
 **Install Node**
 
 We recommend installing node using [nvm](https://github.com/creationix/nvm)
