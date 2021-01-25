@@ -249,9 +249,8 @@ $ bench --site sitename get-untranslated [lang] [path-to-file]
 #### Step 2: Translate
 
 Create another file with updated translations (in the same order as the source
-file). For this you can use the [Google Translator
-Toolkit](https://translate.google.com/toolkit) or [Bing
-Translator](http://www.bing.com/translator/).
+file). For this you can use the [Google Translator](https://translate.google.com/) or
+[Bing Translator](http://www.bing.com/translator/).
 
 #### Step 3: Import your translations
 
