@@ -136,7 +136,7 @@ class LibraryTransaction(Document):
             self.validate_issue()
             # set the article status to be Issued
             article = frappe.get_doc("Article", self.article)
-            article.status == "Issued"
+            article.status = "Issued"
             article.save()
 
         elif self.type == "Return":
