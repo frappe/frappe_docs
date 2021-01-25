@@ -43,7 +43,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 Install [Homebrew](https://brew.sh/). It makes it easy to install packages on macOS.
 
 ```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Now, you can easily install the required packages by running the following command
