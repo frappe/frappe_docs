@@ -52,8 +52,8 @@ class Person(Document):
         do_something_else()
 ```
 
-There are a lot of methods provided by default on the `doc` object. You can find the complete [list here](api/document#document-methods).
-.
+There are a lot of methods provided by default on the `doc` object. You can find the complete [list here](/docs/user/en/api/document#document-methods).
+
 
 ### Controller Hooks
 
