@@ -90,7 +90,7 @@ backup](/docs/user/en/bench/reference/backup) reference.
 
 You can install or uninstall Frappe Applications available on your Bench. To add
 Apps to your bench using `bench get-app` checkout [the
-docs](/docs/user/en/bench/bench-commands#the-usual-commands).
+docs](/docs/user/en/bench/bench-commands#frequently-used).
 
 ##### App Installation
 
