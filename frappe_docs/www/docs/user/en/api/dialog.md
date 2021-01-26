@@ -203,6 +203,64 @@ frappe.show_progress('Loading..', 70, 100, 'Please wait');
 ![Show Progress](/docs/assets/img/api/dialog-api-progress.png)
 *frappe.show_progress*
 
+### frappe.new_doc
+`frappe.new_doc(doctype, route_options, init_callback)`
+
+Creates a (draft) new document of the specified `doctype` and switches
+to a form for editing it. If the `doctype` has a defined default "Quick
+Entry" form (that allows for specifying a few most important fields
+when creating a new document of this type) the form used will be that
+Quick Entry form; otherwise, it will be the usual document entry/edit
+form, showing the new document.
+
+Often when you are creating a new document in the user interface you
+want to initialize some of its fields based on the user interaction
+that triggered the creation. The other two arguments can be used for
+such initialization.
+
+Specifically, the `route_options` argument is a quick, convenient way to
+set any fields of type Link, Select, Data, or Dynamic Link in the new
+document. Its value should be an object whose keys are the desired
+field names and whose values are the initial values. If it is undefined,
+nothing is set.
+
+If you need to do any other initialization of the new document that
+is not possible with `route_options`, `init_callback`
+gives you full control. It should be a function of one argument. If
+the doctype is initialized with a Quick Entry form, the callback is
+called with the Quick Entry dialog object just before control is
+released back to the user. Otherwise, the callback is called with the
+new document just before the user is allowed to edit it in the standard
+form.
+
+Thus, for example, you can create a new Task for the user to edit via:
+```js
+frappe.new_doc("Task", {subject: "New Task"},
+               doc => {doc.description = "Do what's necessary";});
+```
+
+Note that "subject" is a field of type Data in a Task, so we are able
+to take advantage of the `route_options` argument to set it; but
+"description" is of type Text Editor, so if we want to initialize it,
+that must be done in the callback.
+
+For a slightly more complex example, here's a call that creates a new
+Journal Entry of type Bank Entry and populates one side of the
+transaction:
+```js
+frappe.new_doc("Journal Entry", {"voucher_type": "Bank Entry"}, doc => {
+    doc.posting_date = date;
+    let newacc = frappe.model.add_child(doc, "accounts");
+    newacc.account = account;
+    newacc.account_currency = currency;
+    newacc.debit_in_account_currency = credit;
+    newacc.credit_in_account_currency = debit;
+}
+```
+
+(here presumably date, account, currency, credit, and debit are local
+variables with the desired values for the new Journal Entry).
+
 ### frappe.ui.form.MultiSelectDialog
 `new frappe.ui.form.MultiSelectDialog({ doctype, target, setters, date_field, get_query, action })`
 
