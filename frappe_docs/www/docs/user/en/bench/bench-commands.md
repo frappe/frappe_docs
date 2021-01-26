@@ -240,7 +240,7 @@ is as
    for that user
  - **fail2ban**: Install fail2ban, an intrusion prevention software framework
    that protects computer servers from brute-force attacks
- - **virtualbox**: Installs supervisor
+ - **virtualbox**: Installs virtualbox.
 
 
 

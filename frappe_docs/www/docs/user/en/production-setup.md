@@ -16,7 +16,7 @@ sites on production.
 
 Deploying frappe sites is not too different from setting it up on your local
 system. Install bench using the [Easy
-Install](https://github.com/frappe/bench#easy-install) script if your server is
+Install](https://github.com/frappe/bench#easy-install-script) script if your server is
 one of the supported linux distributions (Debian, Ubuntu, CentOS). Make sure you
 pass the `--production` flag to the script.
 
