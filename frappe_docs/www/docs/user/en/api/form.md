@@ -289,16 +289,16 @@ frm.add_custom_button('Closed', () => {
 }, 'Set Status');
 ```
 
-### frm.clear\_custom_button
+### frm.remove\_custom_button
 
 Remove a specific custom button by label (and group).
 
 ```js
 // remove custom button
-frm.clear_custom_button('Open Reference form');
+frm.remove_custom_button('Open Reference form');
 
 // remove custom button in a group
-frm.clear_custom_button('Closed', 'Set Status');
+frm.remove_custom_button('Closed', 'Set Status');
 ```
 
 ### frm.clear\_custom_buttons
