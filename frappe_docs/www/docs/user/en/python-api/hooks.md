@@ -688,7 +688,7 @@ You can also add conditions for exporting records.
 fixtures = [
 	# export all records from the Category table
 	"Category",
-	# export only those records that match the filters from the Category table
+	# export only those records that match the filters from the Role table
 	{"dt": "Role", "filters": [["role_name", "like", "Admin%"]]},
 ]
 ```
