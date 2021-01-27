@@ -56,6 +56,13 @@ The DocField stores meta-data about the field. Some of them are described below.
         "fieldtype": "Section Break",
         "label": "Details"
     },
+    {
+        "fieldname": "amount",
+        "fieldtype": "Currency", // Currency field
+        "label": "Amount",
+        "non_negative": 1, // determines whether this field value can be negative
+        "options": "INR",
+    }
 ]
 ```
 
