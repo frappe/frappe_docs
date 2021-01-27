@@ -29,7 +29,7 @@ In this section we will discuss what views are provided by Desk and how to confi
 
 ## Workspace
 
-When you login to the Desk, you're presented with the Workspace, it features a persistent sidebar sorted in categories.
+When you login, you're presented with the Desk, it features a persistent sidebar sorted in categories.
 Each sidebar item links to a page called Workspace.
 
 A workspace represents a module (for example CRM in ERPNext). A workspace includes the following:
@@ -38,7 +38,7 @@ A workspace represents a module (for example CRM in ERPNext). A workspace includ
 1. Shortcuts for commonly visited masters and pages
 1. A masters section where all the reports and masters are grouped and listed
 
-All of these will be customizable by the user. ⚡️
+These features can be customized for each user directly from Desk.
 
 ![Desktop](/docs/assets/img/desk/workspace.png)
 
@@ -66,7 +66,9 @@ The List view is packed with features. Some of them are:
 *List View*
 
 To customize the List View you must have a `{doctype}_list.js` file in the doctype directory.
-Here are all the options that can be customized. This examples assumes the Note DocType.
+Here are all the options that can be customized.
+
+For instance, if you want to customize the Note DocType, you'll have to create a file `note_list.js` with the following contents.
 
 ```js
 frappe.listview_settings['Note'] = {
@@ -168,8 +170,9 @@ Calendar view can be configured for DocTypes with a start date and end date.
 *Calendar View*
 
 The configuration file should be named `{doctype}_calendar.js` and should exist in the
-doctype directory. Here is an example configuration file for calendar view for
-Event doctype.
+doctype directory.
+
+Here is an example configuration file for calendar view for Event doctype, which must be set in the `event_calendar.js` file.
 
 ```js
 frappe.views.calendar['Event'] = {
@@ -186,15 +189,39 @@ frappe.views.calendar['Event'] = {
 		Public: 'success',
 		Private: 'info'
 	},
+	order_by: 'ends_on',
 	get_events_method: 'frappe.desk.doctype.event.event.get_events'
 }
 ```
-*event_calendar.js*
 
 ## Gantt View
 
-Gantt view uses the same configuration file as calendar, so every DocType that has
-a Calendar view has a Gantt view too.
+Gantt view uses the same configuration file as calendar, so every DocType that has a Calendar view has a Gantt view too.
+
+In case certain settings need to be overridden for the Event DocType's Gantt view (for example the `order_by` field) the configuration can be set in the `event_calendar.js` file with the following content.
+
+```js
+frappe.views.calendar['Event'] = {
+	field_map: {
+		start: 'starts_on',
+		end: 'ends_on',
+		id: 'name',
+		allDay: 'all_day',
+		title: 'subject',
+		status: 'event_type',
+		color: 'color'
+	},
+	gantt: { // The values set here will override the values set in the object just for Gantt View
+		order_by: 'starts_on',
+	}
+	style_map: {
+		Public: 'success',
+		Private: 'info'
+	},
+	order_by: 'starts_on',
+	get_events_method: 'frappe.desk.doctype.event.event.get_events'
+}
+```
 
 ![Gantt View](/docs/assets/img/gantt-view.png)
 *Gantt View*
