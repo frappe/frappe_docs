@@ -90,7 +90,10 @@
 				"title": "Production Setup",
 				"route": "/docs/user/en/production-setup"
 			},
-			{ "title": "Rate Limting", "route": "/docs/user/en/rate-limiting" }
+			{
+				"title": "Rate Limiting",
+				"route": "/docs/user/en/rate-limiting"
+			}
 		]
 	},
 	{

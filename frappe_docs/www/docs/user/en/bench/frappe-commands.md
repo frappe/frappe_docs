@@ -1,4 +1,10 @@
-<!-- add-breadcrumbs -->
+---
+title: Bench - Frappe Commands
+metatags:
+ description: >
+  The Bench CLI inherits commands from the bench's Frappe installation.
+---
+
 # Frappe Commands
 
 The Bench CLI utilizes the module`frappe.utils.bench_manager` to get the
@@ -69,11 +75,22 @@ of `sql` extension.
 For more information and examples, see the [bench
 restore](/docs/user/en/bench/reference/restore) reference.
 
+#### Partial Site Restores and Backups
+
+Since Version 13, Frappe has support for taking partial backups and restoring
+them. Partial backups can be taken using the `bench backup` command directly. As
+for partial restores, the `bench partial-restore` command may be used to restore
+the partial backups to an existing site.
+
+For more information and examples, see the [bench
+partial-restore](/docs/user/en/bench/reference/partial-restore) and [bench
+backup](/docs/user/en/bench/reference/backup) reference.
+
 #### Site App Management
 
 You can install or uninstall Frappe Applications available on your Bench. To add
 Apps to your bench using `bench get-app` checkout [the
-docs](/docs/user/en/bench/bench-commands#the-usual-commands).
+docs](/docs/user/en/bench/bench-commands#frequently-used).
 
 ##### App Installation
 
@@ -142,11 +159,17 @@ reinstall](/docs/user/en/bench/reference/reinstall) reference.
 
 #### List Installed Apps
 
-List all the Frappe Applications installed on the specified site.
+List all the Frappe Applications installed on the specified site. The information
+shown by the command is fetched from the **Installed Applications** DocType which tracks
+the latest version of the apps, the site was migrated to. The global default `installed_apps`
+is used as fallback.
 
 ```bash
 bench --site {site} list-apps
 ```
+
+Multi-site support has been added in Version 13. To see the summary for all sites, run
+the command with site's value as `all`.
 
 #### Site Operations, Debugging & Development
 

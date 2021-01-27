@@ -1,8 +1,17 @@
+---
+title: Bench - bench reinstall
+metatags:
+ description: >
+  The Bench CLI has a reinstall command to reset the state of a Frappe site.
+---
+
 # bench reinstall
 
 ## Usage
 
-    bench reinstall [OPTIONS]
+```bash
+bench reinstall [OPTIONS]
+```
 
 ## Description
 

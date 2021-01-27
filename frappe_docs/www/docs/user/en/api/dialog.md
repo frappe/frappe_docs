@@ -203,6 +203,66 @@ frappe.show_progress('Loading..', 70, 100, 'Please wait');
 ![Show Progress](/docs/assets/img/api/dialog-api-progress.png)
 *frappe.show_progress*
 
+### frappe.new_doc
+`frappe.new_doc(doctype, route_options, init_callback)`
+
+Opens a new form of the specified DocType that allows to edit and save it. If
+"Quick Entry" is enabled for the DocType (that allows to enter the most
+important fields) the "Quick Entry" pop-up window will be shown. Otherwise you
+will be redirected to the usual document entry form.
+
+For example, let's create a new **Task**:
+
+```js
+frappe.new_doc("Task");
+```
+
+Often when you are creating a new document in the user interface you want to
+initialize some of its fields based on the user interaction that triggered the
+creation. The other two arguments can be used for such initialization.
+
+Specifically, the `route_options` argument is a quick and convenient way to set
+any field of type Link, Select, Data, or Dynamic Link in the new document. Its
+value should be an object whose keys are the desired field names and whose
+values are the initial values.
+
+```js
+frappe.new_doc("Task", {subject: "New Task"});
+```
+
+If you need to do any other initialization of the new document that is not
+possible with `route_options`, `init_callback` gives you full control. It should
+be a function of one argument. If the doctype is initialized with a
+"Quick Entry" form, the callback is called with the "Quick Entry" dialog object
+just before control is released back to the user. Otherwise, the callback is
+called with the new document just before the user is allowed to edit it in the
+standard form.
+
+```js
+frappe.new_doc("Task", {subject: "New Task"},
+				doc => {doc.description = "Do what's necessary";});
+```
+
+Note that `subject` is a field of type "Data", so we are able to take advantage
+of the `route_options` argument to set it. `description` is a field of type
+"Text Editor", so if we want to initialize it, that must be done in the
+callback.
+
+For a slightly more complex example, here's a call that creates a new
+**Journal Entry** of type "Bank Entry" and populates one side of the
+transaction:
+
+```js
+frappe.new_doc("Journal Entry", {"voucher_type": "Bank Entry"}, doc => {
+	doc.posting_date = frappe.datetime.get_today();
+	let row = frappe.model.add_child(doc, "accounts");
+	row.account = 'Bank - A';
+	row.account_currency = 'USD';
+	row.debit_in_account_currency = 100.0;
+	row.credit_in_account_currency = 0.0;
+});
+```
+
 ### frappe.ui.form.MultiSelectDialog
 `new frappe.ui.form.MultiSelectDialog({ doctype, target, setters, date_field, get_query, action })`
 

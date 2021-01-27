@@ -1,8 +1,11 @@
-<!-- add-breadcrumbs -->
+---
+title: Bench - Extending the CLI
+metatags:
+ description: >
+  The Bench CLI can be extended by adding commands under your Frappe Applications.
+---
 
 # Bench - Extending the CLI
-
-
 
 Along with the framework commands, Frappe's `bench_manager` module also searches
 for any commands in your custom applications. Thereby, bench communicates with

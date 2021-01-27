@@ -43,7 +43,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 Install [Homebrew](https://brew.sh/). It makes it easy to install packages on macOS.
 
 ```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Now, you can easily install the required packages by running the following command
@@ -51,6 +51,30 @@ Now, you can easily install the required packages by running the following comma
 ```bash
 brew install python git redis mariadb
 brew cask install wkhtmltopdf
+```
+
+Now, edit the MariaDB configuration file.
+
+```bash
+nano /etc/mysql/my.cnf
+```
+
+And add this configuration
+
+```hljs
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+```
+
+Now, just restart the mysql service and you are good to go.
+
+```bash
+brew services restart mariadb
 ```
 
 **Install Node**
@@ -199,9 +223,6 @@ Add the following configuration
 
 ```
 [mysqld]
-innodb-file-format=barracuda
-innodb-file-per-table=1
-innodb-large-prefix=1
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
