@@ -108,6 +108,7 @@
 * `bench console`   Opens a IPython console in the bench venv
 * `bench execute`   Execute a method inside any app.
   * Eg : `bench execute frappe.utils.scheduler.enqueue_scheduler_events`
+  * Eg with parameters : `bench --site site1.local execute erpnext.stock.stock_balance.repost_stock --args "{'ITEM_A', 'WAREHOUSE_B'}"`
 * `bench --site [sitename] mariadb`  Opens SQL Console
 * `bench --site [sitename] export-fixtures`  Exports fixtures
 * `bench run-tests`  Run tests
