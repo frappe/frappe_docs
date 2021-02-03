@@ -82,7 +82,7 @@ Here is what a sample page might look like:
 {% raw %}
 ```html
 <!-- about.html -->
-{%  extends "templates/web.html" %}
+{% extends "templates/web.html" %}
 
 {% block title %}{{ _("About Us") }}{% endblock %}
 

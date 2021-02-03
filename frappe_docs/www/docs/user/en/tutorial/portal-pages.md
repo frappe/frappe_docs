@@ -41,7 +41,7 @@ the following HTML to **article.html**.
 
 {% raw %}
 ```html
-{%  extends "templates/web.html" %}
+{% extends "templates/web.html" %}
 
 {% block page_content %}
 <div class="py-20 row">
