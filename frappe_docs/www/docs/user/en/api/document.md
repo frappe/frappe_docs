@@ -162,6 +162,19 @@ doc.insert(
 )
 ```
 
+## doc.append
+
+This method appends an item to a [child table](/docs/user/en/basics/doctypes/child-doctype).
+
+```py
+doc.append("child_table_name", {
+	"child_table_field": "value",
+	"child_table_int_field": 42,
+	...
+	}
+)
+```
+
 ## doc.save
 
 This method saves changes to an existing document. This will check for user
