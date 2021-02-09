@@ -13,7 +13,7 @@
   * `--ignore-exist`                  Ignore if Bench instance exists.
   * `--apps_path TEXT`                path to json files with apps to install after init
   * `--frappe-path TEXT`              path to frappe repo
-  * `--frappe-branch TEXT`            path to frappe repo
+  * `--frappe-branch TEXT`            Clone a particular branch of frappe
   * `--clone-from TEXT`               copy repos from path
   * `--clone-without-update`          copy repos from path without update
   * `--no-procfile`                   Pull changes in all the apps in bench
