@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Customizing DocTypes
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe allows additional customization for DocTypes on top of standard settings. These customizations can be different for each site (tenant).
