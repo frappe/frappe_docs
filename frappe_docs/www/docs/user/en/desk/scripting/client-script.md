@@ -14,8 +14,7 @@ executed on a user's browser. If you choose to utilize non standard tools or
 libraries, make sure to test them on different browsers to ensure compatibility
 across your userbase.
 
-> This feature was introduced in *Version 11* as **Custom Script** and
-> renamed in *Version 13*
+> In Version 13, **Custom Script** was renamed to **Client Script**
 
 
 ## 1. How to create a Client Script
