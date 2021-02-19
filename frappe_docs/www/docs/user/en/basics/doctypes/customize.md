@@ -15,7 +15,7 @@ To allow for site-specific customization, Frappe Framework has multiple approach
 1. Custom Field: A DocType that keeps track of site-specific fields.
 1. Property Setter: This keeps track of specific properties that are overridden in DocType and its children.
 1. Customize Form: A view that helps you easily customize DocTypes
-1. Custom Script: Additional client-side event handlers.
+1. [Client Script](/docs/user/en/desk/scripting/client-script): Additional client-side event handlers.
 1. [Server Script](/docs/user/en/desk/scripting/server-script): Additional server-side business logic.
 1. Custom DocPerm: Additional Permission (handled via Role Permission Manager)
 

@@ -32,7 +32,10 @@ browser console.
 1. [Common Utilities](/docs/user/en/api/js-utils)
 1. [Dialog API](/docs/user/en/api/dialog)
 
-## Other
+## Related Links
 
+1. [Client Script](/docs/user/en/desk/scripting/client-script)
+1. [Server Script](/docs/user/en/desk/scripting/server-script)
 1. [REST API](/docs/user/en/api/rest)
 1. [Jinja API](/docs/user/en/api/jinja)
+
