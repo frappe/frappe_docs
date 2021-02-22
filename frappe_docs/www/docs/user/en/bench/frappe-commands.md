@@ -171,6 +171,29 @@ bench --site {site} list-apps
 Multi-site support has been added in Version 13. To see the summary for all sites, run
 the command with site's value as `all`.
 
+#### Setting the default site
+
+Sometimes typing `--site [sitename]` for every site command can be tedious. You
+can set the default site for the terminal session by setting the `FRAPPE_SITE`
+environment variable.
+
+```bash
+~/frappe-bench
+❯ export FRAPPE_SITE=mysite.localhost
+
+~/frappe-bench
+❯ echo $FRAPPE_SITE
+mysite.localhost
+
+~/frappe-bench
+❯ bench console
+Apps in this namespace:
+frappe
+
+In [1]: frappe.local.site
+Out[1]: 'mysite.localhost'
+```
+
 #### Site Operations, Debugging & Development
 
 Here are some operations you can perform on your site via the Bench CLI to
