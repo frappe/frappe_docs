@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Form Scripts - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Everything you need to know about Form Scripts and available API methods.
@@ -67,19 +66,6 @@ frappe.ui.form.on('Quotation Item', {
 	}
 })
 ```
-
-## Custom Form Scripts
-
-You can also write form scripts by creating **Custom Script** in the system. You
-should write Custom Scripts if the logic is specific to your site. If you want
-to share Form Scripts across sites, you must include them via Apps.
-
-To create a new Custom Script, go to
-
-**Home > Customization > Custom Script > New**
-
-![New Custom Script](/docs/assets/img/new-custom-script.png)
-*New Custom Script*
 
 ## Form Events
 

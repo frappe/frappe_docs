@@ -1,10 +1,8 @@
 ---
 add_breadcrumbs: 1
 title: Developer API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
- description: >
-  All of the Frappe API in one place
+ description: All of the Frappe API in one place
 ---
 
 # Developer API
@@ -31,9 +29,9 @@ browser console.
 1. [Page](/docs/user/en/api/page)
 1. [Server Calls (AJAX)](/docs/user/en/api/server-calls)
 1. [Common Utilities](/docs/user/en/api/js-utils)
+1. [Dialog API](/docs/user/en/api/dialog)
 
 ## Other
 
-1. [Dialog API](/docs/user/en/api/dialog)
 1. [REST API](/docs/user/en/api/rest)
 1. [Jinja API](/docs/user/en/api/jinja)
