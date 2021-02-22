@@ -28,7 +28,7 @@ In Frappe Framework, you can manage ajax calls via frappe.call. The frappe.call 
 - error: Function parameter, code snippet, will execute after request failure
 - always: Function parameter, code snipper, will execute in either case
 - btn: Object parameter, triggering object
-- freeze: Boolean parameter, if set freeze the instance util it receives response
+- freeze: Boolean parameter, if set freeze the instance until it receives response
 - freeze_message: String parameter, message will populate to screen while screen is in freeze state.
 - async: Boolean parameter, default set to true. So each frappe.call is asynchronous. To make call synchronous set parameter value as false
 - url: String parameter, location from where hitting the request
