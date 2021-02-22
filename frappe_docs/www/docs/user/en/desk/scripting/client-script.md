@@ -22,7 +22,7 @@ across your userbase.
 To create a Client Script
 
 1. To add/edit Client Script, ensure your role is System Manager.
-1. Create a new client script via "New Client Script" in the toolbar.
+1. Type "New Client Script" in the awesomebar and hit enter to create a new Client Script document.
 1. Select the DocType whose form you wish to customize.
 1. Update the script using the preset template and save.
 1. Head over to the DocType you've customized and see the changes.
