@@ -46,7 +46,7 @@ is `tabArticle`.
 
 The standard way to create a DocType is by typing *new doctype* in the search bar in the **Desk**.
 
-![ToDo DocType](/docs/assets/img/todo_doctype.png)
+![ToDo DocType](/docs/assets/img/todo-doctype.png)
 *ToDo DocType*
 
 A DocType not only stores fields, but also other information about how your data
