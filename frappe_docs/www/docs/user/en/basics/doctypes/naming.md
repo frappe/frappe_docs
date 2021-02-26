@@ -1,7 +1,7 @@
 ---
 add_breadcrumbs: 1
 title: Naming DocTypes
-image: /docs/assets/img/naming_field.png
+image: /docs/assets/img/doctypes/naming_field.png
 metatags:
  description: >
   The many ways to create names (primary keys) for a DocType in Frappe
@@ -21,13 +21,13 @@ You can set the name by the `autoname` property of the DocType.
 
 The `doc` name is fetched from the value of the field provided.
 
-<img src="/docs/assets/img/naming_field.png" alt="naming by field" class="screenshot" style="width: 50%;">
+<img src="/docs/assets/img/doctypes/naming_field.png" alt="naming by field" class="screenshot" style="width: 50%;">
 
 #### 2. [series]
 
 You can provide a naming pattern which will be incremented automatically. For e.g, if you set it as `PRE.#####`, the first document created will have the `name` as **PRE00001**, and second one will be **PRE00002** and so on.
 
-<img src="/docs/assets/img/naming_series_1.png" alt="naming by series" class="screenshot" style="width: 50%;">
+<img src="/docs/assets/img/doctypes/naming_series_1.png" alt="naming by series" class="screenshot" style="width: 50%;">
 
 #### 3. naming_series:
 
@@ -35,13 +35,13 @@ The naming pattern is derived from a field in the document. For e.g, you have a 
 
 > This works only if you have a field called `naming_series` in your DocType.
 
-<img src="/docs/assets/img/naming_series_2.png" alt="naming by series by field" class="screenshot" style="width: 50%;">
+<img src="/docs/assets/img/doctypes/naming_series_2.png" alt="naming by series by field" class="screenshot" style="width: 50%;">
 
 #### 4. Prompt
 
 If you set it as **Prompt**, the name is required to be filled in manually.
 
-<img src="/docs/assets/img/naming_prompt.png" alt="naming by prompt" class="screenshot">
+<img src="/docs/assets/img/doctypes/naming-prompt.png" alt="naming by prompt" class="screenshot">
 
 #### 5. Format
 
@@ -55,7 +55,7 @@ EXAMPLE-{MM}-test-{fieldname1}-{fieldname2}-{#####}
 {% endraw -%}
 ```
 
-<img src="/docs/assets/img/naming_format.png" alt="naming by format" class="screenshot" style="width: 50%;">
+<img src="/docs/assets/img/doctypes/naming_format.png" alt="naming by format" class="screenshot" style="width: 50%;">
 
 Everything outside the curly braces are plain text. Keywords inside the curly braces will be evaluated based on what they represent. In this case:
 
@@ -85,7 +85,7 @@ class Project(Document):
 
 You can also create rules for naming DocTypes by creating **Document Naming Rule**
 
-![Document Naming Rule](/docs/assets/img/naming_prompt.png)
+![Document Naming Rule](/docs/assets/img/doctypes/document-naming-rule.png)
 
 You can create multiple Document Naming Rules for a particular doctype that can be applied selectively based on fitlers.
 
