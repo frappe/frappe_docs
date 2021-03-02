@@ -25,7 +25,11 @@ bench setup supervisor
 sudo ln -s `pwd`/config/supervisor.conf /etc/supervisor/conf.d/frappe-bench.conf
 ```
 
-Note: For CentOS 7, the extension should be `ini`, thus the command becomes
+Note:
+
+- For CentOS 7, the extension should be `ini`, thus the command becomes
+- use `--skip-redis` option if you do not need to generate config to start redis servers. e.g. `bench setup supervisor --skip-redis`
+
 ```
 bench setup supervisor
 sudo ln -s `pwd`/config/supervisor.conf /etc/supervisor/conf.d/frappe-bench.ini #for CentOS 7 only
