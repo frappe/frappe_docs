@@ -47,7 +47,7 @@ These features can be customized for each user directly from Desk.
 Awesomebar helps you to navigate anywhere in the system, create new records, search in documents
 and even perform math operations.
 
-![Awesomebar](/docs/assets/img/awesomebar.png)
+![Awesomebar](/docs/assets/img/desk/awesomebar.png)
 *Navigating ToDo using Awesomebar*
 
 ## List View
@@ -62,7 +62,7 @@ The List view is packed with features. Some of them are:
 1. Filter by tags
 1. Switch view to Report, Calendar, Gantt, Kanban, etc.
 
-![List View](/docs/assets/img/list-view.png)
+![List View](/docs/assets/img/doctypes/list-view.png)
 *List View*
 
 To customize the List View you must have a `{doctype}_list.js` file in the doctype directory.
@@ -133,14 +133,14 @@ things going on. But the primary purpose of it is to view and edit records.
 A document can be assigned to or shared with other users and it can have arbitrary
 attachments and tags, all of which can be seen in the form sidebar.
 
-![Form View](/docs/assets/img/form-view.png)
+![Form View](/docs/assets/img/doctypes/form-view.png)
 *Form View*
 
 When you scroll down to the bottom of the form, you will see the form timeline.
 The form timeline shows emails, comments, edits and other events in a reverse
 chronological order.
 
-![Form View](/docs/assets/img/form-timeline.png)
+![Form View](/docs/assets/img/desk/form-timeline.png)
 *Form Timeline*
 
 ## Report Builder
@@ -151,7 +151,7 @@ by giving your report a name. You can also show Child Table data and also filter
 documents by their child records. You can also apply *Group By* on a column with
 aggregation methods like Count, Sum and Average.
 
-![Report Builder](/docs/assets/img/report-builder.gif)
+![Report Builder](/docs/assets/img/desk/report-builder.gif)
 *Report Builder Features*
 
 ## Tree View
@@ -159,14 +159,14 @@ aggregation methods like Count, Sum and Average.
 Frappe also supports tree structured records using the [Nested set model](https://en.wikipedia.org/wiki/Nested_set_model).
 If a doctype is configured to be a tree structure, it can be viewed in the Tree view.
 
-![Tree View](/docs/assets/img/tree-view.png)
+![Tree View](/docs/assets/img/desk/tree-view.png)
 *Tree View*
 
 ## Calendar View
 
 Calendar view can be configured for DocTypes with a start date and end date.
 
-![Calendar View](/docs/assets/img/calendar-view.png)
+![Calendar View](/docs/assets/img/desk/calendar-view.png)
 *Calendar View*
 
 The configuration file should be named `{doctype}_calendar.js` and should exist in the
@@ -223,7 +223,7 @@ frappe.views.calendar['Event'] = {
 }
 ```
 
-![Gantt View](/docs/assets/img/gantt-view.png)
+![Gantt View](/docs/assets/img/desk/gantt-view.png)
 *Gantt View*
 
 ## Kanban View
@@ -231,4 +231,4 @@ frappe.views.calendar['Event'] = {
 Kanban view can be created for any DocType that has a Select field with options.
 These options become the column names for the Kanban Board.
 
-![Kanban View](/docs/assets/img/kanban-view.png)
+![Kanban View](/docs/assets/img/desk/kanban-view.png)
