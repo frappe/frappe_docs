@@ -23,7 +23,7 @@ To allow for site-specific customization, Frappe Framework has multiple approach
 
 Customize Form is a view that helps you override properties of a DocType and add Custom Fields via a single view.
 
-![Customize Form](/docs/assets/img/basics/customize-form.png)
+![Customize Form](/docs/assets/img/doctypes/customize-form.png)
 
 When you change any properties of the DocType via Customize Form, it will not change the underlying DocType but add new custom objects to override those properties. This is done in a seamless manner.
 

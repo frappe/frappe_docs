@@ -29,7 +29,7 @@ To Customize a print format you need to create a copy of the Standard Print
 format and customize it using the Print Format Builder. These print formats are
 user editable and are not bundled with the app as files.
 
-![Print Format Builder](/docs/assets/img/print-format-custom.gif)
+![Print Format Builder](/docs/assets/img/desk/print-format-custom.gif)
 *Print Format Builder*
 
 
@@ -43,7 +43,7 @@ classes](https://getbootstrap.com/docs/3.3/css/) for styling. You can also use
 [Jinja Templating](http://jinja.pocoo.org/docs/2.10/) to add dynamic content to
 your HTML. See [list of methods](/docs/user/en/api/jinja) available to use in Jinja templates.
 
-![Custom HTML](/docs/assets/img/print-format-custom-html.png)
+![Custom HTML](/docs/assets/img/desk/print-format-custom-html.png)
 *Custom HTML*
 
 #### Custom CSS
@@ -52,10 +52,10 @@ To change styling in your Print Format you can also add custom CSS.
 
 > Click on Customize > Edit Properties to add Custom CSS
 
-![Custom CSS](/docs/assets/img/print-format-custom-css.png)
+![Custom CSS](/docs/assets/img/desk/print-format-custom-css.png)
 *Custom CSS*
 
-![Custom CSS Preview](/docs/assets/img/print-format-custom-css-preview.png)
+![Custom CSS Preview](/docs/assets/img/desk/print-format-custom-css-preview.png)
 *Custom CSS Preview*
 
 ## Advanced Print Formats
@@ -76,7 +76,7 @@ To create a new Print Format, type "new print format" in awesomebar and hit ente
 > will be generated for your Print Format and you will have to check it in to
 > your version control with your app.
 
-![Custom HTML in Print Format](/docs/assets/img/advanced-print-format.png)
+![Custom HTML in Print Format](/docs/assets/img/desk/advanced-print-format.png)
 *Custom HTML in Print Format*
 
 ## Print Formats for Reports

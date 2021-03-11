@@ -12,7 +12,7 @@ A Single DocType is a DocType that has only one instance in the database. It is 
 for persisting things like *System Settings*, which don't make sense to have multiple
 records.
 
-![Single DocType](/docs/assets/img/single-doctype.png)
+![Single DocType](/docs/assets/img/doctypes/single-doctype.png)
 
 ```python
 >>> settings = frappe.get_doc('System Settings')

@@ -501,7 +501,7 @@ portal_menu_items = [
 The above configuration will add two sidebar links for users with the role
 Customer.
 
-![Portal Sidebar](/docs/assets/img/hooks-portal-menu-items.png)
+![Portal Sidebar](/docs/assets/img/python-api/hooks-portal-menu-items.png)
 
 These sidebar items are hardcoded in your app so they are not customizable from
 Desk. For e.g., if you want to hide a sidebar link temporarily you will have to
@@ -522,7 +522,7 @@ standard_portal_menu_items = [
 The above configuration will sync sidebar items to the Portal Settings which can
 later be edited by any System User.
 
-![Portal Settings](/docs/assets/img/hooks-standard-portal-menu-items.png)
+![Portal Settings](/docs/assets/img/python-api/hooks-standard-portal-menu-items.png)
 
 ## Brand HTML
 
@@ -595,7 +595,7 @@ quick navigation from the Calendar page in Desk.
 calendars = ["Appointment"]
 ```
 
-![Event Menu Shortcuts](/docs/assets/img/hooks-event-menu-shortcuts.png)
+![Event Menu Shortcuts](/docs/assets/img/python-api/hooks-event-menu-shortcuts.png)
 
 ## Clear Cache
 
@@ -821,7 +821,7 @@ frappe.ui.form.on('Todo', {
 });
 ```
 
-> The events/functions defined in `app/public/todo.js` will override 
+> The events/functions defined in `app/public/todo.js` will override
 > those in the standard form script of `ToDo` doctype.
 
 ### CRUD Events

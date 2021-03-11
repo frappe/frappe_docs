@@ -26,7 +26,7 @@ To create a Query Report, type "new report" in the awesomebar and hit enter.
 > should do this only if you want to bundle Query Reports with your app. The
 > Module will decide where the JSON file will go.
 
-![New Query Report](/docs/assets/img/query-report-example-1.png)
+![New Query Report](/docs/assets/img/desk/query-report-example-1.png)
 
 ### Columns and Filters
 
@@ -82,5 +82,5 @@ to format the Report View.
 For example: The first column `Work Order:Link/Work Order:200` will be rendered
 as a Link Field with the DocType Work Order and the column width would be 200px.
 
-![Query Report View](/docs/assets/img/query-report-example-2.png)
+![Query Report View](/docs/assets/img/desk/query-report-example-2.png)
 *Query Report View*

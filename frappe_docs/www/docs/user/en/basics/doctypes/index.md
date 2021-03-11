@@ -46,7 +46,7 @@ is `tabArticle`.
 
 The standard way to create a DocType is by typing *new doctype* in the search bar in the **Desk**.
 
-![ToDo DocType](/docs/assets/img/todo_doctype.png)
+![ToDo DocType](/docs/assets/img/doctypes/todo-doctype.png)
 *ToDo DocType*
 
 A DocType not only stores fields, but also other information about how your data
@@ -59,11 +59,11 @@ much code. Learn more about [Meta](#meta).
 After creating a DocType, Frappe can provide many features out-of-the-box.
 If you go to `/desk#List/ToDo` you will be routed to the List View in the desk.
 
-![ToDo List](/docs/assets/img/list-view.png)
+![ToDo List](/docs/assets/img/doctypes/list-view.png)
 *ToDo List*
 
 Similarly, you get a Form View at the route `/desk#Form/ToDo/000001`.
 The Form is used to create new docs and view them.
 
-![ToDo Form](/docs/assets/img/form-view.png)
+![ToDo Form](/docs/assets/img/doctypes/form-view.png)
 *ToDo Form*
