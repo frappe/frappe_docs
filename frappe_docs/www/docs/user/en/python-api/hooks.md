@@ -1126,7 +1126,7 @@ DocTypes that have user data should be mapped under this hook using the above fo
 | `doctype` | DocType that contains user data. |
 | `filter_by` | Docfield to filter the documents by. If unset, defaults to `owner`. |
 | `partial` | If set, all text fields are parsed and user's full name and username references will be redacted. |
-| `redact_fields` | Fields that have to be redacted. If unspecified, it considers all text fields. |
+| `redact_fields` | Fields that have to be redacted. If unspecified, it considers partial data redaction from all text fields. |
 | `rename` | If document name contains user data, set this field to rename document to anonymize it. |
 | `strict` | If set to True, any user data will be redacted from all documents of current DocType. If unset, it defaults to False which means it only filters through documents in which user is the owner. |
 
