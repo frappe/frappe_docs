@@ -60,7 +60,8 @@ update_website_context = ["frappe_docs.website_context.get_context"]
 website_redirects = [
 	{'source': '/docs/user/en', 'target': '/docs/user/en/basics' },
 	{'source': '/docs/user/en/report', 'target': '/docs/user/en/desk/report' },
-	{'source': '/docs/user/en/printing', 'target': '/docs/user/en/desk/printing' },
+	{'source': '/docs/user/en/printing', 'target': '/docs/user/en/desk/printing'},
+	{'source': '/docs/user/en/attachments', 'target': '/docs/user/en/desk/attachments' },
 	{'source': '/docs/user/en/apps', 'target': '/docs/user/en/desk/basics/apps' },
 	{'source': '/docs/user/en/architecture', 'target': '/docs/user/en/basics/architecture' },
 	{'source': '/docs/user/en/directory-structure', 'target': '/docs/user/en/basics/directory-structure' },

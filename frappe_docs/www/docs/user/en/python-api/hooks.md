@@ -501,7 +501,7 @@ portal_menu_items = [
 The above configuration will add two sidebar links for users with the role
 Customer.
 
-![Portal Sidebar](/docs/assets/img/hooks-portal-menu-items.png)
+![Portal Sidebar](/docs/assets/img/python-api/hooks-portal-menu-items.png)
 
 These sidebar items are hardcoded in your app so they are not customizable from
 Desk. For e.g., if you want to hide a sidebar link temporarily you will have to
@@ -522,7 +522,7 @@ standard_portal_menu_items = [
 The above configuration will sync sidebar items to the Portal Settings which can
 later be edited by any System User.
 
-![Portal Settings](/docs/assets/img/hooks-standard-portal-menu-items.png)
+![Portal Settings](/docs/assets/img/python-api/hooks-standard-portal-menu-items.png)
 
 ## Brand HTML
 
@@ -595,7 +595,7 @@ quick navigation from the Calendar page in Desk.
 calendars = ["Appointment"]
 ```
 
-![Event Menu Shortcuts](/docs/assets/img/hooks-event-menu-shortcuts.png)
+![Event Menu Shortcuts](/docs/assets/img/python-api/hooks-event-menu-shortcuts.png)
 
 ## Clear Cache
 
@@ -821,7 +821,7 @@ frappe.ui.form.on('Todo', {
 });
 ```
 
-> The events/functions defined in `app/public/todo.js` will override 
+> The events/functions defined in `app/public/todo.js` will override
 > those in the standard form script of `ToDo` doctype.
 
 ### CRUD Events
@@ -1095,6 +1095,48 @@ required_apps = ['erpnext']
 The above configuration will make sure `erpnext` is installed when someone
 installs your app.
 
+## User Data Protection & Privacy
+
+User Data Privacy features like personal data download and personal data deletion come out of the box in Frappe. What constitutes as personal data may be defined by the App publisher in the application's `hooks.py` file as `user_data_fields`.
+
+**app/hooks.py**
+```py
+user_data_fields = [
+	{"doctype": "Access Log"},
+	{"doctype": "Comment", "strict": True},
+	{
+		"doctype": "Contact",
+		"filter_by": "email_id",
+		"rename": True,
+	},
+	{"doctype": "Contact Email", "filter_by": "email_id"},
+	{
+		"doctype": "File",
+		"filter_by": "attached_to_name",
+		"redact_fields": ["file_name", "file_url"],
+	},
+	{"doctype": "Email Unsubscribe", "filter_by": "email", "partial": True},
+]
+```
+
+DocTypes that have user data should be mapped under this hook using the above format. Upon data deletion or download requests from users, this hook will be utilized to map over the specified DocTypes. The options available to modify documents are:
+
+| Field | Description |
+| ---- | ----------|
+| `doctype` | DocType that contains user data. |
+| `filter_by` | Docfield to filter the documents by. If unset, defaults to `owner`. |
+| `partial` | If set, all text fields are parsed and user's full name and username references will be redacted. |
+| `redact_fields` | Fields that have to be redacted. If unspecified, it considers partial data redaction from all text fields. |
+| `rename` | If document name contains user data, set this field to rename document to anonymize it. |
+| `strict` | If set to True, any user data will be redacted from all documents of current DocType. If unset, it defaults to False which means it only filters through documents in which user is the owner. |
+
+> Note: Personal Data Download only utilizes the doctype and filter_by fields defined in `user_data_fields`
+
+Related Topics:
+
+1. [Personal Data Deletion](https://docs.erpnext.com/docs/user/manual/en/setting-up/personal-data-deletion)
+1. [Personal Data Download](https://docs.erpnext.com/docs/user/manual/en/setting-up/personal-data-download)
+
 ## List of available hooks
 
 | Hook Name                                | Explanation                                                                 |
@@ -1165,7 +1207,8 @@ installs your app.
 | `translator_url`                         |                                                                             |
 | `treeviews`                              |                                                                             |
 | `update_website_context`                 | [Website Context](#website-context)                                         |
-| `user_privacy_documents`                 |                                                                             |
+| `user_privacy_documents`                 | _Deprecated_ (Use `user_data_fields` hook)                                                                 |
+| `user_data_fields`                 | [User Data Protection & Privacy](#user-data-protection-&-privacy)                                                             |
 | `web_include_css`                        | [Portal Assets](#portal)                                                    |
 | `web_include_js`                         | [Portal Assets](#portal)                                                    |
 | `website_catch_all`                      | [Website 404](#website-404)                                                 |

@@ -170,6 +170,26 @@ frappe.confirm('Are you sure you want to proceed?',
 ![Prompt](/docs/assets/img/api/dialog-api-confirm.png)
 *frappe.confirm*
 
+
+### frappe.warn
+`frappe.warn(title, message_html, proceed_action, primary_label, is_minimizable)`
+
+Show a warning modal, executes `proceed_actiion` if confirmation is given.
+It can be set as `minimizable` which allows the dialog to be minimized.
+
+```js
+frappe.warn('Are you sure you want to proceed?',
+	'There are unsaved changes on this page',
+	() => {
+		// action to perform if Continue is selected
+	},
+	'Continue',
+	true // Sets dialog as minimizable
+)
+```
+![Prompt](/docs/assets/img/api/dialog-api-warn.png)
+*frappe.confirm*
+
 ### frappe.show_alert
 `frappe.show_alert(message, seconds)` or `frappe.show_alert({message, indicator}, seconds)`
 

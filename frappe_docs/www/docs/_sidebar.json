@@ -28,6 +28,7 @@
 			{ "title": "Desk", "route": "/docs/user/en/desk" },
 			{ "title": "Reports", "route": "/docs/user/en/desk/reports" },
 			{ "title": "Printing", "route": "/docs/user/en/desk/printing" },
+			{ "title": "Attachments", "route": "/docs/user/en/desk/attachments" },
 			{ "title": "Scripting", "route": "/docs/user/en/desk/scripting" },
 			{ "title": "Translations", "route": "/docs/user/en/translations" }
 		]
