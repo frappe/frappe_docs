@@ -46,7 +46,7 @@ frappe.listview_settings['Note'] = {
 	},
 	get_indicator(doc) {
 		// customize indicator color
-		if(doc.public) {
+		if (doc.public) {
 			return [__("Public"), "green", "public,=,Yes"];
 		} else {
 			return [__("Private"), "darkgrey", "public,=,No"];
