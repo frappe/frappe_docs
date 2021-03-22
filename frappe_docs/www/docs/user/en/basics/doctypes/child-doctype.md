@@ -16,6 +16,11 @@ creating the doctype.
 
 ![Child DocType](/docs/assets/img/doctypes/child-doctype.png)
 
+To link a Child Doctype to its parent, add another row in Parent Doctype with field
+type **Table** and options as **Child Table**.
+
+![Child Table](/docs/assests/img/doctypes/child-table-field.png)
+
 Child DocType records are directly attached to the parent doc.
 
 ```python
