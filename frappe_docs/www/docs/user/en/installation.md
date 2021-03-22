@@ -121,14 +121,14 @@ apt-get install software-properties-common
 
 If you are on Ubuntu version older than 20.04, run this before installing MariaDB:
 
-```
+```bash
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.ubuntu-tw.org/mirror/mariadb/repo/10.3/ubuntu xenial main'
 ```
 
 If you are on version Ubuntu 20.04, then MariaDB is available in default repo and you can directly run the below commands to install it:
 
-```
+```bash
 apt-get update
 apt-get install mariadb-server-10.3
 ```
