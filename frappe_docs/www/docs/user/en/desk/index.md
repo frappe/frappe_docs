@@ -17,7 +17,7 @@ for your DocTypes. Desk is to be used by users of the type "System User".
 
 In this section we will discuss what views are provided by Desk and how to configure them.
 
-- [Workspace](#Workspace)
+- [Workspace](#workspace)
 - [Awesomebar](#awesomebar)
 - [List View](#list-view)
 - [Form View](#form-view)
@@ -62,69 +62,7 @@ The List view is packed with features. Some of them are:
 1. Filter by tags
 1. Switch view to Report, Calendar, Gantt, Kanban, etc.
 
-![List View](/docs/assets/img/doctypes/list-view.png)
-*List View*
-
-To customize the List View you must have a `{doctype}_list.js` file in the doctype directory.
-Here are all the options that can be customized.
-
-For instance, if you want to customize the Note DocType, you'll have to create a file `note_list.js` with the following contents.
-
-```js
-frappe.listview_settings['Note'] = {
-	// add fields to fetch
-	add_fields: ['title', 'public'],
-	// set default filters
-	filters: [
-		['public', '=', 1]
-	],
-	hide_name_column: true, // hide the last column which shows the `name`
-	onload(listview) {
-		// triggers once before the list is loaded
-	},
-	before_render() {
-		// triggers before every render of list records
-	},
-	get_indicator(doc) {
-		// customize indicator color
-		if(doc.public) {
-			return [__("Public"), "green", "public,=,Yes"];
-		} else {
-			return [__("Private"), "darkgrey", "public,=,No"];
-		}
-	},
-	primary_action() {
-		// triggers when the primary action is clicked
-	},
-	get_form_link(doc) {
-		// override the form route for this doc
-	},
-	// add a custom button for each row
-	button: {
-		show(doc) {
-			return doc.reference_name;
-		},
-		get_label() {
-			return 'View';
-		},
-		get_description(doc) {
-			return __('View {0}', [`${doc.reference_type} ${doc.reference_name}`])
-		},
-		action(doc) {
-			frappe.set_route('Form', doc.reference_type, doc.reference_name);
-		}
-	},
-	// format how a field value is shown
-	formatters: {
-		title(val) {
-			return val.bold();
-		},
-		public(val) {
-			return val ? 'Yes' : 'No';
-		}
-	}
-}
-```
+> Learn more about the [List API](/docs/user/en/api/list).
 
 ## Form View
 
@@ -142,6 +80,8 @@ chronological order.
 
 ![Form View](/docs/assets/img/desk/form-timeline.png)
 *Form Timeline*
+
+> Learn more about the [Form API](/docs/user/en/api/form).
 
 ## Report Builder
 
