@@ -87,7 +87,7 @@ You can also create rules for naming DocTypes by creating **Document Naming Rule
 
 ![Document Naming Rule](/docs/assets/img/doctypes/document-naming-rule.png)
 
-You can create multiple Document Naming Rules for a particular doctype that can be applied selectively based on fitlers.
+You can create multiple Document Naming Rules for a particular doctype that can be applied selectively based on filters.
 
 To define a Document Naming Rule you have to specify
 
