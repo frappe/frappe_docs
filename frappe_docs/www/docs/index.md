@@ -31,25 +31,32 @@ Frappe is MIT Licensed and is hosted on [GitHub](https://github.com/frappe/frapp
 
 Before you can use Frappe, you need to install it. We have a complete installation guide which covers all possibilities, this guide will also help you understand the backend stack.
 
-[Frappe Installation Guide](/docs/user/en/installation) →
+
+<a class="btn btn-primary-light btn-xs font-size-sm" href="/docs/user/en/installation">
+  Frappe Installation Guide →
+</a>
 
 ### Documentation
 
 The official documentation covers everything you need to know about the Frappe Framework.
 
-[Read the docs](/docs/user/en) →
+<a class="btn btn-primary-light btn-xs font-size-sm" href="/docs/user/en">
+  Read the docs →
+</a>
 
 ### Tutorial
 
 Learn how to build a Library Management System using the Frappe Framework.
 
-[Tutorial](/docs/user/en/tutorial) →
+<a class="btn btn-primary-light btn-xs font-size-sm" href="/docs/user/en/tutorial">
+  Tutorial →
+</a>
 
----
-
-## Join the community
+### Join the community
 
 Hang out with our growing community on our forum, ask questions, help others and be a part of the community.
 
-[Join Us](https://discuss.erpnext.com) →
+<a class="btn btn-primary-light btn-xs font-size-sm" href="https://discuss.erpnext.com">
+  Join us →
+</a>
 
