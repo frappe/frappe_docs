@@ -10,6 +10,7 @@ metatags:
 # What is Frappe Framework?
 
 Frappe is a full stack, batteries-included, web framework written in Python and Javascript.
+
 It is the framework which powers [ERPNext](https://erpnext.com).
 It is pretty generic and can be used to build database driven apps.
 
