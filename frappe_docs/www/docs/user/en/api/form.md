@@ -423,9 +423,12 @@ frm.refresh_field('items');
 
 Call a server side controller method with arguments.
 
+> **Note:** While accessing any server side method using `frm.call()`, you need to whitelist such method using the `@frappe.whitelist` decorator.
+
 For the following controller code:
 ```py
 class ToDo(Document):
+	@frappe.whitelist
 	def get_linked_doc(self, throw_if_missing=False):
 		if not frappe.db.exists(self.reference_type, self.reference_name):
 			if throw_if_missing:
