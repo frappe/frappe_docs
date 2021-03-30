@@ -111,7 +111,8 @@ if doc.allocted_to:
 frappe.response['message'] = "hello"
 ```
 
-Request: `test_method`
+Request: `api/method/test_method`
+Note: Use frappe.call("test_method") in your custom script.
 
 ### 3.5 Internal Library
 
