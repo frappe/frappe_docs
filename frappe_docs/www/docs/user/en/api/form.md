@@ -428,7 +428,7 @@ Call a server side controller method with arguments.
 For the following controller code:
 ```py
 class ToDo(Document):
-	@frappe.whitelist
+	@frappe.whitelist()
 	def get_linked_doc(self, throw_if_missing=False):
 		if not frappe.db.exists(self.reference_type, self.reference_name):
 			if throw_if_missing:
