@@ -61,7 +61,7 @@
 			{ "title": "Form", "route": "/docs/user/en/api/form" },
 			{ "title": "Controls", "route": "/docs/user/en/api/controls" },
 			{ "title": "List", "route": "/docs/user/en/api/list" },
-			{ "title": "Page", "route": "/docs/user/en/api/server-calls" },
+			{ "title": "Page", "route": "/docs/user/en/api/page" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/js-utils" },
 			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" }
 		]
