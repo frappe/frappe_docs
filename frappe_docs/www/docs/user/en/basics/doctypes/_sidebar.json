@@ -15,9 +15,9 @@
 			{ "title": "Controllers", "route": "/docs/user/en/basics/doctypes/controllers" },
 			{ "title": "Child DocTypes", "route": "/docs/user/en/basics/doctypes/child-doctype" },
 			{ "title": "Single DocTypes", "route": "/docs/user/en/basics/doctypes/single-doctype" },
+			{ "title": "Virtual Doctypes", "route": "/docs/user/en/basics/doctypes/virtual-doctype" },
 			{ "title": "Actions & Links", "route": "/docs/user/en/basics/doctypes/actions-and-links" },
-			{ "title": "Customizing", "route": "/docs/user/en/basics/doctypes/customize" },
-			{ "title": "Virtual Doctype", "route": "/docs/user/en/basics/doctypes/virtual-doctype" }
+			{ "title": "Customizing", "route": "/docs/user/en/basics/doctypes/customize" }
 		]
 	}
 ]

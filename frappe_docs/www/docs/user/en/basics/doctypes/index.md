@@ -20,9 +20,9 @@ metatags:
     - [Controller Hooks](doctypes/controllers#controller-hooks)
 1. [Child DocType](doctypes/child-doctype)
 1. [Single DocType](doctypes/single-doctype)
+1. [Virtual DocType](doctypes/virtual-doctype)
 1. [Actions and Links](doctypes/actions-and-links)
 1. [Customizing DocTypes](doctypes/customize)
-1. [Virtual DocTypes](doctypes/virtual-doctype)
 
 ## Introduction
 

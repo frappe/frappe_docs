@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Virtual DocTypes
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe allows additional DocTypes feature with custom data sources and DocType controller.
@@ -16,7 +15,7 @@ These Virtual DocTypes function exactly like normal DocTypes in the frontend and
 
 ## Creating a Virtual DocType
 
-To create a Virtual DocType, just select the Virtual DocType checkbox while creating the DocType:.
+To create a Virtual DocType, just select the Virtual DocType checkbox while creating the DocType:
 
 ![Virtual DocType](/docs/assets/img/virtual_doctype.png)
 
