@@ -69,15 +69,21 @@ To enable these signups, you need to have **Client ID** and **Client Secret** fr
 ### Office 365
 
 1. Go to [https://portal.azure.com](https://portal.azure.com)
-1. Create a new Azure Active Directory > App Registration.
-1. Click on New Application Registration
-1. Fill the form with:
+2. Create a new Azure Active Directory > App Registration.
+3. Click on New Application Registration
+4. Fill the form with:
     - Application Name
+    - Select Accounts in any organizational directory (Any Azure AD directory - Multitenant).
     - Application Type - Web app / API
-	- Single Sign-on URL as
-	    **http://{{ yoursite }}/api/method/frappe.www.login.login\_via\_office365**
-1. Enable Multi Tenent for the added App.
-1. Go to the section **Application ID** and copy the Client ID and copy Client Secret by adding new password into Social Login Key
-
+	- Redirect URI as
+    		- Homepage URL as **http://{{ yoursite }}**
+		- Authorization callback URL as **http://{{ yoursite }}/api/method/frappe.integrations.oauth2_logins.login_via_office365**
+5. Click on Register application.
+6. Go to the section **Overview** copy the Client ID into  **Desktop > Integration > Social Login Key > New Social Login Key
+7. Go to the section **Certificates & secrets** and create new client secrets copy than copy Client Secret by adding into Social Login Secret Key
+8. Select Office 365 as Social Login Provider
+9. Click Enable Social Login and Save
+10. Go to the section **Token configuration** click add optional claim
+    - Add Token Type > ID > Email	
 ---
 <!-- markdown -->
