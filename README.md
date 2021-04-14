@@ -11,13 +11,13 @@ This documentation is hosted on [https://frappeframework.com/docs](https://frapp
 To create a local working copy of the documentation (primarily for purposes of
 contributing to the documentation):
 
-1. Install `bench` and setup a `frappe-bench` directory by following the
+1. Install `frappe-bench` and setup a bench directory by following the
    [Installation Steps](https://frappeframework.com/docs/user/en/installation).
 1. Start the server by running `bench start`.
 1. In a separate terminal window, create a new site by running `bench new-site frappeframework.test`.
 1. Run `bench get-app frappe_docs`.
 1. Run `bench --site frappeframework.test install-app frappe_docs`.
-2. Now open the URL [http://frappeframework.test:8000/docs](http://frappeframework.test:8000/docs)
+1. Now open the URL [http://frappeframework.test:8000/docs](http://frappeframework.test:8000/docs)
    in your browser, you should see the Frappe Framework Documentation.
 
 ## Contributing
