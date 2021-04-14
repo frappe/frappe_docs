@@ -7,7 +7,7 @@ When the `doc_event` occurs, the source site makes an HTTP request to the URI co
 
 ## Configuring a Webhook
 
-To add a Webhook go to,
+To add a Webhook, go to:
 
 > Integrations > Webhook > Webhook
 
@@ -19,6 +19,8 @@ To add a Webhook go to,
 1. Enter a valid request URL that will receive the Webhook data.
 1. Once the Doc Event is completed, a `POST` request is made to the Request URL with the body generated from the Webhook Data section.
 1. Optionally, you can add HTTP headers to the request. (e.g. useful for sending an API key, if required).
+
+You can also disable a webhook by unchecking the `Enabled` checkbox. Only webhooks that are enabled get triggered.
 
 ### Data Structure
 
