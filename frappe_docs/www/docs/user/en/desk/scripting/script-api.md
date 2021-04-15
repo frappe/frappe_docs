@@ -129,13 +129,13 @@ Example: `frappe.db.sql("select name from Customer where name like 'm%'")`
 
 Get a value from a record
 
-Example: `frappe.db.get_value("User", frappe.session.user, "first_name")
+Example: `frappe.db.get_value("User", frappe.session.user, "first_name")`
 
 #### frappe.db.get_single_value
 
 Get value from a single type document
 
-Example: `frappe.db.get_single_value("System Settings", "default_currency")
+Example: `frappe.db.get_single_value("System Settings", "default_currency")`
 
 #### frappe.db.get_default
 
@@ -161,7 +161,7 @@ Run a server script (return values in `frappe.flags`)
 
 Show a modal on the server side after as a part of the response.
 
-Example: `frappe.msgprint("Hello")
+Example: `frappe.msgprint("Hello")`
 
 #### frappe.get_hooks
 
@@ -198,4 +198,11 @@ Encode HTML as text (markdown)
 #### dev_server
 
 True if in developer mode
-```
+
+#### frappe.log_error
+
+Generate Error Log with a traceback
+
+#### FrappeClient
+
+Connect to a Frappe site using a requests session
