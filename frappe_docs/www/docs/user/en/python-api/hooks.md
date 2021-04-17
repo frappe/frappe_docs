@@ -989,21 +989,36 @@ scheduler_events = {
 ## Jinja Customization
 
 Frappe provides a list of [global utility methods](/docs/user/en/api/jinja) in
-Jinja templates. To add your own methods and filters you can use the `jenv` hook.
+Jinja templates. To add your own methods and filters you can use the `jinja` hook.
 
 **app/hooks.py**
 ```py
-jenv = {
+jinja = {
 	"methods": [
-		"get_fullname:app.jinja.get_fullname"
+		"app.jinja.methods",
+		"app.utils.get_fullname"
 	],
 	"filters": [
-		"format_currency:app.jinja.currency_filter"
+		"app.jinja.filters",
+		"app.utils.format_currency"
 	]
 }
 ```
 
-**app/jinja.py**
+**app/jinja/methods.py**
+
+```py
+def sum(a, b):
+	return a + b
+
+def multiply(a, b):
+	return a * b
+```
+
+> If the path is a module path, all the methods in that module will be added.
+
+
+**app/utils.py**
 
 ```py
 def get_fullname(user):
@@ -1020,6 +1035,7 @@ Now, you can use these utilities in your Jinja templates like so:
 ```html
 <h1>Hi, {{ get_fullname(frappe.session.user) }}</h1>
 <p>Your account balance is {{ account_balance | format_currency('INR') }}</p>
+<p>1 + 2 = {{ sum(1, 2) }}</p>
 ```
 {% endraw %}
 
