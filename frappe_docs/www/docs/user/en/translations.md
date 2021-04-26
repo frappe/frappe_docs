@@ -194,7 +194,7 @@ else:
   msg = _("You have {0} pending invoice").format(invoice_count)
 ```
 
-### 4. No Trailing Spaces
+### 5. No Trailing Spaces
 
 Don't start or end the sentence with spaces. Trailing spaces gets trimmed for other languages when passed through translation engine.
 
@@ -208,7 +208,7 @@ msg = _(" You have {0} pending invoice ")
 msg = ' ' + _("You have {0} pending invoices") + ' '
 ```
 
-### 5. Adding context for a string
+### 6. Adding context for a string
 
 > Introduced in version 13
 
