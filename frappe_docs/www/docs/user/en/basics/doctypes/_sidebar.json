@@ -11,6 +11,7 @@
 			{ "title": "Introduction", "route": "/docs/user/en/basics/doctypes" },
 			{ "title": "Modules", "route": "/docs/user/en/basics/doctypes/modules" },
 			{ "title": "DocFields", "route": "/docs/user/en/basics/doctypes/docfield" },
+			{ "title": "Field Types", "route": "/docs/user/en/basics/doctypes/fieldtypes" },
 			{ "title": "Naming", "route": "/docs/user/en/basics/doctypes/naming" },
 			{ "title": "Controllers", "route": "/docs/user/en/basics/doctypes/controllers" },
 			{ "title": "Child DocTypes", "route": "/docs/user/en/basics/doctypes/child-doctype" },
