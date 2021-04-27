@@ -1,9 +1,9 @@
 <!-- add-breadcrumbs -->
-# How to setup oauth?
+# How to setup OAuth 2?
 
-<a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> provider based on <a href="https://github.com/idan/oauthlib">oauthlib</a> is built into frappe. Third party apps can now access resources of users based on Frappe Role and User permission system. To setup an app to access
+<a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> provider based on <a href="https://github.com/oauthlib/oauthlib">oauthlib</a> is built into frappe. Third party apps can now access resources of users based on Frappe Role and User permission system. To setup an app to access
 
-## OAuth defines four roles
+## OAuth 2 defines four roles
 
 #### resource owner
 An entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
@@ -18,7 +18,7 @@ whether the application executes on a server, a desktop, or other devices).
 #### authorization server
 The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
 
-## Setup OAuth Provider
+## Setup OAuth 2 Provider
 
 System Managers can setup behavior of confirmation message as `Force` or `Auto` in OAuth Provider Settings.
 If Force is selected the system will always ask for user's confirmation. If Auto is selected system asks for the confirmation only if there are no active tokens for the user.
@@ -31,7 +31,7 @@ Go to
 
 ### Add Primary Server
 
-This is the main server hosting all the users. e.g. `https://frappe.io`. To setup this as the main server, go to *Setup* > *Integrations* > *Social Login Keys* and enter `https://frappe.io` in the field  `Frappe Server URL`. This URL repeats in all other Frappe servers who connect to this server to authenticate. Effectively, this is the main Identity Provider (IDP).
+This is the main server hosting all the users. e.g. `https://frappe.io`. To setup this as the main server, go to *Setup* > *Integrations* > *Social Login Key* and add new `Frappe Social Login Key`. Enter `https://frappe.io` in the field  `Base URL`. This URL repeats in all other Frappe servers who connect to this server to authenticate. Effectively, this is the main Identity Provider (IDP).
 
 Under this server add as many `OAuth Client`(s) as required.
 
@@ -46,15 +46,15 @@ As a System Manager go to
 To add a client fill in the following details
 
 1. **App Name** : Enter App Name e.g. CAVS
-2. **Skip Authorization** : If this is checked, during authentication there won't be me any confirmation message
-3. **Scopes** : List of scopes shown to user along with confirmation message. scopes are separated by semicolon ';'
-4. **Redirect URIs** : List of Redirect URIs separated by semicolon ';'
+2. **Skip Authorization** : If this is checked, during authentication there won't be me any confirmation message. Skip Authorization means the client is treated as trusted client.
+3. **Scopes** : List of scopes shown to user along with confirmation message. scopes are separated by space.
+4. **Redirect URIs** : List of Redirect URIs separated by space.
 5. **Default Redirect URIs** : Default Redirect URI from list of Redirect URIs
-6. **Grant Type**: select `Authorization Code`
-7. **Response Type**: select `Code`
+6. **Grant Type**: select `Authorization Code` or `Implicit`.
+7. **Response Type**: select `Code` if grant type is `Authorization Code` or select `Token`.
 
-## Using oAuth
+## Using OAuth 2
 
-Please refer to the API documentation to learn how to use oAuth in you application.
+Please refer to the API documentation to learn how to use OAuth 2 in you application.
 
 {next}
