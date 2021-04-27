@@ -120,7 +120,7 @@ each with `bench` in your shell. Therefore, the usage for these commands is as
  - **set-redis-cache-host**: Set Redis cache host for bench
  - **set-redis-queue-host**: Set Redis queue host for bench
  - **set-redis-socketio-host**: Set Redis socketio host for bench
- - **set-default-site**: Set default site for bench
+ - **use**: Set default site for bench
  - **download-translations**: Download latest translations
 
 #### Development
