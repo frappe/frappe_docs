@@ -667,7 +667,7 @@ These hooks are triggered during request authentication. Custom headers, Authori
 auth_hooks = ['app.overrides.validate_custom_jwt']
 ```
 
-The method will be called during request authentication. Use this method to check for incoming request header, verify the header and map the user to the request. If header verification fails DO NOT throw error to continue with other hooks. Unverified request is treated as "Guest" request by default. Use third party server, shared database or any alternative of choice to verify and map request and user.
+The method will be called during request authentication.
 
 **app/overrides.py**
 ```py
@@ -675,6 +675,8 @@ def validate_custom_jwt():
 	# validate jwt from header, verify signature, set user from jwt.
 	pass
 ```
+
+Use this method to check for incoming request header, verify the header and map the user to the request. If header verification fails DO NOT throw error to continue with other hooks. Unverified request is treated as "Guest" request by default. You may use third party server, shared database or any alternative of choice to verify and map request and user.
 
 ## Fixtures
 
