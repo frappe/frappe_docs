@@ -6,7 +6,7 @@ Example: https://demo.erpnext.com
 
 # OAuth 2
 
-Use the header `Authorizaton: Bearer <access_token>` to perform authenticated requests. You can receive a [bearer token](https://tools.ietf.org/html/rfc6750) by combining the following two requests.
+Use the header `Authorization: Bearer <access_token>` to perform authenticated requests. You can receive a [bearer token](https://tools.ietf.org/html/rfc6750) by combining the following two requests.
 
 ## GET /api/method/frappe.integrations.oauth2.authorize
 
@@ -46,13 +46,13 @@ Example:
 
 ```bash
 curl -X POST https://{your frappe instance}/api/method/frappe.integrations.oauth2.authorize \
-     --data-urlencode 'client_id=511cb2ac2d' \
-     --data-urlencode 'state=444' \
+	 --data-urlencode 'client_id=511cb2ac2d' \
+	 --data-urlencode 'state=444' \
 	 # base64encode(sha256('420')) => 21XaP8MJjpxCMRxgEzBP82sZ73PRLqkyBUta1R309J0
-     # --data-urlencode 'code_verifier=21XaP8MJjpxCMRxgEzBP82sZ73PRLqkyBUta1R309J0' \
-     --data-urlencode 'response_type=code'
-     --data-urlencode 'scope=openid%20all' \
-     --data-urlencode 'redirect_uri=https://app.getpostman.com/oauth2/callback'
+	 # --data-urlencode 'code_verifier=21XaP8MJjpxCMRxgEzBP82sZ73PRLqkyBUta1R309J0' \
+	 --data-urlencode 'response_type=code'
+	 --data-urlencode 'scope=openid%20all' \
+	 --data-urlencode 'redirect_uri=https://app.getpostman.com/oauth2/callback'
 ```
 
 Returns:
@@ -102,10 +102,10 @@ Example:
 
 ```bash
 curl -X POST https://{your frappe instance}/api/method/frappe.integrations.oauth2.get_token \
-     -H 'Content-Type: application/x-www-form-urlencoded' \
-     -H 'Accept: application/json' \
-     -d 'grant_type=authorization_code&code=wa1YuQMff2ZXEAu2ZBHLpJRQXcGZdr
-         &redirect_uri=https%3A%2F%2Fapp.getpostman.com%2Foauth2%2Fcallback&client_id=af615c2d3a'
+	 -H 'Content-Type: application/x-www-form-urlencoded' \
+	 -H 'Accept: application/json' \
+	 -d 'grant_type=authorization_code&code=wa1YuQMff2ZXEAu2ZBHLpJRQXcGZdr
+		 &redirect_uri=https%3A%2F%2Fapp.getpostman.com%2Foauth2%2Fcallback&client_id=af615c2d3a'
 ```
 For **testing purposes** you can also pass the parameters in the URL like this (and open it in the browser):
 
@@ -115,11 +115,11 @@ Returns:
 
 ```json
 	{
-	    "access_token": "pNO2DpTMHTcFHYUXwzs74k6idQBmnI",
-	    "token_type": "Bearer",
-	    "expires_in": 3600,
-	    "refresh_token": "cp74cxbbDgaxFuUZ8Usc7egYlhKbH1",
-	    "scope": "openid all",
+		"access_token": "pNO2DpTMHTcFHYUXwzs74k6idQBmnI",
+		"token_type": "Bearer",
+		"expires_in": 3600,
+		"refresh_token": "cp74cxbbDgaxFuUZ8Usc7egYlhKbH1",
+		"scope": "openid all",
 		"id_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.XbPfbIHMI6arZ3Y922BhjWgQzWXcXNrz0ogtVhfEd2o"
 	}
 ```
@@ -162,10 +162,10 @@ Example:
 
 ```bash
 curl -X POST https://{your frappe instance}/api/method/frappe.integrations.oauth2.get_token \
-     -H 'Content-Type: application/x-www-form-urlencoded' \
-     -H 'Accept: application/json' \
-     -d 'grant_type=authorization_code&code=wa1YuQMff2ZXEAu2ZBHLpJRQXcGZdr
-         &redirect_uri=https%3A%2F%2Fapp.getpostman.com%2Foauth2%2Fcallback&client_id=af615c2d3a&code_verifier=420'
+	 -H 'Content-Type: application/x-www-form-urlencoded' \
+	 -H 'Accept: application/json' \
+	 -d 'grant_type=authorization_code&code=wa1YuQMff2ZXEAu2ZBHLpJRQXcGZdr
+		 &redirect_uri=https%3A%2F%2Fapp.getpostman.com%2Foauth2%2Fcallback&client_id=af615c2d3a&code_verifier=420'
 ```
 For **testing purposes** you can also pass the parameters in the URL like this (and open it in the browser):
 
@@ -174,14 +174,14 @@ For **testing purposes** you can also pass the parameters in the URL like this (
 Returns:
 
 ```json
-	{
-	    "access_token": "pNO2DpTMHTcFHYUXwzs74k6idQBmnI",
-	    "token_type": "Bearer",
-	    "expires_in": 3600,
-	    "refresh_token": "cp74cxbbDgaxFuUZ8Usc7egYlhKbH1",
-	    "scope": "openid all",
-		"id_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.XbPfbIHMI6arZ3Y922BhjWgQzWXcXNrz0ogtVhfEd2o"
-	}
+{
+	"access_token": "pNO2DpTMHTcFHYUXwzs74k6idQBmnI",
+	"token_type": "Bearer",
+	"expires_in": 3600,
+	"refresh_token": "cp74cxbbDgaxFuUZ8Usc7egYlhKbH1",
+	"scope": "openid all",
+	"id_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.XbPfbIHMI6arZ3Y922BhjWgQzWXcXNrz0ogtVhfEd2o"
+}
 ```
 
 ## Revoke Token Endpoint
