@@ -296,7 +296,7 @@ variables that the page might need to render. This dict is also known as
 website_context = {
 	"favicon": "/assets/app/image/favicon.png"
 }
-update_website_context = 'app.overrides.website_context`
+update_website_context = 'app.overrides.website_context'
 ```
 
 The `website_context` hook is a simple dict of key value pairs. Use this hook
