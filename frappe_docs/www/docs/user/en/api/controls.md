@@ -250,6 +250,6 @@ Here are the `df` properties for most of frappe control types.
 	label: 'Fetch,
 	fieldname: 'fetch',
 	fieldtype: 'Button',
-	btn_size: 'lg' // lg, sm
+	btn_size: 'lg' // lg, sm; default: xs 
 }
 ```
