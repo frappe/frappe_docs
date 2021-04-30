@@ -60,6 +60,29 @@ headers = {
 response = requests.request("GET", url, headers=headers)
 ```
 
+## Access Token
+
+If the OAuth 2 Access Token is used to authenticate equest, the token is opaque `access_token` string provided by Frappe Server after setting up OAuth 2 and generating token. Check `Guides / Integration / How To Use OAuth 2`
+
+HTTP header:
+
+```http
+Authorization: Bearer access_token
+```
+
+Example in python:
+
+```python
+import requests
+import base64
+
+url = "http://frappe.local:8000**/api/method/frappe.auth.get_logged_user**"
+headers = {
+    "Authorization": "Bearer %s" % access_token
+}
+response = requests.request("GET", url, headers=headers)
+```
+
 ## Further ressources
 
 * [Authorization Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)
