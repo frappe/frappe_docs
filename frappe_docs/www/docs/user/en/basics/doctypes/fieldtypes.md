@@ -22,10 +22,10 @@ You can enable validations for the following types of data:
 3. Phone
 4. URL
 
-by setting the options to "Name", "Email", "Phone" or "URL" respectively in Settings > DocType.
+by setting the options to "Name", "Email", "Phone" or "URL" respectively.
 
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-data-field.png">
+<img alt="Data field types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/data-field-1.png">
 
 #### Link
 
@@ -37,15 +37,17 @@ Dynamic Link field is one which can search and hold value of any document/doctyp
 
 #### Check
 
-This will enable you to have a checkbox here.
+This will enable you to have a checkbox here. You can set the `Default` value to 1 and it will be checked by default.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-checkbox.png">
+<img alt="Check Field Preview" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/check-field-2.png">
+<img alt="Check Field Edit" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/check-field-1.png">
 
 #### Select
 
-Select will be a drop-down field. You can add multiple results in the Option field, separated by row.
+Select will be a drop-down field. You can add multiple results in the Option field, with each option on a new line.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-select-field.png">
+<img alt="Check Field Edit" class="screenshot w-100" src="{{docs_base_url}}/assets/img/fieldtypes/select-field-2.png">
+<img alt="Check Field Edit" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/select-field-1.png">
 
 #### Table
 
