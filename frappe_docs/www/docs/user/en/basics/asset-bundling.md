@@ -2,12 +2,12 @@
 add_breadcrumbs: 1
 title: Asset Bundling
 metatags:
- description: A guide to understand how static asset bundling works in Frappe Framework.
+ description: A guide to understanding how static asset bundling works in Frappe Framework.
 ---
 
 # Asset Bundling
 
-A guide to understand how static asset bundling works in Frappe Framework.
+A guide to understanding how static asset bundling works in Frappe Framework.
 
 Frappe ships with a Rich Admin UI accessible at `/app` which is an SPA written
 in modern JavaScript syntax and styling which is written in SASS (`.scss`)
@@ -49,14 +49,14 @@ $ bench build --apps frappe,erpnext
 
 ## Watch mode
 
-When you are working with bundled files you need the build command to run
-everytime you make a change to your source files. The asset bundler comes with a
-watch mode where it will listen to changes in the file systen and rebuild
+When you are working with bundled files you need the build command to run every
+time you make a change to your source files. The asset bundler comes with a
+watch mode where it will listen to changes in the file system and rebuild
 whenever a file changes.
 
-Running the following command will start a long running process that watches
+Running the following command will start a long-running process that watches
 your files and rebuilds them as they change. It will log a line with the text
-"Compiled changes..." everytime it does a rebuild.
+"Compiled changes..." every time it does a rebuild.
 
 ```sh
 $ bench watch
@@ -79,14 +79,14 @@ compilation. For e.g., if there is a file named `main.bundle.js` in the public
 folder of your app it will be automatically picked up by the bundler and
 compiled at `/assets/[app]/dist/js/main.bundle.[hash].js`. A unique hash
 computed from the contents of the output is also appended to the file name which
-is useful for cache busting in browsers.
+is useful for cache-busting in browsers.
 
-Similarly, if there is file named `style.bundle.scss` in the public folder, it
+Similarly, if there is a file named `style.bundle.scss` in the public folder, it
 will be compiled to `/assets/[app]/dist/css/style.bundle.css`. Notice, the
 extension changed from `.scss` from `.css` because browsers can understand CSS
 files but not SASS files. Bundle files can exist at any nesting level in the
-`public` folder, but it will always be compiled in either `dist/js` or
-`dist/css` depending upon it's type. This means if there is file at
+`public` folder, but they will always be compiled in either `dist/js` or
+`dist/css` depending upon their type. This means if there is a file at
 `public/main.bundle.js` and another file at `public/src/main.bundle.js` the
 compiled output of the latter will override. The bundler will also print a
 warning for such collisions.
