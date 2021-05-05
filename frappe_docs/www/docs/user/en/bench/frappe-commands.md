@@ -171,6 +171,9 @@ bench --site {site} list-apps
 Multi-site support has been added in Version 13. To see the summary for all sites, run
 the command with site's value as `all`.
 
+For more information and examples, see the [bench
+list-apps](/docs/user/en/bench/reference/list-apps) reference.
+
 #### Setting the default site
 
 Sometimes typing `--site [sitename]` for every site command can be tedious. You
