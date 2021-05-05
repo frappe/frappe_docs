@@ -46,6 +46,7 @@
 			{ "title": "Document", "route": "/docs/user/en/api/document" },
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
+			{ "title": "Utils", "route": "/docs/user/en/api/utils" },
 			{ "title": "Router", "route": "/docs/user/en/python-api/router" },
 			{ "title": "Response", "route": "/docs/user/en/python-api/response" },
 			{ "title": "Search", "route": "/docs/user/en/python-api/search" },
