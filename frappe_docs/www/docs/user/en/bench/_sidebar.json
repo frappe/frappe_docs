@@ -44,12 +44,20 @@
 				"route": "/docs/user/en/bench/reference/reinstall"
 			},
 			{
+				"title": "list-apps",
+				"route": "/docs/user/en/bench/reference/list-apps"
+			},
+			{
 				"title": "uninstall-app",
 				"route": "/docs/user/en/bench/reference/uninstall-app"
 			},
 			{
-				"title": "list-apps",
-				"route": "/docs/user/en/bench/reference/list-apps"
+				"title": "show-config",
+				"route": "/docs/user/en/bench/reference/show-config"
+			},
+			{
+				"title": "set-config",
+				"route": "/docs/user/en/bench/reference/set-config"
 			},
 			{
 				"title": "restore",
