@@ -48,6 +48,14 @@
 				"route": "/docs/user/en/bench/reference/uninstall-app"
 			},
 			{
+				"title": "show-config",
+				"route": "/docs/user/en/bench/reference/show-config"
+			},
+			{
+				"title": "set-config",
+				"route": "/docs/user/en/bench/reference/set-config"
+			},
+			{
 				"title": "restore",
 				"route": "/docs/user/en/bench/reference/restore"
 			},
