@@ -159,17 +159,17 @@ reinstall](/docs/user/en/bench/reference/reinstall) reference.
 
 #### List Installed Apps
 
-List all the Frappe Applications installed on the specified site. The information
-shown by the command is fetched from the **Installed Applications** DocType which tracks
-the latest version of the apps, the site was migrated to. The global default `installed_apps`
-is used as fallback.
+List all the Frappe Applications installed on the specified site. The
+information shown by the command is fetched from the **Installed Applications**
+DocType which tracks the latest version of the apps, the site was migrated to.
+The global default `installed_apps` is used as fallback.
 
 ```bash
 bench --site {site} list-apps
 ```
 
-Multi-site support has been added in Version 13. To see the summary for all sites, run
-the command with site's value as `all`.
+Multi-site support has been added in Version 13. To see the summary for all
+sites, run the command with site's value as `all`.
 
 #### Setting the default site
 
