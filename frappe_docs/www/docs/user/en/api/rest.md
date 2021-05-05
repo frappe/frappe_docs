@@ -38,6 +38,10 @@ fetch('http://<base-url>/api/method/frappe.auth.get_logged_user', {
 })
 ```
 
+```bash
+➜ curl http://<base-url>/api/method/frappe.auth.get_logged_user -H "Authorization: token api_key:api_secret"
+```
+
 ### 2. Password Based Authentication
 
 Password based authentication relies on cookies and session data to maintain
@@ -63,6 +67,14 @@ fetch('http://<base-url>/api/method/login', {
 })
 ```
 
+```bash
+➜ curl --cookie-jar snowcookie --request POST "http://<base-url>/api/method/login" -H 'Content-Type: application/json' -H 'Accept: application/json' --data-raw "{ \"usr\" : \"<username>\", \"pwd\": \"<password>\" }"
+{"message":"Logged In","home_page":"/app","full_name":"<User:full_name>","dashboard_route":"/sites"}
+
+➜ curl --cookie snowcookie --request POST "http://<base-url>/api/method/frappe.auth.get_logged_user" -H 'Accept: application/json'
+{"message":"<username>"}
+```
+
 ### 3. Access Token
 
 Refer documentation for [How to setup OAuth](/docs/user/en/guides/integration/how_to_setup_oauth).
@@ -79,7 +91,6 @@ fetch('http://<base-url>/api/method/frappe.auth.get_logged_user', {
 .then(r => {
 	console.log(r);
 })
-```
 
 ### Listing Documents
 
@@ -296,7 +307,7 @@ data and uploads it into the system.
 
 Here is the curl command for it:
 ```sh
-curl -X POST \
+➜ curl -X POST \
   http://<base-url>/api/method/upload_file \
   -H 'Accept: application/json' \
   -H 'Authorization: token xxxx:yyyy' \
