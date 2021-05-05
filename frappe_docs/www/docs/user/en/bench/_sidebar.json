@@ -44,6 +44,10 @@
 				"route": "/docs/user/en/bench/reference/reinstall"
 			},
 			{
+				"title": "list-apps",
+				"route": "/docs/user/en/bench/reference/list-apps"
+			},
+			{
 				"title": "uninstall-app",
 				"route": "/docs/user/en/bench/reference/uninstall-app"
 			},

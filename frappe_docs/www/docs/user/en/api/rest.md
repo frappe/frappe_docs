@@ -63,6 +63,24 @@ fetch('http://<base-url>/api/method/login', {
 })
 ```
 
+### 3. Access Token
+
+Refer documentation for [How to setup OAuth](/docs/user/en/guides/integration/how_to_setup_oauth).
+
+Use the generated `access_token` in request header.
+
+```js
+fetch('http://<base-url>/api/method/frappe.auth.get_logged_user', {
+	headers: {
+		'Authorization': 'Bearer access_token'
+	}
+})
+.then(r => r.json())
+.then(r => {
+	console.log(r);
+})
+```
+
 ### Listing Documents
 
 To get a list of records of a DocType, send a GET request at

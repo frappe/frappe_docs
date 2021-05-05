@@ -296,7 +296,7 @@ variables that the page might need to render. This dict is also known as
 website_context = {
 	"favicon": "/assets/app/image/favicon.png"
 }
-update_website_context = 'app.overrides.website_context`
+update_website_context = 'app.overrides.website_context'
 ```
 
 The `website_context` hook is a simple dict of key value pairs. Use this hook
@@ -656,6 +656,27 @@ def allocate_free_credits(login_manager):
 	# allocate free credits to frappe.session.user
 	pass
 ```
+
+## Auth Hooks
+
+These hooks are triggered during request authentication. Custom headers, Authorization headers can be validated here, user is verified and mapped to the request using `frappe.set_user()`. Use `frappe.request` and `frappe.*` to validate request and map user.
+
+**app/hooks.py**
+
+```py
+auth_hooks = ['app.overrides.validate_custom_jwt']
+```
+
+The method will be called during request authentication.
+
+**app/overrides.py**
+```py
+def validate_custom_jwt():
+	# validate jwt from header, verify signature, set user from jwt.
+	pass
+```
+
+Use this method to check for incoming request header, verify the header and map the user to the request. If header verification fails DO NOT throw error to continue with other hooks. Unverified request is treated as "Guest" request by default. You may use third party server, shared database or any alternative of choice to verify and map request and user.
 
 ## Fixtures
 

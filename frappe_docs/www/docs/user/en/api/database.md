@@ -15,7 +15,30 @@ metatags:
 - Also aliased to `frappe.get_list`
 
 Returns a list of records from a `doctype` table. ORM Wrapper for a `SELECT`
-query. Will also apply user permissions for the records for the session user.
+query. Will also apply user permissions for the records for the session user. Only returns the document names if the `fields` keyword argument is not given. By default this method returns a list of `dict`s, but, you can pluck a particular field by giving the `pluck` keyword argument:
+
+```python
+frappe.db.get_list('Employee')
+
+# output
+[{'name': 'HR-EMP-00008'},
+ {'name': 'HR-EMP-00006'},
+ {'name': 'HR-EMP-00010'},
+ {'name': 'HR-EMP-00005'}
+]
+
+# with pluck
+frappe.db.get_list('Employee', pluck='name')
+
+# output
+['HR-EMP-00008',
+ 'HR-EMP-00006',
+ 'HR-EMP-00010',
+ 'HR-EMP-00005'
+]
+```
+
+Combining filters and other arguments:
 
 ```python
 frappe.db.get_list('Task',
@@ -28,6 +51,7 @@ frappe.db.get_list('Task',
 	page_length=20,
 	as_list=True
 )
+
 # output
 (('Update Branding and Design', '2019-09-04'),
 ('Missing Documentation', '2019-09-02'),
