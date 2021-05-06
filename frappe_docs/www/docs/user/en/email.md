@@ -31,6 +31,3 @@ incoming settings. There you can select, where the mails should be imported.
 
 ![Print Format Builder](/docs/assets/img/pop_setup.gif)
 *POP3 example*
-
-
-
