@@ -30,7 +30,8 @@
 			{ "title": "Printing", "route": "/docs/user/en/desk/printing" },
 			{ "title": "Attachments", "route": "/docs/user/en/desk/attachments" },
 			{ "title": "Scripting", "route": "/docs/user/en/desk/scripting" },
-			{ "title": "Translations", "route": "/docs/user/en/translations" }
+			{ "title": "Translations", "route": "/docs/user/en/translations" },
+			{ "title": "Email", "route":  "/docs/user/en/email"}
 		]
 	},
 	{
