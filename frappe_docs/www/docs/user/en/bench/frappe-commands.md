@@ -287,6 +287,7 @@ are defined under the module `frappe.commands.utils`.
  - **reset-perms**: Reset permissions for all DocTypes to their default
    settings.
  - **run-tests**: Run Python tests on the specified site.
+ - **run-parallel-tests**: Run Python tests parallelly on CI.
  - **run-ui-tests**: Run Cypress UI tests.
  - **serve**: Start the webserver for the bench.
  - **set-config**: Wrapper command to insert or update values in the
