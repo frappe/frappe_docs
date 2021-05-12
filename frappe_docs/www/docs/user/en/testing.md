@@ -172,7 +172,7 @@ Running tests in parallel across many test machines can save time in Continuous 
 bench --site [sitename] --app [app-name] run-parallel-tests --build-id <build-number> --total-build <total-number-of-builds>
 ```
 
-**Example:**
+**Usage:**
 
 If you want to run tests across 2 CI instances your command will be as follows
 
@@ -194,6 +194,8 @@ It may happen that each test file may take different amount of time for completi
 ```bash
 bench --site [sitename] --app [app-name] run-parallel-tests --use-orchestrator
 ```
+
+**Usage:**
 
 If you want to run tests across 2 CI instances your command will be as follows
 
