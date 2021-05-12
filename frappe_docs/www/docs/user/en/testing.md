@@ -214,64 +214,48 @@ For clarity on how the above variants of parallel test commands may work check f
 
 Suppose there are 4 test files as follows
 
-```log
-test_module_one.py    # 4 mins (execution time)
-test_module_two.py    # 2 mins
-test_module_three.py  # 1 mins
-test_module_four.py   # 1 mins
+```sh
+test_module_one.py      4 mins (execution time)
+test_module_two.py      2 mins
+test_module_three.py    1 mins
+test_module_four.py     1 mins
 ```
 
-A build time without parallel test command.
+Time required without parallel test command.
 
-```log
-test_module_one.py    # 4 mins
-test_module_two.py    # 2 mins
-test_module_three.py  # 1 mins
-test_module_four.py   # 1 mins
+```sh
+test_module_one.py      4 mins
+test_module_two.py      2 mins
+test_module_three.py    1 mins
+test_module_four.py     1 mins
 ==============================
-Total Wait Time       # 8 mins
+Total Wait Time         8 mins
 ```
 
-The build time with the first command that auto splits test files across 2 test instances.
+Time required with the first command that auto splits test files across 2 test instances.
 
-```log
-First instance
-
-test_module_one.py    # 4 mins
-test_module_two.py    # 2 mins
-------------------------------
-                      # 6 mins
-
-Second instance
-
-test_module_one.py    # 1 mins
-test_module_two.py    # 1 mins
-------------------------------
-                      # 2 mins
+```sh
+# First instance                  # Second instance
+test_module_one.py    4 mins      test_module_one.py    1 mins
+test_module_two.py    2 mins      test_module_two.py    1 mins
+----------------------------      ----------------------------
+                      6 mins                            2 mins
 
 ==============================
-Total Wait Time       # 6 mins
+Total Wait Time         6 mins
 ```
 
-The build time with the second command that uses orchestrator which runs tests based on availability across 2 test instances.
+Time required with the second command that uses orchestrator which runs tests based on availability across 2 test instances.
 
-```log
-First instance
-
-test_module_one.py    # 4 mins
-------------------------------
-                      # 4 mins
-
-Second instance
-
-test_module_two.py    # 2 mins
-test_module_three.py  # 1 mins
-test_module_four.py   # 1 mins
-------------------------------
-                      # 4 mins
-
+```sh
+# First instance                  # Second instance
+test_module_one.py    4 mins      test_module_two.py    2 mins
+----------------------------      test_module_three.py  1 mins
+                      4 mins      test_module_four.py   1 mins
+                                  ----------------------------
+                                                        4 mins
 ==============================
-Total Wait Time       # 4 mins
+Total Wait Time         4 mins
 ```
 
 **Note:** Only one test file is executed on first instance because it is busy for 4 mins. By that time 2nd instance is able to execute other test files which helps in balancing time across builds.
