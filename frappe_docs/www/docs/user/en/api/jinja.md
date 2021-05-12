@@ -79,9 +79,9 @@ Usage
 {% endraw %}
 
 ## frappe.get_all
-`frappe.get_all(doctype, filters, fields, order_by, start, page_length)`
+`frappe.get_all(doctype, filters, fields, order_by, start, page_length, pluck)`
 
-Returns a list of all records of a DocType.
+Returns a list of all records of a DocType. Only returns the document `name`s if the `fields` argument is not given.
 
 Signature
 ```python

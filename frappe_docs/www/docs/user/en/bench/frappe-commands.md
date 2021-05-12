@@ -159,17 +159,20 @@ reinstall](/docs/user/en/bench/reference/reinstall) reference.
 
 #### List Installed Apps
 
-List all the Frappe Applications installed on the specified site. The information
-shown by the command is fetched from the **Installed Applications** DocType which tracks
-the latest version of the apps, the site was migrated to. The global default `installed_apps`
-is used as fallback.
+List all the Frappe Applications installed on the specified site. The
+information shown by the command is fetched from the **Installed Applications**
+DocType which tracks the latest version of the apps, the site was migrated to.
+The global default `installed_apps` is used as fallback.
 
 ```bash
 bench --site {site} list-apps
 ```
 
-Multi-site support has been added in Version 13. To see the summary for all sites, run
-the command with site's value as `all`.
+Multi-site support has been added in Version 13. To see the summary for all
+sites, run the command with site's value as `all`.
+
+For more information and examples, see the [bench
+list-apps](/docs/user/en/bench/reference/list-apps) reference.
 
 #### Setting the default site
 
@@ -258,6 +261,38 @@ the sites on your bench. Defined under module `frappe.commands.schedule`.
 Frappe Utility commands that can be both, site or bench specific. These commands
 are defined under the module `frappe.commands.utils`.
 
+#### Displaying Site Config
+
+The applied configuration for your sites gets applied as a combination of the
+bench directory's `common_site_config.json` and the site's own
+`site_config.json`. You can read more about this,
+[here](/docs/user/en/basics/site_config). Bench provides an interface to view
+the applied `frappe.conf` values for your sites. You may choose to access this
+information in tabular or JSON formats.
+
+```bash
+bench --site {site} show-config
+```
+
+For more information and examples, see the [bench
+show-config](/docs/user/en/bench/reference/show-config) reference.
+
+
+#### Updating Site Config
+
+Bench provides a wrapper command to insert or update values in the site config
+files. You can update values in your site's `site_config.json`, along with the
+bench directory's `common_site_config.json` through the same command.
+
+```bash
+bench --site {site} set-config KEY VALUE
+```
+
+For more information and examples, see the [bench
+set-config](/docs/user/en/bench/reference/set-config) reference.
+
+#### More Commands
+
  - **add-to-email-queue**: Add an email to the Email Queue.
  - **build**: Builds assets for the Frappe Applications installed on bench.
  - **bulk-rename**: Rename multiple records via a CSV file.
@@ -290,9 +325,6 @@ are defined under the module `frappe.commands.utils`.
  - **run-parallel-tests**: Run Python tests parallelly on CI.
  - **run-ui-tests**: Run Cypress UI tests.
  - **serve**: Start the webserver for the bench.
- - **set-config**: Wrapper command to insert or update values in the
-   `site_config.json`.
- - **show-config**: Show the configuration file of the site in a tabular form.
  - **version**: Show versions of all Applications installed on bench.
  - **watch**: Watch and concatenate JS and CSS files as and when they change.
 
