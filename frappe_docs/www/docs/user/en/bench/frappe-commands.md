@@ -322,6 +322,7 @@ set-config](/docs/user/en/bench/reference/set-config) reference.
  - **reset-perms**: Reset permissions for all DocTypes to their default
    settings.
  - **run-tests**: Run Python tests on the specified site.
+ - **run-parallel-tests**: Run Python tests parallelly on CI.
  - **run-ui-tests**: Run Cypress UI tests.
  - **serve**: Start the webserver for the bench.
  - **version**: Show versions of all Applications installed on bench.

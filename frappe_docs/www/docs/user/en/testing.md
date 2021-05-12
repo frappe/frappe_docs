@@ -92,12 +92,12 @@ class TestCommands(BaseTestCommands, unittest.TestCase):
 	def test_execute(self):
 		# test 1: execute a command expecting a numeric output
 		self.execute("bench --site {site} execute frappe.db.get_database_size")
-		self.assertEquals(self.returncode, 0)
+		self.assertEqual(self.returncode, 0)
 		self.assertIsInstance(float(self.stdout), float)
 
 		# test 2: execute a command expecting an errored output as local won't exist
 		self.execute("bench --site {site} execute frappe.local.site")
-		self.assertEquals(self.returncode, 1)
+		self.assertEqual(self.returncode, 1)
 		self.assertIsNotNone(self.stderr)
 
 		# test 3: execute a command with kwargs
@@ -107,8 +107,8 @@ class TestCommands(BaseTestCommands, unittest.TestCase):
 		{% raw -%}
 		self.execute("""bench --site {site} execute frappe.bold --kwargs '{{"text": "DocType"}}'""")
 		{%- endraw %}
-		self.assertEquals(self.returncode, 0)
-		self.assertEquals(self.stdout[1:-1], frappe.bold(text='DocType'))
+		self.assertEqual(self.returncode, 0)
+		self.assertEqual(self.stdout[1:-1], frappe.bold(text='DocType'))
 ```
 
 
@@ -160,3 +160,104 @@ ncalls  tottime  percall  cumtime  percall filename:lineno(function)
 # verbose log level for tests
 bench --site [sitename] --verbose run-tests
 ```
+
+## Running Tests Parallelly
+
+As the number of tests grows in the project, it takes a long time for tests to complete if it runs serially on one machine.
+Running tests in parallel across many test machines can save time in Continuous Integration (CI).
+
+### Parallel Tests
+
+```bash
+bench --site [sitename] --app [app-name] run-parallel-tests --build-id <build-number> --total-build <total-number-of-builds>
+```
+
+**Usage:**
+
+If you want to run tests across 2 CI instances your command will be as follows
+
+```bash
+# in first CI instance
+bench --site [sitename] run-parallel-tests --build-id 1 --total-builds 2
+
+# in second CI instance
+bench --site [sitename] run-parallel-tests --build-id 2 --total-builds 2
+```
+
+**Note:** The command will split all tests files into 2 parts and execute them in those CI instances.
+First half of the test list will be executed in first instance and second half of the test list will be executed in the second instance.
+
+### Parallel tests with orchestrator
+
+It may happen that each test file may take different amount of time for completion which may result in imbalanced time across CI builds. To mitigate this you can use [test orchestrator](https://github.com/frappe/test-orchestrator) which runs the next test based on availability of CI instance. Command to use test orchestrator for parallel test is as follow.
+
+```bash
+bench --site [sitename] --app [app-name] run-parallel-tests --use-orchestrator
+```
+
+**Usage:**
+
+If you want to run tests across 2 CI instances your command will be as follows
+
+```bash
+# in first CI instance
+bench --site [sitename] run-parallel-tests --use-orchestrator
+
+# in second CI instance
+bench --site [sitename] run-parallel-tests --use-orchestrator
+```
+
+**Note:** Environment variables `CI_BUILD_ID` and `ORCHESTRATOR_URL` are required for this command. `CI_BUILD_ID` is the unique ID that you get for each build run of CI.
+`ORCHESTRATOR_URL` is the publicly accessible URL that you get after hosting the [orchestrator](https://github.com/frappe/test-orchestrator).
+
+### Comparison
+
+For clarity on how the above variants of parallel test commands may work check following example.
+
+Suppose there are 4 test files as follows
+
+```sh
+test_module_one.py      4 mins (execution time)
+test_module_two.py      2 mins
+test_module_three.py    1 mins
+test_module_four.py     1 mins
+```
+
+Time required without parallel test command.
+
+```sh
+test_module_one.py      4 mins
+test_module_two.py      2 mins
+test_module_three.py    1 mins
+test_module_four.py     1 mins
+==============================
+Total Wait Time         8 mins
+```
+
+Time required with the first command that auto splits test files across 2 test instances.
+
+```sh
+# First instance                  # Second instance
+test_module_one.py    4 mins      test_module_one.py    1 mins
+test_module_two.py    2 mins      test_module_two.py    1 mins
+----------------------------      ----------------------------
+                      6 mins                            2 mins
+
+==============================
+Total Wait Time         6 mins
+```
+
+Time required with the second command that uses orchestrator which runs tests based on availability across 2 test instances.
+
+```sh
+# First instance                  # Second instance
+test_module_one.py    4 mins      test_module_two.py    2 mins
+----------------------------      test_module_three.py  1 mins
+                      4 mins      test_module_four.py   1 mins
+                                  ----------------------------
+                                                        4 mins
+==============================
+Total Wait Time         4 mins
+```
+
+**Note:** Only one test file is executed on first instance because it is busy for 4 mins. By that time 2nd instance is able to execute other test files which helps in balancing time across builds.
