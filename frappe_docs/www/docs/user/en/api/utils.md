@@ -44,6 +44,9 @@ This function uses `pdfkit` and `pyPDF2` modules to generate PDF files from HTML
 Example usage, generating and returning a PDF as response:
 
 ```py
+import frappe
+from frappe.utils.pdf import get_pdf
+
 @frappe.whitelist(allow_guest=True)
 def generate_invoice():
 	cart = [{
@@ -66,6 +69,26 @@ def generate_invoice():
 ```
 
 ## validate_url
+
+Function Signature: `validate_url(txt, throw=False, valid_schemes=None)`
+
+`txt`: A string to check validity
+
+`throw`: Weather to throw an exception if `txt` does not represent a valid URL, `False` by default
+
+`valid_schemes`: A string or an iterable (list, tuple or set). If provided, checks the given URL's scheme against this.
+
+This utility function can be used to check if a string represents a valid URL address.
+
+Example Usage:
+
+```py
+from frappe.utils import validate_url
+
+validate_url('google') # False
+validate_url('https://google.com') # True
+validate_url('https://google.com', throw=True) # throws ValidationError
+```
 
 ## validate_email_address and validate_phone
 
