@@ -295,6 +295,7 @@ The argument list includes:
 - `doctype`: The source to fetch and display selection entries from.
 - `target`: The target where the modal is to be displayed.
 - `setters`: These will compose the filter fields and values to populate them with. These also translate to custom columns for the selection list.
+- `add_filters_group`: A boolean value to add/remove the filter group in the dialog below `setters`. The filter group is same as the list view filters.
 - `date_field`: It is necessary to pass the `date_field` of the DocType in consideration.
 - `get_query`: A function that returns `query` and `filters` to query the selection list. A custom server side method can be passed via `query`, and `filters` will be passed to that method.
 - `action`: Contains the primary action to be performed on the selected options. It takes `selections` as a parameter, which comprises of the selected options.
@@ -306,8 +307,10 @@ new frappe.ui.form.MultiSelectDialog({
 	doctype: "Material Request",
 	target: this.cur_frm,
 	setters: {
-		company: "Zoot"
+		schedule_date: undefined,
+		status: 'Pending'
 	},
+	add_filters_group: 1,
 	date_field: "transaction_date",
 	get_query() {
 		return {
@@ -329,8 +332,10 @@ new frappe.ui.form.MultiSelectDialog({
 	doctype: "Material Request",
 	target: this.cur_frm,
 	setters: {
-		company: "Zoot"
+		schedule_date: undefined,
+		status: 'Pending'
 	},
+	add_filters_group: 1,
 	date_field: "transaction_date",
 	get_query() {
 		return query_args;
@@ -347,3 +352,38 @@ new frappe.ui.form.MultiSelectDialog({
 Here all the Material Requests that fulfill the filter criteria will be fetched into the selection area. The setter `company` is added to the filter fields along with its passed value. The `date_field` will be used to fetch and query dates from the DocType mentioned.
 
 The **Make Material Request** (or `Make {DocType}`) secondary action button will redirect you to a new form in order to make a new entry into the DocType passed.
+
+Now, if we want to only select particular item from a Material Request, then we can use optional `child_selection_mode` to enable child selection
+
+```js
+
+// MultiSelectDialog for individual child selection
+new frappe.ui.form.MultiSelectDialog({
+	doctype: "Material Request",
+	target: this.cur_frm,
+	setters: {
+		schedule_date: undefined,
+		status: undefined
+	},
+	add_filters_group: 1,
+	date_field: "transaction_date",
+	child_selection_mode: 1,
+	child_doctype: "Material Request Item", // the child item for filtering
+	child_columns: ["item_code", "qty"], // child item columns to be displayed
+	get_query() {
+		return {
+			filters: { docstatus: ['!=', 2] }
+		}
+	},
+	action(selections, args) {
+		console.log(args.filtered_children); // list of selected item names
+	}
+});
+```
+
+![MultiSelectDialog](/docs/assets/img/api/dialog-api-multiselectdialog-child-selection.png)
+*frappe.ui.form.MultiSelectDialog*
+
+Here you will see a checkbox **Select Individual Items** to toggle between child item selection & parent selection. Once you toggle it, all the individual Material Requests Items are listed from the all the queried Material Request, you can now filter these items for selection. 
+
+To access the selected children, you can use `args.filtered_children` list which contains selected child item names.
