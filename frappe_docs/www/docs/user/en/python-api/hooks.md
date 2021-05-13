@@ -714,7 +714,7 @@ fixtures = [
 ]
 ```
 
-
+Some fields are for internal use only. They will be set and kept up-to-date by the system automatically. These will not get exported: `modified_by`, `creation`, `owner`, `idx`, `lft` and `rgt`. For child table records, the following fields will not get exported: `docstatus`, `doctype`, `modified` and `name`.
 
 ## Document Hooks
 
