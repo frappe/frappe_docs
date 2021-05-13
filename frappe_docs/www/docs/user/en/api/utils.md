@@ -13,7 +13,30 @@ There are many different **utility functions** available in Frappe Framework tha
 
 This utility methods (`utils`) can be imported from the `frappe` module (or nested modules like `frappe.utils` and `frappe.utils.data`) in any Python file of your Frappe app. This list is not at all exhaustive, you can take a peek at the Framework codebase to see what's available.
 
+## now, getdate, today
+
+## add_to_date
+
 ## pretty_date
+
+Function Signature: `pretty_date(iso_datetime)`
+
+Takes an ISO time and returns a string representing how long ago the date represents. Very common in communication applications like instant messangers.
+
+Example usage:
+
+```py
+from frappe.utils import pretty_date, now, add_to_date
+
+pretty_date(now()) # 'just now'
+
+# Some example outputs:
+
+# 1 hour ago
+# 20 minutes ago
+# 1 week ago
+# 5 years ago
+```
 
 ## format_duration
 
@@ -22,8 +45,6 @@ This utility methods (`utils`) can be imported from the `frappe` module (or nest
 ## money_in_words
 
 ## validate_json_string
-
-## getdate, today
 
 ## random_string
 
