@@ -40,6 +40,22 @@ pretty_date(now()) # 'just now'
 
 ## format_duration
 
+Function Signature: `format_duration(seconds, hide_days=False)`
+
+Converts the given duration value in seconds (float) to duration format.
+
+Example Usage:
+```py
+from frappe.utils import format_duration
+
+format_duration(50) # '50s'
+format_duration(10000) # '2h 46m 40s'
+format_duration(1000000) # '11d 13h 46m 40s'
+
+# Convert days to hours
+format_duration(1000000, hide_days=True) # '277h 46m 40s'
+```
+
 ## comma_and and comma_or
 
 ## money_in_words
