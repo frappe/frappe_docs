@@ -19,7 +19,9 @@
 			{ "title": "Apps", "route": "/docs/user/en/basics/apps" },
 			{ "title": "Sites", "route": "/docs/user/en/basics/sites" },
 			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" },
-			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" }
+			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" },
+			{ "title": "Asset Bundling", "route": "/docs/user/en/basics/asset-bundling" },
+			{ "title": "Static Assets", "route": "/docs/user/en/basics/static-assets" }
 		]
 	},
 	{
