@@ -60,6 +60,26 @@ format_duration(1000000, hide_days=True) # '277h 46m 40s'
 
 ## money_in_words
 
+Function Signature: `money_in_words(number, main_currency=None, fraction_currency=None)`
+
+`number`: A floating point money amount
+
+`main_currency`: Uses this as the main currency. If not given, tries to fetch from default settings or uses `INR` if not found there.
+
+This function returns string in words with currency and fraction currency.
+
+Example Usage:
+
+```py
+from frappe.utils import money_in_words
+
+money_in_words(900) # 'INR Nine Hundred and Fifty Paisa only.'
+money_in_words(900.50) # 'INR Nine Hundred and Fifty Paisa only.'
+money_in_words(900.50, "USD") # 'USD Nine Hundred and Fifty Centavo only.'
+money_in_words(900.50, "USD", "Cents") # 'USD Nine Hundred and Fifty Cents only.'
+
+```
+
 ## validate_json_string
 
 ## random_string
