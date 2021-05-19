@@ -84,6 +84,21 @@ money_in_words(900.50, "USD", "Cents") # 'USD Nine Hundred and Fifty Cents only.
 
 ## random_string
 
+Function Signature: `random_string(length)`
+
+This function generates a random string containing `length` number of characters. This can be useful for cryptographic or secret generation for some cases.
+
+Example Usage:
+
+```py
+from frappe.utils import random_string
+
+random_string(40) # 'mcrLCrlvkUdkaOe8m5xMI8IwDB8lszwJsWtZFveQ'
+random_string(6) # 'htrB4L'
+random_string(6) #'HNRirG'
+
+```
+
 ## unique
 
 ## get_pdf
@@ -124,6 +139,8 @@ def generate_invoice():
 	frappe.local.response.filecontent = get_pdf(html)
 	frappe.local.response.type = "pdf"
 ```
+
+## get_abbr
 
 ## validate_url
 
