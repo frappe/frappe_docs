@@ -101,6 +101,23 @@ random_string(6) #'HNRirG'
 
 ## unique
 
+Function Signature: `unique(seq)`
+
+`seq`: An iterable / Sequence
+
+This function returns a list of elements of the given sequence after removing the duplicates. Also, preserves the order, unlike: `list(set(seq))`.
+
+Example Usage:
+
+```py
+from frappe.utils import unique
+
+unique([1, 2, 3, 1, 1, 1]) # [1, 2, 3]
+unique('abcda') # ['a', 'b', 'c', 'd']
+unique(('Apple', 'Apple', 'Banana', 'Apple')) # ['Apple', 'Banana']
+
+```
+
 ## get_pdf
 
 Function Signature: `get_pdf(html, options=None, output=None)`
