@@ -256,7 +256,7 @@ class LibraryTransaction(Document):
             self.validate_maximum_limit()
             # set the article status to be Issued
             article = frappe.get_doc("Article", self.article)
-            article.status == "Issued"
+            article.status = "Issued"
             article.save()
 
         elif self.type == "Return":
