@@ -17,6 +17,32 @@ This utility methods (`utils`) can be imported from the `frappe` module (or nest
 
 ## add_to_date
 
+Function Signature: `add_to_date(date, years=0, months=0, weeks=0, days=0, hours=0, minutes=0, seconds=0, as_string=False, as_datetime=False)`
+
+`date`: A string representation or `datetime` object, uses the current `datetime` if `None` is passed
+`as_string`: Return as string
+`as_datetime`: If `as_string` is True and `as_datetime` is also True, returns a `datetime` string otherwise just the `date` string.
+
+This function can be quite handy for doing date/datetime deltas, for instance, adding or substracting certain number of days from a particular date/datetime.
+
+Example Usage:
+
+```py
+from datetime import datetime # from python std library
+from frappe.utils import add_to_date
+
+today = datetime.now().strftime('%Y-%m-%d')
+print(today) # '2021-05-21'
+
+after_10_days = add_to_date(datetime.now(), days=10, as_string=True)
+print(after_10_days) # '2021-05-31'
+
+add_to_date(datetime.now(), months=2) # datetime.datetime(2021, 7, 21, 15, 31, 18, 119999)
+add_to_date(datetime.now(), days=10, as_string=True, as_datetime=True) # '2021-05-31 15:30:23.757661'
+add_to_date(None, years=6) # datetime.datetime(2027, 5, 21, 15, 32, 31, 652089)
+
+```
+
 ## pretty_date
 
 Function Signature: `pretty_date(iso_datetime)`
