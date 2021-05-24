@@ -3,13 +3,13 @@ add_breadcrumbs: 1
 title: Utils
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
- description: >
-  Utility functions available in Frappe Framework
+  description: >
+    Utility functions available in Frappe Framework
 ---
 
 # Utility Functions
 
-There are many different **utility functions** available in Frappe Framework that you can use to carry out many common operations like date formating, PDF generation and much more. 
+There are many different **utility functions** available in Frappe Framework that you can use to carry out many common operations like date formating, PDF generation and much more.
 
 This utility methods (`utils`) can be imported from the `frappe` module (or nested modules like `frappe.utils` and `frappe.utils.data`) in any Python file of your Frappe app. This list is not at all exhaustive, you can take a peek at the Framework codebase to see what's available.
 
@@ -71,6 +71,7 @@ Function Signature: `format_duration(seconds, hide_days=False)`
 Converts the given duration value in seconds (float) to duration format.
 
 Example Usage:
+
 ```py
 from frappe.utils import format_duration
 
@@ -185,6 +186,20 @@ def generate_invoice():
 
 ## get_abbr
 
+Function Signature: `get_abbr(string, max_len=2)`
+
+Returns an abbrivated (initials only) version of the given `string` with a maximum of `max_len` letters. It is extensively used in Frappe Framework and ERPNext to generate thumbnail or placeholder images.
+
+Example Usage:
+
+```py
+from frappe.utils import get_abbr
+
+get_abbr('Gavin') # 'G'
+get_abbr('Coca Cola Company') # 'CC'
+get_abbr('Mohammad Hussain Nagaria', max_len=3) # 'MHN'
+```
+
 ## validate_url
 
 Function Signature: `validate_url(txt, throw=False, valid_schemes=None)`
@@ -212,4 +227,3 @@ validate_url('https://google.com', throw=True) # throws ValidationError
 ## frappe.cache()
 
 ## frappe.sendmail()
-
