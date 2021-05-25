@@ -302,7 +302,31 @@ validate_url('https://google.com') # True
 validate_url('https://google.com', throw=True) # throws ValidationError
 ```
 
-## validate_email_address and validate_phone
+## validate_email_address
+
+Function Signature: `validate_email_address(email_str, throw=False)`
+
+Returns a string containing the email address or comma-separated list of valid email addresses present in the given `email_str`. If `throw` is `True`, `frappe.InvalidEmailAddressError` is thrown in case of no valid email address in present in the given string else an empty string is returned.
+
+Example Usage:
+
+```py
+from frappe.utils import validate_email_address
+
+# Single valid email address
+validate_email_address('rushabh@erpnext.com') # 'rushabh@erpnext.com'
+validate_email_address('other text, rushabh@erpnext.com, some other text') # 'rushabh@erpnext.com'
+
+# Multiple valid email address
+validate_email_address(
+	'some text, rushabh@erpnext.com, some other text, faris@erpnext.com, yet another no-emailic phrase.'
+) # 'rushabh@erpnext.com, faris@erpnext.com'
+
+# Invalid email address
+validate_email_address('some other text') # ''
+```
+
+## validate_phone
 
 ## frappe.cache()
 
