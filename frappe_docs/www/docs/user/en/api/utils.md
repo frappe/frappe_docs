@@ -109,6 +109,28 @@ money_in_words(900.50, "USD", "Cents") # 'USD Nine Hundred and Fifty Cents only.
 
 ## validate_json_string
 
+Function Signature: `validate_json_string(string)`
+
+Raises `frappe.ValidationError` if the given `string` is a valid JSON (JavaScript Object Notation) string. You can use a `try-except` block to handle a call to this function as shown the code snippet below.
+
+Example Usage:
+
+```py
+import frappe
+from frappe.utils import validate_json_string
+
+# No Exception thrown
+validate_json_string('[]')
+validate_json_string('[{}]')
+validate_json_string('[{"player": "one", "score": 199}]')
+
+try:
+	# Throws frappe.ValidationError
+	validate_json_string('invalid json')
+except frappe.ValidationError:
+	print('Not a valid JSON string')
+```
+
 ## random_string
 
 Function Signature: `random_string(length)`
