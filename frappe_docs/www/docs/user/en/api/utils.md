@@ -364,3 +364,60 @@ cache.get('name') # b'frappe'
 ```
 
 ## frappe.sendmail()
+
+Function Signature: `def sendmail(recipients=[], sender="", subject="No Subject", message="No Message", as_markdown=False, template=None, args=None, **kwargs)`
+
+`recipients`: List of recipients
+`sender`: Email sender. Default is current user or default outgoing account
+`subject`: Email Subject
+`message`: (or `content`) Email Content
+`as_markdown`: Convert content markdown to HTML
+`template`: Name of html template (jinja) from templates/emails folder
+`args`: Arguments for rendering the template
+
+For most cases, the above arguments are sufficient but there are many other keyword arguments that can be passed to this function. To see all the keyword arguments, please have a look at this functions implementation (`frappe/__init__.py`).
+
+This function can be used to send email using user's default **Email Account** or global default **Email Account**.
+
+Example Usage:
+
+```py
+import frappe
+
+recipients = [
+	'gavin@erpnext.com',
+	'hussain@erpnext.com'
+]
+
+frappe.sendmail(
+	recipients=recipients,
+	subject=frappe._("Birthday Reminder"),
+	template="birthday_reminder",
+	args=dict(
+		reminder_text=reminder_text,
+		birthday_persons=birthday_persons,
+		message=message,
+	),
+	header=_("Birthday Reminder 🎂")
+)
+```
+
+Sample Jinja template file:
+
+```html
+<!-- templates/emails/birthday_reminder.html -->
+<div>
+<div class="gray-container text-center">
+	<div>
+		{% for person in birthday_persons %}
+			{% if person.image  %}
+				<img src="{{ person.image }}" title="{{ person.name }}">
+			{% endif %}
+		{% endfor %}
+	</div>
+  <div style="margin-top: 15px">
+    <span>{{ reminder_text }}</span>
+    <p class="text-muted">{{ message }}</p>
+  </div>
+</div>
+```
