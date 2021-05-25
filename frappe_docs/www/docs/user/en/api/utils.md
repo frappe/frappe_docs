@@ -90,7 +90,7 @@ add_to_date(None, years=6) # datetime.datetime(2027, 5, 21, 15, 32, 31, 652089)
 
 Function Signature: `pretty_date(iso_datetime)`
 
-Takes an ISO time and returns a string representing how long ago the date represents. Very common in communication applications like instant messangers.
+Takes an ISO time and returns a string representing how long ago the date represents. Very common in communication applications like instant messengers.
 
 Example usage:
 
