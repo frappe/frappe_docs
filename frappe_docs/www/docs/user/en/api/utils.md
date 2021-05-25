@@ -13,7 +13,23 @@ There are many different **utility functions** available in Frappe Framework tha
 
 This utility methods (`utils`) can be imported from the `frappe` module (or nested modules like `frappe.utils` and `frappe.utils.data`) in any Python file of your Frappe app. This list is not at all exhaustive, you can take a peek at the Framework codebase to see what's available.
 
-## now, getdate, today
+## now
+
+Function Signatures: `now()`
+
+Returns the current datetime in the format 'yyyy-mm-dd hh:mm:ss'
+
+Example Usage:
+
+```py
+from frappe.utils import now
+
+now() # '2021-05-25 06:38:52.242515'
+```
+
+## getdate
+
+## today
 
 ## add_to_date
 
