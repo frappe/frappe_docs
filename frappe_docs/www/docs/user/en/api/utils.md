@@ -1,6 +1,6 @@
 ---
 add_breadcrumbs: 1
-title: Utils
+title: Common Utility Functions
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
   description: >
@@ -57,13 +57,15 @@ today() # '2021-05-25'
 nowdate() # '2021-05-25'
 ```
 
-## add_to_date
+## add\_to\_date
 
 Function Signature: `add_to_date(date, years=0, months=0, weeks=0, days=0, hours=0, minutes=0, seconds=0, as_string=False, as_datetime=False)`
 
+```md
 `date`: A string representation or `datetime` object, uses the current `datetime` if `None` is passed
 `as_string`: Return as string
 `as_datetime`: If `as_string` is True and `as_datetime` is also True, returns a `datetime` string otherwise just the `date` string.
+```
 
 This function can be quite handy for doing date/datetime deltas, for instance, adding or substracting certain number of days from a particular date/datetime.
 
@@ -82,7 +84,6 @@ print(after_10_days) # '2021-05-31'
 add_to_date(datetime.now(), months=2) # datetime.datetime(2021, 7, 21, 15, 31, 18, 119999)
 add_to_date(datetime.now(), days=10, as_string=True, as_datetime=True) # '2021-05-31 15:30:23.757661'
 add_to_date(None, years=6) # datetime.datetime(2027, 5, 21, 15, 32, 31, 652089)
-
 ```
 
 ## pretty_date
@@ -143,13 +144,14 @@ comma_and('abcd') # 'abcd'
 
 > There is also a `comma_or` function which is similar to `comma_and` except the separator, which is `or` in the case of `comma_or`.
 
-## money_in_words
+## money\_in\_words
 
 Function Signature: `money_in_words(number, main_currency=None, fraction_currency=None)`
 
+```md
 `number`: A floating point money amount
-
 `main_currency`: Uses this as the main currency. If not given, tries to fetch from default settings or uses `INR` if not found there.
+```
 
 This function returns string in words with currency and fraction currency.
 
@@ -162,10 +164,9 @@ money_in_words(900) # 'INR Nine Hundred and Fifty Paisa only.'
 money_in_words(900.50) # 'INR Nine Hundred and Fifty Paisa only.'
 money_in_words(900.50, 'USD') # 'USD Nine Hundred and Fifty Centavo only.'
 money_in_words(900.50, 'USD', 'Cents') # 'USD Nine Hundred and Fifty Cents only.'
-
 ```
 
-## validate_json_string
+## validate\_json\_string
 
 Function Signature: `validate_json_string(string)`
 
@@ -203,7 +204,6 @@ from frappe.utils import random_string
 random_string(40) # 'mcrLCrlvkUdkaOe8m5xMI8IwDB8lszwJsWtZFveQ'
 random_string(6) # 'htrB4L'
 random_string(6) #'HNRirG'
-
 ```
 
 ## unique
@@ -222,18 +222,17 @@ from frappe.utils import unique
 unique([1, 2, 3, 1, 1, 1]) # [1, 2, 3]
 unique('abcda') # ['a', 'b', 'c', 'd']
 unique(('Apple', 'Apple', 'Banana', 'Apple')) # ['Apple', 'Banana']
-
 ```
 
 ## get_pdf
 
 Function Signature: `get_pdf(html, options=None, output=None)`
 
+```md
 `html`: HTML string to render
-
 `options`: An optional `dict` for configuration
-
 `output`: A optional `PdfFileWriter` object.
+```
 
 This function uses `pdfkit` and `pyPDF2` modules to generate PDF files from HTML. If `output` is provided, appends the generated pages to this object and returns it, otherwise returns a `byte` stream of the PDF.
 
@@ -284,12 +283,11 @@ get_abbr('Mohammad Hussain Nagaria', max_len=3) # 'MHN'
 
 Function Signature: `validate_url(txt, throw=False, valid_schemes=None)`
 
+```md
 `txt`: A string to check validity
-
 `throw`: Weather to throw an exception if `txt` does not represent a valid URL, `False` by default
-
 `valid_schemes`: A string or an iterable (list, tuple or set). If provided, checks the given URL's scheme against this.
-
+```
 This utility function can be used to check if a string represents a valid URL address.
 
 Example Usage:
@@ -302,7 +300,7 @@ validate_url('https://google.com') # True
 validate_url('https://google.com', throw=True) # throws ValidationError
 ```
 
-## validate_email_address
+## validate\_email\_address
 
 Function Signature: `validate_email_address(email_str, throw=False)`
 
@@ -326,7 +324,7 @@ validate_email_address(
 validate_email_address('some other text') # ''
 ```
 
-## validate_phone_number
+## validate\_phone\_number
 
 Function Signature: `validate_phone_number(phone_number, throw=False)`
 
@@ -367,6 +365,7 @@ cache.get('name') # b'frappe'
 
 Function Signature: `def sendmail(recipients=[], sender="", subject="No Subject", message="No Message", as_markdown=False, template=None, args=None, **kwargs)`
 
+```md
 `recipients`: List of recipients
 `sender`: Email sender. Default is current user or default outgoing account
 `subject`: Email Subject
@@ -374,6 +373,7 @@ Function Signature: `def sendmail(recipients=[], sender="", subject="No Subject"
 `as_markdown`: Convert content markdown to HTML
 `template`: Name of html template (jinja) from templates/emails folder
 `args`: Arguments for rendering the template
+```
 
 For most cases, the above arguments are sufficient but there are many other keyword arguments that can be passed to this function. To see all the keyword arguments, please have a look at this functions implementation (`frappe/__init__.py`).
 
