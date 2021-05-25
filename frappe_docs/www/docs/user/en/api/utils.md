@@ -326,7 +326,25 @@ validate_email_address(
 validate_email_address('some other text') # ''
 ```
 
-## validate_phone
+## validate_phone_number
+
+Function Signature: `validate_phone_number(phone_number, throw=False)`
+
+Returns `True` if `phone_number` (string) is a valid phone number. If `phone_number` is invalid and `throw` is `True`, `frappe.InvalidPhoneNumberError` is thrown.
+
+Example Usage:
+
+```py
+from frappe.utils import validate_phone_number
+
+# Valid phone numbers
+validate_phone_number('753858375') # True
+validate_phone_number('+91-75385837') # True
+
+# Invalid phone numbers
+validate_phone_number('invalid') # False
+validate_phone_number('87345%%', throw=True) # InvalidPhoneNumberError
+```
 
 ## frappe.cache()
 
