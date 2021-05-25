@@ -42,7 +42,20 @@ getdate() # datetime.date(2021, 5, 25)
 getdate('2000-03-18') # datetime.date(2000, 3, 18)
 ```
 
-## today
+## nowdate and today
+
+Function Signature: `nowdate()`
+
+Returns current date in the format 'yyyy-mm-dd'. `today()` is an alias to `nowdate()`.
+
+Example Usage:
+
+```py
+from frappe.utils import today, nowdate
+
+today() # '2021-05-25'
+nowdate() # '2021-05-25'
+```
 
 ## add_to_date
 
