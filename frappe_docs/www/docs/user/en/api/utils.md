@@ -348,4 +348,19 @@ validate_phone_number('87345%%', throw=True) # InvalidPhoneNumberError
 
 ## frappe.cache()
 
+Function Signature: `cache()`
+
+Returns the redis connection, which is an instance of class `RedisWrapper` which is inherited from the `redis.Redis` class. You can use this connection to use the Redis cache to store/retrieve key-value pairs.
+
+Example Usage:
+
+```py
+import frappe
+
+cache = frappe.cache()
+
+cache.set('name', 'frappe') # True
+cache.get('name') # b'frappe'
+```
+
 ## frappe.sendmail()
