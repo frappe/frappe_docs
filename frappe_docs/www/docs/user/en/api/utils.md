@@ -29,6 +29,19 @@ now() # '2021-05-25 06:38:52.242515'
 
 ## getdate
 
+Function Signature: `getdate(string_date=None)`
+
+Converts `string_date` (yyyy-mm-dd) to `datetime.date` object. If no input is provided, current date is returned. Throws an exception if `string_date` is an invalid date string.
+
+Example Usage:
+
+```py
+from frappe.utils import getdate
+
+getdate() # datetime.date(2021, 5, 25)
+getdate('2000-03-18') # datetime.date(2000, 3, 18)
+```
+
 ## today
 
 ## add_to_date
