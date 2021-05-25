@@ -160,8 +160,8 @@ from frappe.utils import money_in_words
 
 money_in_words(900) # 'INR Nine Hundred and Fifty Paisa only.'
 money_in_words(900.50) # 'INR Nine Hundred and Fifty Paisa only.'
-money_in_words(900.50, "USD") # 'USD Nine Hundred and Fifty Centavo only.'
-money_in_words(900.50, "USD", "Cents") # 'USD Nine Hundred and Fifty Cents only.'
+money_in_words(900.50, 'USD') # 'USD Nine Hundred and Fifty Centavo only.'
+money_in_words(900.50, 'USD', 'Cents') # 'USD Nine Hundred and Fifty Cents only.'
 
 ```
 
@@ -250,18 +250,18 @@ def generate_invoice():
 		'iPhone 13': 80
 	}]
 
-	html = "<h1>Invoice from Star Electronics e-Store!</h1>"
+	html = '<h1>Invoice from Star Electronics e-Store!</h1>'
 
 	# Add items to PDF HTML
-	html += "<ol>"
+	html += '<ol>'
 	for item, qty in cart.items():
-		html += f"<li>{item} - {qty}</li>"
-	html += "</ol>"
+		html += f'<li>{item} - {qty}</li>'
+	html += '</ol>'
 
 	# Attaching PDF to response
-	frappe.local.response.filename = "invoice.pdf"
+	frappe.local.response.filename = 'invoice.pdf'
 	frappe.local.response.filecontent = get_pdf(html)
-	frappe.local.response.type = "pdf"
+	frappe.local.response.type = 'pdf'
 ```
 
 ## get_abbr
@@ -391,14 +391,14 @@ recipients = [
 
 frappe.sendmail(
 	recipients=recipients,
-	subject=frappe._("Birthday Reminder"),
-	template="birthday_reminder",
+	subject=frappe._('Birthday Reminder'),
+	template='birthday_reminder',
 	args=dict(
 		reminder_text=reminder_text,
 		birthday_persons=birthday_persons,
 		message=message,
 	),
-	header=_("Birthday Reminder 🎂")
+	header=_('Birthday Reminder 🎂')
 )
 ```
 
