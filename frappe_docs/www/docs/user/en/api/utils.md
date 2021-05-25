@@ -83,7 +83,23 @@ format_duration(1000000) # '11d 13h 46m 40s'
 format_duration(1000000, hide_days=True) # '277h 46m 40s'
 ```
 
-## comma_and and comma_or
+## comma_and
+
+Function Signature: `comma_and(some_list, add_quotes=True)`
+
+Given a list or tuple `some_list`, returns a string of the format `1st item, 2nd item, .... and last item`. This function uses `frappe._`, so you don't have to worry about the translations for the word `and`. If `add_quotes` is `False`, returns the items without quotes, with quotes otherwise. If the type of `some_list` passed as an argument is something other than a list or tuple, it (`some_list`) is returned as it is.
+
+Example Usage:
+
+```py
+from frappe.utils import comma_and
+
+comma_and([1, 2, 3]) # "'1', '2' and '3'"
+comma_and(['Apple', 'Ball', 'Cat'], add_quotes=False) # 'Apple, Ball and Cat'
+comma_and('abcd') # 'abcd'
+```
+
+> There is also a `comma_or` function which is similar to `comma_and` except the separator, which is `or` in the case of `comma_or`.
 
 ## money_in_words
 
