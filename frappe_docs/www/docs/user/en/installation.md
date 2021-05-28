@@ -295,3 +295,24 @@ bench start
 ```
 
 Congratulations, you have installed bench on to your system.
+
+## [ERPNext] Optional: Redisearch Redis Module
+
+We use the [redisearch](http://redisearch.io/) module for `redis` to enable super-fast and advanced product search functionality like **autocomplete, customizable field indexing, ranking and fuzzy searching** on ERPNext's E-Commerce module. Here are the steps to download and build `redisearch`:
+
+```bash
+$ git clone --recursive https://github.com/RediSearch/RediSearch.git
+$ cd RediSearch
+$ sudo make setup # Remove `sudo` on macOS
+$ make build
+```
+
+On successful completion of the above instructions, a `redisearch.so` binary file will be generated in the `RediSearch/build` directory.
+
+Move this binary to the `/etc` directory and restart your Frappe Server:
+
+```bash
+sudo mv build/redisearch.so /etc/
+```
+
+More detailed instructions [here](https://oss.redislabs.com/redisearch/Quick_Start/#building_and_running_from_source).
