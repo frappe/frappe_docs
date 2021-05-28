@@ -2,8 +2,8 @@
 title: Installation
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
- description: >
-  Guide for installing Frappe Framework pre-requisites and the Bench CLI
+  description: >
+    Guide for installing Frappe Framework pre-requisites and the Bench CLI
 add_breadcrumbs: 1
 page_toc: 1
 ---
@@ -15,7 +15,7 @@ page_toc: 1
 
 ## System Requirements
 
-This guide assumes you are using a personal computer, VPS or a bare-metal server. You also need to be on a *nix system, so any Linux Distribution and MacOS is supported. However, we officially support only the following distributions.
+This guide assumes you are using a personal computer, VPS or a bare-metal server. You also need to be on a \*nix system, so any Linux Distribution and MacOS is supported. However, we officially support only the following distributions.
 
 1. [MacOS](#macos)
 1. [Debian / Ubuntu](#debian-ubuntu)
@@ -29,7 +29,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 ```
   Python 3.6+
   Node.js 12
-  Redis 5                                       (caching and realtime updates)
+  Redis 6                                       (caching and realtime updates)
   MariaDB 10.3.x / Postgres 9.5.x               (to run database driven apps)
   yarn 1.12+                                    (js dependency manager)
   pip 20+                                       (py dependency manager)
@@ -107,10 +107,21 @@ npm install -g yarn
 
 ### Debian / Ubuntu
 
-Install `git`, `python`, and `redis`
+Install `git` and `python`
 
 ```bash
-apt install git python-dev redis-server
+apt install git python-dev
+```
+
+Install Redis
+
+```bash
+# Add official RedisLabs PPA
+sudo add-apt-repository ppa:redislabs/redis
+sudo apt-get update
+
+# Install Redis
+sudo apt-get install redis
 ```
 
 **Install MariaDB**
