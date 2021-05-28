@@ -2,9 +2,10 @@
 add_breadcrumbs: 1
 title: Field Types
 metatags:
- description: >
-  A Field type is a type of field you can give to a DocField.
+  description: >
+    A Field type is a type of field you can give to a DocField.
 ---
+
 # Field Types
 
 There are variety of fieldtypes available in Frappe Framework. Each one has its own use case and can be used to input and store different types of data in a document.
@@ -24,16 +25,15 @@ You can enable validations for the following types of data:
 
 by setting the options to "Name", "Email", "Phone" or "URL" respectively.
 
-
 <img alt="Data field types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/data-field-1.png">
 
 #### Link
 
-Link field is connected to another master from where it fetches data. For example, in the Quotation master, the Customer is a Link field. To know more, [click here](/docs/user/manual/en/customize-erpnext/articles/creating-custom-link-field).
+Link field is connected to another master from where it fetches data. For example, in the Quotation master, the Customer is a Link field. To know more, [click here](https://erpnext.com/docs/user/manual/en/customize-erpnext/articles/creating-custom-link-field).
 
 #### Dynamic Link
 
-Dynamic Link field is one which can search and hold value of any document/doctype. [Click here](/docs/user/manual/en/customize-erpnext/articles/dynamic-link-fields) to learn how Dynamic Link Field functions.
+Dynamic Link field is one which can search and hold value of any document/doctype. [Click here](https://erpnext.com/docs/user/manual/en/customize-erpnext/articles/dynamic-link-fields) to learn how Dynamic Link Field functions.
 
 #### Check
 
@@ -51,97 +51,99 @@ Select will be a drop-down field. You can add multiple results in the Option fie
 
 #### Table
 
-A table will be a kind of Link field which renders another DocType within the current form. For example, the Item Table in the Sales Order is a Table field, which is linked to Sales Order Item DocType.
+A table will be a kind of Link field which renders another DocType within the current form. The DocType linked to this type of table field must be of type `Child Table`.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-table-field-type.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/child_table.png">
 
 #### Attach
 
 Attach field allows you to browse a field from the File Manager and attach the same herein.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-attach-field.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/attach_fieldtype.png">
+
 
 #### Attach Image
 
 Attach Image is a field wherein you will be allowed to attach Images of the format jpeg, png, etc. This becomes the Image representing that particular DocType. For e.g., you would want the image of an Item in its DocType, you can choose your field to be an Attach Image Field.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-attach-image.png">
-
 #### Text Editor
 
-Text Editor is a text field. It has text-formatting options. In ERPNext, this field is generally used for defining Terms and Conditions.
+Text Editor is a text field and renders a WYSIWYG editor for input. It has various text-formatting options.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-text-editor.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/text_editor_field.png">
+
 
 #### Date
 
 This field will enable you to enter the Date in this field.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-date-field.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/date_fieldtype.png">
+
 
 #### Date and Time
 
 This field will give you a date and time picker. The current date and time (as provided by your computer) are set by default.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-date-and-time.png">
-
 #### Barcode
 
-In this field, you can specify the field as Barcode which will allow you to enter a Barcode number. Oce you do that, the Barcode would automatically get generated against the number.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-barcode.png">
+In this field, you can specify the field as Barcode which will allow you to enter a Barcode number. Once you do that, the Barcode would automatically get generated against the number.
 
 #### Button
 
-This kind of field will be an action button, like Save, Submit, etc.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-button-field.png">
+This field lets you place a button in a document. This can be used to perform specific actions like publishing a blog post, triggering an action etc.
 
 #### Code
 
-If the Field Type is selected as code, you will be able to enter a Code to the field.
+This fieldtype can be used to take `code` as input. A code editor is rendered in the document creation form. Optionally, you can provide a langauge in the fieldtype options to enable syntax highlighting. For example, below is a `Code` type field with options set to `Python`:
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-markdown-editor.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/code_fieldtype.png">
+
 
 #### Color
 
-You will have the option of specifying the color for this Form.
+This will let the user input a color via a rendered color picker or directly input a hexadecimal color.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-field-type-color.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/color_fieldtype.png">
+
 
 #### Column Break
 
-Since ERPNext has multiple column layouts, using Column Breaks, you can divide a set of fields into a maximum of two columns.
+This is a `'meta'` fieldtype that does not store any input data but can be used to indicate a column break in the document view or form.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-column break.png">
+For example,
+
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/column_break_fieldtype_1.png">
+
+
+will result into:
+
+
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/column_break_fieldtype_2.png">
+
 
 #### Currency
 
 Currency field holds numeric value, like Item Price, Amount, etc. Currency field can have value up to six decimal places. Also, you can have a currency symbol being shown for the currency field.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-field-type-currency.png">
-
 #### Float
 
-Float field carries numeric value, up to nine decimal places. Precision for the float field is set via [Set Precision](/docs/user/manual/en/customize-erpnext/articles/set-precision)
-
-> Setup > Settings > System Settings
-
-The setting will be applicable on all the float field.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-float.png">
+Float field carries numeric value, up to nine decimal places.
 
 #### Geolocation
 
 Use Geolocation field to store GeoJSON <a href="https://tools.ietf.org/html/rfc7946#section-3.3">feature_collection</a>. Stores polygons, lines, and points. Internally it uses the following custom properties for identifying a circle.
 
-Read [Geolocation field](/docs/user/manual/en/customize-erpnext/articles/geolocation-field) for more understanding.
-
 #### HTML
 
-You can select the field to be an HTML field when you want the data to be entered in HTML format.
+This will render the content entered in `Options` as HTML in the document form or view page. Here is an example:
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-html.png">
+
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/html_fieldtype_1.png">
+
+will result into:
+
+
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/html_fieldtype_2.png">
 
 #### Image
 
@@ -149,96 +151,78 @@ Image field will render an image file selected in another attach field.
 
 For the Image field, under Option (in Doctype), a field name should be provided where the image file is attached. By referring to the value in that field, the image will be a reference in the Image field.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-image-field.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/image_fieldtype_1.png">
+
+will result into:
+
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/image_fieldtype_2.png">
 
 #### Int (Integer)
 
 The integer field holds numeric value, without decimal place.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-int-field.png">
-
 #### Small Text
 
 Small Text field carries text content and has more character limit than the Data field.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-small-text.png">
 
 #### Long Text
 
 You can define your field to a Long Text Field when you would want to enter data with an unlimited character limit.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-long-text.png">
-
 #### Text
 
 This field type would allow you to add text in the field. The character limit in Small text, Long text and Text fields shall be determined based on the Relational Database Management System.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-text.png">
-
 #### Markdown Editor
 
-This field will allow you to add the text in Markup language.
+This field will allow you to add the text in markdown. This fieldtype also provides a `Preview` view of rendered HTML:
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-markdown-editor.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/md_fieldtype_1.png">
+
+when preview is clicked:
+
+
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/md_fieldtype_2.png">
 
 #### Password
 
-The password field will have decoded value in it.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-password.png">
+The password field will have decoded value in it. This type of field can be used to store sensitive data like passwords, pass phrases, secret keys etc.
 
 #### Percent
 
 You can define the field as a Percentage field which in the background will be calculated as a percentage.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-percent.png">
-
 #### Rating
 
-You can define the field as a Rate field which in the background will be calculated as Rating.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-rating.png">
+This field can be used to display an interactive star rating input. The user can give from 0 to 5 stars.
 
 #### Read Only
 
 Read Only field will carry data fetched from another form which will be non-editable. You should set Read Only as field type if its source for value is predetermined.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-read-only.png">
-
 #### Section Break
 
-Section Break is used to divide the form into multiple sections.
+Section Break is used to divide the form into multiple sections. Any fields that follow (and before any other `Section Break`) a `Section Break` field will be part of this new section.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-section-break.png">
+<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/section_break_fieldtype.png">
+
 
 #### Signature
 
-You can define the field to be a Signature field wherein you can add the Digital Signature in this field. Read documentation for [Signature Field](/docs/user/manual/en/customize-erpnext/articles/signature-field) to know more.
+You can define the field to be a Signature field wherein you can add the Digital Signature in this field. Read documentation for [Signature Field](https://erpnext.com/docs/user/manual/en/customize-erpnext/articles/signature-field) to know more.
 
 #### Table MultiSelect
 
 This is a combination of 'Link' type and 'Table' type fields. Instead of a child table with 'Add Row' button, in one field multiple values can be selected.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-table-multiselect.png">
-
 #### Time
 
 This is a Time field where you can define the Time in the field.
-
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/customize-field-type-time.png">
 
 #### Duration
 
 You can use the Duration field if you want to define a timespan.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/duration-fieldtype.png">
-
 If you don't want to track duration in terms of days or seconds, you can enable "Hide Days" and "Hide Seconds" options respectively in your Form.
 
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/duration-options.png">
-
-For example, here in the SLA DocType, option is present to choose hours and minutes only.
-<img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/customize/duration-options-2.png">
-
 {next}
-
