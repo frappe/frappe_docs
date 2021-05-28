@@ -94,7 +94,7 @@ This field lets you place a button in a document. This can be used to perform sp
 
 #### Code
 
-This fieldtype can be used to take `code` as input. A code editor is rendered in the document creation form. Optionally, you can provide a langauge in the fieldtype options to enable syntax highlighting. For example, below is a `Code` type field with options set to `Python`:
+This fieldtype can be used to take `code` as input. A code editor is rendered in the document form. Optionally, you can provide a langauge in the fieldtype options to enable syntax highlighting. For example, below is a `Code` type field with options set to `Python`:
 
 <img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/code_fieldtype.png">
 
