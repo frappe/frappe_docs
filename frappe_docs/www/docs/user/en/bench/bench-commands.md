@@ -109,6 +109,7 @@ each with `bench` in your shell. Therefore, the usage for these commands is as
  - **switch-to-branch**: Switch all apps to specified branch, or specify apps
    separated by space
  - **switch-to-develop**: Switch Frappe and ERPNext to develop branch
+ - **execute**: Run arbitary python functions directly from command line.
 
 #### Advanced Setup-based
 
