@@ -3,7 +3,7 @@ add_breadcrumbs: 1
 title: Frappe Framwork Script API
 metatags:
  description: >
-  List of restricted commands that be called in Frappe Framework Server Script, Print Formats and Script Reports
+  List of restricted commands that can be called in Frappe Framework Server Script, Print Formats and Script Reports
 ---
 
 # Script API
@@ -129,13 +129,13 @@ Example: `frappe.db.sql("select name from Customer where name like 'm%'")`
 
 Get a value from a record
 
-Example: `frappe.db.get_value("User", frappe.session.user, "first_name")
+Example: `frappe.db.get_value("User", frappe.session.user, "first_name")`
 
 #### frappe.db.get_single_value
 
 Get value from a single type document
 
-Example: `frappe.db.get_single_value("System Settings", "default_currency")
+Example: `frappe.db.get_single_value("System Settings", "default_currency")`
 
 #### frappe.db.get_default
 
@@ -161,7 +161,7 @@ Run a server script (return values in `frappe.flags`)
 
 Show a modal on the server side after as a part of the response.
 
-Example: `frappe.msgprint("Hello")
+Example: `frappe.msgprint("Hello")`
 
 #### frappe.get_hooks
 
@@ -189,7 +189,7 @@ Returns '#d1d8dd'
 
 #### guess_mimetype
 
-Returns mimetypes.guess_type,
+Returns mimetypes.guess_type
 
 #### html2text
 
@@ -198,4 +198,3 @@ Encode HTML as text (markdown)
 #### dev_server
 
 True if in developer mode
-```
