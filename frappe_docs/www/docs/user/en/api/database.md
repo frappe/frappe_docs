@@ -62,6 +62,11 @@ frappe.db.get_list('Task', filters={
 	'date': ['>', '2019-09-08']
 })
 
+# Tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
+frappe.db.get_list('Task', filters=[[
+    'date', 'between', ['2020-04-01', '2021-03-31']
+]])
+
 # Tasks with subject that contains "test"
 frappe.db.get_list('Task', filters={
 	'subject': ['like', '%test%']
@@ -207,14 +212,14 @@ Rollbacks current transaction. Calls SQL `ROLLBACK`.
 > early in a transaction.
 
 ## frappe.db.sql
-`frappe.db.sql(query, filters, as_dict)`
+`frappe.db.sql(query, values, as_dict)`
 
 Execute an arbitrary SQL query. This may be useful for complex server side reports with join statements, adjusting the database to new features, etc.
 
 Example:
 
 ```python
-filters = {'company': 'Frappe Technologies Inc'}
+values = {'company': 'Frappe Technologies Inc'}
 data = frappe.db.sql("""
 	SELECT
 		acc.account_number
@@ -224,7 +229,7 @@ data = frappe.db.sql("""
 		LEFT JOIN `tabAccount` acc 
 		ON gl.account = acc.name
 	WHERE gl.company = %(company)s
-""", filters=filters, as_dict=0)
+""", values=values, as_dict=0)
 ```
 
 > Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get_list](#frappedbget_list), etc., if possible.

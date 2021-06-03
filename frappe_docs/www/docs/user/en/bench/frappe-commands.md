@@ -305,8 +305,7 @@ set-config](/docs/user/en/bench/reference/set-config) reference.
    `args` and `kwargs`.
  - **export-csv**: Export data import template with data for DocType.
  - **export-doc**: Export a single document to CSV.
- - **export-fixtures**: Export fixtures for Frappe Applications from specified
-   site.
+ - **export-fixtures**: Export records from a site to your Frappe Application, as JSON files. Fixtures are defined in your app's [`hooks.py` file](/docs/user/en/python-api/hooks#fixtures).
  - **export-json**: Export doclist as json to the given path, use '-' as name
    for Singles.
  - **import-csv**: Import from your CSV file using data import.
