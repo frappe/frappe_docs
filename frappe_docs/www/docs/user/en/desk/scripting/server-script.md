@@ -54,15 +54,23 @@ For scripts that are to be called via document events, you must set the Referenc
 
 ### 2.3 API Scripts
 
-You can create a new API that can be accessed via `api/method/[methodname]` by the script type "API"
+API endpoints can be created on the fly by using the **Script Type** `"API"`.
+The name of the endpoint depends on field **API Method**. All APIs created using
+Server Scripts will be automatically prefixed with `/api/method`.
 
-If you want the guest user to access the API, you must check on "Allow Guest"
+For instance, a script with the **API Method** `"delete-note"` may be accessed
+via `/api/method/delete-note`. Using Frappe's frontend request library, you
+could use `frappe.call("delete-note")` in your client scripts.
 
-The response can be set via `frappe.response["message"]` object
+Guest access may be enabled by checking **Allow Guest** for the created APIs.
+The response can be set via `frappe.response["message"]` object.
+
 
 ### 2.3 Security
 
-Frappe Framework uses the RestrictedPython library to restrict access to methods available for server scripts. Only the safe methods, listed below are available in server scripts
+Frappe Framework uses the RestrictedPython library to restrict access to methods
+available for server scripts. Only the safe methods, listed below are available
+in server scripts.
 
 For allowed methods, see [Script API](/docs/user/en/desk/scripting/script-api)
 

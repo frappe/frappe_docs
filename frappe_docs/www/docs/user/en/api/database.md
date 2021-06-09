@@ -15,7 +15,30 @@ metatags:
 - Also aliased to `frappe.get_list`
 
 Returns a list of records from a `doctype` table. ORM Wrapper for a `SELECT`
-query. Will also apply user permissions for the records for the session user.
+query. Will also apply user permissions for the records for the session user. Only returns the document names if the `fields` keyword argument is not given. By default this method returns a list of `dict`s, but, you can pluck a particular field by giving the `pluck` keyword argument:
+
+```python
+frappe.db.get_list('Employee')
+
+# output
+[{'name': 'HR-EMP-00008'},
+ {'name': 'HR-EMP-00006'},
+ {'name': 'HR-EMP-00010'},
+ {'name': 'HR-EMP-00005'}
+]
+
+# with pluck
+frappe.db.get_list('Employee', pluck='name')
+
+# output
+['HR-EMP-00008',
+ 'HR-EMP-00006',
+ 'HR-EMP-00010',
+ 'HR-EMP-00005'
+]
+```
+
+Combining filters and other arguments:
 
 ```python
 frappe.db.get_list('Task',
@@ -28,6 +51,7 @@ frappe.db.get_list('Task',
 	page_length=20,
 	as_list=True
 )
+
 # output
 (('Update Branding and Design', '2019-09-04'),
 ('Missing Documentation', '2019-09-02'),
@@ -37,6 +61,11 @@ frappe.db.get_list('Task',
 frappe.db.get_list('Task', filters={
 	'date': ['>', '2019-09-08']
 })
+
+# Tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
+frappe.db.get_list('Task', filters=[[
+    'date', 'between', ['2020-04-01', '2021-03-31']
+]])
 
 # Tasks with subject that contains "test"
 frappe.db.get_list('Task', filters={
@@ -183,14 +212,14 @@ Rollbacks current transaction. Calls SQL `ROLLBACK`.
 > early in a transaction.
 
 ## frappe.db.sql
-`frappe.db.sql(query, filters, as_dict)`
+`frappe.db.sql(query, values, as_dict)`
 
 Execute an arbitrary SQL query. This may be useful for complex server side reports with join statements, adjusting the database to new features, etc.
 
 Example:
 
 ```python
-filters = {'company': 'Frappe Technologies Inc'}
+values = {'company': 'Frappe Technologies Inc'}
 data = frappe.db.sql("""
 	SELECT
 		acc.account_number
@@ -200,7 +229,7 @@ data = frappe.db.sql("""
 		LEFT JOIN `tabAccount` acc 
 		ON gl.account = acc.name
 	WHERE gl.company = %(company)s
-""", filters=filters, as_dict=0)
+""", values=values, as_dict=0)
 ```
 
 > Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get_list](#frappedbget_list), etc., if possible.

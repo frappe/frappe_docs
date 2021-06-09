@@ -60,3 +60,11 @@ You can also run tests in headless mode.
 # run in headless mode
 bench --site [sitename] run-ui-tests [app] --headless
 ```
+
+To enable cypress parallel testing you can pass `--parallel` flag.
+More information on how cypress parallel tests work can be found [here](https://docs.cypress.io/guides/guides/parallelization).
+
+```sh
+# run tests parallelly
+bench --site [sitename] run-ui-tests [app] --parallel
+```

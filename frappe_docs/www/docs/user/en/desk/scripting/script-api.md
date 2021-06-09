@@ -3,7 +3,7 @@ add_breadcrumbs: 1
 title: Frappe Framwork Script API
 metatags:
  description: >
-  List of restricted commands that be called in Frappe Framework Server Script, Print Formats and Script Reports
+  List of restricted commands that can be called in Frappe Framework Server Script, Print Formats and Script Reports
 ---
 
 # Script API
@@ -189,7 +189,7 @@ Returns '#d1d8dd'
 
 #### guess_mimetype
 
-Returns mimetypes.guess_type,
+Returns mimetypes.guess_type
 
 #### html2text
 

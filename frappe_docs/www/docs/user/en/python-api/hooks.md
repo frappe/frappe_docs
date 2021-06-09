@@ -296,7 +296,7 @@ variables that the page might need to render. This dict is also known as
 website_context = {
 	"favicon": "/assets/app/image/favicon.png"
 }
-update_website_context = 'app.overrides.website_context`
+update_website_context = 'app.overrides.website_context'
 ```
 
 The `website_context` hook is a simple dict of key value pairs. Use this hook
@@ -657,6 +657,27 @@ def allocate_free_credits(login_manager):
 	pass
 ```
 
+## Auth Hooks
+
+These hooks are triggered during request authentication. Custom headers, Authorization headers can be validated here, user is verified and mapped to the request using `frappe.set_user()`. Use `frappe.request` and `frappe.*` to validate request and map user.
+
+**app/hooks.py**
+
+```py
+auth_hooks = ['app.overrides.validate_custom_jwt']
+```
+
+The method will be called during request authentication.
+
+**app/overrides.py**
+```py
+def validate_custom_jwt():
+	# validate jwt from header, verify signature, set user from jwt.
+	pass
+```
+
+Use this method to check for incoming request header, verify the header and map the user to the request. If header verification fails DO NOT throw error to continue with other hooks. Unverified request is treated as "Guest" request by default. You may use third party server, shared database or any alternative of choice to verify and map request and user.
+
 ## Fixtures
 
 Fixtures are database records that are synced using JSON files when you install
@@ -693,7 +714,7 @@ fixtures = [
 ]
 ```
 
-
+Some fields are for internal use only. They will be set and kept up-to-date by the system automatically. These will not get exported: `modified_by`, `creation`, `owner`, `idx`, `lft` and `rgt`. For child table records, the following fields will not get exported: `docstatus`, `doctype`, `modified` and `name`.
 
 ## Document Hooks
 
@@ -989,21 +1010,36 @@ scheduler_events = {
 ## Jinja Customization
 
 Frappe provides a list of [global utility methods](/docs/user/en/api/jinja) in
-Jinja templates. To add your own methods and filters you can use the `jenv` hook.
+Jinja templates. To add your own methods and filters you can use the `jinja` hook.
 
 **app/hooks.py**
 ```py
-jenv = {
+jinja = {
 	"methods": [
-		"get_fullname:app.jinja.get_fullname"
+		"app.jinja.methods",
+		"app.utils.get_fullname"
 	],
 	"filters": [
-		"format_currency:app.jinja.currency_filter"
+		"app.jinja.filters",
+		"app.utils.format_currency"
 	]
 }
 ```
 
-**app/jinja.py**
+**app/jinja/methods.py**
+
+```py
+def sum(a, b):
+	return a + b
+
+def multiply(a, b):
+	return a * b
+```
+
+> If the path is a module path, all the methods in that module will be added.
+
+
+**app/utils.py**
 
 ```py
 def get_fullname(user):
@@ -1020,6 +1056,7 @@ Now, you can use these utilities in your Jinja templates like so:
 ```html
 <h1>Hi, {{ get_fullname(frappe.session.user) }}</h1>
 <p>Your account balance is {{ account_balance | format_currency('INR') }}</p>
+<p>1 + 2 = {{ sum(1, 2) }}</p>
 ```
 {% endraw %}
 
