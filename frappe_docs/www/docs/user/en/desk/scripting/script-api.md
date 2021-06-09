@@ -198,3 +198,11 @@ Encode HTML as text (markdown)
 #### dev_server
 
 True if in developer mode
+
+#### frappe.log_error
+
+Generate Error Log with a traceback
+
+#### FrappeClient
+
+Connect to a Frappe site using a requests session
