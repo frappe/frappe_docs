@@ -377,7 +377,7 @@ frm.set_query('customer', () => {
 frm.set_query('customer', () => {
 	return {
 		filters: {
-			territory: ['in', 'India', 'Nepal', 'Japan']
+			territory: ['in', ['India', 'Nepal', 'Japan']]
 		}
 	}
 })
