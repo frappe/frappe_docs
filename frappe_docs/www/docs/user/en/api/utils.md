@@ -16,7 +16,7 @@ These utility methods can be imported from the `frappe.utils` module (and its ne
 
 `now()`
 
-Returns the current datetime in the format 'yyyy-mm-dd hh:mm:ss'
+Returns the current datetime in the format **yyyy-mm-dd hh:mm:ss**
 
 ```py
 from frappe.utils import now
@@ -37,17 +37,16 @@ getdate() # datetime.date(2021, 5, 25)
 getdate('2000-03-18') # datetime.date(2000, 3, 18)
 ```
 
-## nowdate and today
+## today
 
-`nowdate()`
+`today()`
 
-Returns current date in the format 'yyyy-mm-dd'. `today()` is an alias to `nowdate()`.
+Returns current date in the format **yyyy-mm-dd**.
 
 ```py
-from frappe.utils import today, nowdate
+from frappe.utils import today
 
 today() # '2021-05-25'
-nowdate() # '2021-05-25'
 ```
 
 ## add\_to\_date
@@ -330,7 +329,7 @@ cache.get('name') # b'frappe'
 
 ## frappe.sendmail()
 
-`def sendmail(recipients=[], sender="", subject="No Subject", message="No Message", as_markdown=False, template=None, args=None, **kwargs)`
+`sendmail(recipients=[], sender="", subject="No Subject", message="No Message", as_markdown=False, template=None, args=None, **kwargs)`
 
 ```md
 `recipients`: List of recipients
