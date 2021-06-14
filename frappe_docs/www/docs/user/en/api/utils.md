@@ -18,8 +18,6 @@ These utility methods can be imported from the `frappe.utils` module (and its ne
 
 Returns the current datetime in the format 'yyyy-mm-dd hh:mm:ss'
 
-
-
 ```py
 from frappe.utils import now
 
@@ -31,8 +29,6 @@ now() # '2021-05-25 06:38:52.242515'
 `getdate(string_date=None)`
 
 Converts `string_date` (yyyy-mm-dd) to `datetime.date` object. If no input is provided, current date is returned. Throws an exception if `string_date` is an invalid date string.
-
-
 
 ```py
 from frappe.utils import getdate
@@ -46,8 +42,6 @@ getdate('2000-03-18') # datetime.date(2000, 3, 18)
 `nowdate()`
 
 Returns current date in the format 'yyyy-mm-dd'. `today()` is an alias to `nowdate()`.
-
-
 
 ```py
 from frappe.utils import today, nowdate
@@ -67,8 +61,6 @@ nowdate() # '2021-05-25'
 ```
 
 This function can be quite handy for doing date/datetime deltas, for instance, adding or substracting certain number of days from a particular date/datetime.
-
-
 
 ```py
 from datetime import datetime # from python std library
@@ -91,8 +83,6 @@ add_to_date(None, years=6) # datetime.datetime(2027, 5, 21, 15, 32, 31, 652089)
 
 Takes an ISO time and returns a string representing how long ago the date represents. Very common in communication applications like instant messengers.
 
-
-
 ```py
 from frappe.utils import pretty_date, now, add_to_date
 
@@ -112,8 +102,6 @@ pretty_date(now()) # 'just now'
 
 Converts the given duration value in seconds (float) to duration format.
 
-
-
 ```py
 from frappe.utils import format_duration
 
@@ -130,8 +118,6 @@ format_duration(1000000, hide_days=True) # '277h 46m 40s'
 `comma_and(some_list, add_quotes=True)`
 
 Given a list or tuple `some_list`, returns a string of the format `1st item, 2nd item, .... and last item`. This function uses `frappe._`, so you don't have to worry about the translations for the word `and`. If `add_quotes` is `False`, returns the items without quotes, with quotes otherwise. If the type of `some_list` passed as an argument is something other than a list or tuple, it (`some_list`) is returned as it is.
-
-
 
 ```py
 from frappe.utils import comma_and
@@ -154,8 +140,6 @@ comma_and('abcd') # 'abcd'
 
 This function returns string in words with currency and fraction currency.
 
-
-
 ```py
 from frappe.utils import money_in_words
 
@@ -170,8 +154,6 @@ money_in_words(900.50, 'USD', 'Cents') # 'USD Nine Hundred and Fifty Cents only.
 `validate_json_string(string)`
 
 Raises `frappe.ValidationError` if the given `string` is a valid JSON (JavaScript Object Notation) string. You can use a `try-except` block to handle a call to this function as shown the code snippet below.
-
-
 
 ```py
 import frappe
@@ -195,8 +177,6 @@ except frappe.ValidationError:
 
 This function generates a random string containing `length` number of characters. This can be useful for cryptographic or secret generation for some cases.
 
-
-
 ```py
 from frappe.utils import random_string
 
@@ -212,8 +192,6 @@ random_string(6) #'HNRirG'
 `seq`: An iterable / Sequence
 
 This function returns a list of elements of the given sequence after removing the duplicates. Also, preserves the order, unlike: `list(set(seq))`.
-
-
 
 ```py
 from frappe.utils import unique
@@ -268,8 +246,6 @@ def generate_invoice():
 
 Returns an abbrivated (initials only) version of the given `string` with a maximum of `max_len` letters. It is extensively used in Frappe Framework and ERPNext to generate thumbnail or placeholder images.
 
-
-
 ```py
 from frappe.utils import get_abbr
 
@@ -289,8 +265,6 @@ get_abbr('Mohammad Hussain Nagaria', max_len=3) # 'MHN'
 ```
 This utility function can be used to check if a string represents a valid URL address.
 
-
-
 ```py
 from frappe.utils import validate_url
 
@@ -304,8 +278,6 @@ validate_url('https://google.com', throw=True) # throws ValidationError
 `validate_email_address(email_str, throw=False)`
 
 Returns a string containing the email address or comma-separated list of valid email addresses present in the given `email_str`. If `throw` is `True`, `frappe.InvalidEmailAddressError` is thrown in case of no valid email address in present in the given string else an empty string is returned.
-
-
 
 ```py
 from frappe.utils import validate_email_address
@@ -329,8 +301,6 @@ validate_email_address('some other text') # ''
 
 Returns `True` if `phone_number` (string) is a valid phone number. If `phone_number` is invalid and `throw` is `True`, `frappe.InvalidPhoneNumberError` is thrown.
 
-
-
 ```py
 from frappe.utils import validate_phone_number
 
@@ -348,8 +318,6 @@ validate_phone_number('87345%%', throw=True) # InvalidPhoneNumberError
 `cache()`
 
 Returns the redis connection, which is an instance of class `RedisWrapper` which is inherited from the `redis.Redis` class. You can use this connection to use the Redis cache to store/retrieve key-value pairs.
-
-
 
 ```py
 import frappe
@@ -377,8 +345,6 @@ cache.get('name') # b'frappe'
 For most cases, the above arguments are sufficient but there are many other keyword arguments that can be passed to this function. To see all the keyword arguments, please have a look the implementation of this function (`frappe/__init__.py`).
 
 This function can be used to send email using user's default **Email Account** or global default **Email Account**.
-
-
 
 ```py
 import frappe
