@@ -196,6 +196,8 @@ You can define the field as a Percentage field which in the background will be c
 
 This field can be used to display an interactive star rating input. The user can give from 0 to 5 stars.
 
+<img alt="Check Field Edit" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/rating-field.png">
+
 #### Read Only
 
 Read Only field will carry data fetched from another form which will be non-editable. You should set Read Only as field type if its source for value is predetermined.
