@@ -961,6 +961,8 @@ def update_database_usage():
 	pass
 ```
 
+> After changing any scheduled events in `hooks.py`, you need to run `bench migrate` for changes to take effect.
+
 ### Available Events
 
 - `hourly`, `daily`, `weekly`, `monthly`
