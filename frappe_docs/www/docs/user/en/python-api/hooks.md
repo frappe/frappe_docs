@@ -842,7 +842,7 @@ frappe.ui.form.on('Todo', {
 });
 ```
 
-> The events/functions defined in `app/public/todo.js` will override
+> The events/functions defined in `app/public/todo.js` will extend
 > those in the standard form script of `ToDo` doctype.
 
 ### CRUD Events
