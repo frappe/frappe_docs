@@ -8,7 +8,7 @@ metatags:
 
 # Field Types
 
-There are variety of fieldtypes available in Frappe Framework. Each one has its own use case and can be used to input and store different types of data in a document.
+There are variety of fieldtypes available in Frappe Framework. Each one has its own use case and can be used to input and store different types of data in a document. Fieldtypes are used to render components in desk as well as web forms.
 
 <img alt="Field Types Dropdown Menu" class="screenshot" src="{{docs_base_url}}/assets/img/doctypes/fieldtypes.png">
 
@@ -68,7 +68,7 @@ Attach Image is a field wherein you will be allowed to attach Images of the form
 
 #### Text Editor
 
-Text Editor is a text field and renders a WYSIWYG editor for input. It has various text-formatting options.
+Text Editor is a text field and renders a **WYSIWYG** editor for input. It has various text-formatting options.
 
 <img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/text_editor_field.png">
 
