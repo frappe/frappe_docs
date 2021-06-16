@@ -4,65 +4,57 @@ title: Routing & Rendering
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
-  Navigating the Frappe Router and Renderer
+  Learn routing and rendering works in Frappe Framework
 ---
 
 # Request Lifecycle
 
-Each request begins at `application` in [`app.py`](https://github.com/frappe/frappe/blob/develop/frappe/app.py). Here based on top level routing rules the request is served.
+The user of web application can visit different URLs like `/about`, `/posts`. These URL are handled based on following rules
 
-```python
-@Request.application
-def application(request):
-	response = None
+1. API requests which starts with `/api`.
+1. File downloads like backups (`/backups`), public files (`/files`) and private files (`/private/files`).
+1. Web page requests like `/about`, `/posts` are handled by website router.
 
-	try:
-		# Some Code
+Learn more about [API requests](/docs/user/en/api/rest) and [Static Files](/docs/user/en/basics/static-assets) in detail.
 
-		if frappe.local.form_dict.cmd:
-			response = frappe.handler.handle()
+Request Preprocessing
+> TODO: A few things happen before these routing rules are triggered. These include preprocessing the request initializing the recorder and the rate limiter.
 
-		elif frappe.request.path.startswith("/api/"):
-			response = frappe.api.handle()
+## Website Router
 
-		elif frappe.request.path.startswith('/backups'):
-			response = frappe.utils.response.download_backup(request.path)
-
-		elif frappe.request.path.startswith('/private/files/'):
-			response = frappe.utils.response.download_private_file(request.path)
-
-		elif frappe.local.request.method in ('GET', 'HEAD', 'POST'):
-			response = frappe.website.serve.get_response()
-
-		else:
-			raise NotFound
-
-	except HTTPException as e:
-		return e
-
-	# Some More Code
 ```
-
-From the above code snippet it's evident what those rules are.
-
-1. `/api` is handled by `frappe.handler`
-1. `/backups` and `/private/files` are served based on permissions
-1. Any other request of type `GET`, `HEAD` or `POST` is handled by the website router.
-
-The next sections cover each of these in detail
-
-A few things happen before these routing rules are triggered. These include preprocessing the request initializing the recorder and the rate limiter.
+> Path resolver
+	> Redirects
+	> Routing rules
+		> Endpoint
+	> Renderer list
+> Renderer
+	> building context
+	> building response
+	> Renderer types
+```
 
 ## Path Resolver
 
-Once the request reaches to website router from `app.py` it is passed through a Path Resolver.
+Once the request reaches to website router from `app.py` it is passed through the path resolver. Path resolver gets the incoming request path and passes it through all available [Page Renderers](#standard-page-renderers) to check which page renderer can render the given path. First page renderer to return `True` for `can_render` request will be used to render the path.
 
-Path Resolver gets the incoming request path and passes it through all available [Page Renderers](#standard-page-renderers) to check which page renderer can render the given path. First page renderer to return `True` for `can_render` request will be used to render the path in the next step.
+```py
+from frappe.website.page_renderers.base_renderer import BaseRenderer
+
+class PageRenderer(BaseRenderer):
+    def can_render(self):
+        return True
+
+    def render(self):
+        response_html = "<div>Response</div>"
+        return self.build_response(response_html)
+
+```
 
 ### Standard Page Renderers
 
-- **StaticPage:** This is seldom used, but using this you can serve PDFs, images etc., from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
-The preferred way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leveraging compression and caching while also reducing latency
+- **StaticPage:** This is seldom used but using this you can serve PDFs, images etc., from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
+The preferred way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leveraging compression and caching while also reducing latency.
 
 - **TemplatePage:**
 - WebformPage
@@ -84,7 +76,7 @@ page_renderer = path.to.your.custom_page_renderer.CustomPage
 A Page Render class needs to have two methods i.e., `can_render` and `render`
 
 Path resolver calls `can_render` to check if a renderer instance is able to render a particular path.
-Once a renderer returns `True` from can_render, it will be that renderer classes responsibility to render the path.
+Once a renderer returns `True` from can_render, it will be that renderer class's responsibility to render the path.
 
 **Note:** Custom Page Renderer gets priority and it's `can_render` method will be called before [Standard Page Renderers](#standard-page-renderers).
 
@@ -92,19 +84,15 @@ Once a renderer returns `True` from can_render, it will be that renderer classes
 ```py
 
 from frappe.website.utils import build_response
+from frappe.website.page_renderers.base_renderer import BaseRenderer
 
-def CustomPage():
-    def __init__(self, path):
-        self.path = path
-        self.http_status_code = 200
-
+class CustomPage(BaseRenderer):
     def can_render(self):
         return True
 
     def render(self):
         response_html = "<div>Custom Response</div>"
-        return build_response(self.path, response_html, self.http_status_code)
+        return self.build_response(response_html)
 
 ```
 **Note:** You can also extend Standard Page Renderers to override or to use some standard functionalities.
-
