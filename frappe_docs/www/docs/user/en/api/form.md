@@ -373,6 +373,15 @@ frm.set_query('customer', () => {
 	}
 })
 
+// show customers whose territory is any of India, Nepal, Japan
+frm.set_query('customer', () => {
+	return {
+		filters: {
+			territory: ['in', ['India', 'Nepal', 'Japan']]
+		}
+	}
+})
+
 // set filters for Link field item_code in
 // items field which is a Child Table
 frm.set_query('item_code', 'items', () => {

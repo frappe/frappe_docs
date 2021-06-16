@@ -842,7 +842,7 @@ frappe.ui.form.on('Todo', {
 });
 ```
 
-> The events/functions defined in `app/public/todo.js` will override
+> The events/functions defined in `app/public/todo.js` will extend
 > those in the standard form script of `ToDo` doctype.
 
 ### CRUD Events
@@ -960,6 +960,8 @@ scheduler_events = {
 def update_database_usage():
 	pass
 ```
+
+> After changing any scheduled events in `hooks.py`, you need to run `bench migrate` for changes to take effect.
 
 ### Available Events
 

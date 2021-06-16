@@ -15,7 +15,15 @@ only import you need (most of the time) in a Python file.
 
 1. [Document](/docs/user/en/api/document)
 1. [Database](/docs/user/en/api/database)
-
+1. [Jinja](/docs/user/en/api/jinja)
+1. [Common Utilities](/docs/user/en/api/utils)
+1. [Router](/docs/user/en/python-api/router)
+1. [Response](/docs/user/en/python-api/response)
+1. [Search](/docs/user/en/python-api/search)
+1. [Hooks](/docs/user/en/python-api/hooks)
+1. [REST API](/docs/user/en/api/rest)
+1. [Full Text Search](/docs/user/en/api/full-text-search)
+1. [Dialog API](/docs/user/en/api/py-dialog)
 
 ## Javascript
 
