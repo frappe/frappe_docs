@@ -17,8 +17,9 @@ The user of web application can visit different URLs like `/about`, `/posts`. Th
 
 Learn more about [API requests](/docs/user/en/api/rest) and [Static Files](/docs/user/en/basics/static-assets) in detail.
 
-Request Preprocessing
-> TODO: A few things happen before these routing rules are triggered. These include preprocessing the request initializing the recorder and the rate limiter.
+## Request pre-processing
+
+A few things happen before the routing rules are triggered. These include preprocessing the request initializing the recorder and the rate limiter.
 
 ## Website Router
 
@@ -36,7 +37,15 @@ Request Preprocessing
 
 ## Path Resolver
 
-Once the request reaches to website router from `app.py` it is passed through the path resolver. Path resolver gets the incoming request path and passes it through all available [Page Renderers](#standard-page-renderers) to check which page renderer can render the given path. First page renderer to return `True` for `can_render` request will be used to render the path.
+Once the request reaches to website router from `app.py` it is passed through the path resolver.
+
+Path Resolver does following operations:
+
+1. Tries to resolve any possible redirect for an incoming request path. Path resolver gets redirect rules for [`website_redirects` hook](/docs/user/en/python-api/hooks#website-redirects) and `Web Route Redirect` list.
+1. Resolves to route to get the final endpoint based on rules from [website_routing_rules hook](http://frappe_docs:8000/docs/user/en/python-api/hooks#website-route-rules) and dynamic route set in documents of DocType with `has_web_view` enabled.
+1. Once the final endpoint is obtained it is passed through all available [Page Renderers](#standard-page-renderers) to check which page renderer can render the given path. First page renderer to return `True` for `can_render` request will be used to render the path.
+
+**Example PageRenderer class**:
 
 ```py
 from frappe.website.page_renderers.base_renderer import BaseRenderer
@@ -56,11 +65,19 @@ class PageRenderer(BaseRenderer):
 - **StaticPage:** This is seldom used but using this you can serve PDFs, images etc., from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
 The preferred way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leveraging compression and caching while also reducing latency.
 
-- **TemplatePage:**
-- WebformPage
-- DocumentPage
-- ListPage
-- PrintPage
+- **TemplatePage:** The TemplatePage looks up the `www` folder in all apps, if it is a HTML or markdown file, it is returned, in case it is a folder, the `index.html` or `index.md` file in the folder is returned.
+
+- **WebformPage:** The WebformPage tries to render web form in WebForm list if the request path matches with any of the available Web Form's route.
+
+- **DocumentPage:** The DocumentPage tries to render a document template if available in `/templates` folder of the DocType. The template file name should be same as the DocType name. Example: If you want to add a document template for User doctype, the `templates` folder of User DocType should have `user.html`. The folder structure will look like `doctype/user/templates/user.html`
+
+- **ListPage:** If a DocType has a list template in `/templates` folder of the DocType, the ListPage will render it. Please check [Blog Post templates folder](https://github.com/frappe/frappe/tree/develop/frappe/website/doctype/blog_post/templates) for implementation reference.
+
+- **PrintPage:** The PrintPage renders print view for a document. It uses standard print format unless a different print format is set for a DocType via `default_print_format`.
+
+- **NotFoundPage:** The NotFoundPage renders a standard not found page and responds with 404 status code.
+
+- **NotPermitterPage:** The NotPermittedPage renders a standard permission denied page with 403 status code.
 
 ### Adding Custom Page Renderer
 

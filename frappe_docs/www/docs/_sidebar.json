@@ -48,7 +48,7 @@
 			{ "title": "Document", "route": "/docs/user/en/api/document" },
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
-			{ "title": "Router", "route": "/docs/user/en/python-api/router" },
+			{ "title": "Routing and Rendering", "route": "/docs/user/en/python-api/routing-and-rendering" },
 			{ "title": "Response", "route": "/docs/user/en/python-api/response" },
 			{ "title": "Search", "route": "/docs/user/en/python-api/search" },
 			{ "title": "Hooks", "route": "/docs/user/en/python-api/hooks" },
