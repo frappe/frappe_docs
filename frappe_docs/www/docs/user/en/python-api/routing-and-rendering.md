@@ -9,11 +9,11 @@ metatags:
 
 # Request Lifecycle
 
-The user of web application can visit different URLs like `/about`, `/posts`. These URL are handled based on following rules
+The user of a web application can visit different URLs like `/about`, `/posts` or `/api/resources`. Each request is handled based on the following request types.
 
-1. API requests which starts with `/api`.
-1. File downloads like backups (`/backups`), public files (`/files`) and private files (`/private/files`).
-1. Web page requests like `/about`, `/posts` are handled by website router.
+1. API requests that start with `/api` are handled by [rest API handler](https://github.com/frappe/frappe/blob/develop/frappe/api.py#L16).
+1. File downloads like backups (`/backups`), public files (`/files`), and private files (`/private/files`) are handled separately to respond with a downloadable file.
+1. Web page requests like `/about`, `/posts` are handled by the website router. This is explained further on this page.
 
 Learn more about [API requests](/docs/user/en/api/rest) and [Static Files](/docs/user/en/basics/static-assets) in detail.
 
@@ -21,51 +21,32 @@ Learn more about [API requests](/docs/user/en/api/rest) and [Static Files](/docs
 
 A few things happen before the routing rules are triggered. These include preprocessing the request initializing the recorder and the rate limiter.
 
-## Website Router
-
-```
-> Path resolver
-	> Redirects
-	> Routing rules
-		> Endpoint
-	> Renderer list
-> Renderer
-	> building context
-	> building response
-	> Renderer types
-```
-
 ## Path Resolver
 
 Once the request reaches to website router from `app.py` it is passed through the path resolver.
 
-Path resolver does following operations:
+Path resolver does the following operations:
 
-1. Tries to resolve any possible redirect for an incoming request path. Path resolver gets redirect rules for [`website_redirects` hook](/docs/user/en/python-api/hooks#website-redirects) and `Web Route Redirect` list.
-1. Resolves to route to get the final endpoint based on rules from [website_routing_rules hook](http://frappe_docs:8000/docs/user/en/python-api/hooks#website-route-rules) and dynamic route set in documents of DocType with `has_web_view` enabled.
-1. Once the final endpoint is obtained it is passed through all available [Page Renderers](#standard-page-renderers) to check which page renderer can render the given path. First page renderer to return `True` for `can_render` request will be used to render the path.
+### Redirect Resolution
 
+Path resolver tries to resolve any possible redirect for an incoming request path. Path resolver gets redirect rules for [`website_redirects` hook](/docs/user/en/python-api/hooks#website-redirects) and route redirects from website settings.
 
-## Standard Page Renderers
+### Route Resolution
 
-- **StaticPage:** This is seldom used but using this you can serve PDFs, images etc., from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
-The preferred way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leveraging compression and caching while also reducing latency.
+If there are no redirects for incoming requests path resolver tries to resolve the route to get the final endpoint based on rules from [website_routing_rules hook](http://frappe_docs:8000/docs/user/en/python-api/hooks#website-route-rules) and dynamic route set in documents of DocType with `has_web_view` enabled.
 
-- **TemplatePage:** The TemplatePage looks up the `www` folder in all apps, if it is a HTML or markdown file, it is returned, in case it is a folder, the `index.html` or `index.md` file in the folder is returned.
+### Renderer Selection
 
-- **WebformPage:** The WebformPage tries to render web form in WebForm list if the request path matches with any of the available Web Form's route.
+Once the final endpoint is obtained it is passed through all available [Page Renderers](#page-renderer) to check which page renderer can render the given path. A first page renderer to return `True` for `can_render` request will be used to render the path.
 
-- **DocumentPage:** The DocumentPage tries to render a document template if available in `/templates` folder of the DocType. The template file name should be same as the DocType name. Example: If you want to add a document template for User doctype, the `templates` folder of User DocType should have `user.html`. The folder structure will look like `doctype/user/templates/user.html`
+## Page Renderer
 
-- **ListPage:** If a DocType has a list template in `/templates` folder of the DocType, the ListPage will render it. Please check [Blog Post templates folder](https://github.com/frappe/frappe/tree/develop/frappe/website/doctype/blog_post/templates) for implementation reference.
+A page renderer takes care of rendering or responding with a page for a given endpoint. A page renderer is implemented using a python class. A page renderer class needs to have two methods i.e., `can_render` and `render`.
 
-- **PrintPage:** The PrintPage renders print view for a document. It uses standard print format unless a different print format is set for a DocType via `default_print_format`.
+Path resolver calls `can_render` to check if a renderer instance can render a particular path.
+Once a renderer returns `True` from `can_render`, it will be that renderer class's responsibility to render the path.
 
-- **NotFoundPage:** The NotFoundPage renders a standard not found page and responds with `404` status code.
-
-- **NotPermitterPage:** The NotPermittedPage renders a standard permission denied page with `403` status code.
-
-**Example PageRenderer class**:
+### Example page renderer class
 
 ```py
 from frappe.website.page_renderers.base_renderer import BaseRenderer
@@ -80,23 +61,58 @@ class PageRenderer(BaseRenderer):
 
 ```
 
-## Adding Custom Page Renderer
+Following are the standard page renderers which handle all the generic types of web pages.
 
-A custom page renderer can be added via `page_renderer` [hook]
+### StaticPage
+
+Using StaticPage you can serve PDFs, images, etc., from the `www` folder of any app installed on the site. Any file that is **not** one of the following types `html`, `md`, `js`, `xml`, `css`, `txt` or `py` is considered to be a static file.
+The preferred way of serving static files would be to add them to the `public` folder of your frappe app. That way it will be served by NGINX directly leveraging compression and caching while also reducing latency.
+
+### TemplatePage
+
+The TemplatePage looks up the `www` folder in all apps, if it is an HTML or markdown file, it is returned, in case it is a folder, the `index.html` or `index.md` file in the folder is returned.
+
+### WebformPage
+
+The WebformPage tries to render web form in the Web Form list if the request path matches with any of the available Web Form's routes.
+
+### DocumentPage
+
+The DocumentPage tries to render a document template if it is available in `/templates` folder of the DocType. The template file name should be the same as the DocType name. Example: If you want to add a document template for User doctype, the `templates` folder of User DocType should have `user.html`. The folder structure will look like `doctype/user/templates/user.html`
+
+### ListPage
+
+If a DocType has a list template in `/templates` folder of the DocType, the ListPage will render it. Please check [Blog Post templates folder](https://github.com/frappe/frappe/tree/develop/frappe/website/doctype/blog_post/templates) for implementation reference.
+
+### PrintPage
+
+The PrintPage renders a print view for a document. It uses [standard print format](https://github.com/frappe/frappe/blob/develop/frappe/templates/print_formats/standard.html) unless a different print format is set for a DocType via `default_print_format`.
+
+### NotFoundPage
+
+The NotFoundPage renders a standard not found page and responds with `404` status code.
+
+### NotPermitterPage
+
+The NotPermittedPage renders standard permission denied page with `403` status code.
+
+## Adding a custom page renderer
+
+If you have any other requirements which are not handled by Standard Page renderers a custom page renderer can be added via `page_renderer` [hook]
 
 ```py
 # in hooks.py of your custom app
 
-page_renderer = path.to.your.custom_page_renderer.CustomPage
+page_renderer = "path.to.your.custom_page_renderer.CustomPage"
 
 ```
 
-A Page Render class needs to have two methods i.e., `can_render` and `render`
+A Page renderer class needs to have two methods i.e., `can_render` and `render`
 
-Path resolver calls `can_render` to check if a renderer instance is able to render a particular path.
+Path resolver calls `can_render` to check if a renderer instance can render a particular path.
 Once a renderer returns `True` from can_render, it will be that renderer class's responsibility to render the path.
 
-**Note:** Custom Page Renderer gets priority and it's `can_render` method will be called before [Standard Page Renderers](#standard-page-renderers).
+**Note:** Custom page renderers get priority and it's `can_render` method will be called before [Standard Page Renderers](#page-renderer).
 
 **Example:**
 ```py
