@@ -374,6 +374,7 @@ to match your URLs.
 website_redirects = [
 	{"source": "/compare", "target": "/comparison"},
 	{"source": "/docs(/.*)?", "target": "https://docs.tennismart.com/\1"},
+	{"source": r'/items/item\?item_name=(.*)', "target": '/items/\1', match_with_query_string=True},
 ]
 ```
 
@@ -382,6 +383,7 @@ The above configuration will result in following redirects:
 - `/compare` to `/comparison`
 - `/docs/getting-started` to `https://docs.tennismart.com/getting-started`
 - `/docs/help` to `https://docs.tennismart.com/help`
+- `/items/item?item_name=racket` to `https://docs.tennismart.com/items/racket`
 
 ## Website Route Rules
 
