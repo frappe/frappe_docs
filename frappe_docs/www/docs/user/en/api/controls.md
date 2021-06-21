@@ -244,4 +244,12 @@ Here are the `df` properties for most of frappe control types.
 	fieldname: 'in_time',
 	fieldtype: 'Time'
 }
+
+// Button
+{
+	label: 'Fetch,
+	fieldname: 'fetch',
+	fieldtype: 'Button',
+	btn_size: 'xs' // xs, sm, lg
+}
 ```
