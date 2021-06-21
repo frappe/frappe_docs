@@ -5,7 +5,7 @@ description: A site comes with a database and apps can be installed on it
 
 # Create a Site
 
-A site comes with a database and apps can be installed on it.
+Each site comes with a database. They may be customized throughsite specific scripting or Apps may be installed on them.
 
 ## Create a new site
 
@@ -37,6 +37,8 @@ The site directory structure will look something like this:
 
 ```bash
 sites/library.test
+├── indexes
+│   └── web_routes
 ├── locks
 ├── logs
 ├── private
@@ -44,11 +46,15 @@ sites/library.test
 │   └── files
 ├── public
 │   └── files
-├── site_config.json
-└── task-logs
+└── site_config.json
 
-8 directories, 1 file
 ```
+
+The `indexes` folder has indexes generated via [Website
+Search](/docs/user/en/python-api/search).
+
+The `locks` folder maintains file based locks over in-site documents as well as
+indicators of the state of the site itself.
 
 As you can see, the `private` folder will contain any database backups and
 private files. Private files are user uploaded files that need authentication to
@@ -151,8 +157,8 @@ site.
 ![Setup Wizard](/assets/frappe_docs/tutorial/setup-wizard.png)
 
 After successful login, you will see the setup wizard. This is a one-time setup
-wizard used to set up the site. Go ahead, select your country and complete the
-wizard.
+wizard used to set up localization details for your site. Go ahead, select your
+language, and complete the wizard.
 
 You should see the Desk that looks something like this:
 

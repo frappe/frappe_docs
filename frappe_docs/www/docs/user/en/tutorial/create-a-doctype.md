@@ -10,21 +10,19 @@ properties, it also defines the behavior of the Model.
 
 ## Enable Developer Mode
 
-Before we can create DocTypes, we need to enable developer mode. This will
-enable boilerplate creation when we create doctypes and we can track them into
+Before we can create DocTypes, we need to enable developer mode on our bench. This
+will enable boilerplate creation when we create doctypes and we can track them into
 version control with our app.
 
 Go to your terminal and from the `frappe-bench` directory, run the following command:
 
 ```bash
-$ bench --site library.test set-config --global developer_mode 1
+$ bench set-config -g developer_mode true
 ```
 
 ## Creating a DocType
 
-While in Desk, type "doctype" in the search bar and select the **DocType List**
-option. You will be navigated to the DocType list where you will see a bunch of
-DocTypes. These are the DocTypes that are bundled with the framework.
+While in Desk, navigate to the **DocType List** using the [Awesoembar](/docs/user/en/desk#awesomebar). This list will include DocTypes bundled with the framework, those that are a part of the installed Frappe apps and custom ones, which you can create specific to each site.
 
 The first doctype we will create is **Article**. To create it, click on New.
 

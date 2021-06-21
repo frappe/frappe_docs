@@ -1,10 +1,7 @@
 ---
-add_breadcrumbs: 1
 title: REST - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
- description: >
-  REST API endpoints available in Frappe Framework
+ description: REST API endpoints available in Frappe Framework
 ---
 
 # REST API
@@ -38,6 +35,10 @@ fetch('http://<base-url>/api/method/frappe.auth.get_logged_user', {
 })
 ```
 
+```bash
+➜ curl http://<base-url>/api/method/frappe.auth.get_logged_user -H "Authorization: token api_key:api_secret"
+```
+
 ### 2. Password Based Authentication
 
 Password based authentication relies on cookies and session data to maintain
@@ -63,6 +64,14 @@ fetch('http://<base-url>/api/method/login', {
 })
 ```
 
+```bash
+➜ curl --cookie-jar snowcookie --request POST "http://<base-url>/api/method/login" -H 'Content-Type: application/json' -H 'Accept: application/json' --data-raw "{ \"usr\" : \"<username>\", \"pwd\": \"<password>\" }"
+{"message":"Logged In","home_page":"/app","full_name":"<User:full_name>","dashboard_route":"/sites"}
+
+➜ curl --cookie snowcookie --request POST "http://<base-url>/api/method/frappe.auth.get_logged_user" -H 'Accept: application/json'
+{"message":"<username>"}
+```
+
 ### 3. Access Token
 
 Refer documentation for [How to setup OAuth](/docs/user/en/guides/integration/how_to_setup_oauth).
@@ -81,11 +90,14 @@ fetch('http://<base-url>/api/method/frappe.auth.get_logged_user', {
 })
 ```
 
-### Listing Documents
+## Listing Documents
 
 To get a list of records of a DocType, send a GET request at
 `/api/resource/:doctype`. By default, it will return 20 records and will only
-fetch the name of the records.
+fetch the name of the records. The result for the query can be found under `data`
+of the payload.
+
+We'll be using the ToDo DocType to show example responses for the queries below.
 
 ```sh
 GET /api/resource/:doctype
@@ -94,19 +106,16 @@ GET /api/resource/:doctype
 Response
 ```json
 {
-  "data": [
-    {
-      "name": "b57566801d"
-    },
-    {
-      "name": "b63b71df37"
-    },
-    {
-      "name": "1fea4af0f4"
-    },
-    {
-      "name": "4ca0cc6e0e"
-    },
+  "data":[
+    {"name":"f765eef382"},
+    {"name":"2a26fa1c64"},
+    {"name":"f32c68060f"},
+    {"name":"9065fa9832"},
+    {"name":"419082fc38"},
+    {"name":"6234d15099"},
+    {"name":"62f2181ee0"},
+    {"name":"a50afbbfaa"},
+    ...
   ]
 }
 ```
@@ -117,6 +126,23 @@ You can specify which fields to fetch in the `fields` param. It should be a JSON
 GET /api/resource/:doctype?fields=["field1", "field2"]
 ```
 
+Response
+```json
+{
+  "data":[
+    {"description":"Business worker talk society. Each try theory prove notice middle. Crime couple trouble guy project hit.","name":"f765eef382"},
+    {"description":"This reveal as look near sister. Car staff bar specific address.","name":"2a26fa1c64"},
+    {"description":"Wear bag some walk. Movie partner new class tough run. Brother Democrat imagine.","name":"f32c68060f"},
+    {"description":"Break laugh apply reveal new now focus heavy. Outside local staff research total. Else point try despite.","name":"9065fa9832"},
+    {"description":"Truth reduce baby artist actually model. Cost phone us others himself wife almost. Language thing wonder share talk. Factor glass significant could window certain yet.","name":"419082fc38"},
+    {"description":"Tv memory understand opportunity window beat physical.","name":"6234d15099"},
+    {"description":"Should floor situation in response sell. Our assume company mean red majority shoulder.","name":"62f2181ee0"},
+    {"description":"Performance seem sign recent. Court form me tonight simple trouble. Address job garden play teach. Happy speech amount offer change then.","name":"a50afbbfaa"},
+    ...
+  ]
+}
+```
+
 You can filter the records by passing `filters` param. Filters should be an
 array, where each filter is of the format: `[field, operator, value]`
 
@@ -124,8 +150,27 @@ array, where each filter is of the format: `[field, operator, value]`
 GET /api/resource/:doctype?filters=[["field1", "=", "value1"], ["field2", ">", "value2"]]
 ```
 
+Response
+
+```json
+{
+  "data":[
+    {"name":"f765eef382"},
+    {"name":"2a26fa1c64"},
+    {"name":"f32c68060f"},
+    {"name":"9065fa9832"},
+    {"name":"419082fc38"},
+    {"name":"6234d15099"},
+    {"name":"62f2181ee0"},
+    {"name":"a50afbbfaa"},
+    ...
+  ]
+}
+```
+
 You can also provide the sort field and order. It should be of the format
-`fieldname asc` or `fieldname desc`. The space should be URL encoded.
+`fieldname asc` or `fieldname desc`. The space should be URL encoded. In the following line,
+we're taking fieldname to be `title`.
 
 ```sh
 GET /api/resource/:doctype?order_by=title%20desc
@@ -134,7 +179,77 @@ GET /api/resource/:doctype?order_by=title%20desc
 You can also page the results by providing the `limit_start` and `limit_page_length` params.
 
 ```sh
-GET /api/resource/:doctype?limit_start=10&limit_page_length=20
+GET /api/resource/:doctype?limit_start=5&limit_page_length=10
+```
+
+Response
+
+```json
+{
+  "data": [
+    {"name":"6234d15099"},
+    {"name":"62f2181ee0"},
+    {"name":"a50afbbfaa"},
+    {"name":"aa12a5cf71"},
+    {"name":"6ac9800d4e"},
+    {"name":"4bcf8b701c"},
+    {"name":"aee15f4c20"},
+    {"name":"6ba753afef"},
+    ...
+  ]
+}
+```
+
+`limit` is an alias for `limit_page_length` for accessing `/api/resource` in
+Version 13. This means the following should also return the same payload as the
+above query.
+
+```sh
+GET /api/resource/:doctype?limit_start=5&limit=10
+```
+
+By default, you will receive the data as `List[dict]`. You can retrieve your
+data as `List[List]` by passing `as_dict=False`.
+
+```sh
+GET /api/resource/:doctype?limit_start=5&limit=5&as_dict=False
+```
+
+Response
+
+```json
+{
+  "data": [
+    ["6234d15099"],
+    ["62f2181ee0"],
+    ["a50afbbfaa"],
+    ["aa12a5cf71"],
+    ["6ac9800d4e"]
+  ]
+}
+```
+
+To debug the query built for your reqeusts, you can pass `debug=True` with the
+request. This returns the executed query and execution time under `exc` of the
+payload.
+
+```sh
+GET /api/resource/:doctype?limit_start=10&limit=5&debug=True
+```
+
+Response
+
+```json
+{
+  "data": [
+    {"name":"4bcf8b701c"},
+    {"name":"aee15f4c20"},
+    {"name":"6ba753afef"},
+    {"name":"f4b7e24abc"},
+    {"name":"bd9156096c"}
+  ],
+  "exc": "[\"select `tabToDo`.`name`\\n\\t\\t\\tfrom `tabToDo`\\n\\t\\t\\t\\n\\t\\t\\t\\n\\t\\t\\t order by `tabToDo`.`modified` DESC\\n\\t\\t\\tlimit 5 offset 10\", \"Execution time: 0.0 sec\"]"
+}
 ```
 
 ## CRUD Operations
@@ -296,7 +411,7 @@ data and uploads it into the system.
 
 Here is the curl command for it:
 ```sh
-curl -X POST \
+➜ curl -X POST \
   http://<base-url>/api/method/upload_file \
   -H 'Accept: application/json' \
   -H 'Authorization: token xxxx:yyyy' \

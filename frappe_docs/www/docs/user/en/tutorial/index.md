@@ -1,6 +1,7 @@
 ---
 title: Frappe Framework Tutorial
-description: Learn how to create a web application from scratch using the Frappe Framework
+description: >
+  Learn how to create a web application from scratch using the Frappe Framework
 ---
 
 # Frappe Framework Tutorial
@@ -11,12 +12,16 @@ the Frappe Framework.
 ## Who is this for?
 
 This guide is intended for software developers who are familiar with how web
-applications are built. Frappe Framework is based on Python and MariaDB (or
-Postgres) as the database. Jinja is used as the templating language for Web
-Views. So it would be great if you are familiar with all these technologies.
+applications are built. The Frappe Framework is powered by Python, JavaScript
+and Redis, to name a few technologies and supports MariaDB and PostgreSQL
+databases. Jinja is used as the templating engine for Web Views and Print
+formats. Redis is used for caching, maintaing job queues and realtime updates.
+However, you may not need to be proficient in all these tools to get started
+with it.
 
-Frappe Framework uses `git` for version control and automatic updates. It is
-also expected that you are familiar with basic git commands.
+Frappe Framework and the apps you build on it require `git` for version control
+and update management via Bench. It is also expected that you are familiar with
+basic git commands.
 
 ## What are we building?
 
@@ -42,8 +47,7 @@ Members where they can browse available Articles.
 
 ## Table of Contents
 
-1. [Prerequisites](/docs/user/en/tutorial/prerequisites)
-1. [Install and Setup Bench](/docs/user/en/tutorial/install-and-setup-bench)
+1. [Create a Bench](/docs/user/en/tutorial/install-and-setup-bench)
 1. [Create an App](/docs/user/en/tutorial/create-an-app)
 1. [Create a Site](/docs/user/en/tutorial/create-a-site)
 1. [Create a DocType](/docs/user/en/tutorial/create-a-doctype)

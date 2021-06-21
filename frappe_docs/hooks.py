@@ -73,6 +73,7 @@ website_redirects = [
 	{'source': '/docs/user/en/guides/bench', 'target': '/docs/user/en/bench' },
 	{'source': '/docs/user/en/guides/basics/hooks', 'target': '/docs/user/en/python-api/hooks' },
 	{'source': '/docs/user/en/guides/basics/site_config', 'target': '/docs/user/en/basics/site_config' },
+	{'source': '/docs/user/en/tutorial/prerequisites', 'target': '/docs/user/en/prerequisites' },
 ]
 
 # Generators

@@ -4,15 +4,16 @@
 		"group_items": [
 			{ "title": "Introduction", "route": "/docs" },
 			{ "title": "Installation", "route": "/docs/user/en/installation" },
-			{ "title": "Documentation", "route": "/docs/user/en" },
+			{ "title": "Prerequisites", "route": "/docs/user/en/prerequisites" },
 			{ "title": "Tutorial", "route": "/docs/user/en/tutorial" },
+			{ "title": "Documentation", "route": "/docs/user/en" },
 			{ "title": "Guides", "route": "/docs/user/en/guides" }
 		]
 	},
 	{
 		"group_title": "Basics",
 		"group_items": [
-			{ "title": "What is Frappe?", "route": "/docs/user/en/basics/index" },
+			{ "title": "What is Frappe?", "route": "/docs/user/en/basics" },
 			{ "title": "Why Frappe?", "route": "/docs/user/en/basics/why" },
 			{ "title": "Architecture", "route": "/docs/user/en/basics/architecture" },
 			{ "title": "Directory Structure", "route": "/docs/user/en/basics/directory-structure" },

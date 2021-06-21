@@ -71,4 +71,4 @@ Resources:
 If you are comfortable with the basics of these tools, you are ready to build an
 app with Frappe Framework.
 
-Next: [Install and Setup Bench](/docs/user/en/tutorial/install-and-setup-bench)
+Next: [Create a Bench](/docs/user/en/tutorial/install-and-setup-bench)

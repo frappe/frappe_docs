@@ -7,16 +7,20 @@
 				"route": "/docs"
 			},
 			{
+				"title": "Prerequisites",
+				"route": "/docs/user/en/prerequisites"
+			},
+			{
 				"title": "Installation",
 				"route": "/docs/user/en/installation"
 			},
 			{
-				"title": "Documentation",
-				"route": "/docs/user/en"
-			},
-			{
 				"title": "Tutorial",
 				"route": "/docs/user/en/tutorial"
+			},
+			{
+				"title": "Documentation",
+				"route": "/docs/user/en"
 			},
 			{
 				"title": "Guides",
