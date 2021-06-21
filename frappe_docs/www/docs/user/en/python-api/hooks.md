@@ -1246,10 +1246,10 @@ Related Topics:
 | `template_apps`                          |                                                                             |
 | `translated_languages_for_website`       |                                                                             |
 | `translator_url`                         |                                                                             |
-| `treeviews`                              |                                                                             |
+| `treeviews`                              | DocTypes that use TreeView as the default view (instead of ListView)        |
 | `update_website_context`                 | [Website Context](#website-context)                                         |
-| `user_privacy_documents`                 | _Deprecated_ (Use `user_data_fields` hook)                                                                 |
-| `user_data_fields`                 | [User Data Protection & Privacy](#user-data-protection-&-privacy)                                                             |
+| `user_privacy_documents`                 | _Deprecated_ (Use `user_data_fields` hook)                                  |
+| `user_data_fields`                       | [User Data Protection & Privacy](#user-data-protection-&-privacy)           |
 | `web_include_css`                        | [Portal Assets](#portal)                                                    |
 | `web_include_js`                         | [Portal Assets](#portal)                                                    |
 | `website_catch_all`                      | [Website 404](#website-404)                                                 |
