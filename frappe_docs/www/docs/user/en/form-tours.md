@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Form Tours
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn how to get your users onboarded to a Form with Form Tours
@@ -45,9 +44,7 @@ Once you are done describing the Form & its fields, you are now ready to trigger
 You just new to get the steps from your Form Tour Record and set those steps into `frappe.tour` object with a `<doctype>` key and simply call `frm.show_tour()`
 
 ```js
-
 const form_tour = await frappe.db.get_doc('Form Tour', 'Setting up a Workflow')
 frappe.tour['Workflow'] = form_tour.steps;
 frm.show_tour();
-
 ```
