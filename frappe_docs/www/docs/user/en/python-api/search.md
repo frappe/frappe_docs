@@ -11,7 +11,7 @@ metatags:
 
 Searching in Frappe is managed by the [Search](https://github.com/frappe/frappe/blob/develop/frappe/search) module. It is a wrapper for [Whoosh](https://pypi.org/project/Whoosh/) a full text search library written in Python.
 
-You can extend the `FullTextSearch` class to create a search class for a specific requirement. For example the [`WebsiteSearch`](https://github.com/frappe/frappe/blob/develop/frappe/search/website_search) is a wrapper for indexing public facing web pages and exposing a search.
+You can extend the `FullTextSearch` class to create a search class for a specific requirement. For example the [`WebsiteSearch`](https://github.com/frappe/frappe/blob/develop/frappe/search/website_search.py) is a wrapper for indexing public facing web pages and exposing a search.
 
 ## The `FullTextSearch` class
 

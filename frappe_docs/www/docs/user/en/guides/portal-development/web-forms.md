@@ -16,7 +16,7 @@ If you check on the "Is Standard" checkbox, a new folder will be created in the 
 - **Show as Grid**: Show table view of the web form values (only if "Allow Multiple" is set)
 - **Allow Incomplete Forms**: For very long forms, you can allow the user to save without throwing validation for mandatory. The user will still see the fields as manadatory.
 
-### Custom Script
+### Client Script
 
 > Introduced in Version 11
 

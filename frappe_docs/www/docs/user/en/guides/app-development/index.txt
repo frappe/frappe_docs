@@ -14,3 +14,5 @@ trigger-event-on-deletion-of-grid-row
 dialogs-types
 using-html-templates-in-javascript
 adding-social-login-provider
+connected-app
+generic-oauth-client

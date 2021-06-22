@@ -26,5 +26,5 @@ For both Query Reports and Script Reports the same UI view is used to render
 them. So, both of them benefit from the UI features like Print, PDF, Export to
 Excel/CSV, Auto Email Report, etc.
 
-![Query Report Features](/docs/assets/img/query-report-view.png)
+![Query Report Features](/docs/assets/img/desk/query-report-view.png)
 *Query Report Features*

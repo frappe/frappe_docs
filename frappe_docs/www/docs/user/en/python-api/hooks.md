@@ -296,7 +296,7 @@ variables that the page might need to render. This dict is also known as
 website_context = {
 	"favicon": "/assets/app/image/favicon.png"
 }
-update_website_context = 'app.overrides.website_context`
+update_website_context = 'app.overrides.website_context'
 ```
 
 The `website_context` hook is a simple dict of key value pairs. Use this hook
@@ -374,6 +374,7 @@ to match your URLs.
 website_redirects = [
 	{"source": "/compare", "target": "/comparison"},
 	{"source": "/docs(/.*)?", "target": "https://docs.tennismart.com/\1"},
+	{"source": r'/items/item\?item_name=(.*)', "target": '/items/\1', match_with_query_string=True},
 ]
 ```
 
@@ -382,6 +383,7 @@ The above configuration will result in following redirects:
 - `/compare` to `/comparison`
 - `/docs/getting-started` to `https://docs.tennismart.com/getting-started`
 - `/docs/help` to `https://docs.tennismart.com/help`
+- `/items/item?item_name=racket` to `https://docs.tennismart.com/items/racket`
 
 ## Website Route Rules
 
@@ -501,7 +503,7 @@ portal_menu_items = [
 The above configuration will add two sidebar links for users with the role
 Customer.
 
-![Portal Sidebar](/docs/assets/img/hooks-portal-menu-items.png)
+![Portal Sidebar](/docs/assets/img/python-api/hooks-portal-menu-items.png)
 
 These sidebar items are hardcoded in your app so they are not customizable from
 Desk. For e.g., if you want to hide a sidebar link temporarily you will have to
@@ -522,7 +524,7 @@ standard_portal_menu_items = [
 The above configuration will sync sidebar items to the Portal Settings which can
 later be edited by any System User.
 
-![Portal Settings](/docs/assets/img/hooks-standard-portal-menu-items.png)
+![Portal Settings](/docs/assets/img/python-api/hooks-standard-portal-menu-items.png)
 
 ## Brand HTML
 
@@ -595,7 +597,7 @@ quick navigation from the Calendar page in Desk.
 calendars = ["Appointment"]
 ```
 
-![Event Menu Shortcuts](/docs/assets/img/hooks-event-menu-shortcuts.png)
+![Event Menu Shortcuts](/docs/assets/img/python-api/hooks-event-menu-shortcuts.png)
 
 ## Clear Cache
 
@@ -657,6 +659,27 @@ def allocate_free_credits(login_manager):
 	pass
 ```
 
+## Auth Hooks
+
+These hooks are triggered during request authentication. Custom headers, Authorization headers can be validated here, user is verified and mapped to the request using `frappe.set_user()`. Use `frappe.request` and `frappe.*` to validate request and map user.
+
+**app/hooks.py**
+
+```py
+auth_hooks = ['app.overrides.validate_custom_jwt']
+```
+
+The method will be called during request authentication.
+
+**app/overrides.py**
+```py
+def validate_custom_jwt():
+	# validate jwt from header, verify signature, set user from jwt.
+	pass
+```
+
+Use this method to check for incoming request header, verify the header and map the user to the request. If header verification fails DO NOT throw error to continue with other hooks. Unverified request is treated as "Guest" request by default. You may use third party server, shared database or any alternative of choice to verify and map request and user.
+
 ## Fixtures
 
 Fixtures are database records that are synced using JSON files when you install
@@ -688,12 +711,12 @@ You can also add conditions for exporting records.
 fixtures = [
 	# export all records from the Category table
 	"Category",
-	# export only those records that match the filters from the Category table
+	# export only those records that match the filters from the Role table
 	{"dt": "Role", "filters": [["role_name", "like", "Admin%"]]},
 ]
 ```
 
-
+Some fields are for internal use only. They will be set and kept up-to-date by the system automatically. These will not get exported: `modified_by`, `creation`, `owner`, `idx`, `lft` and `rgt`. For child table records, the following fields will not get exported: `docstatus`, `doctype`, `modified` and `name`.
 
 ## Document Hooks
 
@@ -821,7 +844,7 @@ frappe.ui.form.on('Todo', {
 });
 ```
 
-> The events/functions defined in `app/public/todo.js` will override 
+> The events/functions defined in `app/public/todo.js` will extend
 > those in the standard form script of `ToDo` doctype.
 
 ### CRUD Events
@@ -940,6 +963,8 @@ def update_database_usage():
 	pass
 ```
 
+> After changing any scheduled events in `hooks.py`, you need to run `bench migrate` for changes to take effect.
+
 ### Available Events
 
 - `hourly`, `daily`, `weekly`, `monthly`
@@ -989,21 +1014,36 @@ scheduler_events = {
 ## Jinja Customization
 
 Frappe provides a list of [global utility methods](/docs/user/en/api/jinja) in
-Jinja templates. To add your own methods and filters you can use the `jenv` hook.
+Jinja templates. To add your own methods and filters you can use the `jinja` hook.
 
 **app/hooks.py**
 ```py
-jenv = {
+jinja = {
 	"methods": [
-		"get_fullname:app.jinja.get_fullname"
+		"app.jinja.methods",
+		"app.utils.get_fullname"
 	],
 	"filters": [
-		"format_currency:app.jinja.currency_filter"
+		"app.jinja.filters",
+		"app.utils.format_currency"
 	]
 }
 ```
 
-**app/jinja.py**
+**app/jinja/methods.py**
+
+```py
+def sum(a, b):
+	return a + b
+
+def multiply(a, b):
+	return a * b
+```
+
+> If the path is a module path, all the methods in that module will be added.
+
+
+**app/utils.py**
 
 ```py
 def get_fullname(user):
@@ -1020,6 +1060,7 @@ Now, you can use these utilities in your Jinja templates like so:
 ```html
 <h1>Hi, {{ get_fullname(frappe.session.user) }}</h1>
 <p>Your account balance is {{ account_balance | format_currency('INR') }}</p>
+<p>1 + 2 = {{ sum(1, 2) }}</p>
 ```
 {% endraw %}
 
@@ -1095,6 +1136,48 @@ required_apps = ['erpnext']
 The above configuration will make sure `erpnext` is installed when someone
 installs your app.
 
+## User Data Protection & Privacy
+
+User Data Privacy features like personal data download and personal data deletion come out of the box in Frappe. What constitutes as personal data may be defined by the App publisher in the application's `hooks.py` file as `user_data_fields`.
+
+**app/hooks.py**
+```py
+user_data_fields = [
+	{"doctype": "Access Log"},
+	{"doctype": "Comment", "strict": True},
+	{
+		"doctype": "Contact",
+		"filter_by": "email_id",
+		"rename": True,
+	},
+	{"doctype": "Contact Email", "filter_by": "email_id"},
+	{
+		"doctype": "File",
+		"filter_by": "attached_to_name",
+		"redact_fields": ["file_name", "file_url"],
+	},
+	{"doctype": "Email Unsubscribe", "filter_by": "email", "partial": True},
+]
+```
+
+DocTypes that have user data should be mapped under this hook using the above format. Upon data deletion or download requests from users, this hook will be utilized to map over the specified DocTypes. The options available to modify documents are:
+
+| Field | Description |
+| ---- | ----------|
+| `doctype` | DocType that contains user data. |
+| `filter_by` | Docfield to filter the documents by. If unset, defaults to `owner`. |
+| `partial` | If set, all text fields are parsed and user's full name and username references will be redacted. |
+| `redact_fields` | Fields that have to be redacted. If unspecified, it considers partial data redaction from all text fields. |
+| `rename` | If document name contains user data, set this field to rename document to anonymize it. |
+| `strict` | If set to True, any user data will be redacted from all documents of current DocType. If unset, it defaults to False which means it only filters through documents in which user is the owner. |
+
+> Note: Personal Data Download only utilizes the doctype and filter_by fields defined in `user_data_fields`
+
+Related Topics:
+
+1. [Personal Data Deletion](https://docs.erpnext.com/docs/user/manual/en/setting-up/personal-data-deletion)
+1. [Personal Data Download](https://docs.erpnext.com/docs/user/manual/en/setting-up/personal-data-download)
+
 ## List of available hooks
 
 | Hook Name                                | Explanation                                                                 |
@@ -1163,9 +1246,10 @@ installs your app.
 | `template_apps`                          |                                                                             |
 | `translated_languages_for_website`       |                                                                             |
 | `translator_url`                         |                                                                             |
-| `treeviews`                              |                                                                             |
+| `treeviews`                              | DocTypes that use TreeView as the default view (instead of ListView)        |
 | `update_website_context`                 | [Website Context](#website-context)                                         |
-| `user_privacy_documents`                 |                                                                             |
+| `user_privacy_documents`                 | _Deprecated_ (Use `user_data_fields` hook)                                  |
+| `user_data_fields`                       | [User Data Protection & Privacy](#user-data-protection-&-privacy)           |
 | `web_include_css`                        | [Portal Assets](#portal)                                                    |
 | `web_include_js`                         | [Portal Assets](#portal)                                                    |
 | `website_catch_all`                      | [Website 404](#website-404)                                                 |

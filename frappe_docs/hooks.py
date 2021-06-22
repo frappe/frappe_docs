@@ -60,7 +60,8 @@ update_website_context = ["frappe_docs.website_context.get_context"]
 website_redirects = [
 	{'source': '/docs/user/en', 'target': '/docs/user/en/basics' },
 	{'source': '/docs/user/en/report', 'target': '/docs/user/en/desk/report' },
-	{'source': '/docs/user/en/printing', 'target': '/docs/user/en/desk/printing' },
+	{'source': '/docs/user/en/printing', 'target': '/docs/user/en/desk/printing'},
+	{'source': '/docs/user/en/attachments', 'target': '/docs/user/en/desk/attachments' },
 	{'source': '/docs/user/en/apps', 'target': '/docs/user/en/desk/basics/apps' },
 	{'source': '/docs/user/en/architecture', 'target': '/docs/user/en/basics/architecture' },
 	{'source': '/docs/user/en/directory-structure', 'target': '/docs/user/en/basics/directory-structure' },
@@ -69,8 +70,10 @@ website_redirects = [
 	{'source': '/docs/user/en/users-and-permissions', 'target': '/docs/user/en/basics/users-and-permissions' },
 	{'source': '/docs/user/en/what-is-frappe', 'target': '/docs/user/en/basics' },
 	{'source': '/docs/user/en/why', 'target': '/docs/user/en/basics/why' },
+	{'source': '/docs/user/en/guides/bench', 'target': '/docs/user/en/bench' },
 	{'source': '/docs/user/en/guides/basics/hooks', 'target': '/docs/user/en/python-api/hooks' },
 	{'source': '/docs/user/en/guides/basics/site_config', 'target': '/docs/user/en/basics/site_config' },
+	{'source': '/docs/user/en/tutorial/prerequisites', 'target': '/docs/user/en/prerequisites' },
 ]
 
 # Generators

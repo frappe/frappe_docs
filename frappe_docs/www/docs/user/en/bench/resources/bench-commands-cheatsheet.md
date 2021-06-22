@@ -13,7 +13,7 @@
   * `--ignore-exist`                  Ignore if Bench instance exists.
   * `--apps_path TEXT`                path to json files with apps to install after init
   * `--frappe-path TEXT`              path to frappe repo
-  * `--frappe-branch TEXT`            path to frappe repo
+  * `--frappe-branch TEXT`            Clone a particular branch of frappe
   * `--clone-from TEXT`               copy repos from path
   * `--clone-without-update`          copy repos from path without update
   * `--no-procfile`                   Pull changes in all the apps in bench
@@ -109,7 +109,7 @@
 * `bench execute`   Execute a method inside any app.
   * Eg : `bench execute frappe.utils.scheduler.enqueue_scheduler_events`
 * `bench --site [sitename] mariadb`  Opens SQL Console
-* `bench --site [sitename] export-fixtures`  Exports fixtures
+* `bench --site [sitename] export-fixtures [--app TEXT]`  Export the [records defined in the app's hooks](/docs/user/en/python-api/hooks#fixtures) as JSON files.
 * `bench run-tests`  Run tests
   * `--app` App Name
   * `--doctype` DocType to run tests for

@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Form Scripts - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Everything you need to know about Form Scripts and available API methods.
@@ -70,16 +69,16 @@ frappe.ui.form.on('Quotation Item', {
 
 ## Custom Form Scripts
 
-You can also write form scripts by creating **Custom Script** in the system. You
-should write Custom Scripts if the logic is specific to your site. If you want
+You can also write form scripts by creating **Client Script** in the system. You
+should write Client Scripts if the logic is specific to your site. If you want
 to share Form Scripts across sites, you must include them via Apps.
 
-To create a new Custom Script, go to
+To create a new Client Script, go to
 
-**Home > Customization > Custom Script > New**
+**Home > Customization > Client Script > New**
 
-![New Custom Script](/docs/assets/img/new-custom-script.png)
-*New Custom Script*
+![New Client Script](/docs/assets/img/client-script-form.png)
+*New Client Script for Form*
 
 ## Form Events
 
@@ -289,16 +288,16 @@ frm.add_custom_button('Closed', () => {
 }, 'Set Status');
 ```
 
-### frm.clear\_custom_button
+### frm.remove\_custom_button
 
 Remove a specific custom button by label (and group).
 
 ```js
 // remove custom button
-frm.clear_custom_button('Open Reference form');
+frm.remove_custom_button('Open Reference form');
 
 // remove custom button in a group
-frm.clear_custom_button('Closed', 'Set Status');
+frm.remove_custom_button('Closed', 'Set Status');
 ```
 
 ### frm.clear\_custom_buttons
@@ -374,6 +373,15 @@ frm.set_query('customer', () => {
 	}
 })
 
+// show customers whose territory is any of India, Nepal, Japan
+frm.set_query('customer', () => {
+	return {
+		filters: {
+			territory: ['in', ['India', 'Nepal', 'Japan']]
+		}
+	}
+})
+
 // set filters for Link field item_code in
 // items field which is a Child Table
 frm.set_query('item_code', 'items', () => {
@@ -424,9 +432,12 @@ frm.refresh_field('items');
 
 Call a server side controller method with arguments.
 
+> **Note:** While accessing any server side method using `frm.call()`, you need to whitelist such method using the `@frappe.whitelist` decorator.
+
 For the following controller code:
 ```py
 class ToDo(Document):
+	@frappe.whitelist()
 	def get_linked_doc(self, throw_if_missing=False):
 		if not frappe.db.exists(self.reference_type, self.reference_name):
 			if throw_if_missing:

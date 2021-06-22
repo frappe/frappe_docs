@@ -9,8 +9,14 @@ Create a frappe app scaffold using the bench CLI.
 
 ## Create app
 
-To create our Library Management app, run the following command from the
-`frappe-bench` directory:
+Before we start, make sure you're in a bench directory. To confirm, run `bench find .`:
+
+```bash
+$ bench find .
+/home/frappe/frappe-bench is a bench directory!
+```
+
+To create our Library Management app, run the `new-app` command:
 
 ```bash
 $ bench new-app library_management
@@ -21,7 +27,7 @@ App Email: faris@example.com
 App Icon (default 'octicon octicon-file-directory'):
 App Color (default 'grey'):
 App License (default 'MIT'):
-'library_management' created at /Users/farisansari/Tutorial/frappe-bench/apps/library_management
+'library_management' created at /home/frappe/frappe-bench/apps/library_management
 
 Installing library_management
 $ ./env/bin/pip install -q -U -e ./apps/library_management
@@ -72,6 +78,6 @@ apps/library_management
     - **modules.txt:** List of modules defined in the app
     - **patches.txt**: Patch entries for database migrations
     - **hooks.py**: Hooks used to extend or intercept standard functionality provided by the framework
-- **requirements.txt:** List of Python packages that will be installed when you install this app
+    - **requirements.txt:** List of Python packages that will be installed when you install this app
 
 Next: [Create a Site](/docs/user/en/tutorial/create-a-site)

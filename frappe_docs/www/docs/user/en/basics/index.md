@@ -10,6 +10,7 @@ metatags:
 # What is Frappe Framework?
 
 Frappe is a full stack, batteries-included, web framework written in Python and Javascript.
+
 It is the framework which powers [ERPNext](https://erpnext.com).
 It is pretty generic and can be used to build database driven apps.
 
@@ -91,7 +92,7 @@ The List View supports paging, filtering, sorting and bulk editing records.
 
 The Form View used for editing records also supports file attachments, PDF format, comments, email, etc.
 
-![Form View](/docs/assets/img/form-view.png)
+![Form View](/docs/assets/img/desk/form-view.png)
 *Form View*
 
 The Report Builder supports adding columns, grouping, filtering, sorting and saving it as a configuration.

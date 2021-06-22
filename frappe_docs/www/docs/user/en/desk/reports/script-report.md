@@ -29,7 +29,7 @@ To create a Script Report, type "new report" in the awesomebar and hit enter.
 1. Write your python script in the generated `{report-name}.py` file.
 1. You can add filters to your report by adding them to `{report-name}.js`
 
-![New Script Report](/docs/assets/img/script-report-example-1.png)
+![New Script Report](/docs/assets/img/desk/script-report-example-1.png)
 *New Script Report*
 
 ### Standard and Custom Reports
@@ -188,7 +188,7 @@ Version 13 we have introduced `depends_on` for Script Report filters. This can
 be used to determine whether the filter will be visible based on the value of the
 condition in `depends_on`.
 
-![Balance Sheet](/docs/assets/img/script-report-example-2.png)
+![Balance Sheet](/docs/assets/img/desk/script-report-example-2.png)
 *Balance Sheet*
 
 > *Protip*: To navigate directly to a Report of any of the above type, type its

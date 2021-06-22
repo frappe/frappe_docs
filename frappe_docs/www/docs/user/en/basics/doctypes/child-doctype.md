@@ -14,7 +14,12 @@ known as many-to-one relationships. A Child DocType is doctype which can only be
 to a parent DocType. To make a Child DocType make sure to check **Is Child Table** while
 creating the doctype.
 
-![Child DocType](/docs/assets/img/child-doctype.png)
+![Child DocType](/docs/assets/img/doctypes/child-doctype.png)
+
+To link a Child Doctype to its parent, add another row in Parent Doctype with field
+type **Table** and options as **Child Table**.
+
+![Child Table](/docs/assets/img/doctypes/child-table-field.png)
 
 Child DocType records are directly attached to the parent doc.
 

@@ -34,13 +34,13 @@ A User record represents an authenticated user who can perform authorized
 actions in the system. A User can have multiple roles assigned to it. A Role
 describes what actions a User can perform on a DocType.
 
-![User Roles](/docs/assets/img/user-roles.png)
+![User Roles](/docs/assets/img/basics/user-roles.png)
 *User Roles*
 
 For example, the role **Blogger** has read, write and create permission on the
 doctype **Blog Post**, but only read permission on **Blog Category**.
 
-![Role Blogger](/docs/assets/img/role-blogger.png)
+![Role Blogger](/docs/assets/img/basics/role-blogger.png)
 *Role Blogger*
 
 ## DocType Permissions
@@ -49,11 +49,11 @@ DocTypes can have a default set of Roles applied when you install your app. To
 configure roles for a DocType you must add them in the Permissions table in
 DocType.
 
-![DocType Permissions](/docs/assets/img/doctype-permissions.png)
+![DocType Permissions](/docs/assets/img/basics/doctype-permissions.png)
 *DocType Permissions*
 
 If you expand the row, you will see many more options that can be configured.
-![DocType Permissions Row](/docs/assets/img/doctype-permissions-detail.png)
+![DocType Permissions Row](/docs/assets/img/basics/doctype-permissions-detail.png)
 *DocType Permissions*
 
 
@@ -83,7 +83,7 @@ Email	| Allow user to send emails for that document
 Permission Levels can be used to group fields in a document and apply separate
 roles to each level. By default all fields have permlevel set as 0.
 
-![Permission Level](/docs/assets/img/permission-level.png)
+![Permission Level](/docs/assets/img/basics/permission-level.png)
 *Permission Level*
 
 ## Role Permissions Manager
@@ -91,7 +91,7 @@ roles to each level. By default all fields have permlevel set as 0.
 Role Permissions Manager is a user tool to manage role permissions. The default
 set of permissions show up here and can be overridden.
 
-![Role Permissions Manager](/docs/assets/img/role-permissions-manager.gif)
+![Role Permissions Manager](/docs/assets/img/basics/role-permissions-manager.gif)
 
 ## User Permissions
 
@@ -103,14 +103,14 @@ For example, to restrict the User John such that he can only view **Blog Post**s
 that were created by him, i.e, Blogger **John**. A user permission record with
 the following values should be created.
 
-![User Permissions Example](/docs/assets/img/user-permissions-example-1.png)
+![User Permissions Example](/docs/assets/img/basics/user-permissions-example-1.png)
 *User Permission Record*
 
 After creating the user permission configuration, when the User logs in to see
 the Blog Post list, he will have a restricted view of blog posts that were
 created by him.
 
-![Restricted Blog Post List](/docs/assets/img/user-permissions-example-2.png)
+![Restricted Blog Post List](/docs/assets/img/basics/user-permissions-example-2.png)
 *Restricted Blog Post List*
 
 ## Restricting Views and Forms
@@ -119,7 +119,7 @@ Frappe Framework allows you to configure what modules, doctypes and views are
 visible to the user. To configure which modules are shown to a user go to the
 **Allow Modules** section of the User form.
 
-![Allow Modules in User](/docs/assets/img/allow-modules-in-user.png)
+![Allow Modules in User](/docs/assets/img/basics/allow-modules-in-user.png)
 
 To hide a doctype from a User, remove the read permission from a Role using the
 [Role Permissions Manager](#role-permissions-manager).
@@ -127,7 +127,7 @@ To hide a doctype from a User, remove the read permission from a Role using the
 To control permissions for Pages and Reports, use the **Role Permission for Page
 and Report** tool.
 
-![Role Permission for Page and Report](/docs/assets/img/role-permission-for-page-and-report.png)
+![Role Permission for Page and Report](/docs/assets/img/basics/role-permission-for-page-and-report.png)
 
 ## Password Hashing
 
@@ -150,7 +150,7 @@ Frappe also supports password strength checking. It can be enabled from **System
 Settings** in the Security section. The Minimum Password Score field validates how
 strong the password should be.
 
-![Password Policy](/docs/assets/img/password-policy.png)
+![Password Policy](/docs/assets/img/basics/password-policy.png)
 *Password Policy*
 
 ## Login Attempts
@@ -158,7 +158,7 @@ strong the password should be.
 Frappe allows you to configure how many consecutive login attempts should be
 allowed before locking the account for a set time period.
 
-![Login Attempts](/docs/assets/img/login-attempts.png)
+![Login Attempts](/docs/assets/img/basics/login-attempts.png)
 
 ## Third Party Authentication
 
