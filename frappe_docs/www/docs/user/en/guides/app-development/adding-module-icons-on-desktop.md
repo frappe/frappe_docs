@@ -1,7 +1,9 @@
 <!-- add-breadcrumbs -->
 # Adding Module Icons On Desktop
 
-To create a module icon for a Page, List or Module, you will have to edit the `config/desktop.py` file in your app.
+> For Frappe version 12 
+
+To create a module icon for top level Module, you will have to edit the `config/desktop.py` file in your app.
 
 In this file you will have to write the `get_data` method that will return a dict object with the module icon parameters
 
