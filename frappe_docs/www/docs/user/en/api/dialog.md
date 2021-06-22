@@ -307,7 +307,7 @@ new frappe.ui.form.MultiSelectDialog({
 	doctype: "Material Request",
 	target: this.cur_frm,
 	setters: {
-		schedule_date: undefined,
+		schedule_date: null,
 		status: 'Pending'
 	},
 	add_filters_group: 1,
@@ -332,7 +332,7 @@ new frappe.ui.form.MultiSelectDialog({
 	doctype: "Material Request",
 	target: this.cur_frm,
 	setters: {
-		schedule_date: undefined,
+		schedule_date: null,
 		status: 'Pending'
 	},
 	add_filters_group: 1,
