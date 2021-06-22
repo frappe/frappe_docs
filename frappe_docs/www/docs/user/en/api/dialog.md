@@ -367,8 +367,8 @@ new frappe.ui.form.MultiSelectDialog({
 	},
 	add_filters_group: 1,
 	date_field: "transaction_date",
-	child_selection_mode: 1,
-	child_doctype: "Material Request Item", // the child item for filtering
+	allow_child_item_selection: 1,
+	child_fieldname: "items", // child table fieldname, whose records will be shown & can be filtered
 	child_columns: ["item_code", "qty"], // child item columns to be displayed
 	get_query() {
 		return {
