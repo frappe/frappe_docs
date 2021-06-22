@@ -362,8 +362,8 @@ new frappe.ui.form.MultiSelectDialog({
 	doctype: "Material Request",
 	target: this.cur_frm,
 	setters: {
-		schedule_date: undefined,
-		status: undefined
+		schedule_date: null,
+		status: null
 	},
 	add_filters_group: 1,
 	date_field: "transaction_date",
