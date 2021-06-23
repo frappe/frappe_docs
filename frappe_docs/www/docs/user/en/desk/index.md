@@ -26,6 +26,7 @@ In this section we will discuss what views are provided by Desk and how to confi
 - [Calendar View](#calendar-view)
 - [Gantt View](#gantt-view)
 - [Kanban View](#kanban-view)
+- [App Page](#app-page)
 
 ## Workspace
 
@@ -172,3 +173,21 @@ Kanban view can be created for any DocType that has a Select field with options.
 These options become the column names for the Kanban Board.
 
 ![Kanban View](/docs/assets/img/desk/kanban-view.png)
+
+## App Page
+
+App Page is a better version of our Workspace, It is designed to make our page more dynamic, fully editable with navigations.
+
+App Page includes following features:
+
+1. Add New Page
+![New Page](/docs/assets/img/desk/app-page-new-page.gif)
+2. Create Child Page
+![Child Page](/docs/assets/img/desk/app-page-child-page.gif)
+3. Add new blocks like `Header`, `Paragraph`, `Shortcuts`, `Cards`, `Charts`, `Spacer` etc.
+![Blocks](/docs/assets/img/desk/app-page-blocks.png)
+4. Customize Page.
+5. Read-Only Mode.
+6. Resize, Sort, Delete blocks.
+7. Sort the Sidebar Navigations.
+8. Public & Private Pages.
