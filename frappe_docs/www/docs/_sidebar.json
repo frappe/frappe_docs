@@ -68,7 +68,8 @@
 			{ "title": "List", "route": "/docs/user/en/api/list" },
 			{ "title": "Page", "route": "/docs/user/en/api/page" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/js-utils" },
-			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" }
+			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" },
+			{ "title": "Chart API", "route": "/docs/user/en/api/chart" }
 		]
 	},
 	{
