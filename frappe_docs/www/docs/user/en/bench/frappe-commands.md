@@ -291,6 +291,65 @@ bench --site {site} set-config KEY VALUE
 For more information and examples, see the [bench
 set-config](/docs/user/en/bench/reference/set-config) reference.
 
+#### Display Version Of Installed Apps
+
+The command `bench version` displays all installed apps and their versions.
+
+```
+> bench version
+erpnext 13.5.0
+frappe 14.0.0-dev
+```
+
+With frappe version 14, the `-f` / `--format` option was introduced. This option allows you to display additional information about the branch and last commit. You can also  choose your preferred output format: plain text, JSON or ASCII table.
+
+The `--format plain` option displays version information as plain text, just like `bench version`, but with additional information.
+
+> The `--format plain` option is available starting with v14.
+
+```
+> bench version --format plain
+erpnext 13.5.0 item-tax-templates-dev (4e88dcf)
+frappe 14.0.0-dev bench_version_branch_commit (f8ec3d7)
+```
+
+
+The `--format json` option displays version information as a formatted JSON string.
+
+> The `--format json` option is available starting with v14.
+
+```
+> bench version --format json
+[
+    {
+        "app": "erpnext",
+        "branch": "item-tax-templates-dev",
+        "commit": "4e88dcf",
+        "version": "13.5.0"
+    },
+    {
+        "app": "frappe",
+        "branch": "bench_version_branch_commit",
+        "commit": "ef0a5e9",
+        "version": "14.0.0-dev"
+    }
+]
+```
+
+The `--format table` option displays version information formatted as an ASCII table.
+
+> The `--format table` option is available starting with v14.
+
+```
+> bench version --format table
++-------------------------+------------+------------------------------+---------+
+| App                     | Version    | Branch                       | Commit  |
++-------------------------+------------+------------------------------+---------+
+| erpnext                 | 13.5.0     | item-tax-templates-dev       | 4e88dcf |
+| frappe                  | 14.0.0-dev | bench_version_branch_commit  | f8ec3d7 |
++-------------------------+------------+------------------------------+---------+
+```
+
 #### More Commands
 
  - **add-to-email-queue**: Add an email to the Email Queue.
@@ -324,7 +383,6 @@ set-config](/docs/user/en/bench/reference/set-config) reference.
  - **run-parallel-tests**: Run Python tests parallelly on CI.
  - **run-ui-tests**: Run Cypress UI tests.
  - **serve**: Start the webserver for the bench.
- - **version**: Show versions of all Applications installed on bench.
  - **watch**: Watch and concatenate JS and CSS files as and when they change.
 
 
