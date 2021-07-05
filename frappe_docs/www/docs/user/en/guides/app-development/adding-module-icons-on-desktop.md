@@ -1,36 +1,59 @@
 <!-- add-breadcrumbs -->
 # Adding Module Icons On Desktop
 
-To create a module icon for a Page, List or Module, you will have to edit the `config/desktop.py` file in your app.
+> Frappe version 12
 
-In this file you will have to write the `get_data` method that will return a dict object with the module icon parameters
+To create an icon for your app, you have to edit your app's `config/desktop.py`. In this file you can add a `get_data` method returns a dictionary with the module icon parameters.
 
-### Example 1: Module Icon
+You can also create a dropdown list of actions available on this module and actions available on the page when you click on this module. To achieve this, create a file `config/MODULE_NAME.py` (replace `MODULE_NAME` with the name of one of your app's modules).
 
-	def get_data():
-		return {
-			"Accounts": {
-				"color": "#3498db",
-				"icon": "octicon octicon-repo",
-				"type": "module"
-			},
+## Example App Library Management
+
+`config/desktop.py`:
+
+```python
+def get_data():
+	return [
+		{
+			"module_name": "Library Management",
+			"category": "Modules",
+			"label": _("Library Management"),
+			"color": "#589494",
+			"icon": "octicon octicon-book",
+			"type": "module",
+			"description": "Library management"
 		}
+	]
+```
 
-### Example 2: List Icon
+`config/library_management.py`:
 
-	def get_data():
-		return {
-			"To Do": {
-				"color": "#f1c40f",
-				"icon": "fa fa-check",
-				"icon": "octicon octicon-check",
-				"label": _("To Do"),
-				"link": "List/ToDo",
-				"doctype": "ToDo",
-				"type": "list"
-			},
+```python
+def get_data():
+	return [
+		{
+			"label": _("Library Management"),
+			"icon": "octicon octicon-book",
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Article",
+					"label": _("Article"),
+					"description": _("Manage Books"),
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
+					"name": "Library Member",
+					"label": _("Library Member"),
+					"description": _("Manage Members"),
+					# Not displayed on dropdown list action but on page after click on module
+					"onboard": 0,
+				}
+			]
 		}
-
+	]
+```
 
 Note: Module views are visible based on permissions.
 
