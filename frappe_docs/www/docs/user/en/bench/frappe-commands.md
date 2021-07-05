@@ -297,8 +297,8 @@ The command `bench version` displays all installed apps and their versions.
 
 ```
 > bench version
-erpnext 13.5.0
-frappe 14.0.0-dev
+erpnext 14.0.3
+frappe 14.0.1
 ```
 
 With frappe version 14, the `-f` / `--format` option was introduced. This option allows you to display additional information about the branch and last commit. You can also  choose your preferred output format: plain text, JSON or ASCII table.
@@ -309,8 +309,8 @@ The `--format plain` option displays version information as plain text, just lik
 
 ```
 > bench version --format plain
-erpnext 13.5.0 item-tax-templates-dev (4e88dcf)
-frappe 14.0.0-dev bench_version_branch_commit (f8ec3d7)
+erpnext 14.0.3 version-14 (4e88dcf)
+frappe 14.0.1 version-14 (f8ec3d7)
 ```
 
 
@@ -323,15 +323,15 @@ The `--format json` option displays version information as a formatted JSON stri
 [
     {
         "app": "erpnext",
-        "branch": "item-tax-templates-dev",
+        "branch": "version-14",
         "commit": "4e88dcf",
-        "version": "13.5.0"
+        "version": "14.0.3"
     },
     {
         "app": "frappe",
-        "branch": "bench_version_branch_commit",
+        "branch": "version-14",
         "commit": "ef0a5e9",
-        "version": "14.0.0-dev"
+        "version": "14.0.1"
     }
 ]
 ```
@@ -345,8 +345,8 @@ The `--format table` option displays version information formatted as an ASCII t
 +-------------------------+------------+------------------------------+---------+
 | App                     | Version    | Branch                       | Commit  |
 +-------------------------+------------+------------------------------+---------+
-| erpnext                 | 13.5.0     | item-tax-templates-dev       | 4e88dcf |
-| frappe                  | 14.0.0-dev | bench_version_branch_commit  | f8ec3d7 |
+| erpnext                 | 14.0.3     | version-14       | 4e88dcf |
+| frappe                  | 14.0.1 | version-14  | f8ec3d7 |
 +-------------------------+------------+------------------------------+---------+
 ```
 
