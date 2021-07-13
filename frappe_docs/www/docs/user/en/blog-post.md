@@ -1,11 +1,11 @@
 ---
 add_breadcrumbs: 1
-title: Web Forms
+title: Blog Post
 image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
-  Frappe provides an easy way to generate forms for your website with very little
-  configuration. These forms may be public or require login.
+  Blogs are a great way to share your thoughts about your business.
+  It helps keep your customers and readers updated on news related to your business.
 ---
 
 # Blog Post
