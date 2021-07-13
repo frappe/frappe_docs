@@ -293,62 +293,16 @@ set-config](/docs/user/en/bench/reference/set-config) reference.
 
 #### Display Version Of Installed Apps
 
-The command `bench version` displays all installed apps and their versions.
+The `version` command displays all installed apps and their versions.
 
-```
-> bench version
-erpnext 14.0.3
-frappe 14.0.1
+```bash
+bench version [OPTIONS]
 ```
 
-With frappe version 14, the `-f` / `--format` option was introduced. This option allows you to display additional information about the branch and last commit. You can also  choose your preferred output format: plain text, JSON or ASCII table.
-
-The `--format plain` option displays version information as plain text, just like `bench version`, but with additional information.
-
-> The `--format plain` option is available starting with v14.
-
-```
-> bench version --format plain
-erpnext 14.0.3 version-14 (4e88dcf)
-frappe 14.0.1 version-14 (f8ec3d7)
-```
-
-
-The `--format json` option displays version information as a formatted JSON string.
-
-> The `--format json` option is available starting with v14.
-
-```
-> bench version --format json
-[
-    {
-        "app": "erpnext",
-        "branch": "version-14",
-        "commit": "4e88dcf",
-        "version": "14.0.3"
-    },
-    {
-        "app": "frappe",
-        "branch": "version-14",
-        "commit": "ef0a5e9",
-        "version": "14.0.1"
-    }
-]
-```
-
-The `--format table` option displays version information formatted as an ASCII table.
-
-> The `--format table` option is available starting with v14.
-
-```
-> bench version --format table
-+-------------------------+------------+------------------------------+---------+
-| App                     | Version    | Branch                       | Commit  |
-+-------------------------+------------+------------------------------+---------+
-| erpnext                 | 14.0.3     | version-14       | 4e88dcf |
-| frappe                  | 14.0.1 | version-14  | f8ec3d7 |
-+-------------------------+------------+------------------------------+---------+
-```
+With version 13, the `-f` / `--format` option was introduced. This option allows
+you to display additional information about the branch and last commit. For more
+information and examples, see the [bench
+version](/docs/user/en/bench/reference/bench-version) reference.
 
 #### More Commands
 
