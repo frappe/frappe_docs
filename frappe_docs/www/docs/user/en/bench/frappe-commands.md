@@ -291,6 +291,19 @@ bench --site {site} set-config KEY VALUE
 For more information and examples, see the [bench
 set-config](/docs/user/en/bench/reference/set-config) reference.
 
+#### Display Version Of Installed Apps
+
+The `version` command displays all installed apps and their versions.
+
+```bash
+bench version [OPTIONS]
+```
+
+With version 13, the `-f` / `--format` option was introduced. This option allows
+you to display additional information about the branch and last commit. For more
+information and examples, see the [bench
+version](/docs/user/en/bench/reference/bench-version) reference.
+
 #### More Commands
 
  - **add-to-email-queue**: Add an email to the Email Queue.
@@ -324,7 +337,6 @@ set-config](/docs/user/en/bench/reference/set-config) reference.
  - **run-parallel-tests**: Run Python tests parallelly on CI.
  - **run-ui-tests**: Run Cypress UI tests.
  - **serve**: Start the webserver for the bench.
- - **version**: Show versions of all Applications installed on bench.
  - **watch**: Watch and concatenate JS and CSS files as and when they change.
 
 
