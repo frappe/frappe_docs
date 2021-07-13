@@ -2,7 +2,7 @@
 title: Bench - bench version
 metatags:
   description:
-    The Bench CLI has a version command to show version of your Frappe Apps.
+    The Bench CLI has a version command to display the version of your Frappe Apps.
 ---
 
 # bench version
