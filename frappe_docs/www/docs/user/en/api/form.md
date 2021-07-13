@@ -250,6 +250,20 @@ if (frm.is_dirty()) {
 }
 ```
 
+### frm.dirty
+
+Set form as "dirty". This is used to set form as dirty when document values are
+changed. This triggers the **_"Not Saved"_** indicator in the Form Views.
+
+```js
+frm.doc.browser_data = navigator.appVersion;
+frm.dirty();
+frm.save();
+```
+
+Calling save without setting the form dirty will trigger a **_"No changes in
+document"_** toast.
+
 ### frm.is_new
 
 Check if the form is new and is not saved yet.
