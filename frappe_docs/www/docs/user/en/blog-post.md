@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Blog Post
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Blogs are a great way to share your thoughts about your business.
@@ -63,8 +62,7 @@ Check the **Disable Feedback** option if you'd like to disable the ability for r
 ### 2.1 Blogger
 
 Blogger is a user who can post blogs. To create a Blogger, go to:
-
-**Home > Website > Blog > Blogger**.
+> Home > Website > Blog > Blogger
 
 You can mention a short bio about the blogger and also set an avatar here.
 
@@ -92,13 +90,14 @@ list of blogs under that category.
 
 ### 2.3 Meta Tags
 
-Meta tags are HTML tags which describe a page and its content to a search engine or a social media platform. A meta description provides a brief description of a webpage. 
+Meta tags are HTML tags which describe a page and its content to a search engine or a social media platform. A meta description provides a brief description of a webpage.
 
 In HTML, the meta description tag will be written as follows:
 
-```<head>
-    <meta name="description" content="This is an example of a meta description. This will often show up in search results.">
-    </head>
+```html
+<head>
+  <meta name="description" content="This is an example of a meta description. This will often show up in search results.">
+</head>
 ```
 
 Under the SEO section, you can add the meta description and image for your blog post. ERPNext will generate a preview of the blog when listed as a search result by Google.
