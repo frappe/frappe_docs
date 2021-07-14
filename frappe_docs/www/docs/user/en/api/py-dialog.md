@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Dialog - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API methods for creating and managing Dialogs in Frappe using Python

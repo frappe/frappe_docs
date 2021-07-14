@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Web Forms
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe provides an easy way to generate forms for your website with very little

@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Database - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API methods for querying, updating or creating records in Frappe

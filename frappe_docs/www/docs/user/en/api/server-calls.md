@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Server Calls (AJAX) - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API for making server calls from the client side

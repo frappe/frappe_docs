@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Attachments
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe Framework allows attachment of files to documents by selecting or dragging and dropping a file from your device, choosing an uploaded file, attaching a web link or taking a photo. It also has a File Manager where you can import multiple files using the Import Zip feature.

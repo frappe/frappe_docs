@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Why Frappe Framework?
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe was built to power our flagship product ERPNext. It is a monolith and

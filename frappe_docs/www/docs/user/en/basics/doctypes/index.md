@@ -2,7 +2,6 @@
 add_breadcrumbs: 1
 page_toc: 1
 title: DocTypes
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn all about the core concept of DocType and how it is used to describe

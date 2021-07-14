@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Directory Structure
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Explanation of directory structure of Frappe Framework

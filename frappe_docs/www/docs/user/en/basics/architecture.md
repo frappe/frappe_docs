@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Architecture
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
    Frappe Framework is a full-stack web based framework and it includes all the

@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Apps
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   A Frappe app is a python package that uses the Frappe framework. Frappe apps

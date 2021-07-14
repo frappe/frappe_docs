@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Sites
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe is a multitenant platform and each tenant is called a site. A site has

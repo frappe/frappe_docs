@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Portal Pages
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe Framework allows you to host server rendered web pages which are great

@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Rate Limiting
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe framework has out of the box support for rate-limiting HTTP requests.
