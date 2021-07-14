@@ -75,6 +75,8 @@ Method Name | Description
 `on_update_after_submit`     | This is called *when* a submitted document values are updated.
 `on_cancel`                  | This is called when a submitted is cancelled.
 `on_change`                  | This is called to indicate that a document's values has been changed.
+`before_rename`              | This is called before a document is renamed.
+`after_rename`               | This is called after a document is renamed.
 `on_trash`                   | This is called when a document is being deleted.
 `after_delete`               | This is called after a document has been deleted.
 
