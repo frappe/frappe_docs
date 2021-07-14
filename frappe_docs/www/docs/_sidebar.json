@@ -41,7 +41,8 @@
 		"group_title": "Portal",
 		"group_items": [
 			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
-			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" }
+			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" },
+			{ "title": "Blog Post", "route": "/docs/user/en/blog-post" }
 		]
 	},
 	{
