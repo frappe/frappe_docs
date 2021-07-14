@@ -258,7 +258,7 @@ doc.db_set('price', 2300, update_modified=False)
 
 ## doc.get_url
 
-Returns Desk URL for this document. For e.g: `/desk#Form/Task/TASK00002`
+Returns Desk URL for this document. For e.g: `/app/task/TASK00002`
 
 ```py
 url = doc.get_url()

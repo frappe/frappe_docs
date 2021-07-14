@@ -21,7 +21,7 @@ From `erpnext/public/js/templates/address_list.js`
 	    <i class="fa fa-plus"></i> New Address</button></p>
 	{% for(var i=0, l=addr_list.length; i<l; i++) { %}
 	    <hr>
-	    <a href="#Form/Address/{%= addr_list[i].name %}" class="btn btn-sm btn-default pull-right">
+	    <a href="/app/address/{%= addr_list[i].name %}" class="btn btn-sm btn-default pull-right">
 	        {%= __("Edit") %}</a>
 	    <h4>{%= addr_list[i].address_type %}</h4>
 	    <div style="padding-left: 15px;">
