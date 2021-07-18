@@ -17,7 +17,7 @@ To add a Webhook, go to:
 1. Select the Doc Event that will trigger the Webhook (e.g. `on_update`).
 1. Optionally, you can set additional document Conditions to trigger Webhooks for specific scenarios.
 1. Enter a valid request URL that will receive the Webhook data.
-1. Select the Request Method. "POST" is the default method.
+1. Select the Request Method. `POST` is the default method.
 1. Optionally, you can add HTTP headers to the request. (e.g. useful for sending an API key, if required).
 
 You can also disable a webhook by unchecking the `Enabled` checkbox. Only webhooks that are enabled get triggered.
