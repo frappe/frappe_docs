@@ -29,7 +29,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 ```
   Python 3.6+
   Node.js 12
-  Redis 5                                       (caching and realtime updates)
+  Redis 6                                       (caching and realtime updates)
   MariaDB 10.3.x / Postgres 9.5.x               (to run database driven apps)
   yarn 1.12+                                    (js dependency manager)
   pip 20+                                       (py dependency manager)
