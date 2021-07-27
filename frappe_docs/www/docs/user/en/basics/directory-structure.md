@@ -49,20 +49,20 @@ based on their directory name.
 
 Learn more about [sites](/docs/user/en/sites).
 
-### env
+### logs
 
-The Python virtual environment live in this directory. Frappe based apps and
-Python package dependencies are installed here.
+This directory is used to dump log files from various processes. Each log file
+is named based on the process it is logged from.
 
 ### config
 
 Frappe uses 3 Redis instances to manage caching, job queueing and socketio
 communication. All of those configurations live here.
 
-### logs
+### env
 
-This directory is used to dump log files from various processes. Each log file
-is named based on the process it is logged from.
+The Python virtual environment live in this directory. Frappe based apps and
+Python package dependencies are installed here.
 
 ### Procfile
 
