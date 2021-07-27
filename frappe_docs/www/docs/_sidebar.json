@@ -52,6 +52,7 @@
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
 			{ "title": "Routing and Rendering", "route": "/docs/user/en/python-api/routing-and-rendering" },
+			{ "title": "Language Resolution", "route": "/docs/user/en/python-api/language" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/utils" },
 			{ "title": "Response", "route": "/docs/user/en/python-api/response" },
 			{ "title": "Search", "route": "/docs/user/en/python-api/search" },
