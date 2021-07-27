@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Production Setup
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: Learn how to deploy Frappe based sites in production.
 ---

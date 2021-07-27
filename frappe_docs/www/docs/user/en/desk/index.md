@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Desk
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe Framework comes with a rich admin interface called the Desk. It reads

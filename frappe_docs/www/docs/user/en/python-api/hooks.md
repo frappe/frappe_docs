@@ -1,6 +1,5 @@
 ---
 title: Hooks
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Hooks allow you to "hook" into functionality and events of core parts of the Frappe Framework.

@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Printing
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe framework has first class support for generating print formats for

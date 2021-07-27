@@ -206,7 +206,7 @@ for each bench on your system through the common site configuration.
 | `redis_cache` | Port number for the redis cache process defined in the Bench Procfile. |
 | `redis_queue` | Port number for the redis queue process defined in the Bench Procfile. |
 | `redis_socketio` | Port number for the redis Socket.IO process defined in the Bench Procfile. |
-| `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. Defaults to 60. |
+| `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. This makes it possible to set the minimum frequency for scheduling jobs. Defaults to 60. |
 | `socketio_port` | Port number for the Socket.IO process defined in the Bench Procfile. |
 | `webserver_port` | Port number for the Frappe web server. |
 

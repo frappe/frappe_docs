@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Search - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Full Text Search in Frappe

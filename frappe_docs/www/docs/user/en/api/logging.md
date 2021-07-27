@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Frappe Logging - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
   description: >
     API method for creating and accessing logging objects in Frappe

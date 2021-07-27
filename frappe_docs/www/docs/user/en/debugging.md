@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Debugging
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn about debugging techniques while developing Frappe apps.

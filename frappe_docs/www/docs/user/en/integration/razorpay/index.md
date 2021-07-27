@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: RazorPay
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe framework supports payments with RazorPay out of the box and includes
