@@ -63,7 +63,7 @@ frappe.db.get_list('Task', filters={
 
 # Tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
 frappe.db.get_list('Task', filters=[[
-    'date', 'between', ['2020-04-01', '2021-03-31']
+	'date', 'between', ['2020-04-01', '2021-03-31']
 ]])
 
 # Tasks with subject that contains "test"
@@ -183,11 +183,27 @@ frappe.db.count('Task', {'status': 'Open'})
 `frappe.db.delete(doctype, filters)`
 
 Delete `doctype` records that match `filters`.
+This runs a DDL command.
+If no filters specified all the records of the doctype are deleted.
+Prepend tabs automatically.
 
 ```python
-frappe.db.delete('Task', {
-	'status': 'Cancelled'
-})
+frappe.db.delete("Route History", {
+			"modified": ("<=", last_record_to_keep[0].modified),
+			"user": user
+		})
+
+frappe.db.delete("Error Log")
+```
+
+## frappe.db.truncate
+`frappe.db.truncate(doctype)`
+
+Truncate a table in the database. This runs a DDL command `TRUNCATE TABLE`.
+Prepend tabs automatically.
+
+```python
+frappe.db.truncate("Error Log")
 ```
 
 ## frappe.db.commit
