@@ -183,27 +183,29 @@ frappe.db.count('Task', {'status': 'Open'})
 `frappe.db.delete(doctype, filters)`
 
 Delete `doctype` records that match `filters`.
-This runs a DDL command.
-If no filters specified all the records of the doctype are deleted.
-Prepend tabs automatically.
+This runs a DML command.
+If no filters specified, all the records of the doctype are deleted.
+Fetches equivalent table name.
 
 ```python
 frappe.db.delete("Route History", {
-			"modified": ("<=", last_record_to_keep[0].modified),
-			"user": user
-		})
+	"modified": ("<=", last_record_to_keep[0].modified),
+	"user": user
+})
 
 frappe.db.delete("Error Log")
+frappe.db.delete("__Test Table")
 ```
 
 ## frappe.db.truncate
 `frappe.db.truncate(doctype)`
 
 Truncate a table in the database. This runs a DDL command `TRUNCATE TABLE`.
-Prepend tabs automatically.
+Fetches equivalent table name.
 
 ```python
 frappe.db.truncate("Error Log")
+frappe.db.delete("__Test Table")
 ```
 
 ## frappe.db.commit
