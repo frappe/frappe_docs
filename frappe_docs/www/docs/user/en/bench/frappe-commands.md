@@ -221,6 +221,7 @@ just in case.
  - **ngrok**: Create a temporary URL and share it with anyone, and they can
    access your local site in their browser. Primarily built for aiding with the
    development of third party services.
+ - **set-password**: Set the password for any user.
  - **set-admin-password**: Set the password for the Administrator user.
  - **set-last-active-for-user**: Set users last active date to current datetime.
  - **start-recording**: Starts the Frappe Recorder for the specified sites.
