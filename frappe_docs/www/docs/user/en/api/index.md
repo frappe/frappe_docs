@@ -2,7 +2,7 @@
 add_breadcrumbs: 1
 title: Developer API
 metatags:
- description: All of the Frappe API in one place
+  description: All of the Frappe API in one place
 ---
 
 # Developer API
@@ -25,6 +25,7 @@ only import you need (most of the time) in a Python file.
 1. [REST API](/docs/user/en/api/rest)
 1. [Full Text Search](/docs/user/en/api/full-text-search)
 1. [Dialog API](/docs/user/en/api/py-dialog)
+1. [Query Builder](/docs/user/en/api/query-builder)
 
 ## Javascript
 
