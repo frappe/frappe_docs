@@ -237,3 +237,21 @@ data = frappe.db.sql("""
 `frappe.db.multisql({'mariadb': mariadb_query, 'postgres': postgres_query})`
 
 Execute the suitable SQL statement for any supported database engine.
+
+## frappe.db.rename_table
+
+`frappe.db.rename_table(old_name, new_name)`
+
+Executes a query to change table name.
+
+## frappe.db.describe
+
+`frappe.db.describe(table)`
+
+Returns a tuple that with the table description
+
+## frappe.db.change\_column\_type
+
+`frappe.db.change_column_type(table, column, new_type)`
+
+Changes the type of column.
