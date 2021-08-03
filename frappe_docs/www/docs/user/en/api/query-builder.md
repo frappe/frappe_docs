@@ -2,8 +2,7 @@
 add_breadcrumbs: 1
 title: Query Builder - API
 metatags:
-  description: >
-    API methods for creating and managing Charts in Frappe
+ description: API methods for creating and managing Charts in Frappe
 ---
 
 # Query Builder
@@ -14,16 +13,15 @@ While developing apps, you'll often need to retrive some specific data from the 
 
 Maybe something like
 
-```SQL
-
+```python
 result = frappe.db.sql(
-        """
-        SELECT  `path`,
-                COUNT(*) as count,
-                COUNT(CASE WHEN CAST(`is_unique` as Integer) = 1 THEN 1 END) as unique_count
-        FROM `tabWeb Page View`
-        WHERE `creation` BETWEEN {some date} AND {some later date}
-        """
+	f"""
+	SELECT `path`,
+			COUNT(*) as count,
+			COUNT(CASE WHEN CAST(`is_unique` as Integer) = 1 THEN 1 END) as unique_count
+	FROM `tabWeb Page View`
+	WHERE `creation` BETWEEN {some_date} AND {some_later_date}
+	"""
 )
 ```
 
@@ -41,10 +39,11 @@ count_all = frappe.qb.fn.Count('*').as_("count")
 case = frappe.qb.terms.Case().when(WebPageView.is_unique == "1", "1")
 count_is_unique = Count(case).as_("unique_count")
 
-query = (frappe.qb.from_(WebPageView)
-        .select(WebPageView.path, count_all, count_is_unique)
-        .where(Web_Page_View.creation[some_date:some_later_date])
-        )
+query = (
+	frappe.qb.from_(WebPageView)
+		.select(WebPageView.path, count_all, count_is_unique)
+		.where(Web_Page_View.creation[some_date:some_later_date])
+)
 
 result = frappe.db.sql(query)
 ```
@@ -68,17 +67,17 @@ query = frappe.qb.from_('customers').select('id', 'fname', 'lname', 'phone')
 ```python
 t = frappe.qb.Table("abc")
 query = frappq.qb.from_(
-    t.for_portion(t.valid_period.from_to('2020-01-01', '2020-02-01'))
+	t.for_portion(t.valid_period.from_to('2020-01-01', '2020-02-01'))
 ).delete()
 ```
 
-you can read more about the functions at the [Pypika](https://github.com/kayak/pypika) repo.
+You can read more about the functions at the [Pypika](https://github.com/kayak/pypika) repo.
 
-### frappe.qb.Table(name_of_table)
+### frappe.qb.Table(name\_of\_table)
 
 Returns a pypika table object which can be used elsewhere.
 
-### frappe.qb.Field(name_of_coloum)
+### frappe.qb.Field(name\_of\_coloum)
 
 Return a pypika field object, this represents a column. They are usually used to compare columns with values.
 
@@ -119,7 +118,7 @@ customers = Tables('customers')
 DateDiff = CustomFunction('DATE_DIFF', ['interval', 'start_date', 'end_date'])
 
 q = Query.from_(customers).select(
-    DateDiff('day', customers.created_date, customers.updated_date)
+	DateDiff('day', customers.created_date, customers.updated_date)
 )
 ```
 
@@ -135,7 +134,7 @@ SELECT DATE_DIFF('day',"created_date","updated_date") FROM "customer"
 
 ### Special functions
 
-One such fucntion is [Match Against](https://mariadb.com/kb/en/match-against/). It's different because it has a chained against argument. To implement something like this you need to inherit from pypika's `DistinctOptionFunction` class.
+One such function is [Match Against](https://mariadb.com/kb/en/match-against/). It's different because it has a chained against argument. To implement something like this you need to inherit from PyPika's `DistinctOptionFunction` class.
 
 The current MATCH class looks something like
 
