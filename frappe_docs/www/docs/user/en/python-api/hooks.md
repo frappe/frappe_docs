@@ -433,6 +433,23 @@ The above configuration will render `/not_found` when a 404 is occurred. It is
 upto you to implement the template `www/not_found.html` and controller
 `www/not_found.py`.
 
+## Custom Web Form Context
+
+When a Web Form is created using non custom doctype, we can get the context from doctype's module but for Web Form using custom doctype you cannot get the context since custom doctype don't have modules, you can use this hook to create a context for Custom Web Form.
+
+**app/hooks.py**
+```py
+get_list_context_for_custom_webform = "app.webform.get_list_context_for_custom_webform"
+```
+
+**app/webform.py**
+```py
+def get_list_context_for_custom_webform():
+	return {
+		"get_list": get_transaction_list_for_custom_webform
+	}
+```
+
 ## Default Homepage
 
 Homepage is the page which is rendered when you visit the root URL (`/`) of your
