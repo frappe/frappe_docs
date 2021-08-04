@@ -13,15 +13,19 @@ be able to use them in your Frappe apps or scripts.
 The language for your session depends on the value of `frappe.lang`. This is
 resolved in the following order:
 
-1. Form Dict => _lang
-1. Cookie => preferred_language
-1. Request Header => Accept-Language
-1. User document => language
-1. System Settings => language
+1. Form Dict > _lang
+1. Cookie > preferred\_language _[Guest User only]_
+1. Request Header > Accept-Language _[Guest User only]_
+1. User document > language
+1. System Settings > language
+
+## Form Dict: _lang
 
 The Form Dict's `_lang` parameter has the highest priority. Setting this will
 update all translatable components in given request. Frappe uses this mechanism
 in certain places to handle Email Templates and Print views.
+
+## Cookie: preferred_language
 
 Although, it may not be practical to pass a `?_lang=ru` in every request. If you
 want persistent yet temporary language setting, you can set the
@@ -29,12 +33,20 @@ want persistent yet temporary language setting, you can set the
 language switcher introduced in v13. This method may be used to persist language
 based on the client.
 
+> Only considered for Guest Users. Ignored for logged in users.
+
+## Request Header: Accept-Language
+
 Another relatively cleaner, and standard way to manage languages is using the
 `Accept-Language` header. If the previous two methods aren't set, Frappe starts
 resolving this header's values, which have an ordered set of a range of
 acceptable languages by the client. You can check out [the Mozilla
 Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language)
 on this topic for more clarity perhaps.
+
+> Only considered for Guest Users. Ignored for logged in users.
+
+## User & System Settings
 
 The User document has a `language` field that sets the session language for said
 user. This setting persists across devices, clients. This allows a particular
