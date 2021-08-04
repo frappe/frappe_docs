@@ -54,7 +54,8 @@ Here are the `df` properties for most of frappe control types.
 	]
 }
 
-// Barcode
+// Bar
+
 {
 	label: 'Item Barcode',
 	fieldname: 'item_barcode',
@@ -74,7 +75,9 @@ Here are the `df` properties for most of frappe control types.
 	fieldname: 'script',
 	fieldtype: 'Code',
 	// for syntax highlighting
-	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON
+	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON,
+	// wrap code
+	wrap: true
 }
 
 // Color
