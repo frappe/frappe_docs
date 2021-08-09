@@ -83,7 +83,7 @@ brew services restart mariadb
 We recommend installing node using [nvm](https://github.com/creationix/nvm)
 
 ```bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
 After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
