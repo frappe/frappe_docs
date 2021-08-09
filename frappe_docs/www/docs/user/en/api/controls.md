@@ -97,7 +97,8 @@ Here are the `df` properties for most of frappe control types.
 {
 	label: 'First Name',
 	fieldname: 'first_name',
-	fieldtype: 'Data'
+	fieldtype: 'Data',
+	options: 'Email' // 'Name', 'Phone', 'URL', 'Barcode'
 }
 
 // Date Range

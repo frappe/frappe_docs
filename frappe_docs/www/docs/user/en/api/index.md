@@ -38,6 +38,8 @@ browser console.
 1. [Server Calls (AJAX)](/docs/user/en/api/server-calls)
 1. [Common Utilities](/docs/user/en/api/js-utils)
 1. [Dialog API](/docs/user/en/api/dialog)
+1. [Chart API](/docs/user/en/api/chart)
+1. [Scanner API](/docs/user/en/api/scanner)
 
 ## Other
 
