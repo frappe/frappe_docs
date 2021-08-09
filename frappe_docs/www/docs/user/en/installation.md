@@ -96,8 +96,7 @@ Verify the installation, by running:
 
 ```bash
 node -v
-# output
-v12.16.2
+# v12.xx.x
 ```
 
 Finally, install yarn using npm
