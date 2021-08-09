@@ -45,11 +45,13 @@ Install [Homebrew](https://brew.sh/). It makes it easy to install packages on ma
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+> If you're running on Apple M1, please [install the Rosetta2 emulator](https://stackoverflow.com/a/64997047).
+
 Now, you can easily install the required packages by running the following command
 
 ```bash
 brew install python git redis mariadb
-brew cask install wkhtmltopdf
+brew install --cask wkhtmltopdf
 ```
 
 Now, edit the MariaDB configuration file.
