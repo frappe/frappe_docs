@@ -20,11 +20,15 @@ A DocType may also have `DocType Action` that will result in a button creation o
 
 A standard navigation aid to the DocType view is the `Links` section on the dashboard. This helps the viewer identify at a glance which document types are connected to this DocType and can quickly create new related documents.
 
+These links also support adding internal links (links to DocType in child tables) which can be configured as shown in the image below
+
 ### Configuration of Actions and Links
 
 ![Action and Link Configuration](/docs/assets/img/doctypes/action-link-config.png)
 
 ![Action and Link View](/docs/assets/img/doctypes/action-link.png)
+
+![Internal Link](/docs/assets/img/doctypes/internal-link.png)
 
 ### Customization of Actions and Links
 
