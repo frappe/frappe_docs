@@ -2,7 +2,7 @@
 add_breadcrumbs: 1
 title: Query Builder - API
 metatags:
- description: API methods for creating and managing Charts in Frappe
+	description: API methods for building SQL queries
 ---
 
 # Query Builder
@@ -33,7 +33,7 @@ The same query in the query builder would look something like
 import frappe
 from frappe.query_builder.functions import Count
 
-WebPageView = frappe.qb.Table("Web Page View")
+WebPageView = frappe.qb.DocType("Web Page View")
 count_all = frappe.qb.fn.Count('*').as_("count")
 
 case = frappe.qb.terms.Case().when(WebPageView.is_unique == "1", "1")
@@ -54,7 +54,7 @@ Returns a Pypika query object which lets you build queries. One of its methods i
 
 ### frappe.qb.from\_(table)
 
-lets you construct a from query to select or delete data
+lets you construct a from query to select data
 
 **Select query**
 
@@ -62,20 +62,48 @@ lets you construct a from query to select or delete data
 query = frappe.qb.from_('customers').select('id', 'fname', 'lname', 'phone')
 ```
 
-**Delete query**
+The SQL query built is
 
-```python
-t = frappe.qb.Table("abc")
-query = frappq.qb.from_(
-	t.for_portion(t.valid_period.from_to('2020-01-01', '2020-02-01'))
-).delete()
+```sql
+SELECT `id`,`fname`,`lname`,`phone` FROM `tabcustomers`
 ```
 
-You can read more about the functions at the [Pypika](https://github.com/kayak/pypika) repo.
+**A complex Select examlple**
+
+```python
+customers = frappe.qb.DocType('customers')
+q = (frappe.qb
+	.from_(customers)
+	.select(customers.id, customers.fname,customers.lname, customers.phone)
+	.where((customers.fname == 'Max') | (customers.id.like('RA%')) )
+	.where(customers.lname == 'Mustermann')
+)
+```
+
+The SQL query built is
+
+```sql
+SELECT `id`,`fname`,`lname`,`phone` FROM `tabcustomers` WHERE (`fname`='Max' OR `id` LIKE 'RA%') AND `lname`='Mustermann'
+```
+
+Some noteworthy things
+
+- We have created a `customers` variable to refer to the table in the query.
+- Select can take any number of arguments, selecting various Fields.
+- The '|' (pipe) or '&' (ampersand) operators can be used to refer to 'OR' or 'AND'.
+- Chaining the `where()` method appends 'AND' by default
+
+You can read more about the other functions at the [Pypika](https://github.com/kayak/pypika) repo.
+
+### frappe.qb.Doctype(name\_of\_table)
+
+Returns a pypika table object which can be used elsewhere. It will automatically add 'tab' if necessary.
 
 ### frappe.qb.Table(name\_of\_table)
 
-Returns a pypika table object which can be used elsewhere.
+Does the same thing as `frappe.qb.DocType` but will not append 'tab'. It's intended to be used with '\_\_Auth' like tables.
+
+> Note: You should only use this if you know what you are doing.
 
 ### frappe.qb.Field(name\_of\_coloum)
 
@@ -99,7 +127,7 @@ Say you want to count all the entries in a Notes table. You could do something l
 ```python
 from frappe.query_builder.functions import Count
 
-Notes = frappe.qb.Table("Notes")
+Notes = frappe.qb.DocType("Notes")
 count_pages = Count(Notes.content).as_("Pages")
 
 result = frappe.db.sql(frappe.qb.from_(Notes).select(count_pages))
