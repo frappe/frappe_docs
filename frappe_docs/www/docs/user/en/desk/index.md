@@ -26,22 +26,59 @@ In this section we will discuss what views are provided by Desk and how to confi
 - [Calendar View](#calendar-view)
 - [Gantt View](#gantt-view)
 - [Kanban View](#kanban-view)
-- [App Page](#app-page)
 
 ## Workspace
 
-When you login, you're presented with the Desk, it features a persistent sidebar sorted in categories.
+When you login, you're presented with the Desk, it features a persistent sidebar which can be sorted based on user's access.
 Each sidebar item links to a page called Workspace.
 
-A workspace represents a module (for example CRM in ERPNext). A workspace includes the following:
+A workspace represents a page which has combination of different blocks like `Shortcuts`, `Cards` & `Charts` etc. These blocks are fully customizable.
 
-1. A dashboard section for that particular module by default.
-1. Shortcuts for commonly visited masters and pages
-1. A masters section where all the reports and masters are grouped and listed
+A workspace includes the following features:
+
+<details>
+<summary>Add New Page</summary>
+
+![New Page](/docs/assets/img/desk/wspace-new-page.gif)
+
+</details>
+
+<details>
+<summary>Create Child Page</summary>
+
+![New Child Page](/docs/assets/img/desk/wspace-new-child-page.gif)
+
+</details>
+
+<details>
+<summary>Add new blocks like `Header`, `Paragraph`, `Shortcuts`, `Cards`, `Charts`, `Spacer` etc</summary>
+
+![Add New Blocks](/docs/assets/img/desk/wspace-add-new-blocks.gif)
+
+</details>
+
+<details>
+<summary>Customize Blocks like Resize, Sort, Delete blocks</summary>
+
+![Customize Blocks](/docs/assets/img/desk/wspace-customize-blocks.gif)
+
+</details>
+
+<details>
+<summary>Sort the Sidebar Navigations</summary>
+
+![Sort Sidebar](/docs/assets/img/desk/wspace-sort-sidebar.gif)
+
+</details>
+
+<details>
+<summary>Public & Private Pages</summary>
+
+![Public Private](/docs/assets/img/desk/wspace-public-private-pages.gif)
+
+</details>
 
 These features can be customized for each user directly from Desk.
-
-![Desktop](/docs/assets/img/desk/workspace.png)
 
 ## Awesomebar
 
@@ -173,21 +210,3 @@ Kanban view can be created for any DocType that has a Select field with options.
 These options become the column names for the Kanban Board.
 
 ![Kanban View](/docs/assets/img/desk/kanban-view.png)
-
-## App Page
-
-App Page is a better version of our Workspace, It is designed to make our page more dynamic, fully editable with navigations.
-
-App Page includes following features:
-
-1. Add New Page
-![New Page](/docs/assets/img/desk/app-page-new-page.gif)
-2. Create Child Page
-![Child Page](/docs/assets/img/desk/app-page-child-page.gif)
-3. Add new blocks like `Header`, `Paragraph`, `Shortcuts`, `Cards`, `Charts`, `Spacer` etc.
-![Blocks](/docs/assets/img/desk/app-page-blocks.png)
-4. Customize Page.
-5. Read-Only Mode.
-6. Resize, Sort, Delete blocks.
-7. Sort the Sidebar Navigations.
-8. Public & Private Pages.
