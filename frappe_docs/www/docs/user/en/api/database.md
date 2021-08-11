@@ -63,7 +63,7 @@ frappe.db.get_list('Task', filters={
 
 # Tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
 frappe.db.get_list('Task', filters=[[
-    'date', 'between', ['2020-04-01', '2021-03-31']
+	'date', 'between', ['2020-04-01', '2021-03-31']
 ]])
 
 # Tasks with subject that contains "test"
@@ -183,12 +183,38 @@ frappe.db.count('Task', {'status': 'Open'})
 `frappe.db.delete(doctype, filters)`
 
 Delete `doctype` records that match `filters`.
+This runs a DML command, which means it can be rolled back.
+If no filters specified, all the records of the doctype are deleted.
 
 ```python
-frappe.db.delete('Task', {
-	'status': 'Cancelled'
+frappe.db.delete("Route History", {
+	"modified": ("<=", last_record_to_keep[0].modified),
+	"user": user
 })
+
+frappe.db.delete("Error Log")
+frappe.db.delete("__Test Table")
 ```
+
+You may pass the doctype name or an internal table name. Conventionally,
+internal tables in Frappe are prefixed with `__`. The API follows this.
+The above commands run an unconditional `DELETE` query over tables **tabError Log**
+and **__Test Table**.
+
+## frappe.db.truncate
+`frappe.db.truncate(doctype)`
+
+Truncate a table in the database. This runs a DDL command `TRUNCATE TABLE`, a
+commit is triggered before the statement is executed. This action cannot be
+rolled back. You may want to use this for clearing out log tables periodically.
+
+```python
+frappe.db.truncate("Error Log")
+frappe.db.truncate("__Test Table")
+```
+
+The above commands run a `TRUNCATE` query over tables **tabError Log**
+and **__Test Table**.
 
 ## frappe.db.commit
 `frappe.db.commit()`
