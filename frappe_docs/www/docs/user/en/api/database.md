@@ -225,15 +225,44 @@ data = frappe.db.sql("""
 		gl.debit
 		gl.credit
 	FROM `tabGL Entry` gl
-		LEFT JOIN `tabAccount` acc 
+		LEFT JOIN `tabAccount` acc
 		ON gl.account = acc.name
 	WHERE gl.company = %(company)s
 """, values=values, as_dict=0)
 ```
 
-> Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get_list](#frappedbget_list), etc., if possible.
+> Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get\_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get\_list](#frappedbget_list), etc., if possible.
 
 ## frappe.db.multisql
 `frappe.db.multisql({'mariadb': mariadb_query, 'postgres': postgres_query})`
 
 Execute the suitable SQL statement for any supported database engine.
+
+## frappe.db.rename_table
+
+`frappe.db.rename_table(old_name, new_name)`
+
+Executes a query to change table name. Specify the DocType or internal table's name directly to rename the table.
+
+Example:
+
+```python
+frappe.db.rename_table("__internal_cache", "__temporary_cache")
+frappe.db.rename_table("todo", "ToDo")
+```
+
+The second example should be used only if you understand the ramifications of it.
+
+> Don't use this to rename DocType tables. Use `frappe.rename_doc` for that instead
+
+## frappe.db.describe
+
+`frappe.db.describe(doctype)`
+
+Returns a tuple of the table description for given DocType.
+
+## frappe.db.change\_column\_type
+
+`frappe.db.change_column_type(doctype, column, new_type)`
+
+Changes the type of column for specified DocType.

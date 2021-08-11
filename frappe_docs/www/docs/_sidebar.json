@@ -59,7 +59,8 @@
 			{ "title": "Hooks", "route": "/docs/user/en/python-api/hooks" },
 			{ "title": "REST API", "route": "/docs/user/en/api/rest" },
 			{ "title": "Full Text Search", "route": "/docs/user/en/api/full-text-search" },
-			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" }
+			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" },
+			{ "title": "Query Builder", "route": "/docs/user/en/api/query-builder" }
 		]
 	},
 	{
