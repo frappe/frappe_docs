@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Document - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API for working with Documents in Frappe
@@ -17,8 +16,9 @@ table.
 `frappe.get_doc(doctype, name)`
 
 Returns a [Document](/docs/user/en/understanding-doctypes#document) object of
-the record identified by `doctype` and `name`. If `doctype` is a Single DocType
-`name` is not required.
+the record identified by `doctype` and `name`. If no document is found, a
+`DoesNotExistError` is raised. If `doctype` is a Single DocType `name` is not
+required.
 
 ```python
 # get an existing document
@@ -33,24 +33,58 @@ doc.timezone # Asia/Kolkata
 
 `frappe.get_doc(dict)`
 
-Returns a new Document object in memory which does not exist yet in the database.
+Returns a new Document object in memory which does not exist yet in the
+database.
 ```python
 # create a new document
 doc = frappe.get_doc({
-	'doctype': 'Task',
-	'title': 'New Task'
+    'doctype': 'Task',
+    'title': 'New Task'
 })
 doc.insert()
 ```
 
 `frappe.get_doc(doctype={document_type}, key1 = value1, key2 = value2, ...)`
 
-Returns a new Document object in memory which does not exist yet in the database.
+Returns a new Document object in memory which does not exist yet in the
+database.
 ```python
 # create new object with keyword arguments
 user = frappe.get_doc(doctype='User', email_id='test@example.com')
 user.insert()
 ```
+
+## frappe.get\_last\_doc
+`frappe.get_last_doc(doctype, filters, order_by)`
+
+Returns the last Document object created under the mentioned `doctype`.
+
+```python
+# get the last Task created
+task = frappe.get_last_doc('Task')
+```
+
+You can also specify filters to refine your results. For instance, you can
+retrieve the last canceled Task by adding a filter.
+
+```python
+# get the last available Cancelled Task
+task = frappe.get_last_doc('Task', filters={"status": "Cancelled"})
+```
+
+By default, the `order_by` argument is set to `creation desc`, but this value
+can be overridden to use other non-standard fields that can serve the same
+purpose. For instance, you have a field `timestamp` under the **Task** DocType
+that tracks the time it was approved or marked valid instead of the time it was
+created.
+
+```python
+# get the last Task created based on a non-standard field
+task = frappe.get_last_doc('Task', filters={"Status": "Cancelled"}, order_by="timestamp desc")
+```
+
+Alternatively, you can choose to go completely against all of this and as a part
+of a joke change it to "creation asc" to retrieve the first document instead.
 
 ## frappe.get\_cached\_doc
 
@@ -116,14 +150,15 @@ This method inserts a new document into the database table. It will check for
 user permissions and execute `before_insert`, `validate`, `on_update`,
 `after_insert` methods if they are written in the controller.
 
-It has some escape hatches that can be used to skip certain checks explained below.
+It has some escape hatches that can be used to skip certain checks explained
+below.
 
 ```py
 doc.insert(
-	ignore_permissions=True, # ignore write permissions during insert
-	ignore_links=True, # ignore Link validation in the document
-	ignore_if_duplicate=True, # dont insert if DuplicateEntryError is thrown
-	ignore_mandatory=True # insert even if mandatory fields are not set
+    ignore_permissions=True, # ignore write permissions during insert
+    ignore_links=True, # ignore Link validation in the document
+    ignore_if_duplicate=True, # dont insert if DuplicateEntryError is thrown
+    ignore_mandatory=True # insert even if mandatory fields are not set
 )
 ```
 
@@ -135,8 +170,8 @@ updating values.
 
 ```py
 doc.save(
-	ignore_permissions=True, # ignore write permissions during insert
-	ignore_version=True # do not create a version record
+    ignore_permissions=True, # ignore write permissions during insert
+    ignore_version=True # do not create a version record
 )
 ```
 
@@ -157,8 +192,8 @@ compare what changed from the last version.
 ```py
 old_doc = doc.get_doc_before_save()
 if old_doc.price != doc.price:
-	# price changed
-	pass
+    # price changed
+    pass
 ```
 
 ## doc.reload
@@ -183,7 +218,8 @@ doc.check_permission(permtype='write') # throws if no write permission
 
 ## doc.get_title
 
-Get the document title based on `title_field` or field named **title** or **name**.
+Get the document title based on `title_field` or field named **title** or
+**name**.
 
 ```
 title = doc.get_title()
@@ -222,7 +258,7 @@ doc.db_set('price', 2300, update_modified=False)
 
 ## doc.get_url
 
-Returns Desk URL for this document. For e.g: `/desk#Form/Task/TASK00002`
+Returns Desk URL for this document. For e.g: `/app/task/TASK00002`
 
 ```py
 url = doc.get_url()

@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Testing
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe provides some basic tooling to write automated tests. We use Cypress
@@ -28,12 +27,12 @@ context('ToDo', () => {
     });
 
     it('creates a new todo', () => {
-        cy.visit('/desk#Form/ToDo/New ToDo 1');
+        cy.visit('/app/todo/new-todo-1');
         cy.fill_field('description', 'this is a test todo', 'Text Editor').blur();
         cy.get('.page-title').should('contain', 'Not Saved');
         cy.get('.primary-action').click();
         cy.visit('/desk#List/ToDo');
-        cy.location('hash').should('eq', '#List/ToDo/List');
+		cy.location('hash').should('eq', '/app/todo');
         cy.get('.list-row').should('contain', 'this is a test todo');
     });
 });
@@ -59,4 +58,12 @@ You can also run tests in headless mode.
 ```sh
 # run in headless mode
 bench --site [sitename] run-ui-tests [app] --headless
+```
+
+To enable cypress parallel testing you can pass `--parallel` flag.
+More information on how cypress parallel tests work can be found [here](https://docs.cypress.io/guides/guides/parallelization).
+
+```sh
+# run tests parallelly
+bench --site [sitename] run-ui-tests [app] --parallel
 ```

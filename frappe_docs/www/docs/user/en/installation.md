@@ -1,6 +1,5 @@
 ---
 title: Installation
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Guide for installing Frappe Framework pre-requisites and the Bench CLI
@@ -43,22 +42,48 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 Install [Homebrew](https://brew.sh/). It makes it easy to install packages on macOS.
 
 ```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+> If you're running on Apple M1, please [install the Rosetta2 emulator](https://stackoverflow.com/a/64997047).
 
 Now, you can easily install the required packages by running the following command
 
 ```bash
 brew install python git redis mariadb
-brew cask install wkhtmltopdf
+brew install --cask wkhtmltopdf
+```
+
+Now, edit the MariaDB configuration file.
+
+```bash
+nano /etc/mysql/my.cnf
+```
+
+And add this configuration
+
+```hljs
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+```
+
+Now, just restart the mysql service and you are good to go.
+
+```bash
+brew services restart mariadb
 ```
 
 **Install Node**
 
-We recommend installing node using [nvm](https://github.com/creationix/nvm)
+We recommend installing node using [nvm](https://github.com/nvm-sh/nvm)
 
 ```bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
 After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
@@ -71,8 +96,7 @@ Verify the installation, by running:
 
 ```bash
 node -v
-# output
-v12.16.2
+# v12.xx.x
 ```
 
 Finally, install yarn using npm
@@ -93,8 +117,18 @@ apt install git python-dev redis-server
 
 ```bash
 apt-get install software-properties-common
+```
+
+If you are on Ubuntu version older than 20.04, run this before installing MariaDB:
+
+```bash
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.ubuntu-tw.org/mirror/mariadb/repo/10.3/ubuntu xenial main'
+```
+
+If you are on version Ubuntu 20.04, then MariaDB is available in default repo and you can directly run the below commands to install it:
+
+```bash
 apt-get update
 apt-get install mariadb-server-10.3
 ```
@@ -199,9 +233,6 @@ Add the following configuration
 
 ```
 [mysqld]
-innodb-file-format=barracuda
-innodb-file-per-table=1
-innodb-large-prefix=1
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
@@ -253,4 +284,3 @@ bench start
 ```
 
 Congratulations, you have installed bench on to your system.
-

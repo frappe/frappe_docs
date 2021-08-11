@@ -1,8 +1,7 @@
 ---
 add_breadcrumbs: 1
 page_toc: 1
-title: Understanding DocTypes
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
+title: DocTypes
 metatags:
  description: >
   Learn all about the core concept of DocType and how it is used to describe
@@ -20,7 +19,9 @@ metatags:
     - [Controller Hooks](doctypes/controllers#controller-hooks)
 1. [Child DocType](doctypes/child-doctype)
 1. [Single DocType](doctypes/single-doctype)
+1. [Virtual DocType](doctypes/virtual-doctype)
 1. [Actions and Links](doctypes/actions-and-links)
+1. [Customizing DocTypes](doctypes/customize)
 
 ## Introduction
 
@@ -45,7 +46,7 @@ is `tabArticle`.
 
 The standard way to create a DocType is by typing *new doctype* in the search bar in the **Desk**.
 
-![ToDo DocType](/docs/assets/img/todo_doctype.png)
+![ToDo DocType](/docs/assets/img/doctypes/todo-doctype.png)
 *ToDo DocType*
 
 A DocType not only stores fields, but also other information about how your data
@@ -56,13 +57,13 @@ much code. Learn more about [Meta](#meta).
 > A DocType is also a DocType. This means that we store meta-data as the part of the data.
 
 After creating a DocType, Frappe can provide many features out-of-the-box.
-If you go to `/desk#List/ToDo` you will be routed to the List View in the desk.
+If you go to `/app/todo` you will be routed to the List View in the desk.
 
-![ToDo List](/docs/assets/img/list-view.png)
+![ToDo List](/docs/assets/img/doctypes/list-view.png)
 *ToDo List*
 
-Similarly, you get a Form View at the route `/desk#Form/ToDo/000001`.
+Similarly, you get a Form View at the route `/app/todo/000001`.
 The Form is used to create new docs and view them.
 
-![ToDo Form](/docs/assets/img/form-view.png)
+![ToDo Form](/docs/assets/img/doctypes/form-view.png)
 *ToDo Form*

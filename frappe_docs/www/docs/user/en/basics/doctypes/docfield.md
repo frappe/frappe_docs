@@ -56,6 +56,13 @@ The DocField stores meta-data about the field. Some of them are described below.
         "fieldtype": "Section Break",
         "label": "Details"
     },
+    {
+        "fieldname": "amount",
+        "fieldtype": "Currency", // Currency field
+        "label": "Amount",
+        "non_negative": 1, // determines whether this field value can be negative
+        "options": "INR",
+    }
 ]
 ```
 
@@ -67,4 +74,6 @@ in Version 12 we have introduced two new properties:
 
 
 Frappe comes with more than 30 different fieldtypes out-of-the-box.
-These fieldtypes serve a variety of use-cases. Learn more about [Fieldtypes](#fieldtypes).
+These fieldtypes serve a variety of use-cases. You can learn more about fieldtypes in the next page.
+
+{next}

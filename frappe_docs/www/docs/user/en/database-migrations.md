@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Database Migrations
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe comes with a migration and patch system to handle database migrations

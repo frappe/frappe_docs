@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Apps
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   A Frappe app is a python package that uses the Frappe framework. Frappe apps
@@ -112,11 +111,10 @@ Learn more about [modules](/docs/user/en/understanding-doctypes#module).
 
 ### custom_app/patches.txt
 
-This file is used to maintain the list of patches an app might have to go
-through in its lifecycle. These patches are run in order, and they are run only
-once.
+This file is used to store references to patches that run in database migrations.
+These patches are run in order, and they are run only once.
 
-Learn more about [patches](/docs/user/en/patches).
+Learn more about [Database Migrations](/docs/user/en/database-migrations#data-migrations).
 
 ### custom_app/public
 

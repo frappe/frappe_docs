@@ -1,0 +1,24 @@
+[
+	{
+		"group_title": "Docs",
+		"group_items": [
+			{ "title": "Basics", "route": "/docs/user/en/basics" }
+		]
+	},
+	{
+		"group_title": "DocTypes",
+		"group_items": [
+			{ "title": "Introduction", "route": "/docs/user/en/basics/doctypes" },
+			{ "title": "Modules", "route": "/docs/user/en/basics/doctypes/modules" },
+			{ "title": "DocFields", "route": "/docs/user/en/basics/doctypes/docfield" },
+			{ "title": "Field Types", "route": "/docs/user/en/basics/doctypes/fieldtypes" },
+			{ "title": "Naming", "route": "/docs/user/en/basics/doctypes/naming" },
+			{ "title": "Controllers", "route": "/docs/user/en/basics/doctypes/controllers" },
+			{ "title": "Child DocTypes", "route": "/docs/user/en/basics/doctypes/child-doctype" },
+			{ "title": "Single DocTypes", "route": "/docs/user/en/basics/doctypes/single-doctype" },
+			{ "title": "Virtual Doctypes", "route": "/docs/user/en/basics/doctypes/virtual-doctype" },
+			{ "title": "Actions & Links", "route": "/docs/user/en/basics/doctypes/actions-and-links" },
+			{ "title": "Customizing", "route": "/docs/user/en/basics/doctypes/customize" }
+		]
+	}
+]

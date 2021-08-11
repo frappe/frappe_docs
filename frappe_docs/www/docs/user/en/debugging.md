@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Debugging
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn about debugging techniques while developing Frappe apps.
@@ -185,4 +184,4 @@ properties.
 ![Browser Console](/docs/assets/img/client-side-debugging.png)
 *Browser Console*
 
-> Learn more about the Client API [here](/docs/user/en/api/javascript)
+> Learn more about the Client API [here](/docs/user/en/api#javascript)

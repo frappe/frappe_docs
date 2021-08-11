@@ -12,10 +12,11 @@ def get_context(context):
 		path = path[1:]
 
 	if path.startswith("docs"):
-		image = frappe.utils.get_url("/assets/frappe_docs/images/f-logo-square.png")
-		for key in ["image", "og:image", "twitter:image"]:
-			context.metatags[key] = image
-		context.metatags["twitter:card"] = "summary"
+		if context.metatags:
+			image = frappe.utils.get_url("/assets/frappe_docs/images/f-logo-square.png")
+			for key in ["image", "og:image", "twitter:image"]:
+					context.metatags[key] = image
+			context.metatags["twitter:card"] = "summary"
 
 		context.update(
 			{

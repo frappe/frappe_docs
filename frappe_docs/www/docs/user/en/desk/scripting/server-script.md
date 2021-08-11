@@ -10,7 +10,7 @@ metatags:
 <!-- add-breadcrumbs -->
 # Server Script
 
-**A Server Script lets you dynamically define a Python Script that is executed on the server on a document event or API**
+A Server Script lets you dynamically define a Python Script that is executed on the server on a document event or API
 
 > Introduced in Version 12
 
@@ -21,7 +21,7 @@ To create a Server Script
 1. If your site is being hosted on [erpnext.com](https://erpnext.com/), contact support to activate Server Script.
 	In case of self-hosted accounts, set `server_script_enabled` as true in site_config.json of your site.
 2. To add/edit Server Script, ensure your role is System Manager.
-3. Create a new server script via "New Server Script" in the toolbar.
+3. Type "New Server Script" in the awesomebar and hit enter to create a new Server Script document.
 4. Set the type of server script (Document Event / API).
 5. Set the document type and event name, or method name, script and save.
 
@@ -40,6 +40,7 @@ bench --site site1.local set-config server_script_enabled true
 For scripts that are to be called via document events, you must set the Reference Document Type and Event Name to define the trigger
 
 - Before Insert
+- Before Validate
 - Before Save
 - After Save
 - Before Submit
@@ -53,15 +54,23 @@ For scripts that are to be called via document events, you must set the Referenc
 
 ### 2.3 API Scripts
 
-You can create a new API that can be accessed via `api/method/[methodname]` by the script type "API"
+API endpoints can be created on the fly by using the **Script Type** `"API"`.
+The name of the endpoint depends on field **API Method**. All APIs created using
+Server Scripts will be automatically prefixed with `/api/method`.
 
-If you want the guest user to access the API, you must check on "Allow Guest"
+For instance, a script with the **API Method** `"delete-note"` may be accessed
+via `/api/method/delete-note`. Using Frappe's frontend request library, you
+could use `frappe.call("delete-note")` in your client scripts.
 
-The response can be set via `frappe.response["message"]` object
+Guest access may be enabled by checking **Allow Guest** for the created APIs.
+The response can be set via `frappe.response["message"]` object.
+
 
 ### 2.3 Security
 
-Frappe Framework uses the RestrictedPython library to restrict access to methods available for server scripts. Only the safe methods, listed below are available in server scripts
+Frappe Framework uses the RestrictedPython library to restrict access to methods
+available for server scripts. Only the safe methods, listed below are available
+in server scripts.
 
 For allowed methods, see [Script API](/docs/user/en/desk/scripting/script-api)
 

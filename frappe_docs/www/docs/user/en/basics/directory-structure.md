@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Directory Structure
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Explanation of directory structure of Frappe Framework
@@ -40,7 +39,7 @@ run the command `bench new-app app_name`, the app will be bootstrapped in this
 directory. Your custom apps live here and you are supposed to edit/work with
 them here.
 
-Learn more about [apps](/docs/user/en/apps).
+Learn more about [apps](/docs/user/en/basics/apps).
 
 ### sites
 
@@ -50,20 +49,20 @@ based on their directory name.
 
 Learn more about [sites](/docs/user/en/sites).
 
-### env
+### logs
 
-The Python virtual environment live in this directory. Frappe based apps and
-Python package dependencies are installed here.
+This directory is used to dump log files from various processes. Each log file
+is named based on the process it is logged from.
 
 ### config
 
 Frappe uses 3 Redis instances to manage caching, job queueing and socketio
 communication. All of those configurations live here.
 
-### logs
+### env
 
-This directory is used to dump log files from various processes. Each log file
-is named based on the process it is logged from.
+The Python virtual environment live in this directory. Frappe based apps and
+Python package dependencies are installed here.
 
 ### Procfile
 

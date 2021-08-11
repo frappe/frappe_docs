@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Translations
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn how Frappe handles translations in code which has enabled it to be
@@ -194,7 +193,7 @@ else:
   msg = _("You have {0} pending invoice").format(invoice_count)
 ```
 
-### 4. No Trailing Spaces
+### 5. No Trailing Spaces
 
 Don't start or end the sentence with spaces. Trailing spaces gets trimmed for other languages when passed through translation engine.
 
@@ -208,7 +207,7 @@ msg = _(" You have {0} pending invoice ")
 msg = ' ' + _("You have {0} pending invoices") + ' '
 ```
 
-### 5. Adding context for a string
+### 6. Adding context for a string
 
 > Introduced in version 13
 
@@ -249,9 +248,8 @@ $ bench --site sitename get-untranslated [lang] [path-to-file]
 #### Step 2: Translate
 
 Create another file with updated translations (in the same order as the source
-file). For this you can use the [Google Translator
-Toolkit](https://translate.google.com/toolkit) or [Bing
-Translator](http://www.bing.com/translator/).
+file). For this you can use the [Google Translator](https://translate.google.com/) or
+[Bing Translator](http://www.bing.com/translator/).
 
 #### Step 3: Import your translations
 

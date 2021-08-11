@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Database - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API methods for querying, updating or creating records in Frappe
@@ -15,7 +14,30 @@ metatags:
 - Also aliased to `frappe.get_list`
 
 Returns a list of records from a `doctype` table. ORM Wrapper for a `SELECT`
-query. Will also apply user permissions for the records for the session user.
+query. Will also apply user permissions for the records for the session user. Only returns the document names if the `fields` keyword argument is not given. By default this method returns a list of `dict`s, but, you can pluck a particular field by giving the `pluck` keyword argument:
+
+```python
+frappe.db.get_list('Employee')
+
+# output
+[{'name': 'HR-EMP-00008'},
+ {'name': 'HR-EMP-00006'},
+ {'name': 'HR-EMP-00010'},
+ {'name': 'HR-EMP-00005'}
+]
+
+# with pluck
+frappe.db.get_list('Employee', pluck='name')
+
+# output
+['HR-EMP-00008',
+ 'HR-EMP-00006',
+ 'HR-EMP-00010',
+ 'HR-EMP-00005'
+]
+```
+
+Combining filters and other arguments:
 
 ```python
 frappe.db.get_list('Task',
@@ -28,6 +50,7 @@ frappe.db.get_list('Task',
 	page_length=20,
 	as_list=True
 )
+
 # output
 (('Update Branding and Design', '2019-09-04'),
 ('Missing Documentation', '2019-09-02'),
@@ -37,6 +60,11 @@ frappe.db.get_list('Task',
 frappe.db.get_list('Task', filters={
 	'date': ['>', '2019-09-08']
 })
+
+# Tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
+frappe.db.get_list('Task', filters=[[
+	'date', 'between', ['2020-04-01', '2021-03-31']
+]])
 
 # Tasks with subject that contains "test"
 frappe.db.get_list('Task', filters={
@@ -155,12 +183,38 @@ frappe.db.count('Task', {'status': 'Open'})
 `frappe.db.delete(doctype, filters)`
 
 Delete `doctype` records that match `filters`.
+This runs a DML command, which means it can be rolled back.
+If no filters specified, all the records of the doctype are deleted.
 
 ```python
-frappe.db.delete('Task', {
-	'status': 'Cancelled'
+frappe.db.delete("Route History", {
+	"modified": ("<=", last_record_to_keep[0].modified),
+	"user": user
 })
+
+frappe.db.delete("Error Log")
+frappe.db.delete("__Test Table")
 ```
+
+You may pass the doctype name or an internal table name. Conventionally,
+internal tables in Frappe are prefixed with `__`. The API follows this.
+The above commands run an unconditional `DELETE` query over tables **tabError Log**
+and **__Test Table**.
+
+## frappe.db.truncate
+`frappe.db.truncate(doctype)`
+
+Truncate a table in the database. This runs a DDL command `TRUNCATE TABLE`, a
+commit is triggered before the statement is executed. This action cannot be
+rolled back. You may want to use this for clearing out log tables periodically.
+
+```python
+frappe.db.truncate("Error Log")
+frappe.db.truncate("__Test Table")
+```
+
+The above commands run a `TRUNCATE` query over tables **tabError Log**
+and **__Test Table**.
 
 ## frappe.db.commit
 `frappe.db.commit()`
@@ -183,29 +237,58 @@ Rollbacks current transaction. Calls SQL `ROLLBACK`.
 > early in a transaction.
 
 ## frappe.db.sql
-`frappe.db.sql(query, filters, as_dict)`
+`frappe.db.sql(query, values, as_dict)`
 
 Execute an arbitrary SQL query. This may be useful for complex server side reports with join statements, adjusting the database to new features, etc.
 
 Example:
 
 ```python
-filters = {'company': 'Frappe Technologies Inc'}
+values = {'company': 'Frappe Technologies Inc'}
 data = frappe.db.sql("""
 	SELECT
 		acc.account_number
 		gl.debit
 		gl.credit
 	FROM `tabGL Entry` gl
-		LEFT JOIN `tabAccount` acc 
+		LEFT JOIN `tabAccount` acc
 		ON gl.account = acc.name
 	WHERE gl.company = %(company)s
-""", filters=filters, as_dict=0)
+""", values=values, as_dict=0)
 ```
 
-> Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get_list](#frappedbget_list), etc., if possible.
+> Avoid using this method as it will bypass validations and integrity checks. It's always better to use [frappe.get\_doc](https://frappeframework.com/docs/user/en/api/document#frappeget_doc), [frappe.db.get\_list](#frappedbget_list), etc., if possible.
 
 ## frappe.db.multisql
 `frappe.db.multisql({'mariadb': mariadb_query, 'postgres': postgres_query})`
 
 Execute the suitable SQL statement for any supported database engine.
+
+## frappe.db.rename_table
+
+`frappe.db.rename_table(old_name, new_name)`
+
+Executes a query to change table name. Specify the DocType or internal table's name directly to rename the table.
+
+Example:
+
+```python
+frappe.db.rename_table("__internal_cache", "__temporary_cache")
+frappe.db.rename_table("todo", "ToDo")
+```
+
+The second example should be used only if you understand the ramifications of it.
+
+> Don't use this to rename DocType tables. Use `frappe.rename_doc` for that instead
+
+## frappe.db.describe
+
+`frappe.db.describe(doctype)`
+
+Returns a tuple of the table description for given DocType.
+
+## frappe.db.change\_column\_type
+
+`frappe.db.change_column_type(doctype, column, new_type)`
+
+Changes the type of column for specified DocType.

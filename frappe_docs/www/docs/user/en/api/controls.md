@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Controls - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API methods for creating and managing controls in Frappe
@@ -243,5 +242,20 @@ Here are the `df` properties for most of frappe control types.
 	label: 'In Time',
 	fieldname: 'in_time',
 	fieldtype: 'Time'
+}
+
+// Button
+{
+	label: 'Fetch',
+	fieldname: 'fetch',
+	fieldtype: 'Button',
+	btn_size: 'xs' // xs, sm, lg
+}
+
+//Icon
+{
+	label: 'Page Icon',
+	fieldname: 'page_icon',
+	fieldtype: 'Icon'
 }
 ```

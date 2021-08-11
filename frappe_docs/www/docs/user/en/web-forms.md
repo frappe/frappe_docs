@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Web Forms
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe provides an easy way to generate forms for your website with very little
@@ -36,7 +35,7 @@ that you can use to configure the web form. These files need to be checked into
 version control with your custom app. You can install this app on any site and
 it will have this web form installed.
 
-### Custom Script
+### Client Script
 
 > Introduced in Version 11
 

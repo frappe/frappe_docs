@@ -4,22 +4,25 @@
 		"group_items": [
 			{ "title": "Introduction", "route": "/docs" },
 			{ "title": "Installation", "route": "/docs/user/en/installation" },
-			{ "title": "Documentation", "route": "/docs/user/en" },
+			{ "title": "Prerequisites", "route": "/docs/user/en/prerequisites" },
 			{ "title": "Tutorial", "route": "/docs/user/en/tutorial" },
+			{ "title": "Documentation", "route": "/docs/user/en" },
 			{ "title": "Guides", "route": "/docs/user/en/guides" }
 		]
 	},
 	{
 		"group_title": "Basics",
 		"group_items": [
-			{ "title": "What is Frappe?", "route": "/docs/user/en/basics/what-is-frappe" },
+			{ "title": "What is Frappe?", "route": "/docs/user/en/basics" },
 			{ "title": "Why Frappe?", "route": "/docs/user/en/basics/why" },
 			{ "title": "Architecture", "route": "/docs/user/en/basics/architecture" },
 			{ "title": "Directory Structure", "route": "/docs/user/en/basics/directory-structure" },
 			{ "title": "Apps", "route": "/docs/user/en/basics/apps" },
 			{ "title": "Sites", "route": "/docs/user/en/basics/sites" },
 			{ "title": "DocTypes", "route": "/docs/user/en/basics/doctypes" },
-			{ "title": "Users and Permission", "route": "/docs/user/en/basics/users-and-permissions" }
+			{ "title": "Users and Permissions", "route": "/docs/user/en/basics/users-and-permissions" },
+			{ "title": "Asset Bundling", "route": "/docs/user/en/basics/asset-bundling" },
+			{ "title": "Static Assets", "route": "/docs/user/en/basics/static-assets" }
 		]
 	},
 	{
@@ -28,15 +31,18 @@
 			{ "title": "Desk", "route": "/docs/user/en/desk" },
 			{ "title": "Reports", "route": "/docs/user/en/desk/reports" },
 			{ "title": "Printing", "route": "/docs/user/en/desk/printing" },
+			{ "title": "Attachments", "route": "/docs/user/en/desk/attachments" },
 			{ "title": "Scripting", "route": "/docs/user/en/desk/scripting" },
-			{ "title": "Translations", "route": "/docs/user/en/translations" }
+			{ "title": "Translations", "route": "/docs/user/en/translations" },
+			{ "title": "Form Tours", "route": "/docs/user/en/form-tours" }
 		]
 	},
 	{
 		"group_title": "Portal",
 		"group_items": [
 			{ "title": "Portal Pages", "route": "/docs/user/en/portal-pages" },
-			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" }
+			{ "title": "Web Forms", "route": "/docs/user/en/web-forms" },
+			{ "title": "Blog Post", "route": "/docs/user/en/blog-post" }
 		]
 	},
 	{
@@ -45,12 +51,16 @@
 			{ "title": "Document", "route": "/docs/user/en/api/document" },
 			{ "title": "Database", "route": "/docs/user/en/api/database" },
 			{ "title": "Jinja", "route": "/docs/user/en/api/jinja" },
-			{ "title": "Router", "route": "/docs/user/en/python-api/router" },
+			{ "title": "Routing and Rendering", "route": "/docs/user/en/python-api/routing-and-rendering" },
+			{ "title": "Language Resolution", "route": "/docs/user/en/python-api/language" },
+			{ "title": "Common Utilities", "route": "/docs/user/en/api/utils" },
+			{ "title": "Response", "route": "/docs/user/en/python-api/response" },
 			{ "title": "Search", "route": "/docs/user/en/python-api/search" },
 			{ "title": "Hooks", "route": "/docs/user/en/python-api/hooks" },
 			{ "title": "REST API", "route": "/docs/user/en/api/rest" },
 			{ "title": "Full Text Search", "route": "/docs/user/en/api/full-text-search" },
-			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" }
+			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" },
+			{ "title": "Query Builder", "route": "/docs/user/en/api/query-builder" }
 		]
 	},
 	{
@@ -58,9 +68,11 @@
 		"group_items": [
 			{ "title": "Form", "route": "/docs/user/en/api/form" },
 			{ "title": "Controls", "route": "/docs/user/en/api/controls" },
-			{ "title": "Page", "route": "/docs/user/en/api/server-calls" },
+			{ "title": "List", "route": "/docs/user/en/api/list" },
+			{ "title": "Page", "route": "/docs/user/en/api/page" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/js-utils" },
-			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" }
+			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" },
+			{ "title": "Chart API", "route": "/docs/user/en/api/chart" }
 		]
 	},
 	{
@@ -89,7 +101,10 @@
 				"title": "Production Setup",
 				"route": "/docs/user/en/production-setup"
 			},
-			{ "title": "Rate Limting", "route": "/docs/user/en/rate-limiting" }
+			{
+				"title": "Rate Limiting",
+				"route": "/docs/user/en/rate-limiting"
+			}
 		]
 	},
 	{
