@@ -2,14 +2,14 @@
 add_breadcrumbs: 1
 title: Query Builder - API
 metatags:
-	description: API methods for building SQL queries
+  description: API methods for building SQL queries
 ---
 
 # Query Builder
 
 `frappe.qb` is a query builder written around PyPika to build a single interface for cross-db queries
 
-While developing apps, you'll often need to retrive some specific data from the database. One way to do this is to use `frappe.db.sql` and write a RAW SQL queries.
+While developing apps, you'll often need to retrieve some specific data from the database. One way to do this is to use `frappe.db.sql` and write raw SQL queries.
 
 Maybe something like
 
@@ -72,11 +72,11 @@ SELECT `id`,`fname`,`lname`,`phone` FROM `tabcustomers`
 
 ```python
 customers = frappe.qb.DocType('customers')
-q = (frappe.qb
-	.from_(customers)
-	.select(customers.id, customers.fname,customers.lname, customers.phone)
-	.where((customers.fname == 'Max') | (customers.id.like('RA%')) )
-	.where(customers.lname == 'Mustermann')
+q = (
+	frappe.qb.from_(customers)
+		.select(customers.id, customers.fname,customers.lname, customers.phone)
+		.where((customers.fname == 'Max') | (customers.id.like('RA%')) )
+		.where(customers.lname == 'Mustermann')
 )
 ```
 
@@ -150,7 +150,7 @@ q = Query.from_(customers).select(
 )
 ```
 
-If we print `q` we would get
+If we print `q`, we would get
 
 ```SQL
 SELECT DATE_DIFF('day',"created_date","updated_date") FROM "customer"
@@ -194,7 +194,7 @@ class MATCH(DistinctOptionFunction):
 - We have wrapped the `get_function_sql()` method, which allows us to append the required SQL text for Against.
 - this can further be extended to use any number other chains.
 
-In use The Match class looks like this
+In use, the Match class looks like this
 
 ```python
 from frappe.query_builder.functions import Match
