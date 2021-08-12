@@ -99,7 +99,12 @@ This fieldtype can be used to take `code` as input. A code editor is rendered in
 You can enable basic syntax validations for following languages by setting "Option".
 
 1. Python (for scripts)
-2. PythonExpression (for simple one line expressions)
+2. PythonExpression (for simple one-line expressions that must evaluate to a value) E.g. Assignment Rule condition
+
+Example of differences between `Python` and `PythonExpression`:
+
+* `variable = 42` is a valid `Python` code but not a valid `PythonExpression` since the assignment doesn't evaluate to any value. 
+* `variable == 42` is both valid `Python` code and valid `PythonExpression` as the expresion can evaluate to some value.
 
 <img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/code_fieldtype.png">
 
