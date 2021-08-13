@@ -39,39 +39,38 @@ count_all = frappe.qb.fn.Count('*').as_("count")
 case = frappe.qb.terms.Case().when(WebPageView.is_unique == "1", "1")
 count_is_unique = Count(case).as_("unique_count")
 
-query = (
+result = (
 	frappe.qb.from_(WebPageView)
 		.select(WebPageView.path, count_all, count_is_unique)
 		.where(Web_Page_View.creation[some_date:some_later_date])
-)
-
-result = frappe.db.sql(query)
+).run()
 ```
 
 ## frappe.qb
 
-Returns a Pypika query object which lets you build queries. One of its methods is -
+Returns a Pypika query object which lets you build queries. Queries built using this object will be a
+type from `pypika.dialects`, sprinkled with some Frappe sugar. Some of its methods are:
 
-### frappe.qb.from\_(table)
+### frappe.qb.from\_(doctype)
 
 lets you construct a from query to select data
 
 **Select query**
 
 ```python
-query = frappe.qb.from_('customers').select('id', 'fname', 'lname', 'phone')
+query = frappe.qb.from_('Customer').select('id', 'fname', 'lname', 'phone')
 ```
 
 The SQL query built is
 
 ```sql
-SELECT `id`,`fname`,`lname`,`phone` FROM `tabcustomers`
+SELECT `id`,`fname`,`lname`,`phone` FROM `tabCustomer`
 ```
 
 **A complex Select examlple**
 
 ```python
-customers = frappe.qb.DocType('customers')
+customers = frappe.qb.DocType('Customer')
 q = (
 	frappe.qb.from_(customers)
 		.select(customers.id, customers.fname,customers.lname, customers.phone)
@@ -83,7 +82,7 @@ q = (
 The SQL query built is
 
 ```sql
-SELECT `id`,`fname`,`lname`,`phone` FROM `tabcustomers` WHERE (`fname`='Max' OR `id` LIKE 'RA%') AND `lname`='Mustermann'
+SELECT `id`,`fname`,`lname`,`phone` FROM `tabCustomer` WHERE (`fname`='Max' OR `id` LIKE 'RA%') AND `lname`='Mustermann'
 ```
 
 Some noteworthy things
@@ -97,7 +96,7 @@ You can read more about the other functions at the [Pypika](https://github.com/k
 
 ### frappe.qb.Doctype(name\_of\_table)
 
-Returns a pypika table object which can be used elsewhere. It will automatically add 'tab' if necessary.
+Returns a PyPika table object which can be used elsewhere. It will automatically add 'tab' if necessary.
 
 ### frappe.qb.Table(name\_of\_table)
 
@@ -107,13 +106,66 @@ Does the same thing as `frappe.qb.DocType` but will not append 'tab'. It's inten
 
 ### frappe.qb.Field(name\_of\_coloum)
 
-Return a pypika field object, this represents a column. They are usually used to compare columns with values.
+Return a PyPika field object, this represents a column. They are usually used to compare columns with values.
 
 One example would be
 
 ```python
 lname = frappe.qb.Field("lname")
 q = frapppe.qb.from_("customers").select("*").where(lname == 'Mustermann')
+```
+
+## Executing queries
+
+Queries built using the `frappe.qb` namespace are PyPika objects. They will have to be converted to string objects so that your database management system can recognize them.
+
+To check how your query object translates, you can type cast it with `str` or use the `.get_sql` method they come with.
+
+```python
+query = frappe.qb.from_('Customer').select('id', 'fname', 'lname', 'phone')
+
+str(query)
+# SELECT "id","fname","lname","phone" FROM "tabCustomer"
+
+query.get_sql()
+# SELECT "id","fname","lname","phone" FROM "tabCustomer"
+
+str(query) == query.get_sql()
+# True
+```
+
+### Run method
+
+This is the most preferred method to execute your queries. Every valid query has the `run` method which you
+may use to execute the query with.
+
+```python
+frappe.qb.from_('Customer').select('id', 'fname', 'lname', 'phone').run()
+```
+
+The `run` method accepts `kwargs` which will be passed on while the query is being executed. You may pass whatever options are available in `frappe.db.sql`, through the `run` method.
+
+To run debug on your query, or get the result in the form of List[Dict], you may use the following respectively:
+
+```python
+In [7]: frappe.qb.from_('ToDo').select('name').run(debug=True)
+SELECT "name" FROM "tabToDo"
+Execution time: 0.0 sec
+Out[7]: [('8d765f73a2',)]
+
+In [8]: frappe.qb.from_('ToDo').select('name').run(as_dict=True)
+Out[8]: [{'name': '8d765f73a2'}]
+```
+
+> The `run` method internally calls the lower level `frappe.db.sql` API.
+
+### frappe.db.sql
+
+You may choose to directly pass your query objects to `frappe.db.sql` too. This works the same way as you would pass a string query in.
+
+```python
+query = frappe.qb.from_('Customer').select('id', 'fname', 'lname', 'phone')
+frappe.db.sql(query)
 ```
 
 ## frappe.query_builder.functions
@@ -130,19 +182,19 @@ from frappe.query_builder.functions import Count
 Notes = frappe.qb.DocType("Notes")
 count_pages = Count(Notes.content).as_("Pages")
 
-result = frappe.db.sql(frappe.qb.from_(Notes).select(count_pages))
+result = frappe.qb.from_(Notes).select(count_pages).run(as_dict=True)
 ```
 
 ### Custom Functions
 
-`frappe.query_builder.functions` is a superset of `pypika.functions`, so it has all pypika functions and some custom ones we made. You can make your custom functions by importing the `CustomFunction` class from pypika
+`frappe.query_builder.functions` is a superset of `pypika.functions`, so it has all PyPika functions and some custom ones we made. You can make your custom functions by importing the `CustomFunction` class from PyPika
 
 One implementation of the DateDiff function
 
 ```python
 from pypika import CustomFunction
 
-customers = Tables('customers')
+customers = Tables('Customer')
 DateDiff = CustomFunction('DATE_DIFF', ['interval', 'start_date', 'end_date'])
 
 q = Query.from_(customers).select(
@@ -153,7 +205,7 @@ q = Query.from_(customers).select(
 If we print `q`, we would get
 
 ```SQL
-SELECT DATE_DIFF('day',"created_date","updated_date") FROM "customer"
+SELECT DATE_DIFF('day',"created_date","updated_date") FROM "Customer"
 ```
 
 > Notice how we specify arguments and the actual SQL text. The exact format might not work for more complex functions. The advanced section covers more complicated methods.
