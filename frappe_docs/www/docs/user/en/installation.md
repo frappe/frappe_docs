@@ -28,7 +28,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 
 ```
   Python 3.6+
-  Node.js 12
+  Node.js 14
   Redis 5                                       (caching and realtime updates)
   MariaDB 10.3.x / Postgres 9.5.x               (to run database driven apps)
   yarn 1.12+                                    (js dependency manager)
@@ -89,14 +89,14 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
 
 ```bash
-nvm install 12
+nvm install 14
 ```
 
 Verify the installation, by running:
 
 ```bash
 node -v
-# v12.xx.x
+# v14.xx.x
 ```
 
 Finally, install yarn using npm
@@ -162,7 +162,7 @@ brew services restart mariadb
 We recommend installing node using [nvm](https://github.com/nvm-sh/nvm)
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
 After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
