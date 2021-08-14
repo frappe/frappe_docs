@@ -16,10 +16,11 @@ page_toc: 1
 
 This guide assumes you are using a personal computer, VPS or a bare-metal server. You also need to be on a *nix system, so any Linux Distribution and MacOS is supported. However, we officially support only the following distributions.
 
-1. [MacOS](#macos)
-1. [Debian / Ubuntu](#debian-ubuntu)
-1. [Arch Linux](#arch-linux)
-1. CentOS
+1. [MacOS `[Intel Processor]`](#macos-intel-processor)
+2. [MacOS `[M1]`](#macos-m1)
+3. [Debian / Ubuntu](#debian-ubuntu)
+4. [Arch Linux](#arch-linux)
+5. CentOS
 
 > Learn more about the architecture [here](/docs/user/en/architecture).
 
@@ -37,7 +38,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
   NGINX                                         (proxying multitenant sites in production)
 ```
 
-### MacOS
+### MacOS `[Intel Processor]`
 
 Install [Homebrew](https://brew.sh/). It makes it easy to install packages on macOS.
 
@@ -45,7 +46,6 @@ Install [Homebrew](https://brew.sh/). It makes it easy to install packages on ma
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-> If you're running on Apple M1, please [install the Rosetta2 emulator](https://stackoverflow.com/a/64997047).
 
 Now, you can easily install the required packages by running the following command
 
@@ -97,6 +97,85 @@ Verify the installation, by running:
 ```bash
 node -v
 # v12.xx.x
+```
+
+Finally, install yarn using npm
+
+```bash
+npm install -g yarn
+```
+
+### MacOS `[M1]`
+
+**Install [Rosetta](https://support.apple.com/en-in/HT211861)**
+
+```bash 
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+```
+
+Make a “Rosetta” version of your terminal:
+
+> Go to your “Applications” folder on Finder → right click Terminal in the “Utilities” folder → Duplicate → rename to “Rosetta Terminal” → Get Info → Open using > Rosetta
+
+Install Homebrew in the Rosetta Terminal:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**Install Required Packages**
+
+> All the packages need to be installed in the Rosetta Terminal
+
+```bash
+brew install python git redis mariadb
+brew install --cask wkhtmltopdf
+```
+
+Now, edit the MariaDB configuration file.
+
+```bash 
+nano /usr/local/etc/my.cnf
+```
+
+And add this configuration
+
+```hljs
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+innodb_read_only_compressed=OFF
+
+[mysql]
+default-character-set = utf8mb4
+```
+
+Now, just restart the mysql service and you are good to go.
+
+```bash
+brew services restart mariadb
+```
+
+**Install Node**
+
+We recommend installing node using [nvm](https://github.com/nvm-sh/nvm)
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+
+After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
+
+```bash
+nvm install 14
+```
+
+Verify the installation, by running:
+
+```bash
+node -v
+# v14.xx.x
 ```
 
 Finally, install yarn using npm
