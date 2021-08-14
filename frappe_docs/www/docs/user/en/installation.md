@@ -145,7 +145,7 @@ And add this configuration
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
-innodb_read_only_compressed=OFF
+innodb-read-only-compressed=OFF
 
 [mysql]
 default-character-set = utf8mb4
