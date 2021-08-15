@@ -22,7 +22,7 @@ $ bench set-config -g developer_mode true
 
 ## Creating a DocType
 
-While in Desk, navigate to the **DocType List** using the [Awesoembar](/docs/user/en/desk#awesomebar). This list will include DocTypes bundled with the framework, those that are a part of the installed Frappe apps and custom ones, which you can create specific to each site.
+While in Desk, navigate to the **DocType List** using the [Awesomebar](/docs/user/en/desk#awesomebar). This list will include DocTypes bundled with the framework, those that are a part of the installed Frappe apps and custom ones, which you can create specific to each site.
 
 The first doctype we will create is **Article**. To create it, click on New.
 
