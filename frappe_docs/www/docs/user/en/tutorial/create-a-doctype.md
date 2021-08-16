@@ -18,6 +18,7 @@ Go to your terminal and quit the bench server if it's already running then from 
 
 ```bash
 $ bench set-config -g developer_mode true
+$ bench start
 ```
 
 ## Creating a DocType
