@@ -77,8 +77,10 @@ Here are the `df` properties for most of frappe control types.
 	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON,
 	// wrap code
 	wrap: true,
-	// height of the editor would depend on the number of lines of code if this is set
+	// max-height of the editor would depend on the number of lines of code if this is set
 	max_lines: 10
+	// min-height of the editor would depend on the number of lines of code if this is set
+	min_lines: 5
 }
 
 // Color
