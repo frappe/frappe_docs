@@ -76,7 +76,9 @@ Here are the `df` properties for most of frappe control types.
 	// for syntax highlighting
 	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON,
 	// wrap code
-	wrap: true
+	wrap: true,
+	// height of the editor would depend on the number of lines of code if this is set
+	max_lines: 10
 }
 
 // Color
