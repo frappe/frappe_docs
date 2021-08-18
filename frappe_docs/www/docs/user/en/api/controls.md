@@ -54,7 +54,7 @@ Here are the `df` properties for most of frappe control types.
 	]
 }
 
-// Bar
+// Barcode
 
 {
 	label: 'Item Barcode',
