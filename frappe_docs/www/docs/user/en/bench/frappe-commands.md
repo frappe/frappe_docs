@@ -312,7 +312,7 @@ version](/docs/user/en/bench/reference/bench-version) reference.
  - **bulk-rename**: Rename multiple records via a CSV file.
  - **clear-cache**: Clear cache, doctype cache and defaults.
  - **clear-website-cache**: Clear Website cache.
- - **console**: Starts an IPython console for the site.
+ - **console**: Starts an IPython console for the site. Use with the `--autoreload` flag to reload changes to code automatically.
  - **data-import**: Import documents in bulk from CSV or XLSX using data import.
  - **destroy-all-sessions**: Clear sessions of all users (logs them out).
  - **execute**: Execute a particular function or method with a given set of
