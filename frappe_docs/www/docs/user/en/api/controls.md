@@ -74,7 +74,9 @@ Here are the `df` properties for most of frappe control types.
 	fieldname: 'script',
 	fieldtype: 'Code',
 	// for syntax highlighting
-	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON
+	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON,
+	// wrap code
+	wrap: true
 }
 
 // Color
