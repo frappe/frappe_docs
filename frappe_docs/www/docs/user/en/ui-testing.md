@@ -67,3 +67,59 @@ More information on how cypress parallel tests work can be found [here](https://
 # run tests parallelly
 bench --site [sitename] run-ui-tests [app] --parallel
 ```
+
+### Testing-Library Queries
+You can also use [Testing Library](https://testing-library.com/) queries within your Cypress tests. Testing Library provides testing utilities that:
+
+- Make it easier to write UI tests that resemble the way users interact with the app
+- Make it easier to find elements in the DOM without knowing all the implementation details
+- Help keep the tests maintainable (so minor refactors don't break tests)
+
+> See [Testing Library Docs](https://testing-library.com/docs/queries/about) for more details about usage
+
+Testing Library provides several queries to find elements on a page. Here are some examples:
+
+- [ByRole](https://testing-library.com/docs/queries/byrole)
+
+  Look [here](https://www.w3.org/TR/html-aria/#docconformance) for table of HTML elements and their default roles
+
+  | Query                                  | Element                                                                                       |
+  | -------------------------------------- | --------------------------------------------------------------------------------------------- |
+  | `findByRole('button', {name: 'Save'})` | `<button>` with [accessible name](https://www.tpgi.com/what-is-an-accessible-name/) = 'Save'  |
+  | `findByRole('checkbox')`               | `<input type=checkbox>`                                                                       |
+  | `findByRole('textbox')`                | `<input type=text>`, `<textarea>` _(Also matches other elements with default role='textbox')_ |
+  | `findByRole('searchbox')`              | `<input type=search>`                                                                         |
+  | `findByRole('listbox')`                | `<select>`, `<datalist>`                                                                      |
+
+- [ByLabelText](https://testing-library.com/docs/queries/bylabeltext)
+
+  | Query                         | Element                                      |
+  | ----------------------------- | -------------------------------------------- |
+  | `findByLabelText('Optimize')` | element associated with the label 'Optimize' |
+
+- [ByPlaceholderText](https://testing-library.com/docs/queries/byplaceholdertext)
+
+  | Query                           | Element                         |
+  | ------------------------------- | ------------------------------- |
+  | `findByPlaceholderText('Name')` | element with placeholder='Name' |
+
+- [ByText](https://testing-library.com/docs/queries/bytext)
+
+  | Query                        | Element                                 |
+  | ---------------------------- | --------------------------------------- |
+  | `findByText('example.json')` | element with textContent='example.json' |
+
+- [ByDisplayValue](https://testing-library.com/docs/queries/bydisplayvalue)
+
+  | Query                            | Element                                                                                                    |
+  | -------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+  | `findByDisplayValue('Option 1')` | `<select>` with selected `<option>` 'Option 1' _(Also matches `<input>` or `<textarea>` with matching value attribute)_ |
+
+- [ByTitle](https://testing-library.com/docs/queries/bytitle)
+
+  | Query                      | Element                        |
+  | -------------------------- | ------------------------------ |
+  | `findByTitle('Open Link')` | element with title='Open Link' |
+
+- [ByAltText](https://testing-library.com/docs/queries/byalttext/)
+- [ByTestId](https://testing-library.com/docs/queries/bytestid/)
