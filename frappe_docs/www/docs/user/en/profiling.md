@@ -8,7 +8,7 @@ metatags:
 
 # Profiling
 
-## Frappe Recorder - SQL profiler
+## Recorder - SQL profiler
 
 Frappe Recorder is a profiling tool built into the Frappe framework designed to capture all requests, SQL queries executed along with stack traces.
 
