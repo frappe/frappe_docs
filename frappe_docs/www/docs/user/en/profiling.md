@@ -67,7 +67,7 @@ You should be able to run most commands you can run via console with `execute` n
 
 ## Monitoring
 
-Monitor logs request and job metadata. To enable this feature set `monitor: 1` in `site_config.json` or `common_site_config.json`.
+Monitor logs request and job metadata. To enable this feature set `"monitor": 1` in your site config.
 
 Collected data is buffered in redis cache and periodically moved to `monitor.json.log` file in `logs` directory with a scheduled job `frappe.monitor.flush`.
 
