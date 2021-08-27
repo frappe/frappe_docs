@@ -221,11 +221,7 @@ and **__Test Table**.
 
 Commits current transaction. Calls SQL `COMMIT`.
 
-> Frappe will automatically run `frappe.db.commit()` at the end of a successful
-> Web Request of type `POST` or `PUT`. It does not run on `GET` requests.
->
-> You dont need to call this explicitly in most cases. Use this if you have to
-> commit early in a transaction.
+> In most cases you don't need to commit manually. Refer Frappe's [Database transaction model](#database-transaction-model) below.
 
 ## frappe.db.rollback
 `frappe.db.rollback()`
@@ -292,3 +288,34 @@ Returns a tuple of the table description for given DocType.
 `frappe.db.change_column_type(doctype, column, new_type)`
 
 Changes the type of column for specified DocType.
+
+
+## Database transaction model
+
+Frappe's database abstractions implement a sane transaction model by default. So in most cases, you won't have to deal with SQL transactions manually. A broad description of this model is described below:
+
+### Web requests
+
+- While performing `POST` or `PUT`, if any writes were made to the database, they are committed at end of the successful request.
+- AJAX calls made using `frappe.call` are `POST` by default unless changed.
+- `GET` requests do not cause an implicit commit.
+- Any **uncaught** exception during handling of request will rollback the transaction.
+
+### Background/scheduled Jobs
+
+- Calling a function as background or scheduled job will commit the transaction after successful completion.
+- Any **uncaught** exception will cause rollback of the transaction.
+
+
+### Patches
+
+- Successful completion of the patch's `execute` function will commit the transaction automatically.
+- Any **uncaught** exception will cause rollback of the transaction.
+
+### Unit tests
+
+- Transaction is committed after running one test module. Test module means any python test file like `test_core.py`.
+- Transaction is also committed after finishing all tests.
+- Any **uncaught** exception will exit the test runner, hence won't commit.
+
+> Note: If you're catching exceptions anywhere, then database abstraction does not know that something has gone wrong hence you're responsible for the correct rollback of the transaction.
