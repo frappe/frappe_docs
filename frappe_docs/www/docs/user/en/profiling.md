@@ -38,7 +38,7 @@ Click on a row to open the request for extra information. Following information 
 
 SQL Queries table can be sorted and grouped for duplicates to find the relevant queries. To know more about a particular query click on row to expand additional information. This includes the duration of the query, stack trace and SQL's `EXPLAIN` output for that query.
 
-Implementation note: Recorder adds sizable overhead for capturing the details, hence overall duration is not representative of real-world performance. Query time however is very close to real-world performance.
+> Implementation note: Recorder adds sizable overhead for capturing the details, hence overall duration is not representative of real-world performance. Query time however is very close to real-world performance.
 
 
 ### Exporting Frappe Recorder captures
