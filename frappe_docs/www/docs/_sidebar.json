@@ -128,6 +128,10 @@
 				"route": "/docs/user/en/debugging"
 			},
 			{
+				"title": "Profiling",
+				"route": "/docs/user/en/profiling"
+			},
+			{
 				"title": "Contribution Guidelines",
 				"route": "https://github.com/frappe/erpnext/wiki/Contribution-Guidelines"
 			}
