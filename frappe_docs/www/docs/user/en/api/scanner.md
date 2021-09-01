@@ -8,7 +8,9 @@ metatags:
 
 # Scanner API
 
-Frappe uses an open source [library](https://github.com/mebjas/html5-qrcode) to provide a flexible way to handle inputs like Barcodes, QRCodes etc. using device camera.
+Frappe uses the open-source library [Html5-QRCode](https://github.com/mebjas/html5-qrcode) to provide a flexible way to handle inputs like Barcodes, QRCodes, etc. using the device camera.
+
+
 
 ## frappe.ui.Scanner
 
