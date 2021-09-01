@@ -72,7 +72,8 @@
 			{ "title": "Page", "route": "/docs/user/en/api/page" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/js-utils" },
 			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" },
-			{ "title": "Chart API", "route": "/docs/user/en/api/chart" }
+			{ "title": "Chart API", "route": "/docs/user/en/api/chart" },
+			{ "title": "Scanner API", "route": "/docs/user/en/api/scanner" }
 		]
 	},
 	{
