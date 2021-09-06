@@ -174,6 +174,18 @@ page.add_inner_button('New Post', () => new_post(), 'Make')
 ![Page Inner Button Group](/docs/assets/img/page-inner-button-group.png)
 *Page Inner Button Group*
 
+### page.change\_custom_button_type
+
+Change a specific custom button type by label (and group).
+
+```js
+// change type of ungrouped button
+page.change_inner_button_type('Update Posts', null, 'primary');
+
+// change type of a button in a group
+page.change_inner_button_type('Delete Posts', 'Actions', 'danger');
+```
+
 ## page.remove\_inner_button
 
 Remove buttons in the inner toolbar.
