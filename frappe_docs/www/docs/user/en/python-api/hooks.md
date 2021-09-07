@@ -439,14 +439,14 @@ When a Web Form is created using non custom doctype, we can get the context from
 
 **app/hooks.py**
 ```py
-get_list_context_for_custom_webform = "app.webform.get_list_context_for_custom_webform"
+webform_list_context = "app.webform.get_webform_list_context"
 ```
 
 **app/webform.py**
 ```py
-def get_list_context_for_custom_webform():
+def get_webform_list_context():
 	return {
-		"get_list": get_transaction_list_for_custom_webform
+		"get_list": get_webform_transaction_list
 	}
 ```
 
