@@ -20,6 +20,7 @@ In this section we will discuss what views are provided by Desk and how to confi
 - [Awesomebar](#awesomebar)
 - [List View](#list-view)
 - [Form View](#form-view)
+- [Grid View](#grid-view)
 - [Report Builder](#report-builder)
 - [Tree View](#tree-view)
 - [Calendar View](#calendar-view)
@@ -119,6 +120,14 @@ chronological order.
 *Form Timeline*
 
 > Learn more about the [Form API](/docs/user/en/api/form).
+
+## Grid View
+
+Grid view is used as a table in the form view to insert multiple records.
+User can configure the columns of the grid view from the form.
+
+![Grid View](/docs/assets/img/desk/configure_grid_columns.gif)
+
 
 ## Report Builder
 
