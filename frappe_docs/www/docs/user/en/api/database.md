@@ -293,7 +293,7 @@ Changes the type of column for specified DocType.
 
 `frappe.db.add_index(doctype, fields, index_name)`
 
-creates indexes for doctypes for the specified fields
+Creates indexes for doctypes for the specified fields. 
 
 > Note: if you want an index on a TEXT or a BLOB field, you must specify a fixed length to do that.
 
