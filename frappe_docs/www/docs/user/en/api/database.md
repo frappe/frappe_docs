@@ -289,6 +289,19 @@ Returns a tuple of the table description for given DocType.
 
 Changes the type of column for specified DocType.
 
+## frappe.db.add_index
+
+`frappe.db.add_index(doctype, fields, index_name)`
+
+Creates indexes for doctypes for the specified fields. 
+
+> Note: if you want an index on a TEXT or a BLOB field, you must specify a fixed length to do that.
+
+Example:
+
+```py
+frappe.db.add_index("Notes", ["id(10)", "content(500)"], index_name)
+```
 
 ## Database transaction model
 
@@ -305,7 +318,6 @@ Frappe's database abstractions implement a sane transaction model by default. So
 
 - Calling a function as background or scheduled job will commit the transaction after successful completion.
 - Any **uncaught** exception will cause rollback of the transaction.
-
 
 ### Patches
 
