@@ -302,6 +302,18 @@ frm.add_custom_button('Closed', () => {
 }, 'Set Status');
 ```
 
+### frm.change\_custom_button_type
+
+Change a specific custom button type by label (and group).
+
+```js
+// change type of ungrouped button
+frm.change_custom_button_type('Open Reference form', null, 'primary');
+
+// change type of a button in a group
+frm.change_custom_button_type('Closed', 'Set Status', 'danger');
+```
+
 ### frm.remove\_custom_button
 
 Remove a specific custom button by label (and group).
