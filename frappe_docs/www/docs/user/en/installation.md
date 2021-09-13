@@ -38,7 +38,7 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
   NGINX                                         (proxying multitenant sites in production)
 ```
 
-### MacOS `[Intel Processor]`
+### macOS
 
 Install [Homebrew](https://brew.sh/). It makes it easy to install packages on macOS.
 
@@ -47,98 +47,21 @@ Install [Homebrew](https://brew.sh/). It makes it easy to install packages on ma
 ```
 
 
-Now, you can easily install the required packages by running the following command
+Now, you can easily install the required packages by running the following commands.
 
 ```bash
-brew install python git redis mariadb
+brew install git python node@14 mariadb redis
 brew install --cask wkhtmltopdf
 ```
 
-Now, edit the MariaDB configuration file.
+Next, open the MariaDB configuration file:
 
+> If you are using Mac on Apple M1 chip, run this command instead: `nano /opt/homebrew/etc/my.cnf`
 ```bash
-nano /etc/mysql/my.cnf
-```
-
-And add this configuration
-
-```hljs
-[mysqld]
-character-set-client-handshake = FALSE
-character-set-server = utf8mb4
-collation-server = utf8mb4_unicode_ci
-
-[mysql]
-default-character-set = utf8mb4
-```
-
-Now, just restart the mysql service and you are good to go.
-
-```bash
-brew services restart mariadb
-```
-
-**Install Node**
-
-We recommend installing node using [nvm](https://github.com/nvm-sh/nvm)
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-```
-
-After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
-
-```bash
-nvm install 14
-```
-
-Verify the installation, by running:
-
-```bash
-node -v
-# v14.xx.x
-```
-
-Finally, install yarn using npm
-
-```bash
-npm install -g yarn
-```
-
-### MacOS `[M1]`
-
-**Install [Rosetta](https://support.apple.com/en-in/HT211861)**
-
-```bash 
-/usr/sbin/softwareupdate --install-rosetta --agree-to-license
-```
-
-Make a “Rosetta” version of your terminal:
-
-> Go to your “Applications” folder on Finder → right click Terminal in the “Utilities” folder → Duplicate → rename to “Rosetta Terminal” → Get Info → Open using > Rosetta
-
-Install Homebrew in the Rosetta Terminal:
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-**Install Required Packages**
-
-> All the packages need to be installed in the Rosetta Terminal
-
-```bash
-brew install python git redis mariadb
-brew install --cask wkhtmltopdf
-```
-
-Now, edit the MariaDB configuration file.
-
-```bash 
 nano /usr/local/etc/my.cnf
 ```
 
-And add this configuration
+and add this configuration.
 
 ```hljs
 [mysqld]
@@ -151,34 +74,13 @@ innodb-read-only-compressed=OFF
 default-character-set = utf8mb4
 ```
 
-Now, just restart the mysql service and you are good to go.
+Now, just restart the MySQL service and database is ready.
 
 ```bash
 brew services restart mariadb
 ```
 
-**Install Node**
-
-We recommend installing node using [nvm](https://github.com/nvm-sh/nvm)
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-```
-
-After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
-
-```bash
-nvm install 14
-```
-
-Verify the installation, by running:
-
-```bash
-node -v
-# v14.xx.x
-```
-
-Finally, install yarn using npm
+Finally, install Yarn using npm.
 
 ```bash
 npm install -g yarn
