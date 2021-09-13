@@ -73,6 +73,7 @@ apps/custom_app
 ├── license.txt
 ├── requirements.txt
 ├── package.json
+├── dev-requirements.txt
 └── setup.py
 ```
 
@@ -81,10 +82,18 @@ apps/custom_app
 This file stores the list of python dependencies. When this app is installed,
 it's dependencies will also get installed.
 
+
 ### package.json
 
 This file is used to keep track of node dependencies. Learn more about it
 [here](https://docs.npmjs.com/files/package.json).
+
+### dev-requirements.txt [Optional]
+
+This file stores the list of python development dependencies. Syntax of this
+file is same as requirements.txt. If developer mode is enabled, then
+installing the app will also install its development dependencies.
+
 
 ### custom_app
 
