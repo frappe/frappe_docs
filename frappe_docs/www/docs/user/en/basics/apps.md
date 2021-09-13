@@ -82,7 +82,6 @@ apps/custom_app
 This file stores the list of python dependencies. When this app is installed,
 it's dependencies will also get installed.
 
-
 ### package.json
 
 This file is used to keep track of node dependencies. Learn more about it
