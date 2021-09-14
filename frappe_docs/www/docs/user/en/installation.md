@@ -50,7 +50,7 @@ Install [Homebrew](https://brew.sh/). It makes it easy to install packages on ma
 Now, you can easily install the required packages by running the following command
 
 ```bash
-brew install python git redis mariadb@10.5
+brew install python git redis mariadb@10.3
 brew install --cask wkhtmltopdf
 ```
 
