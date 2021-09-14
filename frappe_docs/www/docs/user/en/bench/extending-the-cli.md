@@ -19,7 +19,7 @@ commands.
 
 The directory structure with a Frappe App `flags` may be visualized as:
 
-```
+```bash
 frappe-bench
 |──apps
     |── frappe

@@ -230,6 +230,26 @@ just in case.
    `currentsite.txt`.
 
 
+### Database Maintenance Commands
+
+Set of commands that are related to database management and maintenance. These
+commands offer more control to your site's database. You may want to fine-tune
+your deployment to fit your site's needs over time.
+
+#### Table Transformations
+
+The `transform-database` command allows you to manage the settings of your
+site's tables. At this point, you can switch `engine` and `row_format` settings for
+select tables on your site database.
+
+```bash
+bench --site {site} transform-database --tables {tables}
+```
+
+For more information and examples, see the [bench
+transform-database](/docs/user/en/bench/reference/transform-database) reference.
+
+
 ### Scheduler Commands
 
 Commands to manage and review the scheduler and background jobs' statuses for
@@ -327,6 +347,7 @@ version](/docs/user/en/bench/reference/bench-version) reference.
    directory, all files ending with `.json` are imported
  - **jupyter**: Starting a Jupyter Notebook server.
  - **make-app**: Creates a boilerplate Frappe Application.
+ - **db-console**: Start the interactive DB console for your site. This command is an alias over commands: mariadb, postgres
  - **mariadb**: Start the MySQL interactive console for the mysql site.
  - **postgres**: Start the PostgreSQL interactive console for the postgres site.
  - **rebuild-global-search**: Setup help table in the current site (called after

@@ -29,4 +29,8 @@ Manual for the commands under Frappe & Bench, accessible via the Bench CLI.
 
 1. [version](/docs/user/en/bench/reference/bench-version)
 
+## Database Maintenance Commands
 
+1. [transform-database](/docs/user/en/bench/reference/transform-database)
+1. [trim-database](/docs/user/en/bench/reference/trim-database)
+1. [trim-tables](/docs/user/en/bench/reference/trim-tables)
