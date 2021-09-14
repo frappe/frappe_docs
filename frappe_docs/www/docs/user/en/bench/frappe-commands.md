@@ -249,6 +249,41 @@ bench --site {site} transform-database --tables {tables}
 For more information and examples, see the [bench
 transform-database](/docs/user/en/bench/reference/transform-database) reference.
 
+#### Table Trimming
+
+Docfields removed from a particular DocType may not be deleted from their Database
+tables. This is by design to prevent premature data loss in Frappe. This won't be
+problematic for the most part, however, at some point you may face issues due to this
+lingering data.
+
+Some benefits of regular table trimming are:
+
+- Smaller backup sizes
+- Reduced time taken to backup sites
+- Reduced Site Database Usages
+- Optimized queries in case of `SELECT *`
+- Database is clean and doesn't have anything hidden or redundant data
+
+```bash
+bench trim-tables [OPTIONS]
+```
+
+For more information and examples, see the [bench
+trim-tables](/docs/user/en/bench/reference/trim-tables) reference.
+
+#### Database Trimming
+
+Deleting DocTypes from the list view may not delete their corresponding tables from
+the database. Migrations may leave ghost tables in your Site Database at times. This
+ may be done for the sake of redundancy, for recovery in case your data is corrupted
+ or lost, or simply, in cases of human error.
+
+```bash
+bench trim-database [OPTIONS]
+```
+
+For more information and examples, see the [bench
+trim-database](/docs/user/en/bench/reference/trim-database) reference.
 
 ### Scheduler Commands
 
