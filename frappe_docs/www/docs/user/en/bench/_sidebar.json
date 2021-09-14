@@ -17,59 +17,10 @@
 			{
 				"title": "Extending the CLI",
 				"route": "/docs/user/en/bench/extending-the-cli"
-			}
-		]
-	},
-	{
-		"group_title": "References",
-		"group_items": [
-			{
-				"title": "new-site",
-				"route": "/docs/user/en/bench/reference/new-site"
 			},
 			{
-				"title": "drop-site",
-				"route": "/docs/user/en/bench/reference/drop-site"
-			},
-			{
-				"title": "migrate",
-				"route": "/docs/user/en/bench/reference/migrate"
-			},
-			{
-				"title": "backup",
-				"route": "/docs/user/en/bench/reference/backup"
-			},
-			{
-				"title": "reinstall",
-				"route": "/docs/user/en/bench/reference/reinstall"
-			},
-			{
-				"title": "list-apps",
-				"route": "/docs/user/en/bench/reference/list-apps"
-			},
-			{
-				"title": "uninstall-app",
-				"route": "/docs/user/en/bench/reference/uninstall-app"
-			},
-			{
-				"title": "show-config",
-				"route": "/docs/user/en/bench/reference/show-config"
-			},
-			{
-				"title": "set-config",
-				"route": "/docs/user/en/bench/reference/set-config"
-			},
-			{
-				"title": "restore",
-				"route": "/docs/user/en/bench/reference/restore"
-			},
-			{
-				"title": "partial-restore",
-				"route": "/docs/user/en/bench/reference/partial-restore"
-			},
-			{
-				"title": "version",
-				"route": "/docs/user/en/bench/reference/bench-version"
+				"title": "References",
+				"route": "/docs/user/en/bench/reference"
 			}
 		]
 	},
