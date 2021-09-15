@@ -67,6 +67,14 @@ your system settings and Bench CLI's version.
       "root_password": "MARIADB_PASSWORD"
     }
 
+
+### Optional Common Site Config Settings
+
+| | |
+| ---------------- | ----------- |
+| `workers` |  Allows creating custom workers. The `background_workers` param is optional, if not set the general `background_workers` will be used. Example: `"workers": { "custom_worker1": { "timeout": 5000, "background_workers": 4 } }`|
+
+
 ## Config Value Precedence
 
 The value for a particular key being set in the `site_config.json` will have
