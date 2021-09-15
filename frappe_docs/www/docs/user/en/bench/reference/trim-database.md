@@ -20,6 +20,11 @@ the database. Migrations may leave ghost tables in your Site Database at times. 
  may be done for the sake of redundancy, for recovery in case your data is corrupted
  or lost, or simply, in cases of human error.
 
+This command drops any tables that seem to be remnants like the above mentioned. It will
+attempt a partial backup of the tables before dropping them. In case, these tables were
+required, and were dropped errenously, you can restore them in your site's database using
+the [`partial-restore`](/docs/user/en/bench/reference/partial-restore) command.
+
 ## Options
 
  - `--format`, `-f` Set output format. Available options are JSON and Table. Defaults to Table.

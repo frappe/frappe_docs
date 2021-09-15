@@ -28,6 +28,11 @@ Some benefits of regular table trimming are:
 - Optimized queries in case of `SELECT *`
 - Database is clean and doesn't have anything hidden or redundant data
 
+This command modifies the schema of tables in your site's database. It will by default,
+take a full backup of your entire database before modifying them. In case, these tables
+ were modified errenously, you can restore your site to it's original state using
+the [`restore`](/docs/user/en/bench/reference/restore) command.
+
 ## Options
 
  - `--format`, `-f` Set output format. Available options are JSON and TEXT.
