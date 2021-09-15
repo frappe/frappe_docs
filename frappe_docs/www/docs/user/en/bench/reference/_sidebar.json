@@ -1,0 +1,92 @@
+[
+	{
+		"group_title": "Bench CLI",
+		"group_items": [
+			{
+				"title": "What is Bench?",
+				"route": "/docs/user/en/bench"
+			},
+			{
+				"title": "Bench Commands",
+				"route": "/docs/user/en/bench/bench-commands"
+			},
+			{
+				"title": "Frappe Commands",
+				"route": "/docs/user/en/bench/frappe-commands"
+			},
+			{
+				"title": "Extending the CLI",
+				"route": "/docs/user/en/bench/extending-the-cli"
+			},
+			{
+				"title": "References",
+				"route": "/docs/user/en/bench/reference"
+			}
+		]
+	},
+	{
+		"group_title": "References",
+		"group_items": [
+			{
+				"title": "new-site",
+				"route": "/docs/user/en/bench/reference/new-site"
+			},
+			{
+				"title": "drop-site",
+				"route": "/docs/user/en/bench/reference/drop-site"
+			},
+			{
+				"title": "migrate",
+				"route": "/docs/user/en/bench/reference/migrate"
+			},
+			{
+				"title": "backup",
+				"route": "/docs/user/en/bench/reference/backup"
+			},
+			{
+				"title": "reinstall",
+				"route": "/docs/user/en/bench/reference/reinstall"
+			},
+			{
+				"title": "list-apps",
+				"route": "/docs/user/en/bench/reference/list-apps"
+			},
+			{
+				"title": "uninstall-app",
+				"route": "/docs/user/en/bench/reference/uninstall-app"
+			},
+			{
+				"title": "show-config",
+				"route": "/docs/user/en/bench/reference/show-config"
+			},
+			{
+				"title": "set-config",
+				"route": "/docs/user/en/bench/reference/set-config"
+			},
+			{
+				"title": "restore",
+				"route": "/docs/user/en/bench/reference/restore"
+			},
+			{
+				"title": "partial-restore",
+				"route": "/docs/user/en/bench/reference/partial-restore"
+			},
+			{
+				"title": "version",
+				"route": "/docs/user/en/bench/reference/bench-version"
+			},
+			{
+				"title": "transform-database",
+				"route": "/docs/user/en/bench/reference/transform-database"
+			},
+			{
+				"title": "trim-database",
+				"route": "/docs/user/en/bench/reference/trim-database"
+			},
+			{
+				"title": "trim-tables",
+				"route": "/docs/user/en/bench/reference/trim-tables"
+			}
+		]
+	}
+]
