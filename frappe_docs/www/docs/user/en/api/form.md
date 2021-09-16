@@ -120,17 +120,21 @@ These events are triggered in the context of a Child Table. Hence, along with
 `frm`, they will also get the `cdt` (Child DocType) and `cdn` (Child Docname)
 parameters in their handler functions.
 
+Imagine our "ToDo" DocType has a field called "links" that contains a Child Table. This Child Table is defined in a DocType called "Dynamic Link". We want our code to run whenever a row is added to the table.
+
 ```js
-frappe.ui.form.on('ToDo', {
-	// cdt, cdn are also passed as parameters
-	// links is the name of Table field in ToDo
-	links_add(frm, cdt, cdn) {
-		// cdt is Child DocType
-		// cdn is Child docname
-		// They are useful for identifying the row which triggered this event
-		// In this case, the row that was added
+// this code is located inside `todo.js`
+
+frappe.ui.form.on('Dynamic Link', { // The child table is defined in a DoctType called "Dynamic Link"
+	links_add(frm, cdt, cdn) { // "links" is the name of the table field in ToDo, "_add" is the event
+		// frm: current ToDo form
+		// cdt: child DocType 'Dynamic Link'
+		// cdn: child docname (something like 'a6dfk76')
+		// cdt and cdn are useful for identifying which row triggered this event
+
+		frappe.msgprint('A row has been added to the links table 🎉 ');
 	}
-})
+});
 ```
 
 Event Name            | Description
