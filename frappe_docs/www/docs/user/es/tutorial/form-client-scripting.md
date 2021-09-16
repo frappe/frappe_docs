@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Form Client Scripting
 
 ## Añadir Scripts a nuestros formularios

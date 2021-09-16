@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Background Services
 
 Running an active Frappe environment requires the running of various system

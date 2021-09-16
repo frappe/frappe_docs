@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Portal Roles
 
 Version: 7.1+

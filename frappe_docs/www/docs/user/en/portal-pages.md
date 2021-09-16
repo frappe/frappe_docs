@@ -218,6 +218,9 @@ The above frontmatter block will update the `context` dict with the following va
 
 #### Set context via comments
 
+> This is deprecated in **Version 14**. Use [frontmatter](#set-context-via-frontmatter)
+to set static context for your pages as mentioned above.
+
 You can also set some values in context by adding html comments in your pages.
 
 For example by adding `<!-- add-breadcrumbs -->` to your `.html` or `.md` file,

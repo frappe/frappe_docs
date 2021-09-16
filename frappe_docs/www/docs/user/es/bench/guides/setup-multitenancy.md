@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Setup Multitenancy
 
 Asumiento que tiene su primer site corriendo y ha realizado los

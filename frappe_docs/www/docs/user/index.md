@@ -1,6 +1,7 @@
-
-<!-- add-breadcrumbs -->
-<!-- title: Select Language -->
+---
+add_breadcrumbs: 1
+title: Select Language
+---
 
 # Frappe Developer Documentation
 

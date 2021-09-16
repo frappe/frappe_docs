@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Guides
 
 Frappe is a full-stack "batteries included" framework. It has libraries and APIs for everything from authentication and scheduled jobs to managing different currencies, reports, as well as building forms.

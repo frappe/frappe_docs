@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Les controleurs
 
 La prochaine étape est d'ajouter quelques méthodes et événements à nos modèles. Dans l'application, nous devons nous

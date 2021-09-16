@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Webhooks
 
 Webhooks are "user-defined HTTP callbacks". For a select DocType, you can create a webhook that triggers on specific document events under certain conditions, if required.

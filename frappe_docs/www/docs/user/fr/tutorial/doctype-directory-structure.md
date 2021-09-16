@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Structure du repertoire d'un DocType
 
 Après avoir sauvegardé vos DocTypes, vérifiez que les modèles dans les fichiers `.json` et `.py` soient créés dans le module

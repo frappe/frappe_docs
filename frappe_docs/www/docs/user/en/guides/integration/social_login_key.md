@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Social Login Key
 
 Add social login providers like Facebook, Frappe, Github, Google, Microsoft, etc and enable social login.

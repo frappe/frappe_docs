@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Creando Usuarios y Registros
 
 Teniendo los modelos creados, podemos empezar a crear registros usando la interfaz gráfica de usuario de Frappe. No necesitas crear vistas! Las vistas en Frappe son automáticamente creadas basadas en las propiedades del DocType.

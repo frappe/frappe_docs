@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Antes de empezar
 
 <p class="lead">Una lista de recursos que te ayudaran a inicar con el desarrollo de aplicaciones usando Frappe.</p>

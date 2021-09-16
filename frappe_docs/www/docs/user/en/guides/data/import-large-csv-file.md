@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Import Large Csv File
 
 To import very large CSV files, you can use the bench utility `import-csv`.

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # OpenID Connect and Frappe social login
 
 ## OpenID Connect

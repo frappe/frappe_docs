@@ -1,4 +1,7 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
+
 # Configuring HTTPS
 
 ### Get the required files

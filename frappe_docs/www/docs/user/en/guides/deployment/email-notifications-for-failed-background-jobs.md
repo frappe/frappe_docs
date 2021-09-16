@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Email Notifications For Failed Background Jobs
 
 <!-- markdown -->

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Reportes
 
 Puedes dar click en el texto que dice Reportes en el panel lateral izquierdo para ver los registros de manera tabulada.

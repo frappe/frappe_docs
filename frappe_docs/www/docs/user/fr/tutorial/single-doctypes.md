@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Les DocTypes de type Single
 
 Une application aura en générale une seule page de configuration. Dans notre application nous pouvons donc définir une page

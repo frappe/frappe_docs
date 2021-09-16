@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Crie um novo aplicativo
 
 Uma vez que o banco ja estiver instalado, você verá duas pastas principais, `apps` e` sites`. Todos os aplicativos serão instalados em apps.

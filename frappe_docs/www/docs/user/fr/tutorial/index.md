@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Tutoriel Frappe
 
 Dans ce guide nous allons vous montrer comment créer une application de A à Z en utilisant **Frappe**. Avec un

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # How to setup OAuth 2?
 
 <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> provider based on <a href="https://github.com/oauthlib/oauthlib">oauthlib</a> is built into frappe. Third party apps can now access resources of users based on Frappe Role and User permission system. To setup an app to access

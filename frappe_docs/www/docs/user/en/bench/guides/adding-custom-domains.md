@@ -1,4 +1,7 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
+
 # Adding Custom Domains to your Site
 
 You can add **multiple custom domains** for your site, just run:

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Dynamic Pages
 
 You can render pages dynamically using Jinja templating language. To query data, you can update that `context` object that you pass to the template.

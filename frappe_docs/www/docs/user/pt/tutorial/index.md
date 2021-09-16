@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Frappe Tutorial
 
 In this guide we will show you how to create an application from scratch using **Frappe**. Using the example of a Library Management System, we will cover:

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Adding Pages
 
 To add pages, just add `.html` or `.md` files in the `www` folder. The pages must only have the content, not the `<html>` and `<body>` tags.

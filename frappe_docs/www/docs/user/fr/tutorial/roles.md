@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Créer des rôles
 
 Avant de créer des modèles, nous devons auparavant créer des rôles qui auront des permissions sur le modèles. Nous allons

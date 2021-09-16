@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Iniciando o Bench
 
 Agora podemos logar e verificar se tudo funcionou.

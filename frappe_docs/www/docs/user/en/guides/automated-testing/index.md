@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Automated Testing
 
 Frappe Provides you a test framework to write and execute tests that can be run directly on a Continuous Integration Tool like Travis

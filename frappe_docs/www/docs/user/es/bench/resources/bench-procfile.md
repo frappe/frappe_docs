@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Bench Procfile
 
 `bench start` usa [honcho](http://honcho.readthedocs.org) para manejar múltiples procesos en **developer mode**.

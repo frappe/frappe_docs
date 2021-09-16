@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Setup Production
 
 Puedes configurar el bench para producción configurando dos parametros, Supervisor y nginx. Si quieres volver a ponerlo en desarrollo debes ver [estos comandos](https://github.com/frappe/bench/wiki/Stopping-Production-and-starting-Development)

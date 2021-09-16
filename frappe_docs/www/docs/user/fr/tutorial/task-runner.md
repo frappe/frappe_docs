@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Les tâches planifiées
 
 Finalement, une application a aussi à envoyer des emails de notifications ou d'autres taches planifiées. Dans Frappe, si

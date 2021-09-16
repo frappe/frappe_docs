@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Estrutura de diretórios do DocType
 
 Depois de salvar os doctypes, verifique-se de que oo arquivos do modelo `.json` e `.py` foram criados no modulo `apps/library_management/library_management`. A estrutura de diretório após a criação dos modelos deve ficar assim:

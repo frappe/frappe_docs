@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Redirects
 
 You can add redirects by adding the `website_redirects` hook.

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Contribute Translations
 
 This document shows how to **Contribute Translations** directly from your frappe app to translate.erpnext.com.

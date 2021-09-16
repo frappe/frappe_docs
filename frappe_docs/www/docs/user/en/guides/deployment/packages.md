@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Packages
 
 > New in [Version 14](https://github.com/frappe/frappe/pull/14123)

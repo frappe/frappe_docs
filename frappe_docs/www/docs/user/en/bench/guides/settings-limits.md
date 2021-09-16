@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Setting Limits for your Site
 
 > Note: This feature has been deprecated since Version 12

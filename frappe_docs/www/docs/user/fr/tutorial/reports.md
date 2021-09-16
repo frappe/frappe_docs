@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Rapports
 
 Vous pouvez aussi cliquer sur le texte "Rapports" dans la barre latérale de gauche pour voir vos données dans un tableau.

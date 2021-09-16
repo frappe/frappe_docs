@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Script Report
 
 You can create tabulated reports using server side scripts by creating a new Report.

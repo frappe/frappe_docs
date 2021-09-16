@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Instalando o Frappe Bench
 
 A maneira mais fácil de instalar o frappe em um sistema baseado em Unix, é utilizando o frappe-bench. Leia as instruções detalhadas sobre como instalar usando o Frappe Bench.

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Migrations
 
 A project often undergoes changes related to database schema during course of

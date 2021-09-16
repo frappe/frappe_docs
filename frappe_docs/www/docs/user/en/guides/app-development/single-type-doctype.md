@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Single Type Doctype
 
 DocTypes have a table associated with them. For example DocType **Customer** will have a table `tabCustomer` associated with it.

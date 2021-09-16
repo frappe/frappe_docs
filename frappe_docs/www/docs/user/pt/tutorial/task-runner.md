@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Tarefas agendadas
 
 Finalmente, uma aplicação também tem que enviar notificações de e-mail e fazer outros tipos de tarefas agendadas. Em Frappe, se você instalou o bench, o task / scheduler foi instalado via Celery usando Redis Queue.

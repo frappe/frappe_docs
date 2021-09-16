@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Agregando dominios personalizados a su Site
 
 Puedes agregar **multiples dominios personalizados** para un site, ejecutando el comando:

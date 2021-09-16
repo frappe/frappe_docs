@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Fazendo Usuários e Registros
 
 Agora que já criamos os modelos, podemos começar diretamente criando registros usando a interface Desk do Frappe. Você não precisa criar Views! Views no Frappe são geradas automaticamente com base nas propriedades do DocType.

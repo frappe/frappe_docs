@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Generating Documentation Website for your App
 
 Frappe version 6.7 onwards includes a full-blown documentation generator so that you can easily create a website for your app that has both user docs and developers docs (auto-generated).

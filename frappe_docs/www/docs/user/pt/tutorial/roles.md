@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Criando Roles
 
 Antes de criar modelos, devemos criar roles para que possamos definir as permissões do modelo. Há dois roles que nós iremos criar:

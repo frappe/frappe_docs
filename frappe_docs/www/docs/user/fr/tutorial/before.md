@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Avant de commencer
 
 <p class="lead">Liste des outils et technologies utiles dans le développement d'applications avec Frappe.</p>

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Nombrando y Asociando DocType
 
 Vamos a crear otro DocType y guardarlo:

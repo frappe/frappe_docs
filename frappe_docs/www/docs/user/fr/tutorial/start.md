@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Demarrer avec Bench
 
 Maintenant, nous pouvons nous connecter et vérifier que tout fonctionne normalement.

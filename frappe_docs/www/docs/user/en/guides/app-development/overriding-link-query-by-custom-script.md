@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Overriding Link Query By Custom Script
 
 You can override the standard link query by using `set_query` via the Client Script DocType from the desk.

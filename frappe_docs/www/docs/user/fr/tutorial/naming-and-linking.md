@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Nommage et relation entre DocType
 
 Définissons un nouveau **DocType**:

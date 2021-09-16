@@ -1,4 +1,7 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
+
 # Manual Setup
 
 Manual Setup

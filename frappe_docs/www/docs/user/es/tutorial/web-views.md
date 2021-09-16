@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Vistas Web (Web Views)
 
 Frappe tiene dos entornos principales, El escritorio y la Web. El escritorio es una interfaz de usuario controlada con una excelente aplicación AJAX y la web es mas plantillas de HTML tradicionales dispuestas para consumo público. Vistas Web pueden también ser generadas para crear vistas controladas para los usuarios que puedes acceder al sistema pero aún así no tener acceso al escritorio.

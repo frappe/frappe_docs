@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Adding Social Login Provider
 
 This guide discusses how to add a social login provider to frappe via pull request.

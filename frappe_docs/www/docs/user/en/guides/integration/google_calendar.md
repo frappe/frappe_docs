@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Google Calendar Integration
 
 Frappe provides an integration with Google Calendar in order for all users to synchronize their events.

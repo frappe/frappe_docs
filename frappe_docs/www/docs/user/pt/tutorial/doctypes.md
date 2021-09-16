@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # DocType
 
 Depois de criar as Roles, vamos criar os **DocTypes**

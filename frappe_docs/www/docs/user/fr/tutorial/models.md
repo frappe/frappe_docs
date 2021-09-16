@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Définir des modèles
 
 La prochaine étape est de définir les modèles que nous avons présenté en introduction. Dans **Frappe**, les modèles sont appelés

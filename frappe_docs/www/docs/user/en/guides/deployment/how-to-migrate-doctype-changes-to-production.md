@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # How To Migrate Doctype Changes To Production
 
 #### 1. DocType / Schema Changes

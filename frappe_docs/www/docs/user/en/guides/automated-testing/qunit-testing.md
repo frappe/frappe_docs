@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # UI Testing with Frappe API
 
 You can either write integration tests, or directly write tests in Javascript using [QUnit](http://api.qunitjs.com/)

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # How To Create Custom Fields During App Installation
 
 Your custom app can automatically add **Custom Fields** to DocTypes outside of your app when it is installed to a new site.

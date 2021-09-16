@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Using the Data Migration Tool
 
 > Data Migration Tool was introduced in Frappe Framework version 9.

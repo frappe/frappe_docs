@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Configurando o site
 
 Vamos criar um novo site e chamá-lo de `library`.

@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Setup Multitenancy
 
 Assuming that you've already got your first site running and you've performed

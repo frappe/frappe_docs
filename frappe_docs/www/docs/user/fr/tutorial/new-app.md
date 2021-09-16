@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Créer une nouvelle application
 
 Une fois que Bench est installé, vous apercevrez deux répertoires, `apps` and `sites`. Toutes les applications seront

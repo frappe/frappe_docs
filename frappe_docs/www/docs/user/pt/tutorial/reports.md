@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Relatórios
 
 Você também pode clicar sobre o texto Relatórios na barra lateral (esquerda) para ver os registros tabulados

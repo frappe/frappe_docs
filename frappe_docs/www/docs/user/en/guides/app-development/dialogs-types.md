@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Dialogs Types
 
 Frappe provides a group of standard dialogs that are very useful while coding.

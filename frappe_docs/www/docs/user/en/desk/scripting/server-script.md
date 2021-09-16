@@ -7,7 +7,9 @@ metatags:
   Server Scripts allow you to add Python scripts on document events, create API end points and run scheduled jobs from within the Desk, without Custom Apps or deploy
 ---
 
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Server Script
 
 A Server Script lets you dynamically define a Python Script that is executed on the server on a document event or API

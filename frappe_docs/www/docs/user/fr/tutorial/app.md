@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Qu'est ce qu'une application ?
 
 Dans Frappe, une application est juste une application Python standard. Vous pouvez structurer une application Frappe de

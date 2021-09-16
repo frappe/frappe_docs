@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Diagnosing The Scheduler
 
 <!-- markdown -->

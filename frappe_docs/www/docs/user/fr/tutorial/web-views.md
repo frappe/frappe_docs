@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # Les vues web
 
 Frappe a deux principaux environnements, le **bureau** et **le web**. Le **bureau** est un environnement riche AJAX alors

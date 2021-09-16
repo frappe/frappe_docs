@@ -1,4 +1,6 @@
-<!-- add-breadcrumbs -->
+---
+add_breadcrumbs: 1
+---
 # How To Improve A Standard Control
 
 Frappe has a couple of elegant and useful widgets, but some times we need to edit them to add small improvements. This small article will describe how to add new resources to the standard widgets.
