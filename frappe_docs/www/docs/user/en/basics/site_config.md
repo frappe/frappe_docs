@@ -144,7 +144,7 @@ unless the values are provided during site creation.
 | `robots_txt` | Path to robots.txt file to be rendered when going to frappe-site.com/robots.txt |
 | `root_login` | Database root username. |
 | `root_password` | Database root password. |
-| `server_script_enabled` | Enable Server Script. |
+| `server_script_enabled` | Enable/Disable Server Script. |
 | `skip_setup_wizard` | Skip Setup Wizard. |
 | `socketio_port` | Specify Socket.IO Port. |
 | `webserver_port` | Generally used as fallback for conf key `http_port`. |
