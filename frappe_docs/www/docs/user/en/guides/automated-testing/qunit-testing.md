@@ -7,7 +7,7 @@ safe_render: false
 
 You can either write integration tests, or directly write tests in Javascript using [QUnit](http://api.qunitjs.com/)
 
-QUnit helps you write UI tests using the UQuit framework and native frappe API. As you might have guessed, this is a much faster way of writing tests.
+QUnit helps you write UI tests using the QUnit framework and native frappe API. As you might have guessed, this is a much faster way of writing tests.
 
 ### Test Runner
 
