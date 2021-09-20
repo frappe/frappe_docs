@@ -21,6 +21,7 @@ Now, in frappe, you can split read and write activities between master and repli
 		"read_from_replica"                 : 1/0  # to enable disable read from replica
 		"different_credentials_for_replica" : 1/0 #if database creadetials are different on replica then set 1 else 0
 		"replica_host"                      : "IP address for repica" ,
+		"replica_db_port"                   : "Replica DB port",
 		"replica_db_name"                   : "Replica DB name",
 		"replica_db_password"               : "Replica DB password",
 		...
@@ -29,5 +30,3 @@ Now, in frappe, you can split read and write activities between master and repli
 	**Note**: If you have enabled MariaDB master-replica environment, then DB name and DB password are same on both.
 
 3. [Grant access permissions](https://dev.mysql.com/doc/refman/8.0/en/grant.html) for master host on slave / secondary system.
-
-
