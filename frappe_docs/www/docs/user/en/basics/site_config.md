@@ -167,6 +167,19 @@ must be set for Frappe to attempt to connect using SSL.
 | `db_ssl_key` | Full path to the key.pem file used for connecting to a database host using ssl. Example value is `"/etc/mysql/ssl/client-key.pem"`. |
 | `rds_db` | Grant certain privileges instead of all, while setting up a Site's database. Used in `db_manager.py`. |
 
+### Replica Read Only Database Host Settings
+
+Guide to setup read operations from secondary MariaDB server in a replica setup is available at in the [user guides](/docs/user/en/guides/database-settings/setup-read-from-secondary-db).
+
+| | |
+| ----------- | ----------- |
+| `read_from_replica` | To enable disable read from replica. Acceptable values are 1/0 or true/false. |
+| `different_credentials_for_replica` | If database credentials are different on replica then set 1 else 0 |
+| `replica_host` | IP address for repica |
+| `replica_db_name` | Replica DB name |
+| `replica_db_password` | Replica DB password |
+
+
 ### Default Outgoing Email Settings
 
 Some of the available lower level configurations for Frappe's Email module.
