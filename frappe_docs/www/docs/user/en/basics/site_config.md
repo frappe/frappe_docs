@@ -169,7 +169,16 @@ must be set for Frappe to attempt to connect using SSL.
 
 ### Replica Read Only Database Host Settings
 
-An example of how to do this is available at [Setup read operations from slave/secondary mysql system](https://frappeframework.com/docs/user/en/guides/database-settings/setup-read-from-secondary-db).
+Guide to setup read operations from secondary MariaDB server in a replica setup is available at in the [user guides](/docs/user/en/guides/database-settings/setup-read-from-secondary-db).
+
+| | |
+| ----------- | ----------- |
+| `read_from_replica` | To enable disable read from replica. Acceptable values are 1/0 or true/false. |
+| `different_credentials_for_replica` | If database credentials are different on replica then set 1 else 0 |
+| `replica_host` | IP address for repica |
+| `replica_db_name` | Replica DB name |
+| `replica_db_password` | Replica DB password |
+
 
 ### Default Outgoing Email Settings
 
