@@ -44,7 +44,7 @@ You can define complex queries such as:
 
 ### 4. Advanced (adding filters)
 
-If you are making a standard report, you can add filters in your query report just like [script reports](https://frappe.io/docs/user/en/guides/reports-and-printing/how-to-make-script-reports) by adding a `.js` file in your query report folder. To include filters in your query, use `%(filter_key)s` where your filter value will be shown.
+If you are making a standard report, you can add filters in your query report just like [script reports](/docs/user/en/guides/reports-and-printing/how-to-make-script-reports) by adding a `.js` file in your query report folder. To include filters in your query, use `%(filter_key)s` where your filter value will be shown.
 
 For example
 

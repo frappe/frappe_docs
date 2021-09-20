@@ -15,7 +15,7 @@ The files required are
 
 ### Prequisites
 
-1. You need to have a [DNS Multitenant Setup](https://frappe.io/docs/user/en/bench/guides/setup-multitenancy)
+1. You need to have a [DNS Multitenant Setup](/docs/user/en/bench/guides/setup-multitenancy)
 2. Your site should be accessible via a valid domain
 3. You need root permissions on your server
 4. You need a valid certificate generated through a trusted Certificate Authority or a Self-Signed Certificate.
