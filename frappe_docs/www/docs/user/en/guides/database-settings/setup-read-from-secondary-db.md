@@ -20,7 +20,7 @@ Now, in frappe, you can split read and write activities between master and repli
 		...
 		"read_from_replica"                 : 1/0  # to enable disable read from replica
 		"different_credentials_for_replica" : 1/0 #if database creadetials are different on replica then set 1 else 0
-		"replica_host"                      : "IP address for repica" ,
+		"replica_host"                      : "IP address for replica" ,
 		"replica_db_port"                   : "Replica DB port",
 		"replica_db_name"                   : "Replica DB name",
 		"replica_db_password"               : "Replica DB password",
