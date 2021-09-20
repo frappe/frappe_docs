@@ -15,7 +15,7 @@ To run your files, you can use the **Test Runner**. The **Test Runner** gives a 
 
 In the CI, all QUnit tests are run by the **Test Runner** using `frappe/tests/test_test_runner.py`
 
-<img src="/frappe_io/www/docs/assets/img/app-development/test-runner.png" class="screenshot">
+<img src="/docs/assets/img/app-development/test-runner.png" class="screenshot">
 
 ### Running Tests
 
