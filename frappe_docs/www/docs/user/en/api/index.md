@@ -13,8 +13,11 @@ Frappe aims to achieve minimum cognitive load for its users. Hence, you can find
 the most used methods and utilities in the `frappe` namespace itself. It's the
 only import you need (most of the time) in a Python file.
 
-1. [Document](/docs/user/en/api/document)
-1. [Database](/docs/user/en/api/database)
+1. [ORM](/docs/user/en/api/orm)
+  1. [Document](/docs/user/en/api/document)
+  1. [Database](/docs/user/en/api/database)
+  1. [DatabaseQuery](/docs/user/en/api/database-query)
+  1. [Query Builder](/docs/user/en/api/query-builder)
 1. [Jinja](/docs/user/en/api/jinja)
 1. [Common Utilities](/docs/user/en/api/utils)
 1. [Router](/docs/user/en/python-api/routing-and-rendering)
@@ -25,7 +28,6 @@ only import you need (most of the time) in a Python file.
 1. [REST API](/docs/user/en/api/rest)
 1. [Full Text Search](/docs/user/en/api/full-text-search)
 1. [Dialog API](/docs/user/en/api/py-dialog)
-1. [Query Builder](/docs/user/en/api/query-builder)
 
 ## Javascript
 
