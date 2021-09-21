@@ -8,11 +8,13 @@ metatags:
 
 # Document API
 
-A Document is an instance of a DocType. It is derived from the
-`frappe.model.Document` class and represents a single record in the database
-table.
+A Document is an instance of a DocType. It represents a DocType record stored
+as part of the Document model.
 
-## frappe.get_doc
+## Document Operations
+
+### frappe.get_doc
+
 `frappe.get_doc(doctype, name)`
 
 Returns a [Document](/docs/user/en/understanding-doctypes#document) object of
@@ -54,7 +56,8 @@ user = frappe.get_doc(doctype='User', email_id='test@example.com')
 user.insert()
 ```
 
-## frappe.get\_last\_doc
+### frappe.get\_last\_doc
+
 `frappe.get_last_doc(doctype, filters, order_by)`
 
 Returns the last Document object created under the mentioned `doctype`.
@@ -86,12 +89,13 @@ task = frappe.get_last_doc('Task', filters={"Status": "Cancelled"}, order_by="ti
 Alternatively, you can choose to go completely against all of this and as a part
 of a joke change it to "creation asc" to retrieve the first document instead.
 
-## frappe.get\_cached\_doc
+### frappe.get\_cached\_doc
 
 Similar to `frappe.get_doc` but will look up the document in cache first before
 hitting the database.
 
-## frappe.new_doc
+### frappe.new_doc
+
 `frappe.new_doc(doctype)`
 
 Alternative way to create a new Document.
@@ -102,7 +106,8 @@ doc.title = 'New Task 2'
 doc.insert()
 ```
 
-## frappe.delete_doc
+### frappe.delete_doc
+
 `frappe.delete_doc(doctype, name)`
 
 Deletes the record and its children from the database. Also deletes other
@@ -112,7 +117,8 @@ documents like Communication, Comments, etc linked to it.
 frappe.delete_doc('Task', 'TASK00002')
 ```
 
-## frappe.rename_doc
+### frappe.rename_doc
+
 `frappe.rename_doc(doctype, old_name, new_name, merge=False)`
 
 Rename a document's `name` (primary key) from `old_name` to `new_name`. If
@@ -125,7 +131,8 @@ frappe.rename_doc('Task', 'TASK00002', 'TASK00003')
 
 > Rename will only work if **Allow Rename** is set in the DocType Form.
 
-## frappe.get_meta
+### frappe.get_meta
+
 `frappe.get_meta(doctype)`
 
 Returns meta information of `doctype`. This will also apply custom fields and
@@ -142,9 +149,12 @@ setters) use `frappe.get_doc('DocType', doctype_name)`
 
 
 ## Document Methods
-This section lists out common methods that are available on the `doc` object.
 
-## doc.insert
+This section lists out the standard methods that are available on the `doc` object.
+These methods are defined in the `frappe.model.Document` class and are available to
+all Documents.
+
+### doc.insert
 
 This method inserts a new document into the database table. It will check for
 user permissions and execute `before_insert`, `validate`, `on_update`,
@@ -162,7 +172,7 @@ doc.insert(
 )
 ```
 
-## doc.save
+### doc.save
 
 This method saves changes to an existing document. This will check for user
 permissions and execute `validate` before updating and `on_update` after
@@ -175,7 +185,7 @@ doc.save(
 )
 ```
 
-## doc.delete
+### doc.delete
 
 Delete the document record from the database table. This method is an alias to
 `frappe.delete_doc`.
@@ -184,7 +194,7 @@ Delete the document record from the database table. This method is an alias to
 doc.delete()
 ```
 
-## doc.get\_doc\_before\_save
+### doc.get\_doc\_before\_save
 
 Will return a version of the doc before the changes were made. You can use it to
 compare what changed from the last version.
@@ -196,7 +206,7 @@ if old_doc.price != doc.price:
     pass
 ```
 
-## doc.reload
+### doc.reload
 
 Will get the latest values from the database and update the doc state.
 
@@ -208,7 +218,7 @@ use this method to reload the doc.
 doc.reload()
 ```
 
-## doc.check_permission
+### doc.check_permission
 
 Throw if the current user has no permission for the provided permtype.
 
@@ -216,7 +226,7 @@ Throw if the current user has no permission for the provided permtype.
 doc.check_permission(permtype='write') # throws if no write permission
 ```
 
-## doc.get_title
+### doc.get_title
 
 Get the document title based on `title_field` or field named **title** or
 **name**.
@@ -225,7 +235,7 @@ Get the document title based on `title_field` or field named **title** or
 title = doc.get_title()
 ```
 
-## doc.notify_update
+### doc.notify_update
 
 Publish realtime event to indicate that the document has been modified. Client
 side event handlers react to this event by updating the form.
@@ -234,7 +244,7 @@ side event handlers react to this event by updating the form.
 doc.notify_update()
 ```
 
-## doc.db_set
+### doc.db_set
 
 Set a field value of the document directly in the database and update the
 modified timestamp.
@@ -256,7 +266,7 @@ doc.db_set('price', 2300, commit=True)
 doc.db_set('price', 2300, update_modified=False)
 ```
 
-## doc.get_url
+### doc.get_url
 
 Returns Desk URL for this document. For e.g: `/app/task/TASK00002`
 
@@ -264,7 +274,7 @@ Returns Desk URL for this document. For e.g: `/app/task/TASK00002`
 url = doc.get_url()
 ```
 
-## doc.add_comment
+### doc.add_comment
 
 Add a comment to this document. Will show up in timeline in Form view.
 
@@ -279,7 +289,7 @@ doc.add_comment('Edit', 'Values changed')
 doc.add_comment("Shared", "{0} shared this document with everyone".format(user))
 ```
 
-## doc.add_seen
+### doc.add_seen
 
 Add the given/current user to list of users who have seen this document. Will
 update the `_seen` column in the table. It is stored as a JSON Array.
@@ -294,7 +304,7 @@ doc.add_seen()
 
 > This works only if **Track Seen** is enabled in the DocType.
 
-## doc.add_viewed
+### doc.add_viewed
 
 Add a view log when a user views a document i.e opens the Form.
 
@@ -308,7 +318,7 @@ doc.add_viewed()
 
 > This works only if **Track Views** is enabled in the DocType.
 
-## doc.add_tag
+### doc.add_tag
 
 Add a tag to a document. Tags are generally used to filter and group documents.
 
@@ -318,7 +328,7 @@ doc.add_tag('developer')
 doc.add_tag('frontend')
 ```
 
-## doc.get_tags
+### doc.get_tags
 
 Returns a list of tags associated with the specific document.
 
@@ -327,7 +337,7 @@ Returns a list of tags associated with the specific document.
 doc.get_tags()
 ```
 
-## doc.run_method
+### doc.run_method
 
 Run method if defined in controller, will also trigger hooks if defined.
 
@@ -335,7 +345,7 @@ Run method if defined in controller, will also trigger hooks if defined.
 doc.run_method('validate')
 ```
 
-## doc.queue_action
+### doc.queue_action
 
 Run a controller method in background. If the method has an inner function, like
 `_submit` for `submit`, it will call that method instead.
