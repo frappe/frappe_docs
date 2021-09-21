@@ -2,7 +2,7 @@
 
 Frappe Wrapper for [Whoosh](https://pypi.org/project/Whoosh/)
 
-### `update_index_by_name(self, doc_name)`
+### update\_index\_by\_name(self, doc_name)
 
 Wraps `update_index` method, gets the document from name and updates the index. This function changes the current user and should only be run as administrator or in a background job.
 
@@ -11,7 +11,8 @@ Args:
 - self (object): FullTextSearch Instance
 - doc_name (str): name of the document to be updated
 
-### `remove_document_from_index(self, doc_name)`
+### remove\_document\_from\_index(self, doc_name)
+
 Remove document from search index
 
 Args:
@@ -19,19 +20,22 @@ Args:
 - self (object): FullTextSearch Instance
 - doc_name (str): name of the document to be removed
 
-### `update_index(self, document)`
+### update\_index(self, document)
+
 Update search index for a document
 
 Args:
 
 - self (object): FullTextSearch Instance
-- document (_dict): A dictionary with title, path and content
+- document (frappe._dict): A dictionary with title, path and content
 
 
-### `build_index(self)`
+### build\_index(self)
+
 Build index for all parsed documents
 
-### `search(self, text, scope=None, limit=20)`
+### search(self, text, scope=None, limit=20)
+
 Search from the current index
 
 Args:
@@ -42,4 +46,4 @@ Args:
 
 Returns:
 
-- [list(_dict)]: Search results
+- list(frappe._dict): Search results
