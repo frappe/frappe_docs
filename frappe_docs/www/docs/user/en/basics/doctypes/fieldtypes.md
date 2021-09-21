@@ -103,7 +103,7 @@ You can enable basic syntax validations for following languages by setting "Opti
 
 Example of differences between `Python` and `PythonExpression`:
 
-* `variable = 42` is a valid `Python` code but not a valid `PythonExpression` since the assignment doesn't evaluate to any value. 
+* `variable = 42` is a valid `Python` code but not a valid `PythonExpression` since the assignment doesn't evaluate to any value.
 * `variable == 42` is both valid `Python` code and valid `PythonExpression` as the expresion can evaluate to some value.
 
 <img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/code_fieldtype.png">
@@ -217,6 +217,12 @@ Read Only field will carry data fetched from another form which will be non-edit
 Section Break is used to divide the form into multiple sections. Any fields that follow (and before any other `Section Break`) a `Section Break` field will be part of this new section.
 
 <img alt="Field Types" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/section_break_fieldtype.png">
+
+### Tab Break
+
+Tab Break is used to divide the form into multiple tabs. Any field that follow till the next `Tab Break` will be the part of this new tab.
+
+<img alt="Tabs" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/tabs.png">
 
 
 #### Signature
