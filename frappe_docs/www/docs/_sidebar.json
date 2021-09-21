@@ -79,7 +79,8 @@
 	{
 		"group_title": "Integrations",
 		"group_items": [
-			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" }
+			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" },
+			{ "title": "Google Drive", "route": "/docs/user/en/integration/google_drive" }
 		]
 	},
 	{
