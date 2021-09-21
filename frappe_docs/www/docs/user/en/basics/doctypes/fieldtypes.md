@@ -224,6 +224,7 @@ Tab Break is used to divide the form into multiple tabs. Any field that follow t
 
 <img alt="Tabs" class="screenshot" src="{{docs_base_url}}/assets/img/fieldtypes/tabs.png">
 
+**Note:** If the `fields` table of a DocType is not started with a Tab Break, a default Tab Break named `Details` will be used. This happens only if a DocType has atleast one `Tab Break` in the `fields` table.
 
 #### Signature
 
