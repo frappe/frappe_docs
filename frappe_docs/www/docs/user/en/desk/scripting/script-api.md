@@ -206,3 +206,27 @@ Generate Error Log with a traceback
 #### FrappeClient
 
 Connect to a Frappe site using a requests session
+
+
+### API
+
+Make external API calls from Frappe.
+
+#### frappe.make_get_request
+
+Make a GET request.
+
+Example: `frappe.make_get_request('https://example.com')`
+
+#### frappe.make_post_request
+
+Make a POST request.
+
+Example: `frappe.make_post_request('https://example.com', data={'username: 'test'})`
+
+
+#### frappe.make_put_request
+
+Make a PUT request.
+
+Example: `frappe.make_put_request('https://example.com', headers={'Auth': 'Bearer xyz'})`
