@@ -13,7 +13,7 @@ Frappe aims to achieve minimum cognitive load for its users. Hence, you can find
 the most used methods and utilities in the `frappe` namespace itself. It's the
 only import you need (most of the time) in a Python file.
 
-1. [ORM](/docs/user/en/api/orm)
+1. [Data Talk](/docs/user/en/api/data-talk)
   1. [Document](/docs/user/en/api/document)
   1. [Database](/docs/user/en/api/database)
   1. [DatabaseQuery](/docs/user/en/api/database-query)

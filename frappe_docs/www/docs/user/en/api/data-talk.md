@@ -1,12 +1,12 @@
 ---
 add_breadcrumbs: 1
-title: Frappe ORM
+title: Data Talk
 metatags:
  description: >
-  Data manipulation using the Frappe ORM
+  Data manipulation using Frappe's ORM and Query Builders
 ---
 
-# ORM
+# Data Talk
 
 There are a few ways to interact with the Database in Frappe. `Query Builder`, `DatabaseQuery`, `Database` and `Document` are the major ways.
 

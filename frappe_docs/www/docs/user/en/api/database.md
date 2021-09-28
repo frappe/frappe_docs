@@ -10,7 +10,7 @@ metatags:
 
 `frappe.db` is the low-level interface that manages all Database and Transaction related actions.
 
-To learn more about the Database Transaction Model, read further [here](/docs/user/en/api/orm#database-transaction-model).
+To learn more about the Database Transaction Model, read further [here](/docs/user/en/api/data-talk#database-transaction-model).
 
 ## frappe.db.get_list
 
@@ -164,7 +164,7 @@ and **__Test Table**.
 Commits current transaction. Calls SQL `COMMIT`.
 
 > In most cases you don't need to commit manually. Refer Frappe's
-> [Database transaction model](/docs/user/en/api/orm#database-transaction-model) below.
+> [Database transaction model](/docs/user/en/api/data-talk#database-transaction-model) below.
 
 ## frappe.db.rollback
 
