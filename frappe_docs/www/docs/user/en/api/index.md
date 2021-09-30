@@ -37,6 +37,7 @@ browser console.
 1. [Form](/docs/user/en/api/form)
 1. [Controls](/docs/user/en/api/controls)
 1. [Page](/docs/user/en/api/page)
+1. [Tree](/docs/user/en/api/tree)
 1. [Server Calls (AJAX)](/docs/user/en/api/server-calls)
 1. [Common Utilities](/docs/user/en/api/js-utils)
 1. [Dialog API](/docs/user/en/api/dialog)
