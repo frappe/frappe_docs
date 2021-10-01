@@ -29,8 +29,18 @@ created) using this JSON file.
 
 > For making schema changes, you must enable Developer Mode.
 
-On running a `migrate`, DocTypes in the system are synced to their latest
-version from the JSON files in the app.
+On running a `migrate`, All apps migrate to their current version. First, we run the "before_migrate" hook to sync user permissions. Then the actual patches are run,which migrate the various apps. After this, we sync the following components:
+
+- Database Schema and Background Jobs
+- Fixtures
+- Dashboards, Desktop Icons and Web Pages
+- Updates Translations
+- Rebuild Search Index for all routes
+
+Particularly for DocTypes, we compare the hash of each DocType JSON with the hashes we have stored in the DocType database table. If the hashes don't match, we reload the particular DocType. Finally, we run a "after\_migrate" hook to finish the migration. You can find the commands run for the individual processes at [bench-site-commands](bench/frappe-commands#site-commands)
+
+
+> Note: Up Until `v13` DocTypes were synced based on the modified timestamps in the JSON file. This method was error prone so we moved to the more robast hash comparison method. You can read more about it [here](https://github.com/frappe/frappe/pull/14246#issuecomment-928942292)
 
 When you remove or rename fields in the DocType, the corresponding database
 columns are not removed from the database table, but they will not be visible in
