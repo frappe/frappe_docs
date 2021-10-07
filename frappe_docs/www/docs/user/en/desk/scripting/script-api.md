@@ -149,6 +149,10 @@ Sanitize value for database queries to prevent SQL injection
 
 Set a value
 
+#### frappe.db.exists
+
+Checks for existence of a document. Returns `name` of the document if exists else `None`.
+
 ### Utilities
 
 Utility methods and functions
