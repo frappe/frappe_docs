@@ -153,6 +153,44 @@ Set a value
 
 Checks for existence of a document. Returns `name` of the document if exists else `None`.
 
+#### frappe.db.commit
+
+Allow users to make explicit commits in server scripts like custom scheduler scripts.
+Note: This won't work in any DocType Event server scripts
+
+#### frappe.db.rollback
+
+Allow users to rollback changes via server scripts.
+Note: This won't work in any DocType Event server scripts
+
+
+### Cache Methods
+
+Available cache methods
+
+#### frappe.cache.set_value
+
+Set a value in cache for a specific key
+
+Example: `frappe.cache().set_value("test_key", "test_value")`
+
+#### frappe.cache.get_value
+
+Get a value from cache for a specific key
+
+Example: `frappe.cache().get_value("test_key")`
+
+#### frappe.cache.hset
+
+Set a value in cache for a specific key for a specific named record
+
+Example: `frappe.cache().hset("sales_invoice", "test_key", "test_value")`
+
+#### frappe.cache.hget
+
+Get a value from cache for a specific key for a specific named record
+
+Example: `frappe.cache().hget("sales_invoice", "test_key")`
 ### Utilities
 
 Utility methods and functions
