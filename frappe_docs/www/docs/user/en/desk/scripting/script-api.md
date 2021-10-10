@@ -155,12 +155,12 @@ Checks for existence of a document. Returns `name` of the document if exists els
 
 #### frappe.db.commit
 
-Allow users to make explicit commits in server scripts like custom scheduler scripts.
+Allow users to make explicit commits in server scripts like custom scheduler scripts.  
 Note: This won't work in any DocType Event server scripts
 
 #### frappe.db.rollback
 
-Allow users to rollback changes via server scripts.
+Allow users to rollback changes via server scripts.  
 Note: This won't work in any DocType Event server scripts
 
 
