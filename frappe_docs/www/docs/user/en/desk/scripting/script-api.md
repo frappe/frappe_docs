@@ -191,6 +191,14 @@ Example: `frappe.cache().hset("sales_invoice", "test_key", "test_value")`
 Get a value from cache for a specific key for a specific named record
 
 Example: `frappe.cache().hget("sales_invoice", "test_key")`
+
+### Query Builder
+
+#### frappe.qb
+Query builder API to run SELECT queries.
+
+Example: `frappe.qb.from_("Task").select("*").run()`
+
 ### Utilities
 
 Utility methods and functions
