@@ -153,6 +153,12 @@ Set a value
 
 Checks for existence of a document. Returns `name` of the document if exists else `None`.
 
+### Query Builder
+
+#### frappe.qb
+Query builder API to run SELECT queries.
+
+Example: `frappe.qb.from_("Task").select("*").run()`
 ### Utilities
 
 Utility methods and functions
