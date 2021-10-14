@@ -221,6 +221,7 @@ just in case.
  - **ngrok**: Create a temporary URL and share it with anyone, and they can
    access your local site in their browser. Primarily built for aiding with the
    development of third party services.
+ - **set-password**: Set the password for any user.
  - **set-admin-password**: Set the password for the Administrator user.
  - **set-last-active-for-user**: Set users last active date to current datetime.
  - **start-recording**: Starts the Frappe Recorder for the specified sites.
@@ -228,6 +229,61 @@ just in case.
  - **use**: Sets the default site on the bench. Adds the site entry to the
    `currentsite.txt`.
 
+
+### Database Maintenance Commands
+
+Set of commands that are related to database management and maintenance. These
+commands offer more control to your site's database. You may want to fine-tune
+your deployment to fit your site's needs over time.
+
+#### Table Transformations
+
+The `transform-database` command allows you to manage the settings of your
+site's tables. At this point, you can switch `engine` and `row_format` settings for
+select tables on your site database.
+
+```bash
+bench --site {site} transform-database --tables {tables}
+```
+
+For more information and examples, see the [bench
+transform-database](/docs/user/en/bench/reference/transform-database) reference.
+
+#### Table Trimming
+
+Docfields removed from a particular DocType may not be deleted from their Database
+tables. This is by design to prevent premature data loss in Frappe. This won't be
+problematic for the most part, however, at some point you may face issues due to this
+lingering data.
+
+Some benefits of regular table trimming are:
+
+- Smaller backup sizes
+- Reduced time taken to backup sites
+- Reduced Site Database Usages
+- Optimized queries in case of `SELECT *`
+- Database is clean and doesn't have anything hidden or redundant data
+
+```bash
+bench trim-tables [OPTIONS]
+```
+
+For more information and examples, see the [bench
+trim-tables](/docs/user/en/bench/reference/trim-tables) reference.
+
+#### Database Trimming
+
+Deleting DocTypes from the list view may not delete their corresponding tables from
+the database. Migrations may leave ghost tables in your Site Database at times. This
+ may be done for the sake of redundancy, for recovery in case your data is corrupted
+ or lost, or simply, in cases of human error.
+
+```bash
+bench trim-database [OPTIONS]
+```
+
+For more information and examples, see the [bench
+trim-database](/docs/user/en/bench/reference/trim-database) reference.
 
 ### Scheduler Commands
 
@@ -311,7 +367,7 @@ version](/docs/user/en/bench/reference/bench-version) reference.
  - **bulk-rename**: Rename multiple records via a CSV file.
  - **clear-cache**: Clear cache, doctype cache and defaults.
  - **clear-website-cache**: Clear Website cache.
- - **console**: Starts an IPython console for the site.
+ - **console**: Starts an IPython console for the site. Use with the `--autoreload` flag to reload changes to code automatically.
  - **data-import**: Import documents in bulk from CSV or XLSX using data import.
  - **destroy-all-sessions**: Clear sessions of all users (logs them out).
  - **execute**: Execute a particular function or method with a given set of
@@ -326,6 +382,7 @@ version](/docs/user/en/bench/reference/bench-version) reference.
    directory, all files ending with `.json` are imported
  - **jupyter**: Starting a Jupyter Notebook server.
  - **make-app**: Creates a boilerplate Frappe Application.
+ - **db-console**: Start the interactive DB console for your site. This command is an alias over commands: mariadb, postgres
  - **mariadb**: Start the MySQL interactive console for the mysql site.
  - **postgres**: Start the PostgreSQL interactive console for the postgres site.
  - **rebuild-global-search**: Setup help table in the current site (called after

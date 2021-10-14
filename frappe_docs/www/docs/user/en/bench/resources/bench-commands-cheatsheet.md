@@ -76,6 +76,7 @@
   * `requirements `Update Python and Node packages
     * `--node ` Update only Node packages
     * `--python ` Update only Python packages
+    * `--dev` Update only Python development dependencies.
 * `bench set-nginx-port [sitename] [port]` - Set site's port in Production
 
 
@@ -106,6 +107,7 @@
   * `--root-password`
 * `bench set-config [key] [value]`   Adds a key-value pair to site's config file
 * `bench console`   Opens a IPython console in the bench venv
+  * `--autoreload`  Reload changes to code automatically
 * `bench execute`   Execute a method inside any app.
   * Eg : `bench execute frappe.utils.scheduler.enqueue_scheduler_events`
 * `bench --site [sitename] mariadb`  Opens SQL Console

@@ -102,7 +102,8 @@ Here are the `df` properties for most of frappe control types.
 {
 	label: 'First Name',
 	fieldname: 'first_name',
-	fieldtype: 'Data'
+	fieldtype: 'Data',
+	options: 'Email' // 'Name', 'Phone', 'URL', 'Barcode'
 }
 
 // Date Range
@@ -252,9 +253,16 @@ Here are the `df` properties for most of frappe control types.
 
 // Button
 {
-	label: 'Fetch,
+	label: 'Fetch',
 	fieldname: 'fetch',
 	fieldtype: 'Button',
 	btn_size: 'xs' // xs, sm, lg
+}
+
+//Icon
+{
+	label: 'Page Icon',
+	fieldname: 'page_icon',
+	fieldtype: 'Icon'
 }
 ```

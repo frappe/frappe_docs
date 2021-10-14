@@ -72,6 +72,7 @@ apps/custom_app
 │   └── top_level.txt
 ├── license.txt
 ├── requirements.txt
+├── dev-requirements.txt
 ├── package.json
 └── setup.py
 ```
@@ -80,6 +81,12 @@ apps/custom_app
 
 This file stores the list of python dependencies. When this app is installed,
 it's dependencies will also get installed.
+
+### dev-requirements.txt [Optional]
+
+This file stores the list of python development dependencies. Syntax of this
+file is same as requirements.txt. If developer mode is enabled, then
+installing the app will also install its development dependencies.
 
 ### package.json
 

@@ -35,5 +35,6 @@ wrappers around and invoke multiple Frappe commands such as `backup` and
 
 1. [Bench Commands](/docs/user/en/bench/bench-commands)
 1. [Frappe Commands](/docs/user/en/bench/frappe-commands)
+1. [Command References](/docs/user/en/bench/reference)
 1. [Extending the CLI](/docs/user/en/bench/extending-the-cli)
 

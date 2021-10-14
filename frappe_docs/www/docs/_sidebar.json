@@ -59,7 +59,8 @@
 			{ "title": "Hooks", "route": "/docs/user/en/python-api/hooks" },
 			{ "title": "REST API", "route": "/docs/user/en/api/rest" },
 			{ "title": "Full Text Search", "route": "/docs/user/en/api/full-text-search" },
-			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" }
+			{ "title": "Dialog API", "route": "/docs/user/en/api/py-dialog" },
+			{ "title": "Query Builder", "route": "/docs/user/en/api/query-builder" }
 		]
 	},
 	{
@@ -71,13 +72,15 @@
 			{ "title": "Page", "route": "/docs/user/en/api/page" },
 			{ "title": "Common Utilities", "route": "/docs/user/en/api/js-utils" },
 			{ "title": "Dialog API", "route": "/docs/user/en/api/dialog" },
-			{ "title": "Chart API", "route": "/docs/user/en/api/chart" }
+			{ "title": "Chart API", "route": "/docs/user/en/api/chart" },
+			{ "title": "Scanner API", "route": "/docs/user/en/api/scanner" }
 		]
 	},
 	{
 		"group_title": "Integrations",
 		"group_items": [
-			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" }
+			{ "title": "Razorpay", "route": "/docs/user/en/integration/razorpay" },
+			{ "title": "Google Drive", "route": "/docs/user/en/integration/google_drive" }
 		]
 	},
 	{
@@ -125,6 +128,10 @@
 			{
 				"title": "Debugging",
 				"route": "/docs/user/en/debugging"
+			},
+			{
+				"title": "Profiling",
+				"route": "/docs/user/en/profiling"
 			},
 			{
 				"title": "Contribution Guidelines",

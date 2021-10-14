@@ -63,6 +63,28 @@ You can also bulk import multiple files at once using the Import Zip feature.
 
 > Note: Hidden files (files starting with `.`) are not extracted when importing from a zip file.
 
+## Cropping Images
+
+You can crop `.jpeg` and `.png` images by clicking on the crop icon.
+
+![Cropping images on upload](/docs/assets/img/crop_image.gif)
+
+## Optimizing Images
+
+Images can be optimized to reduce their file size. Currently optimizing an image does the following:
+
+1. Resizes it to fit a max-width of 1920px and a max-height of 1080px, while preserving the aspect ratio
+1. Uses optimal encoder settings
+1. Reduces the quality to 85%
+  
+**Toggle optimization during upload**
+
+![Toggle image optimization](/docs/assets/img/toggle_image_optimization.gif)
+
+**Optimize an already uploaded image**
+
+![Optimize saved image](/docs/assets/img/optimize_saved_image.gif)
+
 ## Limits
 
 A limit of 10MB is applicable on file size per attachment by default. For self-hosted users, this can be changed by setting `max_file_size` in your site's configuration file.
