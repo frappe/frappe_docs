@@ -79,7 +79,7 @@ Here are the `df` properties for most of frappe control types.
 	wrap: true,
 	// changing `max_lines` will set the max-height of the editor
 	max_lines: 10,
-	// min-height of the editor would depend on the number of lines of code if this is set
+	// changing `min_lines` will set the min-height of the editor
 	min_lines: 5
 }
 
