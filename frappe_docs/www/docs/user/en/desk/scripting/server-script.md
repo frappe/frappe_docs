@@ -65,8 +65,17 @@ could use `frappe.call("delete-note")` in your client scripts.
 Guest access may be enabled by checking **Allow Guest** for the created APIs.
 The response can be set via `frappe.response["message"]` object.
 
+### 2.4 Scheduler Scripts
 
-### 2.3 Security
+Scheduler Scripts can be created by using the Script Type **Scheduler Event**.
+The script can be executed on various intervals which is defined by the **Event Frequency**.
+
+For instance, a script with the **Event Frequency** as **All** will be executed every **4 mins** by default.
+You have options to run a script **Hourly**, **Daily**, **Weekly**, **Monthly**, **Yearly**.
+
+If you want a script to run at a custom interval, you can set **Event Frequency** as **Cron** and then set a custom cron expression. 
+
+### 2.5 Security
 
 Frappe Framework uses the RestrictedPython library to restrict access to methods
 available for server scripts. Only the safe methods, listed below are available
@@ -74,7 +83,7 @@ in server scripts.
 
 For allowed methods, see [Script API](/docs/user/en/desk/scripting/script-api)
 
-### 2.4 Using Server Scripts as libraries
+### 2.6 Using Server Scripts as libraries
 
 You can use a server script as an internal method by setting `frappe.flags` value in script.
 
@@ -124,18 +133,18 @@ Request: `/api/method/test_method`
 
 ### 3.5 Internal Library
 
-> New in version 13
-
-Call one (`script_1` script from another `script_2`)
+Call `script_1` script from another `script_2` and receive some value based on parameter passed.
 
 Script 1:
 
 ```py
-frappe.flags.my_key = 'my value'
+if args.return_my_key:
+    frappe.flags.my_key = 'my value'
 ```
 
 Script 2:
 
-```
-my_key = run_script('script_1').get('my_key')
+```py
+out = run_script('script_1', {'return_my_key': True})
+my_key = out.get('my_key')
 ```
