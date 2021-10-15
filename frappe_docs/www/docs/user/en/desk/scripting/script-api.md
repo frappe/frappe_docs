@@ -13,7 +13,7 @@ List of restricted commands that be called in Frappe Framework Server Script, Pr
 **Note:** This is only applicable for in-app scripting. If you want more features, you will have to create an "Application" and write the event handlers inside Python Modules
 
 
-### Python Modules
+### 1. Python Modules
 
 Following python modules are available
 
@@ -21,9 +21,9 @@ Following python modules are available
 
 Python standard module `json`
 
-### Formatting
+### 2. Formatting
 
-#### _ (Translate)
+#### _(Translate)
 
 Translate a string
 
@@ -43,7 +43,7 @@ Format as default date format
 
 Returns date as "1st September 2019"
 
-### Session
+### 3. Session
 
 #### frappe.form_dict
 
@@ -83,7 +83,7 @@ Gets the user display image from `frappe.utils.get_gravatar_url`
 
 Fullname of the current user
 
-### Documents (ORM)
+### 4. Documents (ORM)
 
 Document access and editing
 
@@ -105,7 +105,7 @@ Get Document (or cached)
 
 Get system default settings
 
-### Database
+### 5. Database
 
 Database access API
 
@@ -149,7 +149,7 @@ Sanitize value for database queries to prevent SQL injection
 
 Set a value
 
-### Utilities
+### 6. Utilities
 
 Utility methods and functions
 
@@ -206,3 +206,14 @@ Generate Error Log with a traceback
 #### FrappeClient
 
 Connect to a Frappe site using a requests session
+
+#### frappe.enqueue
+
+Enqueue a script / whitelisted method into a background queue
+
+Examples:
+
+```py
+frappe.enqueue("path.to.whitelisted.method", queue="long", param_one: True)
+frappe.enqueue("my_server_script_api", queue="long", param_one: True)
+```
