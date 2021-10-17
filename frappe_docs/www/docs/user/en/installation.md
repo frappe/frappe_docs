@@ -20,7 +20,8 @@ This guide assumes you are using a personal computer, VPS or a bare-metal server
 2. [MacOS `[M1]`](#macos-m1)
 3. [Debian / Ubuntu](#debian-ubuntu)
 4. [Arch Linux](#arch-linux)
-5. CentOS
+5. [Fedora](#fedora)
+6. CentOS
 
 > Learn more about the architecture [here](/docs/user/en/architecture).
 
@@ -330,6 +331,43 @@ If you don't have cron service enabled you would have to enable it.
 
 ```bash
 systemctl enable cronie
+```
+
+### Fedora
+Install required packages using dnf.
+
+```bash
+dnf install mariadb mariadb-server yarnpkg nodejs redis cronie
+```
+
+Setup MariaDB
+
+```bash
+systemctl start mariadb
+mysql_secure_installation
+```
+
+Open MySQL configuration file
+
+```bash
+nano /etc/my.cnf
+```
+and add the following lines
+
+```bash
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+```
+
+Start MariaDB and Redis services
+
+```bash
+systemctl start mariadb redis
 ```
 
 ## Install Bench CLI
