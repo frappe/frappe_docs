@@ -124,7 +124,7 @@ uninstall-app](/docs/user/en/bench/reference/uninstall-app) reference.
 #### Site Migrations
 
 Run patches, sync schema and rebuild files, translations and indexes on a
-particular site.
+particular site. Find out how site migrations work in [the docs](/docs/user/en/database-migrations).
 
 ```bash
 bench --site {site} migrate
