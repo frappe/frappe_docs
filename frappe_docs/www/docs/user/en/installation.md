@@ -58,7 +58,7 @@ brew install --cask wkhtmltopdf
 Now, edit the MariaDB configuration file.
 
 ```bash
-nano /etc/mysql/my.cnf
+nano /usr/local/etc/my.cnf
 ```
 
 And add this configuration
