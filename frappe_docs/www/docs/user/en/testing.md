@@ -113,6 +113,8 @@ class TestCommands(BaseTestCommands, unittest.TestCase):
 
 ## Running Tests
 
+Running tests could require additional dependencies specified by apps in their `dev-requirements.txt` file. Before running tests, make sure all apps have development dependencies installed using `bench setup requirements --dev`.
+
 Run the following command to run all your tests. It will build all
 the test dependencies once and run your tests. You should run tests from
 `frappe_bench` folder.
