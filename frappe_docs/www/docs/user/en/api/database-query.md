@@ -31,14 +31,12 @@ Find out which documents have been modified after their initial creation (Compar
 
 Check if search_field value has been used in description (Check if dynamic value in document is used elsewhere [like])
 
-```bash
+```python
 In [1]: from frappe.query_builder import Column
 
 In [2]: frappe.get_all("Note", {"modified": (">", Column("creation"))})
 Out[2]: [{'name': 'SUjXJ1Wa0R'}, {'name': 'tUSNajSteH'}, {'name': '2sC3n9l0N0'}]
 ```
-
-> TODO: Add introductory content & examples
 
 ### List Notation
 
@@ -46,9 +44,31 @@ Out[2]: [{'name': 'SUjXJ1Wa0R'}, {'name': 'tUSNajSteH'}, {'name': '2sC3n9l0N0'}]
 
 ### Filter Object Notation
 
-> TODO: Add introductory content & examples
 
-## frappe.get_list
+This allows ```frappe.qb``` objects to be passed directly as filters.
+
+```python
+In [1] from frappe.query_builder import DocType
+
+In [2] test_table = DocType("Test Table")
+
+In [3]: frappe.db.delete(test_table, filters=(test_table.name=="TestUser") | (test_table.age==10), run=False)
+Out[3]: DELETE FROM "tabTest Table" WHERE "name"=\'TestUser\' OR "age"=10
+```
+
+Query below selects `name` form `tabUser` matching the filters passed as `frappe.qb` objects.
+
+```python
+In [1]: test_table = DocType("User")
+
+In [2]: frappe.db.get_value(test_table,
+		filters=(test_table.email=="admin@localhost.com") | (test_table.name.like("Administrator")),
+		fieldname=["name"], debug=True)
+Out[2]: SELECT "name" FROM "tabUser" WHERE "email"='example@localhost.com' OR "name" LIKE 'Example'
+		 Execution time: 0.1 sec
+		 'Administrator'
+```
+## frappe.db.get_list
 
 `frappe.get_list(doctype, filters, or_filters, fields, order_by, group_by,
 start, page_length)`
@@ -62,30 +82,18 @@ By default this method returns a list of `dict`s, but, you can pluck a
 particular field by giving the `pluck` keyword argument:
 
 ```python
-frappe.db.get_list('Employee')
-
-# output
-[{'name': 'HR-EMP-00008'},
- {'name': 'HR-EMP-00006'},
- {'name': 'HR-EMP-00010'},
- {'name': 'HR-EMP-00005'}
-]
+In [1]: frappe.db.get_list('Employee')
+Out [1]: [{'name': 'HR-EMP-00008'}, {'name': 'HR-EMP-00006'}, {'name': 'HR-EMP-00010'}]
 
 # with pluck
-frappe.db.get_list('Employee', pluck='name')
-
-# output
-['HR-EMP-00008',
- 'HR-EMP-00006',
- 'HR-EMP-00010',
- 'HR-EMP-00005'
-]
+In [2]: frappe.db.get_list('Employee', pluck='name')
+Out [2]: ['HR-EMP-00008', 'HR-EMP-00006', 'HR-EMP-00010']
 ```
 
 Combining filters and other arguments:
 
 ```python
-frappe.db.get_list('Task',
+In [1]: frappe.db.get_list('Task',
 	filters={
 		'status': 'Open'
 	},
@@ -95,34 +103,39 @@ frappe.db.get_list('Task',
 	page_length=20,
 	as_list=True
 )
-
-# output
-(('Update Branding and Design', '2019-09-04'),
+Out [1]: (('Update Branding and Design', '2019-09-04'),
 ('Missing Documentation', '2019-09-02'),
 ('Fundraiser for Foundation', '2019-09-03'))
+```
 
-# Tasks with date after 2019-09-08
-frappe.db.get_list('Task', filters={
+To fetch tasks with date after 2019-09-08
+```python
+In [2]: frappe.db.get_list('Task', filters={
 	'date': ['>', '2019-09-08']
 })
+```
 
-# Tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
-frappe.db.get_list('Task', filters=[[
+To fetch tasks with date between 2020-04-01 and 2021-03-31 (both inclusive)
+```python
+In [3]: frappe.db.get_list('Task', filters=[[
 	'date', 'between', ['2020-04-01', '2021-03-31']
 ]])
+```
 
-# Tasks with subject that contains "test"
-frappe.db.get_list('Task', filters={
+To fetch tasks with subject that contains "test"
+```python
+In [4]: frappe.db.get_list('Task', filters={
 	'subject': ['like', '%test%']
 })
+```
 
-# Count number of tasks grouped by status
-frappe.db.get_list('Task',
+To get the count of tasks grouped by status
+```python
+In [5]: frappe.db.get_list('Task',
 	fields=['count(name) as count', 'status'],
 	group_by='status'
 )
-# output
-[{'count': 1, 'status': 'Working'},
+Out [5]: [{'count': 1, 'status': 'Working'},
  {'count': 2, 'status': 'Overdue'},
  {'count': 2, 'status': 'Open'},
  {'count': 1, 'status': 'Filed'},

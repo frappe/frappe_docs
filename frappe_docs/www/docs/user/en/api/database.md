@@ -48,6 +48,14 @@ task_dict.description
 
 # with filters, will return the first record that matches filters
 subject, description = frappe.db.get_value('Task', {'status': 'Open'}, ['subject', 'description'])
+# With complex filters, will return the first record that matches the filters
+doctype = frappe.qb.DocType('User')
+user_details = frappe.db.get_value(
+	doctype=doctype,
+	filters=(doctype.name == 'Guest') | (doctype.email.like('guest@email.com')),
+	fieldname='name'
+})
+
 ```
 
 ## frappe.db.get\_single\_value
@@ -116,6 +124,11 @@ frappe.db.count('Task')
 
 # total number of Open tasks
 frappe.db.count('Task', {'status': 'Open'})
+frappe.db.count('Test Table', {'age': ('<', 10)})
+
+from frappe.query_builder import Field
+frappe.db.count('Test Table', filters=(Field("Name") == "test user") | (Field("Age") < 10))
+
 ```
 
 ## frappe.db.delete
@@ -134,7 +147,21 @@ frappe.db.delete("Route History", {
 
 frappe.db.delete("Error Log")
 frappe.db.delete("__Test Table")
+
+frappe.db.delete("Test Table", {"age": ("between", (10, 20))})
+
+from frappe.query_builder import Field
+frappe.db.delete('Test Table', filters=(Field("Name") == "test user") | (Field("Age").isin([1, 2, 3, 4])))
+
+from frappe.query_builder import DocType, Interval
+from frappe.query_builder.functions import Now
+from pypika.terms import PseudoColumn
+error_log = DocType("Error Log")
+frappe.db.delete(error_log, filters=(
+	error_log.creation < PseudoColumn(f"({Now() - Interval(days=90)})")
+))
 ```
+
 
 You may pass the doctype name or an internal table name. Conventionally,
 internal tables in Frappe are prefixed with `__`. The API follows this.
