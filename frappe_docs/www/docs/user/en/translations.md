@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Translations
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn how Frappe handles translations in code which has enabled it to be

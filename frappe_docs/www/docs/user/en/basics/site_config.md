@@ -67,6 +67,15 @@ your system settings and Bench CLI's version.
       "root_password": "MARIADB_PASSWORD"
     }
 
+
+### Optional Settings
+
+| | |
+| ---------------- | ----------- |
+| `workers` |  Allows creating custom workers. The `background_workers` param is optional, if not set the general `background_workers` will be used. Example: `"workers": { "custom_worker1": { "timeout": 5000, "background_workers": 4 } }`. Regenerate config and restart processes to take effect.  |
+
+Apart from this, you can set any keys you wish to be available for all sites.
+
 ## Config Value Precedence
 
 The value for a particular key being set in the `site_config.json` will have
@@ -144,7 +153,7 @@ unless the values are provided during site creation.
 | `robots_txt` | Path to robots.txt file to be rendered when going to frappe-site.com/robots.txt |
 | `root_login` | Database root username. |
 | `root_password` | Database root password. |
-| `server_script_enabled` | Enable Server Script. |
+| `server_script_enabled` | Enable/Disable Server Script. |
 | `skip_setup_wizard` | Skip Setup Wizard. |
 | `socketio_port` | Specify Socket.IO Port. |
 | `webserver_port` | Generally used as fallback for conf key `http_port`. |
@@ -166,6 +175,19 @@ must be set for Frappe to attempt to connect using SSL.
 | `db_ssl_cert` | Full path to the cert.pem file used for connecting to a database host using ssl. Example value is `"/etc/mysql/ssl/client-cert.pem"`. |
 | `db_ssl_key` | Full path to the key.pem file used for connecting to a database host using ssl. Example value is `"/etc/mysql/ssl/client-key.pem"`. |
 | `rds_db` | Grant certain privileges instead of all, while setting up a Site's database. Used in `db_manager.py`. |
+
+### Replica Read Only Database Host Settings
+
+Guide to setup read operations from secondary MariaDB server in a replica setup is available at in the [user guides](/docs/user/en/guides/database-settings/setup-read-from-secondary-db).
+
+| | |
+| ----------- | ----------- |
+| `read_from_replica` | To enable disable read from replica. Acceptable values are 1/0 or true/false. |
+| `different_credentials_for_replica` | If database credentials are different on replica then set 1 else 0 |
+| `replica_host` | IP address for repica |
+| `replica_db_name` | Replica DB name |
+| `replica_db_password` | Replica DB password |
+
 
 ### Default Outgoing Email Settings
 
@@ -206,7 +228,7 @@ for each bench on your system through the common site configuration.
 | `redis_cache` | Port number for the redis cache process defined in the Bench Procfile. |
 | `redis_queue` | Port number for the redis queue process defined in the Bench Procfile. |
 | `redis_socketio` | Port number for the redis Socket.IO process defined in the Bench Procfile. |
-| `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. Defaults to 60. |
+| `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. This makes it possible to set the minimum frequency for scheduling jobs. Defaults to 60. |
 | `socketio_port` | Port number for the Socket.IO process defined in the Bench Procfile. |
 | `webserver_port` | Port number for the Frappe web server. |
 

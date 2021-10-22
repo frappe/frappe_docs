@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Reports
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe framework is best suited for business applications and reporting is an

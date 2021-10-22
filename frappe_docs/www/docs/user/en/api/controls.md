@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Controls - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   API methods for creating and managing controls in Frappe
@@ -75,7 +74,13 @@ Here are the `df` properties for most of frappe control types.
 	fieldname: 'script',
 	fieldtype: 'Code',
 	// for syntax highlighting
-	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON
+	options: 'Javascript' // JS, HTML, CSS, Markdown, SCSS, JSON,
+	// wrap code
+	wrap: true,
+	// changing `max_lines` will set the max-height of the editor
+	max_lines: 10,
+	// changing `min_lines` will set the min-height of the editor
+	min_lines: 5
 }
 
 // Color
@@ -97,7 +102,8 @@ Here are the `df` properties for most of frappe control types.
 {
 	label: 'First Name',
 	fieldname: 'first_name',
-	fieldtype: 'Data'
+	fieldtype: 'Data',
+	options: 'Email' // 'Name', 'Phone', 'URL', 'Barcode'
 }
 
 // Date Range
@@ -247,9 +253,16 @@ Here are the `df` properties for most of frappe control types.
 
 // Button
 {
-	label: 'Fetch,
+	label: 'Fetch',
 	fieldname: 'fetch',
 	fieldtype: 'Button',
 	btn_size: 'xs' // xs, sm, lg
+}
+
+//Icon
+{
+	label: 'Page Icon',
+	fieldname: 'page_icon',
+	fieldtype: 'Icon'
 }
 ```

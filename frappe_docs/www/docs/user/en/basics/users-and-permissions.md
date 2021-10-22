@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Users and Permissions
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Frappe comes with a user authentication system. It handles user accounts, role

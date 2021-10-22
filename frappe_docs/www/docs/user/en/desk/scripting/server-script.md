@@ -105,7 +105,7 @@ Script Type: "After Save"
 ```py
 if doc.allocted_to:
     frappe.get_doc(dict(
-        doctype = 'ToDo'
+        doctype = 'ToDo',
         owner = doc.allocated_to,
         description = doc.subject
     )).insert()

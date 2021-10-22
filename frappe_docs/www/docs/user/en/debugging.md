@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Debugging
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn about debugging techniques while developing Frappe apps.
@@ -109,59 +108,6 @@ Out[1]: <erpnext.projects.doctype.task.task.Task at 0x10825d710>
 
 > Learn more about the Python API [here](/docs/user/en/api/python).
 
-### Profiling
-
-Bench's `execute` command runs a dotted path to method and it also supports
-profiling.
-
-```sh
-▶ bench --site [sitename] --profile execute erpnext.projects.doctype.task.task.set_tasks_as_overdue
-```
-
-You should be able to run most commands you can run via console with `execute` now, including *db* methods.
-
-```sh
-▶ bench --site [sitename] execute frappe.db.get_database_size
-6784
-```
-
-### Monitoring
-
-Monitor logs request and job metadata. To enable this feature set `monitor: 1` in `site_config.json` or `common_site_config.json`.
-
-Collected data is buffered in redis cache and periodically moved to `monitor.json.log` file in `logs` directory with a scheduled job `frappe.monitor.flush`.
-
-```JSON
-{
-    "duration": 807142,
-    "request": {
-        "ip": "127.0.0.1",
-        "method": "GET",
-        "path": "/api/method/frappe.realtime.get_user_info",
-        "response_length": 9687,
-        "status_code": 500
-    },
-    "site": "frappe.local",
-    "timestamp": "2020-03-05 09:37:17.397884",
-    "transaction_type": "request",
-    "uuid": "83be6a4c-27a1-497a-9ce6-c815bca4e420"
-}
-```
-
-```JSON
-{
-    "duration": 1364,
-    "job": {
-        "method": "frappe.ping",
-        "scheduled": false,
-        "wait": 90204
-    },
-    "site": "frappe.local",
-    "timestamp": "2020-03-05 09:37:40.124682",
-    "transaction_type": "job",
-    "uuid": "8225ab76-8bee-462c-b9fc-a556406b1ee7"
-}
-```
 
 ## Client
 

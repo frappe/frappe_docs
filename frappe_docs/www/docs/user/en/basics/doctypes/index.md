@@ -2,7 +2,6 @@
 add_breadcrumbs: 1
 page_toc: 1
 title: DocTypes
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Learn all about the core concept of DocType and how it is used to describe
@@ -58,12 +57,12 @@ much code. Learn more about [Meta](#meta).
 > A DocType is also a DocType. This means that we store meta-data as the part of the data.
 
 After creating a DocType, Frappe can provide many features out-of-the-box.
-If you go to `/desk#List/ToDo` you will be routed to the List View in the desk.
+If you go to `/app/todo` you will be routed to the List View in the desk.
 
 ![ToDo List](/docs/assets/img/doctypes/list-view.png)
 *ToDo List*
 
-Similarly, you get a Form View at the route `/desk#Form/ToDo/000001`.
+Similarly, you get a Form View at the route `/app/todo/000001`.
 The Form is used to create new docs and view them.
 
 ![ToDo Form](/docs/assets/img/doctypes/form-view.png)

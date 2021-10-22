@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Production Setup
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: Learn how to deploy Frappe based sites in production.
 ---
@@ -86,4 +85,24 @@ bench update --bench
 
 # update python packages and node_modules
 bench update --requirements
+```
+
+## Redis Namespaces
+
+Namespaces help to secure user's data. Multiple benches can use the same Redis instance without worrying about namespace conflicts. You can enable Redis namespaces in Frappe by following the given setup (for now Frappe supports namespaces for Redis Queue at bench level).
+
+You can create Redis users and configure Frappe with credentials using bench create-rq-users CLI.
+
+```bash
+bench create-rq-users
+
+# Optional flags
+# --use-rq-auth Enable Redis authentication for all bench sites
+# --set-admin-password sets default user admin password
+```
+
+Above command generates an ACL file in the bench configs directory. Make sure that Redis_queue.conf file is configured to use an acl file if not already (Alternatively, run `bench setup redis` with the latest version of the Bench CLI).
+
+```bash
+aclfile [frappe-bench-absolute-path]/config/redis_queue.acl
 ```

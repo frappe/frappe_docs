@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: Apps
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   A Frappe app is a python package that uses the Frappe framework. Frappe apps
@@ -73,6 +72,7 @@ apps/custom_app
 │   └── top_level.txt
 ├── license.txt
 ├── requirements.txt
+├── dev-requirements.txt
 ├── package.json
 └── setup.py
 ```
@@ -81,6 +81,12 @@ apps/custom_app
 
 This file stores the list of python dependencies. When this app is installed,
 it's dependencies will also get installed.
+
+### dev-requirements.txt [Optional]
+
+This file stores the list of python development dependencies. Syntax of this
+file is same as requirements.txt. If developer mode is enabled, then
+installing the app will also install its development dependencies.
 
 ### package.json
 

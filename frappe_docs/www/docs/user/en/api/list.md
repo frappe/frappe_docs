@@ -1,7 +1,6 @@
 ---
 add_breadcrumbs: 1
 title: List - API
-image: /assets/frappe_io/images/frappe-framework-logo-with-padding.png
 metatags:
  description: >
   Everything you need to know about customizing List views and available API methods.
