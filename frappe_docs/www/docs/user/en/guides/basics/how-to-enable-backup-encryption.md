@@ -1,9 +1,19 @@
 <!-- add-breadcrumbs -->
+
+
 # How to Enable Backup Encryption
 Files created during the backup process can be encrypted using an **Auto-generated key** by checking the **Encrypt Backup** option and the data can be saved under the default or provided location.
 
----
-### Encrypt Backup option
+## System Requirements
+
+For MacOS, ensure that [gnupg](https://formulae.brew.sh/formula/gnupg) is installed in the system. Use the following command to install gnupg:
+
+```bash
+
+brew install gnupg
+```
+Most Linux distributions already have GnuPG installed, and the current version will likely use GnuPG 2.0 by default.
+## Encrypt Backup option
 
 1. Under Settings tab go to `System settings`.
 
@@ -15,9 +25,7 @@ The system uses an auto-generated key supplied by the **Site config**. If no suc
 
 It encrypts the  public and private files as well as the partial backup files.
 
----
-
-### Backup Encryption Status
+## Backup Encryption Status
 
 1. Encrypted backups are stored at the same location as the general backups `./sites/{site}/private/backups`.
 
@@ -27,9 +35,7 @@ It encrypts the  public and private files as well as the partial backup files.
 
 <img class="screenshot" alt="Encrypt Backup option(Enabled)" src="/docs/assets/img/backup-page.png">
 
----
-
-### Backup Encryption Key
+## Backup Encryption Key
 
 1. To get the backup encryption key go to the `./sites/{site}/private/backups`.
 
@@ -39,9 +45,7 @@ It encrypts the  public and private files as well as the partial backup files.
 
 Copy the key to restore the encrypted backup files.
 
----
-
-###  Restoring the Encrypted backup files
+## Restoring the Encrypted backup files
 
 1. The `bench restore SQL_FILE_PATH` can be used to restore the files without `--backup-encryption-key` as it is automatically picked from the Site Config.
 
@@ -54,9 +58,7 @@ Copy the key to restore the encrypted backup files.
 	```
 	- For partial backup files
 	```bash
-	bench --site {site} partial-restore --backup-encryption-key {key} [OPTIONS] 
+	bench --site {site} partial-restore --backup-encryption-key {key} [OPTIONS]
 	```
-	
----
 
 <!-- markdown -->
