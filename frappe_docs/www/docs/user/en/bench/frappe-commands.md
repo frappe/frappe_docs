@@ -364,7 +364,17 @@ version](/docs/user/en/bench/reference/bench-version) reference.
 
  - **add-to-email-queue**: Add an email to the Email Queue.
  - **build**: Builds assets for the Frappe Applications installed on bench.
- - **bulk-rename**: Rename multiple records via a CSV file.
+ - **bulk-rename**: Rename multiple records via a CSV file. _Example File Format (Without Header)_:
+
+   | Old Name | New Name | Merge |
+   | -------- | -------- | ----- |
+   | HR-EMP-00001 | EMP0001 | FALSE |
+   | HR-EMP-00002 | EMP0002 | FALSE |
+   | HR-EMP-00003 | EMP0003 | FALSE |
+   | HR-EMP-00004 | EMP0004 | FALSE |
+   | HR-EMP-00005 | EMP0005 | FALSE |
+   | HR-EMP-00006 | EMP0006 | FALSE |
+
  - **clear-cache**: Clear cache, doctype cache and defaults.
  - **clear-website-cache**: Clear Website cache.
  - **console**: Starts an IPython console for the site. Use with the `--autoreload` flag to reload changes to code automatically.
