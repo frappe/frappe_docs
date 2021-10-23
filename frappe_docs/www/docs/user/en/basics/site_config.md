@@ -233,7 +233,7 @@ for each bench on your system through the common site configuration.
 | `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. This makes it possible to set the minimum frequency for scheduling jobs. Defaults to 60. |
 | `socketio_port` | Port number for the Socket.IO process defined in the Bench Procfile. |
 | `webserver_port` | Port number for the Frappe web server. |
-| `live_reload` | Automatically reload web pages when assets are rebuilt. |
+| `live_reload` | Automatically reload desk when assets are rebuilt. |
 
 ### Integrations
 
