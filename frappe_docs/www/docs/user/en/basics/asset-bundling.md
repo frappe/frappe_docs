@@ -71,6 +71,8 @@ You can also run it for specific apps by giving it the `--apps` option.
 $ bench watch --apps erpnext
 ```
 
+Starting with Version 14, [Desk](/docs/user/en/desk) will be automatically reloaded if assets get rebuilt in watch mode. This behavior can be toggled by setting the `LIVE_RELOAD` environment variable, or changing the value for `live_reload` in [`common_site_config.json`](/docs/user/en/basics/site_config#common-site-config).
+
 
 ## Bundle files
 

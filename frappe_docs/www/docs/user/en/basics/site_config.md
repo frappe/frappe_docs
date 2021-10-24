@@ -64,7 +64,9 @@ your system settings and Bench CLI's version.
       "serve_default_site": true,
       "socketio_port": 9000,
       "webserver_port": 8000,
-      "root_password": "MARIADB_PASSWORD"
+      "root_password": "MARIADB_PASSWORD",
+      "live_reload": true
+
     }
 
 
@@ -231,6 +233,7 @@ for each bench on your system through the common site configuration.
 | `scheduler_tick_interval` | Job Scheduler runs a loop that enqueues all scheduled jobs pending execution once every *scheduler_tick_interval* seconds. This makes it possible to set the minimum frequency for scheduling jobs. Defaults to 60. |
 | `socketio_port` | Port number for the Socket.IO process defined in the Bench Procfile. |
 | `webserver_port` | Port number for the Frappe web server. |
+| `live_reload` | Automatically reload Desk when assets are rebuilt. |
 
 ### Integrations
 
