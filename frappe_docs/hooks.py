@@ -74,6 +74,7 @@ website_redirects = [
 	{'source': '/docs/user/en/guides/basics/hooks', 'target': '/docs/user/en/python-api/hooks' },
 	{'source': '/docs/user/en/guides/basics/site_config', 'target': '/docs/user/en/basics/site_config' },
 	{'source': '/docs/user/en/tutorial/prerequisites', 'target': '/docs/user/en/prerequisites' },
+	{'source': '/docs/user/en/guides/app-development/executing-code-on-doctype-events', 'target': '/docs/user/en/basics/doctypes/controllers' },
 ]
 
 # Generators
