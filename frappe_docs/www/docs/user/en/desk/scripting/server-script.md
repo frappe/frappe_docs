@@ -78,6 +78,12 @@ For allowed methods, see [Script API](/docs/user/en/desk/scripting/script-api)
 
 You can use a server script as an internal method by setting `frappe.flags` value in script.
 
+### 2.5 Comparing changes
+
+You can diff two versions of server scripts using "Compare Versions" button.
+
+![Server script diff](/docs/assets/img/desk/server-script-diff.png)
+
 ## 3. Examples
 
 ### 3.1 Change the value of a property before change
