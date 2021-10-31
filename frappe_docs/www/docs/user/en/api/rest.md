@@ -373,6 +373,19 @@ Response
 {"message": "ok"}
 ```
 
+### Submitting / Cancelling a document
+
+Submit/Cancel action can be performed by making a `POST` request to
+`/api/resource/:doctype/:name` with required method.
+
+```sh
+POST /api/resource/:doctype/:name
+
+# body
+{ "run_method": "submit" }
+```
+
+
 ## Remote Method Calls
 
 Frappe allows you to trigger arbitrary python methods using the REST API for
