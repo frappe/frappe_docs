@@ -197,6 +197,37 @@ In [1]: frappe.local.site
 Out[1]: 'mysite.localhost'
 ```
 
+#### Access site in the browser
+
+To access a site in the browser, you have to remember the webserver port on
+which bench is running and then type out the full URL. There is a bench command
+that does this for you.
+
+Running the following command will open the site url directly in your default
+browser.
+```bash
+# open site.local in the browser
+$ bench --site site.local browse
+
+# this also works
+$ bench browse site.local
+```
+
+You can also login as a user by passing `--user` option.
+```bash
+$ bench --site site.local browse --user test@example.com
+
+$ bench --site site.local browse --user Administrator
+Login URL: http://site.local:8000/app?sid=<generated-sid>
+```
+
+> Note that this command:
+>
+>  - Allows login as any user only when developer_mode is set to 1
+>  - Allows login as Administrator regardless of developer_mode
+>  - Prints the login URL only when user is Administrator
+
+
 #### Site Operations, Debugging & Development
 
 Here are some operations you can perform on your site via the Bench CLI to
@@ -205,7 +236,6 @@ just in case.
 
  - **add-system-manager**: Add a new system manager to a site.
  - **add-to-hosts**: Add the specified site to the hosts file on your system.
- - **browse**: Opens the specified site on the browser if available.
  - **build-search-index**: Builds search index for Websites. Refer to [Full Text
    Search API Docs](/docs/user/en/api/full-text-search) for more information.
  - **disable-user**: Disable user on site.
