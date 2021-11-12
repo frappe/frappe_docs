@@ -60,3 +60,19 @@ To make a new site under DNS based multitenancy, perform the following steps.
 * Reload nginx
 
 	`sudo service nginx reload`
+
+
+Local Setup
+----------------------
+
+If you're using bench locally, use the following steps.
+
+* Delete the file `sites/currentsite.txt` from the directory used with `bench init`.
+
+* Map your sitename to localhost
+
+	`bench --site <sitename> add-to-hosts`
+
+	This will ask for your root password and will add an entry to your `/etc/hosts` file.
+
+* Access your site at `http://<sitename>:8000`.

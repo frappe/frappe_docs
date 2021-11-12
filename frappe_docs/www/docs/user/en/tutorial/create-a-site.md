@@ -123,6 +123,9 @@ Great, now you can access your site at
 [http://library.test:8000](http://library.test:8000). Congratulations for making
 it this far.
 
+> NOTE: You can use `add-to-hosts` command for every other site you create and
+> access it at `http://<SITENAME>:8000`.
+
 ## Install app on site
 
 To install our Library Management app on our site, run the following command:

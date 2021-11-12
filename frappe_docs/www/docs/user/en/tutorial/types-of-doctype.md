@@ -32,6 +32,9 @@ this case, it links to a record of Library Member DocType.
 The Full Name field is a Read Only field that will be automatically **fetched
 from** from the `full_name` field in the linked record **Library Member**.
 
+> NOTE: The `Fetch From` option might show `undefined` when you try to select a doctype.
+> First create the Library Membership doctype and then go to edit mode - it will be visible.
+
 Now, go to the Library Membership list and create a new document. You will see
 that the Library Member field is a dropdown with existing records shown as
 options. Select a Library Member and the Full Name will be fetched
@@ -193,6 +196,8 @@ Since we don't need to have multiple records for these settings, we will enable
 After creating the doctype, click on **Go to Library Settings**, to go to the
 form and set the values for **Loan Period** and **Maximum Number of Issued
 Articles**.
+
+> Note: Please make note of the `name` column - we can set custom names for the fields to use in code.
 
 ### Single DocTypes
 

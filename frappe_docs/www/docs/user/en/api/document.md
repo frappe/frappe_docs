@@ -173,6 +173,23 @@ doc.save(
     ignore_permissions=True, # ignore write permissions during insert
     ignore_version=True # do not create a version record
 )
+
+```
+## doc.submit
+
+This method saves a submittable document by setting `docstatus = 1`.
+
+```py
+doc.submit()
+```
+
+## doc.cancel
+
+This method saves a submittable document by setting `docstatus = 2` and
+changing the name of document.
+
+```py
+doc.cancel()
 ```
 
 ## doc.delete

@@ -59,25 +59,27 @@ In `get_context`, `parents` property will indicate the breadcrumbs
 
 Add the template in `erpnext/templates/generators/job_opening.html`
 
-	{% raw %}{% extends "templates/web.html" %}
+```html
+{% raw %}{%  extends "templates/web.html" %}
 
-	{% block breadcrumbs %}
-		{% include "templates/includes/breadcrumbs.html" %}
-	{% endblock %}
+{% block breadcrumbs %}
+	{% include "templates/includes/breadcrumbs.html" %}
+{% endblock %}
 
-	{% block header %}
-	<h1>{{ job_title }}</h1>
-	{% endblock %}
+{% block header %}
+<h1>{{ job_title }}</h1>
+{% endblock %}
 
-	{% block page_content %}
+{% block page_content %}
 
-	<div>{{ description }}</div>
+<div>{{ description }}</div>
 
-	<a class='btn btn-primary'
-		href='/job_application?job_title={{ doc.job_title }}'>
-		{{ _("Apply Now") }}</a>
+<a class='btn btn-primary'
+	href='/job_application?job_title={{ doc.job_title }}'>
+	{{ _("Apply Now") }}</a>
 
-	{% endblock %}{% endraw %}
+{% endblock %}{% endraw %}
+```
 
 #### 5. Customizing List View
 
