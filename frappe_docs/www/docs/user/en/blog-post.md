@@ -44,18 +44,25 @@ View your Blog Post by clicking on **See on Website** in the sidebar.
 ![Blog Post](/docs/assets/img/website/blog-post.png)
 *Blog Post*
 
+Reader's can comment on the blog post. Guest user will have to enter there **Name** and **Email** to comment.
+
+![Blog Post](/docs/assets/img/website/blog-post-comment-closed.png)
+![Blog Post](/docs/assets/img/website/blog-post-comment-open.png)
+
 Check the **Disable Comments** option if you'd like to disable the ability for readers to add comments to the current blog post.
 ![Blog Post](/docs/assets/img/website/blog-post-disable-comments.png)
 
 ![Blog Post](/docs/assets/img/website/blog-post-no-comments.png)
 *Adding Comments Disabled*
 
-Reader's can give feedback to the current blog post. They can rate the current blog post on the scale of 1-10.
-![Blog Post](/docs/assets/img/website/blog-post-feedback.png)
+Reader's can give a like on there favourite blog posts.
+![Blog Post](/docs/assets/img/website/blog-post-feedback-default.png)
+![Blog Post](/docs/assets/img/website/blog-post-feedback-liked.png)
 *Feedback*
 
 Check the **Disable Feedback** option if you'd like to disable the ability for readers to give feedback to the current blog post.
 ![Blog Post](/docs/assets/img/website/blog-post-disable-feedback.png)
+![Blog Post](/docs/assets/img/website/blog-post-no-feedback.png)
 
 ## 2. Features
 
