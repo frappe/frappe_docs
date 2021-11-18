@@ -44,7 +44,7 @@ View your Blog Post by clicking on **See on Website** in the sidebar.
 ![Blog Post](/docs/assets/img/website/blog-post.png)
 *Blog Post*
 
-Reader's can comment on the blog post. Guest user will have to enter there **Name** and **Email** to comment.
+Readers can comment on the blog post. The guest user will have to enter their **Name** and **Email** to comment.
 
 ![Blog Post](/docs/assets/img/website/blog-post-comment-closed.png)
 ![Blog Post](/docs/assets/img/website/blog-post-comment-open.png)
@@ -55,7 +55,7 @@ Check the **Disable Comments** option if you'd like to disable the ability for r
 ![Blog Post](/docs/assets/img/website/blog-post-no-comments.png)
 *Adding Comments Disabled*
 
-Reader's can give a like on there favourite blog posts.
+Readers can give likes on their favorite blog posts.
 ![Blog Post](/docs/assets/img/website/blog-post-feedback-default.png)
 ![Blog Post](/docs/assets/img/website/blog-post-feedback-liked.png)
 *Feedback*
