@@ -343,3 +343,34 @@ Run a controller method in background. If the method has an inner function, like
 ```py
 doc.queue_action('send_emails', emails=email_list, message='Howdy')
 ```
+
+## doc.get_children()
+
+> Only available on tree DocTypes (inherited from `NestedSet`).
+
+Returns a generator that yields an instance of `NestedSet` for each child record.
+
+```py
+for child_doc in doc.get_children():
+    print(child_doc.name)
+```
+
+It can also be applied recursively:
+
+```py
+for child_doc in doc.get_children():
+    print(child_doc.name)
+    for grandchild_doc in child_doc.get_children():
+        print(grandchild_doc.name)
+```
+
+## doc.get_parent()
+
+> Only available on tree DocTypes (inherited from `NestedSet`).
+
+Returns an instance of `NestedSet` for the parent record.
+
+```py
+parent_doc = doc.get_parent()
+grandparent_doc = parent_doc.get_parent()
+```
