@@ -64,6 +64,9 @@ Check the **Disable Feedback** option if you'd like to disable the ability for r
 ![Blog Post](/docs/assets/img/website/blog-post-disable-feedback.png)
 ![Blog Post](/docs/assets/img/website/blog-post-no-feedback.png)
 
+When a reader likes or comments on any blog post, an email is sent to the owner of that blog post. You can enable-disable email notifications from **Blog Post** documents.
+![Blog Post](/docs/assets/img/website/blog-post-enable-email-notification.png)
+
 ## 2. Features
 
 ### 2.1 Blogger
