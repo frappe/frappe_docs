@@ -110,6 +110,35 @@ class TestCommands(BaseTestCommands, unittest.TestCase):
 		self.assertEqual(self.stdout[1:-1], frappe.bold(text='DocType'))
 ```
 
+You can also give inputs to your commands by using `"cmd_input"` as a key
+in kwargs parameter in `execute` method by providing the value as byte string.
+
+For reference, here is a test written for frappe's `make-app` command.
+
+```py
+class TestCommands(BaseTestCommands, unittest.TestCase):
+	def test_make_app(self):
+		user_input = [
+			b"Test App", # title
+			b"This app's description contains 'single quotes' and \"double quotes\".", # description
+			b"Test Publisher", # publisher
+			b"example@example.org", # email
+			b"", # icon
+			b"", # color
+			b"MIT" # app_license
+		]
+		app_name = "testapp0"
+		apps_path = os.path.join(frappe.utils.get_bench_path(), "apps")
+		test_app_path = os.path.join(apps_path, app_name)
+		self.execute(f"bench make-app {apps_path} {app_name}", {"cmd_input": b'\n'.join(user_input)})
+		self.assertEqual(self.returncode, 0)
+		self.assertTrue(
+			os.path.exists(test_app_path)
+		)
+
+		# cleanup
+		shutil.rmtree(test_app_path)
+```
 
 ## Running Tests
 
