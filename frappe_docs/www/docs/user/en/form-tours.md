@@ -16,13 +16,13 @@ Frappe provides an easy way to generate form tutorials for your complex doctype 
 
 To create a Form Tour, type "new form tour" in awesomebar and hit enter.
 
-1. Enter Title. For eg., 'Setting up a Worflow'
+1. Enter Title. For eg., 'Creating a Custom Field'
 1. Select Reference DocType.
 1. Add steps defining each fields.
 1. Save the document.
 
-![Workflow Tour](/docs/assets/img/workflow-form-tour.png)
-*A Tour to explain Workflows*
+![Custom Field Form Tour](/docs/assets/img/custom-field-form-tour.png)
+*A Tour to explain creation of custom fields*
 
 ## Configuration Options
 
@@ -30,6 +30,8 @@ To create a Form Tour, type "new form tour" in awesomebar and hit enter.
 
 1. **Is Standard**: To make a standard Form Tour which will be stored as JSON. Can only be set while developer mode is on.
 1. **Save on Completion**: If checked, the last step of the Form Tour will prompt the user to save the document.
+1. **Show First Document Tour**: If you want to show the tour of an existing document instead of a new form, enable this. As the name suggests, it gives the tour of the very first document created for this DocType.
+1. **Include Name Field**: Some DocTypes have user set name fields. On enabling this, the name field becomes the first step of the tour.
 
 ### Form Tour Steps
 
@@ -49,8 +51,8 @@ To create a Form Tour, type "new form tour" in awesomebar and hit enter.
 Once you are done describing the Form & its fields, you are now ready to trigger the tour by using Form API. You just have to initialize the tour with appropriate `tour_name` and then simply start the tour with `frm.tour.start()`. 
 
 ```js
-frappe.ui.form.on('Workflow', 'onload', () => {
-  const tour_name = 'Setting up a Workflow';
+frappe.ui.form.on('Custom Field', 'onload', () => {
+  const tour_name = 'Creating a Custom Field';
   frm.tour
     .init({ tour_name })
     .then(() => frm.tour.start());
