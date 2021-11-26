@@ -127,7 +127,7 @@ Formatting patterns for naming series support the following placeholders:
 
 | Placeholder | Replacement |
 | --- | --- |
-| `###` | a three digit, autoincrementing number starting with `001` |
+| `###` | autoincrementing number starting with `1`. The Number of digits equal the number of hashes |
 | `fieldname1` | the value of `fieldname1` in the document |
 | `DD` | the current day (zero-padded) |
 | `MM` | the current month (zero-padded) |
