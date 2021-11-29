@@ -168,6 +168,8 @@ Response
 }
 ```
 
+`filters` parameter joins all the specified filters using `AND` SQL operator, if you want `OR` filters you can use the `or_filters` param. Syntax for `or_filters` is same as `filters.
+
 You can also provide the sort field and order. It should be of the format
 `fieldname asc` or `fieldname desc`. The space should be URL encoded. In the following line,
 we're taking fieldname to be `title`.
