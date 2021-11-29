@@ -14,7 +14,25 @@ In this file, you need to write a new method `add_custom_button` which should ad
 We should edit `frappe\core\doctype\user\user.js`
 
     frappe.ui.form.on('User', {
-    	refresh: function(frm) {
+        refresh: function(frm) {
+        ...
+          frm.add_custom_button(__('Get User Email Address'), function(){
+            frappe.msgprint(frm.doc.email);
+        });
+        ...
+      }
+    });
+
+You should be seeing a button on user form as shown below.
+
+<img class="screenshot" alt="Custom Button" src="/docs/assets/img/app-development/add_custom_button.png">
+
+
+#### Example-1: Adding a button group to User form
+We should edit `frappe\core\doctype\user\user.js`
+
+    frappe.ui.form.on('User', {
+        refresh: function(frm) {
         ...
           frm.add_custom_button(__('Get User Email Address'), function(){
             frappe.msgprint(frm.doc.email);
@@ -23,9 +41,9 @@ We should edit `frappe\core\doctype\user\user.js`
       }
     });
 
-You should be seeing a button on user form as shown below,
+You should be seeing a button group on user form as shown below.
 
-<img class="screenshot" alt="Custom Button" src="/docs/assets/img/app-development/add_custom_button.png">
+<img class="screenshot" alt="Custom Button" src="/docs/assets/img/app-development/add_custom_button_group.png">
 
 
 <!-- markdown -->
