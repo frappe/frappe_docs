@@ -63,7 +63,8 @@ Everything outside the curly braces are plain text. Keywords inside the curly br
 - **fieldname1**: will be replaced by the value of `fieldname1` in the document
 - **#####**: will generate a series, which starts with `00001`
 
-So the final name may look like, `EXAMPLE-02-test-value1-value2-00001`
+So the final name may look like `EXAMPLE-02-test-value1-value2-00001`.
+You can find more information about available placeholders in [Placeholders for Naming Patterns](#placeholders-for-naming-patterns).
 
 ## By Controller Method
 
@@ -119,3 +120,19 @@ Naming priority is as follows
 
 1. Child DocTypes do not follow naming rules
 1. Amended documents have a suffix (`-1`, `-2` etc) to the original document
+
+## Placeholders for Naming Patterns
+
+Formatting patterns for naming series support the following placeholders:
+
+| Placeholder | Replacement |
+| --- | --- |
+| `###` | autoincrementing number starting with `1`. The Number of digits equal the number of hashes |
+| `fieldname1` | the value of `fieldname1` in the document |
+| `DD` | the current day (zero-padded) |
+| `MM` | the current month (zero-padded) |
+| `YY` | the current year (two digits) |
+| `YYYY` | the current year (four digits) |
+| `FY` | the current fiscal year |
+| `WW` | the current consecutive calendar week (ISO 8601 based but always starting with `00` or `01` at the beginning of a new year) |
+| `timestamp` | the full notation of the current date and time (e.g. `2020-03-12 16:23:00`) |
