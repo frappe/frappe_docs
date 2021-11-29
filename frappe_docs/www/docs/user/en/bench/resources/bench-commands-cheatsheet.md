@@ -83,6 +83,7 @@
 ### Development
 
 * `bench new-app [app-name]` Creates a new app
+  * `--no-git` Do not initialize git repository for the app (available in Frappe v14+)
 * `bench get-app [repo-link]` - Downloads an app from a git repository and installs it
   * `--branch [branch-name]`    Fetches specific branch of app
 * `bench install-app [app-name]` Installs existing app
