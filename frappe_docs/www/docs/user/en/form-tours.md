@@ -31,7 +31,7 @@ To create a Form Tour, type "new form tour" in awesomebar and hit enter.
 1. **Is Standard**: To make a standard Form Tour which will be stored as JSON. Can only be set while developer mode is on.
 1. **Save on Completion**: If checked, the last step of the Form Tour will prompt the user to save the document.
 1. **Show First Document Tour**: If you want to show the tour of an existing document instead of a new form, enable this. As the name suggests, it gives the tour of the very first document created for this DocType.
-1. **Include Name Field**: Some DocTypes have user set name fields. On enabling this, the name field becomes the first step of the tour.
+1. **Include Name Field**: For some doctypes, the name is set by the user. On enabling this, the name field becomes the first step of the tour.
 
 ### Form Tour Steps
 
