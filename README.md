@@ -1,5 +1,9 @@
 # Frappe Docs
 
+> This GitHub repository is archived since we now use a different contribution pipeline.
+> 
+> You can directly contribute to the documentation through [frappeframework.com](https://frappeframework.com/). For new contribution guidelines, refer to [frappeframework.com/contribute](https://frappeframework.com/contribute).
+
 This is the repository for the Frappe Framework Documentation. Learn more about
 Frappe Framework on the [official website](https://frappeframework.com) and the
 [GitHub repository](https://github.com/frappe/frappe).
